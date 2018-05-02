@@ -11,6 +11,6 @@ install:
 deploy:
   skip_cleanup: true
   provider: script
-  script: npm run build
+  script: ./resources/publish.sh
   on:
-    branch: master
+    branch: source
