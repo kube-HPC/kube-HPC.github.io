@@ -1,0 +1,16 @@
+sudo: required
+language: node_js
+node_js:
+- '8'
+branches:
+  only:
+  - master
+before_install:
+install:
+- npm install
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: npm run build
+  on:
+    branch: master
