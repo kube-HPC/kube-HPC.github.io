@@ -19,12 +19,13 @@ export default ({ page, site }) =>
           <h2 style={{ textAlign: "center" }}>What kind of use?</h2>
           <div style={{ paddingLeft: 200, width: "70%" }}>
             <div style={{ float: "left" }}>
-              <Box url="/tutorial/stand-alone.html" title="Cluster" text="Stand Alone"></Box>
+              <Box url="/tutorial/stand-alone.html" title="&larr; Go To" text="Stand Alone"></Box>
             </div>
             <div style={{ float: "right" }}>
-              <Box url="/tutorial/cluster.html" title="Cluster" text="Kubernetes Cluster"></Box>
+              <Box url="/tutorial/cluster.html" title="Go To &rarr;" text="Kubernetes Cluster"></Box>
             </div>
           </div>
+          <div style={{ clear: "both" }}>   </div>
         </div>
       </div>
     </section>

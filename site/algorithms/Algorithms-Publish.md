@@ -1,9 +1,8 @@
 ---
-title: Caching
+title: Publish Algorithm
 layout: ../_core/DocsLayout
 category: Algorithms
-permalink: /algorithms/caching/
-
+permalink: /algorithms/publish/
 ---
 
 On this page, you'll learn in detail about how 

@@ -824,7 +824,7 @@ Parser.prototype.tok = function () {
       );
     }
     case 'code': {
-      if (this.token.lang === 'graphql') {
+      if (this.token.lang === 'hkube') {
         var lines = this.token.text.split('\n');
         var firstLine = lines.shift().match(/^\s*#\s*({.*})$/);
         if (firstLine) {
@@ -840,8 +840,7 @@ Parser.prototype.tok = function () {
               __html: `
               import CodeTabs from '../_core/CodeTabs';
               import schema from '../_core/schemas/${metaData.schema}';
-              renderHere(<CodeTabs schema={schema}
-              query={\`${query}\`} variables={\`${metaData}\`} />);
+              renderHere(<CodeTabs schema={schema} />);
             `}} />
           }
         }

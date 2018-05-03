@@ -11,6 +11,7 @@ var React = require('react');
 var Site = require('./Site');
 var Marked = require('./Marked');
 var DocsSidebar = require('./DocsSidebar');
+var Box = require('../_core/Box');
 
 export default ({ page, site }) =>
   <Site section="docs" title={page.title} page={page}>
@@ -19,11 +20,7 @@ export default ({ page, site }) =>
         <div className="inner-content">
           <h1>{page.title}</h1>
           <Marked>{page.content}</Marked>
-          {page.next &&
-            <a className="read-next" href={path.resolve(page.url, page.next)}>
-              <span className="read-next-continue">Continue Reading &rarr;</span>
-              <span className="read-next-title">{page.nextPage.title}</span>
-            </a>}
+          {page.next && <Box url={path.resolve(page.url, page.next)} title="Next &rarr;" text={page.nextPage.title}></Box>}
         </div>
         <DocsSidebar site={site} page={page} />
       </div>

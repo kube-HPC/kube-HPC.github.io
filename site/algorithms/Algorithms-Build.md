@@ -1,9 +1,9 @@
 ---
-title: Thinking
+title: Build Algorithms
 layout: ../_core/DocsLayout
 category: Algorithms
-permalink: /algorithms/thinking/
-next: /algorithms/socket/
+permalink: /algorithms/build/
+next: /algorithms/publish/
 ---
 
 On this page, you'll learn in detail about how 
