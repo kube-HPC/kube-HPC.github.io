@@ -137,7 +137,7 @@ If you want to report progress about your algorithm, send this event.
 ```js
 {
    "command": "progress",
-   "details": "Optional extra details"
+   "data": "optional extra details"
 }
 ```
 

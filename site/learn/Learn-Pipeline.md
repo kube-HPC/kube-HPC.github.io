@@ -6,8 +6,6 @@ permalink: /learn/pipeline/
 next: /learn/nodes/
 ---
 
-On this page, you'll learn in detail about how to query a GraphQL server.
-
 The basic concept behind the Hkube pipeline is [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)  
 Directed Acyclic Graph is a graph consisting of nodes connected  
 with edges that have a direction: A -> B -> C.  

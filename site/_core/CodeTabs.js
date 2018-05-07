@@ -11,20 +11,10 @@ module.exports = class CodeTabs extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({ items: this._getTabs() });
-  }
-
-  _change() {
-    // this.setState({ items: this._getTabs() });
-    console.log('change')
-
-  }
-
   render() {
     const { items, selectedTabKey } = this.state;
     return (
-      <Tabs items={items} showInkBar={true} onChange={this._change()} selectedTabKey={selectedTabKey} />
+      <Tabs items={items} showInkBar={true} selectedTabKey={selectedTabKey} />
     );
   }
 
@@ -38,17 +28,3 @@ module.exports = class CodeTabs extends React.Component {
     }));
   }
 }
-
-// function getTabs(schema) {
-//   return schema.map((s, i) => ({
-//     key: i,
-//     tabClassName: 'tab',
-//     panelClassName: 'panel',
-//     title: s.name,
-//     getContent: () => s.content,
-//     showInkBar: true
-//   }));
-// }
-
-// export default ({ schema }) =>
-//   <Tabs items={getTabs(schema)} />

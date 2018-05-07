@@ -15,4 +15,3 @@ Integrate algorithms into Hkube is quite easy, it's include 3 steps:
 
 
 If you prefer to run your algorithm inside node, see this [node.js example](https://github.com/kube-HPC/algorithm-node-example)
-

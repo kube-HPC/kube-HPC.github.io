@@ -6,17 +6,17 @@ const items = [
     name: 'Js',
     content: <div><div><Prism language="js">
       {`
-  this._socket.on('message', (data) => {
-    const payload = JSON.parse(data);
+  this._socket.on('message', (message) => {
+    const payload = JSON.parse(message);
     switch (payload.command) {
       case messages.incoming.initialize:
         this._initialize(payload);
         break;
       case messages.incoming.start:
-        this._start(payload);
+        this._start();
         break;
       case messages.incoming.stop:
-        this._stop(payload);
+        this._stop();
         break;
       default:
         log.debug("unknown message payload.command");

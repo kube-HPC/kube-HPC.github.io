@@ -6,7 +6,8 @@ const items = [
         name: 'Js',
         content: <div><div><Prism language="js">
             {`
-      _connect() {
+    // connect handler        
+    _connect() {
         this._socket = new WebSocket(this._url);
         this._socket.on('close', (code, reason) => {
             switch (code) {
@@ -30,6 +31,7 @@ const items = [
         });
     }
     
+    // reconnect handler 
     _reconnect() {
       log.debug("socket reconnecting");
       this._socket.removeAllListeners();
