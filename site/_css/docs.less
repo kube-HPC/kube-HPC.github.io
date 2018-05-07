@@ -99,9 +99,14 @@
     margin-left: 0;
   }
 
+  transition: background 100ms ease-in-out;
   border-radius: 3px;
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
   padding: 0.7em 1.5em 0.5em 1em;
+  .read-next-continue, .read-next-title {
+  transition: color 100ms ease-in-out;
+}
+
 
   &:hover, &:focus, &:active {
     background: @rhodamine-color;

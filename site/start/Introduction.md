@@ -15,7 +15,7 @@ Kubernetes
 
 `npm i -g @hkube/hkube-cli`  
 `hkube-cli deploy -t`  
-`hkube-cli deploy -t`  
+`hkube-cli deploy -c`  
 .....
 
 ### Second Step
@@ -23,6 +23,8 @@ Kubernetes
 
 
 
-### First Step
+### Last Step
+
+Test with Hkube REST API 
 
 

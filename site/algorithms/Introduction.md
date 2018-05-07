@@ -7,9 +7,12 @@ permalink: /algorithms/
 next: /algorithms/api/
 ---
 
-Before you build your algorithm and push it to [docker registry](https://kube-hpc.github.io/api-server/docs.html), you first need to expose it to the outer world.   
-Hkube communicate with your algorithm via websocket (native websocket or socketio).  
-The algorithm should create a websocket client that listens to: ws://localhost:3000.
+Integrate algorithms into Hkube is quite easy, it's include 3 steps:
+
+1. [API](/algorithms/api/)
+2. [Build](/algorithms/build/)
+3. [Publish](/algorithms/publish/)
+
 
 If you prefer to run your algorithm inside node, see this [node.js example](https://github.com/kube-HPC/algorithm-node-example)
 

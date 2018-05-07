@@ -712,7 +712,6 @@ Prism.languages.json = {
   punctuation: /[{}[\],:]/,
 };
 
-
 Prism.languages.docker = {
   'keyword': {
     pattern: /(^\s*)(?:ADD|ARG|CMD|COPY|ENTRYPOINT|ENV|EXPOSE|FROM|HEALTHCHECK|LABEL|MAINTAINER|ONBUILD|RUN|SHELL|STOPSIGNAL|USER|VOLUME|WORKDIR)(?=\s)/mi,
@@ -724,3 +723,143 @@ Prism.languages.docker = {
 };
 
 Prism.languages.dockerfile = Prism.languages.docker;
+
+Prism.languages.js = Prism.languages.javascript;
+
+Prism.languages.java = Prism.languages.extend('clike', {
+  'keyword': /\b(?:abstract|continue|for|new|switch|assert|default|goto|package|synchronized|boolean|do|if|private|this|break|double|implements|protected|throw|byte|else|import|public|throws|case|enum|instanceof|return|transient|catch|extends|int|short|try|char|final|interface|static|void|class|finally|long|strictfp|volatile|const|float|native|super|while)\b/,
+  'number': /\b0b[01]+\b|\b0x[\da-f]*\.?[\da-fp-]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?[df]?/i,
+  'operator': {
+    pattern: /(^|[^.])(?:\+[+=]?|-[-=]?|!=?|<<?=?|>>?>?=?|==?|&[&=]?|\|[|=]?|\*=?|\/=?|%=?|\^=?|[?:~])/m,
+    lookbehind: true
+  }
+});
+
+Prism.languages.insertBefore('java', 'function', {
+  'annotation': {
+    alias: 'punctuation',
+    pattern: /(^|[^.])@\w+/,
+    lookbehind: true
+  }
+});
+
+Prism.languages.insertBefore('java', 'class-name', {
+  'generics': {
+    pattern: /<\s*\w+(?:\.\w+)?(?:\s*,\s*\w+(?:\.\w+)?)*>/i,
+    alias: 'function',
+    inside: {
+      keyword: Prism.languages.java.keyword,
+      punctuation: /[<>(),.:]/
+    }
+  }
+});
+
+Prism.languages.python = {
+  'comment': {
+    pattern: /(^|[^\\])#.*/,
+    lookbehind: true
+  },
+  'triple-quoted-string': {
+    pattern: /("""|''')[\s\S]+?\1/,
+    greedy: true,
+    alias: 'string'
+  },
+  'string': {
+    pattern: /("|')(?:\\.|(?!\1)[^\\\r\n])*\1/,
+    greedy: true
+  },
+  'function': {
+    pattern: /((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,
+    lookbehind: true
+  },
+  'class-name': {
+    pattern: /(\bclass\s+)\w+/i,
+    lookbehind: true
+  },
+  'keyword': /\b(?:as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|nonlocal|pass|print|raise|return|try|while|with|yield)\b/,
+  'builtin': /\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,
+  'boolean': /\b(?:True|False|None)\b/,
+  'number': /(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*\.?\d*|\.\d+)(?:e[+-]?\d+)?j?\b/i,
+  'operator': /[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]|\b(?:or|and|not)\b/,
+  'punctuation': /[{}[\];(),.:]/
+};
+
+Prism.languages.csharp = Prism.languages.extend('clike', {
+  'keyword': /\b(?:abstract|add|alias|as|ascending|async|await|base|bool|break|byte|case|catch|char|checked|class|const|continue|decimal|default|delegate|descending|do|double|dynamic|else|enum|event|explicit|extern|false|finally|fixed|float|for|foreach|from|get|global|goto|group|if|implicit|in|int|interface|internal|into|is|join|let|lock|long|namespace|new|null|object|operator|orderby|out|override|params|partial|private|protected|public|readonly|ref|remove|return|sbyte|sealed|select|set|short|sizeof|stackalloc|static|string|struct|switch|this|throw|true|try|typeof|uint|ulong|unchecked|unsafe|ushort|using|value|var|virtual|void|volatile|where|while|yield)\b/,
+  'string': [
+    {
+      pattern: /@("|')(?:\1\1|\\[\s\S]|(?!\1)[^\\])*\1/,
+      greedy: true
+    },
+    {
+      pattern: /("|')(?:\\.|(?!\1)[^\\\r\n])*?\1/,
+      greedy: true
+    }
+  ],
+  'class-name': [
+    {
+      // (Foo bar, Bar baz)
+      pattern: /\b[A-Z]\w*(?:\.\w+)*\b(?=\s+\w+)/,
+      inside: {
+        punctuation: /\./
+      }
+    },
+    {
+      // [Foo]
+      pattern: /(\[)[A-Z]\w*(?:\.\w+)*\b/,
+      lookbehind: true,
+      inside: {
+        punctuation: /\./
+      }
+    },
+    {
+      // class Foo : Bar
+      pattern: /(\b(?:class|interface)\s+[A-Z]\w*(?:\.\w+)*\s*:\s*)[A-Z]\w*(?:\.\w+)*\b/,
+      lookbehind: true,
+      inside: {
+        punctuation: /\./
+      }
+    },
+    {
+      // class Foo
+      pattern: /((?:\b(?:class|interface|new)\s+)|(?:catch\s+\())[A-Z]\w*(?:\.\w+)*\b/,
+      lookbehind: true,
+      inside: {
+        punctuation: /\./
+      }
+    }
+  ],
+  'number': /\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)f?/i
+});
+
+Prism.languages.insertBefore('csharp', 'class-name', {
+  'generic-method': {
+    pattern: /\w+\s*<[^>\r\n]+?>\s*(?=\()/,
+    inside: {
+      function: /^\w+/,
+      'class-name': {
+        pattern: /\b[A-Z]\w*(?:\.\w+)*\b/,
+        inside: {
+          punctuation: /\./
+        }
+      },
+      keyword: Prism.languages.csharp.keyword,
+      punctuation: /[<>(),.:]/
+    }
+  },
+  'preprocessor': {
+    pattern: /(^\s*)#.*/m,
+    lookbehind: true,
+    alias: 'property',
+    inside: {
+      // highlight preprocessor directives as keywords
+      'directive': {
+        pattern: /(\s*#)\b(?:define|elif|else|endif|endregion|error|if|line|pragma|region|undef|warning)\b/,
+        lookbehind: true,
+        alias: 'keyword'
+      }
+    }
+  }
+});
+
+Prism.languages.dotnet = Prism.languages.csharp;

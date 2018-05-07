@@ -17,11 +17,11 @@ export default ({ page, site }) =>
         <div className="inner-content">
           <h1>Tutorial</h1>
           <h2 style={{ textAlign: "center" }}>What kind of use?</h2>
-          <div style={{ paddingLeft: 200, width: "70%" }}>
-            <div style={{ float: "left" }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', width: '50%', margin: '0 auto' }}>
+            <div style={{}}>
               <Box url="/tutorial/stand-alone.html" title="&larr; Go To" text="Stand Alone"></Box>
             </div>
-            <div style={{ float: "right" }}>
+            <div style={{}}>
               <Box url="/tutorial/cluster.html" title="Go To &rarr;" text="Kubernetes Cluster"></Box>
             </div>
           </div>
