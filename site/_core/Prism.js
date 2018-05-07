@@ -663,40 +663,6 @@ if (Prism.languages.markup) {
 
 }(Prism));
 
-var graphqlComment = {
-  pattern: /#.*/,
-  greedy: true
-};
-
-var graphqlCommon = {
-  string: {
-    pattern: /"(?:\\.|[^\\"])*"/,
-    greedy: true
-  },
-  number: /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
-  boolean: /\b(?:true|false)\b/,
-  variable: {
-    pattern: /\$[a-z_]\w*/i,
-    greedy: true
-  },
-  operator: /!|=|\.{3}/,
-  punctuation: /[!(){|}[\]:=,]/
-};
-
-var graphqlDirective = {
-  pattern: /@[a-z_]\w*(\([\w\W]*?\))?/i,
-  inside: {
-    function: /@[a-z_]\w*/i,
-    args: {
-      pattern: /\([\w\W]*?\)/,
-      inside: {
-        arg: /[a-z_]\w*(?=\s*:)/i,
-        ...graphqlCommon
-      }
-    }
-  }
-};
-
 Prism.languages.json = {
   'attr-name': {
     pattern: /"(?:\\.|[^\\"])*"(?=\s*:)/i,

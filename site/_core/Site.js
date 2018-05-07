@@ -49,7 +49,6 @@ export default ({ page, category, title, section, className, noSearch, children 
 
       <footer>
         <section className="sitemap">
-          <a href="/" className="nav-home" />
           <div>
             <h5><a href="/learn/">Learn</a></h5>
             <a href="/learn/">Introduction</a>
@@ -68,9 +67,17 @@ export default ({ page, category, title, section, className, noSearch, children 
             <a href="/algorithms/publish/">Publish</a>
           </div>
           <div>
+            <h5><a href="/start/">Start</a></h5>
+            <a href="/start/">Introduction</a>
+            <a href="/start/pipeline/">API</a>
+            <a href="/start/nodes/">Implement</a>
+            <a href="/start/input/">Build</a>
+            <a href="/start/execution/">Publish</a>
+          </div>
+          <div>
             <h5><a href="/tutorial/">Tutorial</a></h5>
-            <a href="/tutorial/">Stand Alone</a>
-            <a href="/tutorial/pipeline/">Cluster</a>
+            <a href="/tutorial/stand-alone.html">Stand Alone</a>
+            <a href="/tutorial/cluster.html">Cluster</a>
           </div>
         </section>
         <section className="copyright">
