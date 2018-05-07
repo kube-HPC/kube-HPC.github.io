@@ -15,7 +15,7 @@ export default ({ page, category, title, section, className, noSearch, children 
       </title>
       <meta name="viewport" content="width=640" />
       <meta property="og:title" content="Hkube: HPC over kubernetes." />
-      <meta property="og:description" content="Hkube - HPC over kubernetes." />
+      <meta property="og:description" content="Hkube - HPC over kubernetes, cloud native open source framework to run distributed pipeline of algorithms" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="http://hkube.io/" />
       <meta property="og:image" content="/img/og_image.png" />
@@ -59,6 +59,19 @@ export default ({ page, category, title, section, className, noSearch, children 
             <a href="/learn/execution/">Execution</a>
             <a href="/learn/webhooks/">Webhooks</a>
           </div>
+          <div>
+            <h5><a href="/algorithms/">Algorithms</a></h5>
+            <a href="/algorithms/">Introduction</a>
+            <a href="/algorithms/api/">API</a>
+            <a href="/algorithms/implement/">Implement</a>
+            <a href="/algorithms/build/">Build</a>
+            <a href="/algorithms/publish/">Publish</a>
+          </div>
+          <div>
+            <h5><a href="/tutorial/">Tutorial</a></h5>
+            <a href="/tutorial/">Stand Alone</a>
+            <a href="/tutorial/pipeline/">Cluster</a>
+          </div>
         </section>
         <section className="copyright">
           Copyright &copy;
@@ -76,9 +89,14 @@ export default ({ page, category, title, section, className, noSearch, children 
           inputSelector: '#algolia-search-input'
         });
       `}} />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118778729-1"></script>
       <script dangerouslySetInnerHTML={{
         __html: `
-
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-118778729-1');
       `}} />
     </body>
   </html>

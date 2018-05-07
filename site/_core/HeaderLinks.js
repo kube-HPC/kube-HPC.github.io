@@ -12,7 +12,8 @@ const links = [
   { section: 'start', text: 'Get Started', href: '/start/' },
   { section: 'tutorial', text: 'Tutorial', href: '/tutorial/' },
   { section: 'learn', text: 'Learn', href: '/learn/' },
-  { section: 'algorithms', text: 'Algorithms', href: '/algorithms/' }
+  { section: 'algorithms', text: 'Algorithms', href: '/algorithms/' },
+  { section: 'gitHub', text: 'GitHub', href: 'https://github.com/kube-HPC' }
 ];
 
 export default ({ section }) =>

@@ -108,7 +108,7 @@ body.index {
 
     .named-logo {
       text-align: center;
-      animation: fade 1.2s ease-in-out;
+      animation: fade 0.8s ease-in-out;
       animation-fill-mode: both;
       margin-right: 18px;
 
@@ -165,7 +165,7 @@ body.index {
     .fadein-cols(4);
     .fadein-cols(@n) when (@n > 1) { .fadein-cols(@n - 1);
       .marketing-col:nth-child(@{n}) {
-        animation: fade 1.0s 0.5s * @n ease-in-out both;
+        animation: fade 0.6s 0.3s * @n ease-in-out both;
       }
     }
 
@@ -182,7 +182,7 @@ body.index {
     }
 
     .buttons-unit {
-      animation: fade 1.1s 3.2s ease-in-out both;
+      animation: fade 1.3s 1.4s ease-in-out both;
       width: 100%;
 
       @media screen and (min-width: 1020px) {
