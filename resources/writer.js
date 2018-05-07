@@ -163,12 +163,6 @@ function writeScript(writePath, file, fileData) {
               `<script src="/vendor/react-dom.min.js"></script>` +
               `<script src="${path.basename(writePath)}.${stats.hash}.js"></script></body></html>`
             )
-            // withInitialRenders.replace(
-            //   '</body></html>',
-            //   `<script src="/vendor/react-15.0.1.min.js"></script>` +
-            //   `<script src="/vendor/react-dom-15.0.1.min.js"></script>` +
-            //   `<script src="${path.basename(writePath)}.${stats.hash}.js"></script></body></html>`
-            // )
           );
         });
       });
