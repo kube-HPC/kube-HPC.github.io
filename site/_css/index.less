@@ -113,7 +113,7 @@ body.index {
       margin-right: 18px;
 
       h1 {
-        color: @rhodamine-color;
+        color: @hkube-color;
         margin: 0;
         margin-top: 0.25em;
         font-size: 30px;
@@ -183,6 +183,7 @@ body.index {
 
     .buttons-unit {
       animation: fade 1.3s 1.4s ease-in-out both;
+      animation-delay: 0.5s;
       width: 100%;
 
       @media screen and (min-width: 1020px) {
@@ -295,44 +296,6 @@ body.index {
 
     .prose {
       max-width: 415px;
-    }
-
-    .faux-graphiql {
-      width: 440px;
-      height: 330px;
-      display: flex;
-      flex-direction: column;
-      pointer-events: none;
-
-      .query, .response {
-        flex: 1;
-      }
-
-      .query {
-        border-bottom: solid 5px #e0e0e0;
-      }
-
-      .cursor {
-        width: 7px;
-        height: 15px;
-        background-color: #d0d0d0;
-        display: inline-block;
-        margin: -1px 1px -3px;
-        animation: cursor-blink 0.5s infinite linear both alternate;
-
-        @keyframes cursor-blink {
-          0%, 30% {
-            opacity: 0;
-          }
-          70%, 100% {
-            opacity: 1;
-          }
-        }
-      }
-
-      .ch {
-        display: none;
-      }
     }
   }
 
@@ -488,7 +451,7 @@ body.index {
       text-align: center;
 
       a {
-        color: lighten(@rhodamine-color, 30%);
+        color: lighten(@hkube-color, 30%);
       }
     }
 
@@ -799,8 +762,8 @@ body.index {
 
       &:hover, &:focus, &:active {
         color: white;
-        background: @rhodamine-color;
-        border-color: @rhodamine-color;
+        background: @hkube-color;
+        border-color: @hkube-color;
         text-decoration: none;
       }
     }
