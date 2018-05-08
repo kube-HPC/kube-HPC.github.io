@@ -7,6 +7,6 @@ permalink: /learn/
 next: /learn/pipeline/
 ---
 
-The full doc can be found [here](https://kube-hpc.github.io/api-server/docs.html)  
+Check out the full [doc](https://kube-hpc.github.io/api-server)  
 
-The Swagger-UI can found at [here](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json)
+Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json)
