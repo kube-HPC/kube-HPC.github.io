@@ -32,7 +32,7 @@ module.exports = ({ page, section }) =>
  CMD ["/usr/bin/wc","--help"]
  docker build -t myuser/green-alg .
  docker push <<Repository>>
-}`}
+`}
             </Prism>
           </div>
 
@@ -40,20 +40,15 @@ module.exports = ({ page, section }) =>
             <h3>Create Pipeline</h3>
             <Prism language="json">
               {`{
-"name": "MyPipeline",
-"nodes": [{
-     "nodeName": "green",
-     "algorithmName": "green-alg",
-     "input": [256, true]
-}],
-"trigger":{
-  "pipelines": ["@AnotherPipeline"],
-  "cron": "1 * * * *"
-  }
+  "name": "MyPipeline",
+  "nodes": [{
+    "nodeName": "green",
+    "algorithmName": "green-alg",
+    "input": [256, true]
+  }]
 }`}
             </Prism>
           </div>
-
           <div className="marketing-col">
             <h3>Restful</h3>
             <Prism language="json">
@@ -64,8 +59,8 @@ POST: /api/v1/exec
             </Prism>
             <Prism language="json">
               {`{
-"body": {
-  "pipeline": "MyPipeline"
+  "body": {
+    "pipeline": "MyPipeline"
   }
 }`}
             </Prism>
