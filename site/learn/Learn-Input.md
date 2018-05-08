@@ -12,7 +12,7 @@ sublinks: Input Types, Input Order
 The node input can accept as many arguments as you want from any type:  
 Number, Boolean, String, Array, Null and JSON Object.
 
-```js
+```json
 "name": "example-input",
 "nodes": [{
     "nodeName": "example1",

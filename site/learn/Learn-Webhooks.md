@@ -25,7 +25,7 @@ Content-type: application/json
 The purpose of the progress webhook is to update the client  
 when the state of the pipeline is changed.
 
-```js
+```json
 "name": "batch",
 "nodes": [{
     "nodeName": "green",
@@ -40,7 +40,7 @@ when the state of the pipeline is changed.
 
 And this is the progress webhook payload
 
-```js
+```json
 {
     "jobId": "batch:672a8b0e-c0b0-486e-bb2b-4571b0805f29",
     "timestamp": "2018-01-16T14:47:04.142Z",
@@ -67,7 +67,7 @@ The severity levels are ascending from least important to most important:
 
 If the client specified **debug** level, every progress from debug level and above will be sent to the client.
 
-```js
+```json
 "name": "batch",
 "nodes": [{
     "nodeName": "green",
@@ -85,7 +85,7 @@ If the client specified **debug** level, every progress from debug level and abo
 
 And this is the progress webhook payload:
 
-```js
+```json
 {
     "jobId": "batch:0358b42d-e0c0-4ce8-ae9a-466f02841d87",
     "timestamp": "2018-01-16T14:27:16.056Z",
@@ -115,7 +115,7 @@ And this is the progress webhook payload:
 The purpose of the result webhook is to update the client when the pipeline is completed.  
 By running the following batch pipeline, the system will send the result to the specified address.
 
-```js
+```json
 "name": "batch-pipeline",
 "nodes": [{
     "nodeName": "green",
@@ -130,7 +130,7 @@ By running the following batch pipeline, the system will send the result to the 
 
 This is the result webhook payload, notice that there is a result for each batch node.
 
-```js
+```json
 {
     "jobId": "batch-pipeline:e51c8dd7-7a7b-4d65-ad36-d1a919a9dee1",
     "timestamp": "2018-01-16T15:15:00.369Z",

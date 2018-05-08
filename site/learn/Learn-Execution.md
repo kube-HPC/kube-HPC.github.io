@@ -19,7 +19,7 @@ Hkube allow special signs in the nodes input that designed to define the pipelin
 You can define reusable data for nodes input, this input is an object that called **flowInput**.  
 Using the @ sign we can easily refer to this object.
 
-```js
+```json
 "name": "example-flowInput",
 "nodes": [{
     "nodeName": "example-node",
@@ -38,13 +38,13 @@ Using the @ sign we can easily refer to this object.
 
 Now the example algorithm will run with this input:
 
-```js
+```json
 example-alg: [42, true, ["links-1","links-2","links-3"], null, {foo: "bar"}]
 ```
 
 Or batch
 
-```js
+```json
 "name": "example-flowInput-batch",
 "nodes": [{
     "nodeName": "example",
@@ -63,7 +63,7 @@ Or batch
 
 And the algorithm will run three times with this input:
 
-```js
+```json
 example-alg 1: [42, true, ["links-1"], null, {foo: "bar"}]
 example-alg 2: [42, true, ["links-2"], null, {foo: "bar"}]
 example-alg 3: [42, true, ["links-3"], null, {foo: "bar"}]
@@ -74,7 +74,7 @@ example-alg 3: [42, true, ["links-3"], null, {foo: "bar"}]
 As we can see in the A -> B -> C pipeline example, by using @ in the input  
 we can take node output and make it the input of another node.
 
-```js
+```json
 "name": "reference",
 "nodes": [{
     "nodeName": "green",
@@ -116,7 +116,7 @@ That because the red node is the last node in the pipeline.
 By using # in the input we can execute nodes in parallel and reduce the results into single node.   
 This example is exactly like the first one, except the # sign in the input of the green node.
 
-```js
+```json
 "name": "batch",
 "nodes": [{
     "nodeName": "green",
@@ -142,7 +142,7 @@ The green node will run as a batch because of the # sign in the input.
 This pipeline will create three different tasks from type green-alg.  
 each with a different input:  
 
-```js
+```json
 green-alg 1: [false, "1"]
 green-alg 2: [false, "2"]
 green-alg 3: [false, "3"]
@@ -157,7 +157,7 @@ The input of the red node will be: [yellow node output, 512].
 The Batch Tolerance is a threshold setting that allow to control in which **percent** from the batch processing the entire pipeline should be fail.  
 In this example we define batch tolerance of 60%, which means that we allow max of 60% from the batch items to be fail. 
 
-```js
+```json
 "name": "example-batchTolerance",
 "nodes": [{
     "nodeName": "green",
@@ -176,7 +176,7 @@ In this example we define batch tolerance of 60%, which means that we allow max 
 
 Assuming that **Node green** will run and these are the batch items results. 
 
-```js
+```json
 green-alg 1: [false, "1"] -> success
 green-alg 2: [false, "2"] -> failed
 green-alg 3: [false, "3"] -> failed
@@ -192,7 +192,7 @@ Now the entire pipeline will fail because 3/5 from green node batch items has fa
 By using #@ in the input we can create a batch processing on node results.  
 Lets say that green node returns an array: ['A', 'B', 'C'].
 
-```js
+```json
 "name": "batch-reference",
 "nodes": [{
     "nodeName": "green",
@@ -213,7 +213,7 @@ Lets say that green node returns an array: ['A', 'B', 'C'].
 
 **Node yellow** will run three times, each with a different input.
 
-```js
+```json
 yellow-alg 1: [false, "A"]
 yellow-alg 2: [false, "B"]
 yellow-alg 3: [false, "C"]
@@ -226,7 +226,7 @@ The DAG of this pipeline will look like:
 
 By using *@ in the input we can create a wait any on batch.
 
-```js
+```json
 "name": "wait-any",
 "nodes": [{
     "nodeName": "green",
@@ -247,7 +247,7 @@ By using *@ in the input we can create a wait any on batch.
 
 The green node is defined to run as batch "#[1,2,3]".
 
-```js
+```json
 green-alg 1: [10, 1] -> 11
 green-alg 2: [10, 2] -> 12
 green-alg 3: [10, 3] -> 13
@@ -260,7 +260,7 @@ Now what if we don't want that **Node yellow** will wait until all the batch pro
 We can define in the node input to wait for any result of green, like this: "*@green".  
 This way **Node yellow** will run three times, each with different input from **Node green** output.
 
-```js
+```json
 yellow-alg 1: [true, 11]
 yellow-alg 2: [true, 12]
 yellow-alg 3: [true, 13]
@@ -271,7 +271,7 @@ The DAG of this pipeline will look like:
 
 ### Another Batch Example
 
-```js
+```json
 "name": "batch",
 "nodes": [{
     "nodeName": "green",
@@ -298,7 +298,7 @@ The DAG of this pipeline will look like:
 What if we want to run multiple batches, and for each batch item result  
 We want to run node that will accept results with same order they have been created.
 
-```js
+```json
 "name": "wait-any",
 "nodes": [{
     "nodeName": "green",
@@ -320,7 +320,7 @@ We want to run node that will accept results with same order they have been crea
 In this example the **Node red** will run with the correct tuples.
 This is default behavior of the system.
 
-```js
+```json
 red-alg 1: [1, 1]
 red-alg 2: [2, 2]
 red-alg 3: [3, 3]

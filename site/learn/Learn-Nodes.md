@@ -9,7 +9,7 @@ sublinks: Entry Nodes, Final Nodes
 
 In order to create [this](/learn/pipeline/) pipeline flow, we need to specify a node list which look like this:
 
-```js
+```json
 "name": "DAG",
 "nodes": [{
     "nodeName": "A",

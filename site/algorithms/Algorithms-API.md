@@ -22,10 +22,10 @@ These events are sent from Hkube to your algorithm.
 [How To Implement](/algorithms/implement/#handle-messages)
 
 ##### *JSON*
-```js
+```json
 {
-   "command": <string> // one of the above
-   "data": <Object>
+   "command": "<string>" // one of the above
+   "data": "<Object>"
 }
 ```
 
@@ -33,7 +33,7 @@ These events are sent from Hkube to your algorithm.
 
 The first event that sent to the algorithm, sent for every task activation.
 
-```js
+```json
 {
    "command": "initialize",
    "data": {
@@ -47,7 +47,7 @@ The first event that sent to the algorithm, sent for every task activation.
 
 Event to start the algorithm task
 
-```js
+```json
 {
    "command": "start"
 }
@@ -59,7 +59,7 @@ Event to start the algorithm task
 
 Event to abort the running algorithm task
 
-```js
+```json
 {
    "command": "stop"
 }
@@ -78,14 +78,14 @@ These events are sent from algorithm to Hkube.
 * [errorMessage](#event-errorMessage)
 
 ##### *JSON*
-```js
+```json
 {
-   "command": <string>, // one of the above
-   "data": <Any>
-   "error": <Object> {
-      "code": <string>
-      "message": <string>
-      "details": <string>
+   "command": "<string>", // one of the above
+   "data": "<Any>",
+   "error": "<Object>" {
+      "code": "<string>",
+      "message": "<string>",
+      "details": "<string>"
    }
 }
 ```
@@ -94,7 +94,7 @@ These events are sent from algorithm to Hkube.
 
 Response event after initialization complete.  
 
-```js
+```json
 {
    "command": "initialized"
 }
@@ -104,7 +104,7 @@ Response event after initialization complete.
 
 Response event after start complete.  
 
-```js
+```json
 {
    "command": "started"
 }
@@ -114,7 +114,7 @@ Response event after start complete.
 
 Response event after stop complete.  
 
-```js
+```json
 {
    "command": "stopped"
 }
@@ -124,7 +124,7 @@ Response event after stop complete.
 
 Response event after the algorithm finish the task. 
 
-```js
+```json
 {
    "command": "done"
 }
@@ -134,7 +134,7 @@ Response event after the algorithm finish the task.
 
 If you want to report progress about your algorithm, send this event.
 
-```js
+```json
 {
    "command": "progress",
    "data": "optional extra details"
@@ -145,7 +145,7 @@ If you want to report progress about your algorithm, send this event.
 
 If any error occurs in your algorithm, send this event.
 
-```js
+```json
 {
    "command": "errorMessage",
    "error": {
