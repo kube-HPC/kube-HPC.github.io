@@ -13,7 +13,8 @@ with edges that have a direction: A -> B -> C.
 ![Diagram](/img/docs/DAG.png)
 
 The reasons for choosing this structure are:
-- Represent an orderings processing of nodes
-- Data flow between the nodes
-- Parallel and batch processing
+ 
+* Represent an orderings processing of nodes.  
+* Data flow between the nodes.  
+* Parallel and batch processing.  
 

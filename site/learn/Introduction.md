@@ -7,6 +7,9 @@ permalink: /learn/
 next: /learn/pipeline/
 ---
 
-Check out the full [doc](https://kube-hpc.github.io/api-server)  
+Hkube store and execute pipelines using Restful API.
 
-Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json)
+Please check out the full Rest API [documentation](https://kube-hpc.github.io/api-server).    
+Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json).  
+
+In the next sections you will learn in details about the pipeline definitions.

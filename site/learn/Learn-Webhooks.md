@@ -10,7 +10,7 @@ The WebHooks are an HTTP callbacks, the system can send request to the client
 when something happens. consider it like a push notifications.  
 There are two types of webhooks, progress and result.  
 
-You can also fetch the same data from the API:
+You can also fetch the same data from the API:  
 * progress - /api/v1/exec/status
 * result   - /api/v1/exec/results
 

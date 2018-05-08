@@ -15,9 +15,9 @@ All messages between Hkube and algorithm are in JSON format.
 
 These events are sent from Hkube to your algorithm.
 
--  [Initialize](#event-initialize)
--  [Start](#event-start)
--  [Stop](#event-stop)
+* [Initialize](#event-initialize)
+* [Start](#event-start)
+* [Stop](#event-stop)
 
 [How To Implement](/algorithms/implement/#handle-messages)
 
@@ -70,12 +70,12 @@ Event to abort the running algorithm task
 
 These events are sent from algorithm to Hkube.
 
--  [initialized](#event-initialized)
--  [started](#event-started)
--  [stopped](#event-stopped)
--  [done](#event-done)
--  [progress](#event-progress)
--  [errorMessage](#event-errorMessage)
+* [initialized](#event-initialized)
+* [started](#event-started)
+* [stopped](#event-stopped)
+* [done](#event-done)
+* [progress](#event-progress)
+* [errorMessage](#event-errorMessage)
 
 ##### *JSON*
 ```js

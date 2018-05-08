@@ -7,7 +7,7 @@ next: /learn/webhooks/
 sublinks: Flow Input,Reference,Batch,Batch Reference,Wait Any,Another Batch Example, Another Wait Any Example
 ---
 
-Beside these data types, there are special signs that designed to define the pipeline execution flow.
+Hkube allow special signs in the nodes input that designed to define the pipeline execution flow.
 
 - (@)  - [Reference](#reference)
 - (#)  - [Batch](#batch)
@@ -97,15 +97,16 @@ The DAG of this pipeline will look like:
 ![Diagram](/img/docs/simple-pipeline.png)
 
 
-The blue circle is the **pipeline driver** which responsible for executing nodes with the right order and the right input.  Each result from any node is always return to the pipeline driver which decide what to do next.  
+The blue circle is the **pipeline driver** which responsible for executing nodes with the right order and the right input.  
+Each result from any node is always return to the pipeline driver which decide what to do next.  
 
 **Green node** will run first because it does not depend on any other node.  
 Green node input will be: [false, "OK"].  
 
 **Yellow node** depends on green node, see the "@green" in the input of the yellow node.  
 So the input of the yellow node will be: [true, **green node output**].  
-The last node to run will be the red node because it depend on the completion of  
-the yellow node. The input of the red node will be: [**yellow node output**, 512].  
+The last node to run will be the red node because it depend on the completion of the yellow node.  
+The input of the red node will be: [**yellow node output**, 512].  
 
 The final results of this pipeline will be the output of the red node.  
 That because the red node is the last node in the pipeline.
@@ -221,7 +222,6 @@ yellow-alg 3: [false, "C"]
 The DAG of this pipeline will look like:  
 ![Diagram](/img/docs/batch-result.png)
 
-
 ### Wait Any
 
 By using *@ in the input we can create a wait any on batch.
@@ -269,7 +269,6 @@ yellow-alg 3: [true, 13]
 The DAG of this pipeline will look like:  
 ![Diagram](/img/docs/wait-any.png)  
 
-
 ### Another Batch Example
 
 ```js
@@ -294,12 +293,10 @@ The DAG of this pipeline will look like:
 The DAG of this pipeline will look like:  
 ![Diagram](/img/docs/batch-result2.png) 
 
-
 ### Another Wait Any Example
 
 What if we want to run multiple batches, and for each batch item result  
 We want to run node that will accept results with same order they have been created.
-
 
 ```js
 "name": "wait-any",

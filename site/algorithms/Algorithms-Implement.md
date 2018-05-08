@@ -11,14 +11,14 @@ Hkube communicate with your algorithm via websocket (native websocket or socketi
 This tutorial explain how to create a websocket client that works with Hkube.
 You can implement the websocket client in any language. 
 
-*  [Connect](#connect)
-*  [Handle Events](#handle-events)
-   * [Initialize](#initialize)
-   * [Start](#start)
-   * [Stop](#stop)
-*  [Reconnect](#reconnect)
-*  [Handle Errors](#handle-errors)
-*  [Send Event](#send-event)
+* [Connect](#connect)
+* [Handle Events](#handle-events)
+  * [Initialize](#initialize)
+  * [Start](#start)
+  * [Stop](#stop)
+* [Reconnect](#reconnect)
+* [Handle Errors](#handle-errors)
+* [Send Event](#send-event)
 
 ## Connect
 

@@ -7,7 +7,7 @@ next: /learn/input/
 sublinks: Entry Nodes, Final Nodes
 ---
 
-In order to create this pipeline flow, we need to specify a node list which look like this:
+In order to create [this](/learn/pipeline/) pipeline flow, we need to specify a node list which look like this:
 
 ```js
 "name": "DAG",
@@ -48,15 +48,15 @@ In order to create this pipeline flow, we need to specify a node list which look
 }]
 ```
 
-*The order the nodes are written does not relevant*
+> The order the nodes are written does not relevant
 
 Each node has three properties.  
 - **nodeName**: the node unique identifier in the current pipeline.  
 - **algorithmName**: the name of the algorithm that should run.  
 - **input**: the input to the algorithm.  
 
-Node A and Node G will run first in parallel, because their input does not refer  
-to any other node. The **@** indicates a reference to other node.  
+Node A and Node G will run first in parallel, because their input does not refer to any other node.  
+The **@** indicates a reference to other node.  
 
 Node B will run after Node A (["@A"]).  
 Node C will run after Node B (["@B"]).  
