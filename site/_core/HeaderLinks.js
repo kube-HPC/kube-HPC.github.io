@@ -10,10 +10,11 @@ var React = require('react');
 
 const links = [
   { section: 'start', text: 'Get Started', href: '/start/' },
-  { section: 'learn', text: 'Restful API', href: '/learn/' },
-  { section: 'algorithms', text: 'Algorithms', href: '/algorithms/' },
+  { section: 'learn', text: 'Learn', href: '/learn/' },
+  { section: 'code', text: 'Code', href: '/code/' },
   { section: 'tutorial', text: 'Tutorial', href: '/tutorial/' },
-  { section: 'gitHub', text: 'GitHub', href: 'https://github.com/kube-HPC' }
+  { section: 'gitHub', text: 'GitHub', href: 'https://github.com/kube-HPC' },
+  { section: 'spec', text: 'Spec', href: 'https://kube-hpc.github.io/api-server' }
 ];
 
 export default ({ section }) =>

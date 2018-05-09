@@ -2,9 +2,9 @@
 title: Introduction
 sidebarTitle: Introduction
 layout: ../_core/DocsLayout
-category: Algorithms
-permalink: /algorithms/
-next: /algorithms/api/
+category: Code
+permalink: /code/
+next: /code/api/
 ---
 
 Integrate algorithms into Hkube is quite easy, it's include 3 steps:

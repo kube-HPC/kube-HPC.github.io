@@ -824,7 +824,7 @@ Parser.prototype.tok = function () {
       );
     }
     case 'code': {
-      if (this.token.lang === 'hkube') {
+      if (this.token.lang === 'hkube-tabs') {
         var lines = this.token.text.split('\n');
         var firstLine = lines.shift().match(/^\s*#\s*({.*})$/);
         if (firstLine) {
@@ -845,7 +845,26 @@ Parser.prototype.tok = function () {
             `}} />
           }
         }
-        return <Prism language={this.token.lang} line={this.token.line}>{this.token.text}</Prism>;
+      }
+      if (this.token.lang === 'hkube-box') {
+        var lines = this.token.text.split('\n');
+        var firstLine = lines.shift().match(/^\s*#\s*({.*})$/);
+        if (firstLine) {
+          var metaData;
+          try {
+            metaData = JSON.parse(firstLine[1]);
+          } catch (e) {
+            console.error('Invalid Metadata JSON:', firstLine[1]);
+          }
+          if (metaData) {
+            var query = lines.join('\n');
+            return <script data-inline dangerouslySetInnerHTML={{
+              __html: `
+              import Box from '../_core/Box';
+              renderHere(<Box url="${metaData.url}" title="${metaData.title}" text="${metaData.text}"></Box>);
+            `}} />
+          }
+        }
       }
       return <Prism language={this.token.lang} line={this.token.line}>{this.token.text}</Prism>;
     }

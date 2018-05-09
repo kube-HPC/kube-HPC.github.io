@@ -1,30 +1,43 @@
 ---
-title: Introduction
-sidebarTitle: Introduction
+title: Hkube 101
+sidebarTitle: Hkube 101
 layout: ../_core/DocsLayout
 category: Start
 permalink: /start/
-next: /start/pipeline/
+sublinks: Prerequisites, Install Hkube, Your Code, Hkube API
 ---
 
 On this page, you'll learn in detail about how
 
-Kubernetes
+### Prerequisites
+---
 
-### First Step
+1) Install [Kubernetes](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-1) or [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 
-`npm i -g @hkube/hkube-cli`  
-`hkube-cli deploy -t`  
-`hkube-cli deploy -c`  
+> Make sure kubectl is configured to your cluster.
+
+### Install Hkube
+---
+
+`npm` i -g @hkube/hkubectl  
+`hkubectl` deploy -t  
+`hkubectl` deploy -c  
+`hkubectl` verify  
+`hkubectl`
 .....
 
-### Second Step
+### Your Code
+---
 
+Integrate your algorithm into Hkube is the only task that requires code writing.  
+See the API [spec](/code/api/) and the [code samples](/code/implement/) guide for more details
 
+### Hkube API
+---
 
+Learn more about [pipelines](/learn/pipeline/) and how to store, execute and work with them.  
+Check out our Rest API [spec](https://kube-hpc.github.io/api-server).
 
-### Last Step
-
-Test with Hkube REST API 
-
-
+```hkube-box
+# { "hkube": true, "url": "/learn", "title": "next &rarr;", "text": "Learn More" }
+```

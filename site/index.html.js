@@ -79,9 +79,9 @@ POST: /api/v1/exec
     <section className="lead">
       <h1>HPC over kubernetes</h1>
       <p>
-        Hkube is a cloud native open source framework to run distributed pipeline of algorithms that is built on Kubernetes.
+        Hkube is a cloud native open source framework to run distributed pipeline of algorithms built on Kubernetes.
         Hkube allows to run pipelines of algorithms on kubernetes cluster optimally utilizing the available resources,
-        based on user priorities and automatic role based and AI heuristics.
+        based on user priorities and AI heuristics.
         </p>
     </section>
     <section className="point1" id="predictable-results">

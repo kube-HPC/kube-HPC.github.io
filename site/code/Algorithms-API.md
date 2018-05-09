@@ -2,9 +2,9 @@
 title: Algorithm API
 sidebarTitle: API
 layout: ../_core/DocsLayout
-category: Algorithms
-permalink: /algorithms/api
-next: /algorithms/implement/
+category: Code
+permalink: /code/api/
+next: /code/implement/
 ---
 
 The first step you need is to expose your algorithms to the outer world.     
@@ -24,7 +24,7 @@ These events are sent from Hkube to your algorithm.
 ##### *JSON*
 ```json
 {
-   "command": "<string>" // one of the above
+   "command": "<string>", // one of the above
    "data": "<Object>"
 }
 ```

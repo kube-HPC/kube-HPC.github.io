@@ -20,19 +20,6 @@ export default ({ page, site }) =>
               </div>
             </div>
           </div>
-          <div>
-            <h2 style={{ textAlign: "center" }}>More tutorials?</h2>
-            <div style={{ display: 'flex', justifyContent: 'space-between', width: '50%', margin: '0 auto' }}>
-              <div>
-                <Box url="/tutorial/stand-alone.html" title="&larr; Go To" text="Stand Alone"></Box>
-                <Box url="/tutorial/cluster.html" title="Go To &rarr;" text="Kubernetes Cluster"></Box>
-              </div>
-              <div>
-                <Box url="/tutorial/cluster.html" title="Go To &rarr;" text="Kubernetes Cluster"></Box>
-                <Box url="/tutorial/cluster.html" title="Go To &rarr;" text="Kubernetes Cluster"></Box>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

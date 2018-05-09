@@ -6,11 +6,12 @@ permalink: /learn/webhooks/
 sublinks: Progress, Verbosity Level,Result
 ---
 
-The WebHooks are an HTTP callbacks, the system can send request to the client  
-when something happens. consider it like a push notifications.  
+The WebHooks are an HTTP callbacks, the system can send request to the client when something happens.  
+Consider it like a push notifications.  
 There are two types of webhooks, progress and result.  
 
 You can also fetch the same data from the API:  
+
 * progress - /api/v1/exec/status
 * result   - /api/v1/exec/results
 
@@ -18,7 +19,7 @@ Webhooks headers are:
 Method: POST  
 Content-type: application/json
 
-*The webhooks are optional*
+> The webhooks are optional
 
 ### Progress
 
@@ -33,8 +34,8 @@ when the state of the pipeline is changed.
     "input": ["#[1,2,3]"]
 }],
 "webhooks": {
-    "progress": "http://<URL>",
-    "result": "http://<URL>"
+    "progress": "<URL>",
+    "result": "<URL>"
 }
 ```
 
@@ -57,15 +58,9 @@ And this is the progress webhook payload
 ### Verbosity Level
 
 The Verbosity Level is a setting that allow to control what type of progress events the client will notified about.  
-The severity levels are ascending from least important to most important:
-* trace
-* debug
-* info
-* warn
-* error
-* critical
+The severity levels are ascending from least important to most important: `trace` `debug` `info` `warn` `error` `critical`
 
-If the client specified **debug** level, every progress from debug level and above will be sent to the client.
+If the client specified `debug` level, every progress from this level and above will be sent to the client.
 
 ```json
 "name": "batch",
@@ -136,9 +131,7 @@ This is the result webhook payload, notice that there is a result for each batch
     "timestamp": "2018-01-16T15:15:00.369Z",
     "pipeline": "batch-pipeline",
     "status": "completed",
-    "data": {
-        "result": [
-            {
+    "data": [{
                 "nodeName": "green",
                 "batchID": "green#1",
                 "algorithmName": "green-alg",
@@ -155,7 +148,7 @@ This is the result webhook payload, notice that there is a result for each batch
                 "batchID": "green#3",
                 "algorithmName": "green-alg",
                 "result": 30
-            },
+            }
         ]
     }
 }

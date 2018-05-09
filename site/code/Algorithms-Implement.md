@@ -2,9 +2,9 @@
 title: API Implementation
 sidebarTitle: Implement
 layout: ../_core/DocsLayout
-category: Algorithms
-permalink: /algorithms/implement
-next: /algorithms/build/
+category: Code
+permalink: /code/implement/
+next: /code/build/
 ---
 
 Hkube communicate with your algorithm via websocket (native websocket or socketio).  
@@ -24,7 +24,7 @@ You can implement the websocket client in any language.
 
 The first thing your algorithm should do is to create a websocket client that listens to: **ws://localhost:3000**.  
 
-```hkube
+```hkube-tabs
 # { "hkube": true, "schema": "connect" }
 ```
 
@@ -33,7 +33,7 @@ The first thing your algorithm should do is to create a websocket client that li
 Here we are registering to events from Hkube.  
 Each event has a specific handler, as described below.
 
-```hkube
+```hkube-tabs
 # { "hkube": true, "schema": "handle-messages" }
 ```
 
@@ -44,7 +44,7 @@ The payload of this event includes the pipeline data and the input for your algo
 You need to store the input in local variable for later use.  
 > same input as written in the [descriptor](/learn/input/)
 
-```hkube
+```hkube-tabs
 # { "hkube": true, "schema": "handle-messages-initialize" }
 ```
 
@@ -54,7 +54,7 @@ The start event is the second event that Hkube send to your algorithm.
 As you can see, at the first step of this handler you need to tell Hkube that your algorithm has started.  
 Then you let the algorithm do it's work and finally you send the done event with the algorithm result.
 
-```hkube
+```hkube-tabs
 # { "hkube": true, "schema": "handle-messages-start" }
 ```
 
@@ -62,7 +62,7 @@ Then you let the algorithm do it's work and finally you send the done event with
 
 Hkube will send this event to your algorithm only if stop request was made by Hkube users.
 
-```hkube
+```hkube-tabs
 # { "hkube": true, "schema": "handle-messages-stop" }
 ```
 
@@ -70,7 +70,7 @@ Hkube will send this event to your algorithm only if stop request was made by Hk
 
 Web Sockets are not auto reconnect, so it's important that you will handle connection lose.   
 
-```hkube
+```hkube-tabs
 # { "hkube": true, "schema": "reconnect" }
 ```
 
@@ -78,7 +78,7 @@ Web Sockets are not auto reconnect, so it's important that you will handle conne
 
 It's highly recommended that you will catch any error in your algorithm and send it to Hkube.  
 
-```hkube
+```hkube-tabs
 # { "hkube": true, "schema": "handle-errors" }
 ```
 
@@ -86,6 +86,6 @@ It's highly recommended that you will catch any error in your algorithm and send
 
 This is a simple handler for send response back to Hkube.
 
-```hkube
+```hkube-tabs
 # { "hkube": true, "schema": "send-event" }
 ```
