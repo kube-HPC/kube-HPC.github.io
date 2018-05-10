@@ -14,7 +14,7 @@ const links = [
   { section: 'code', text: 'Code', href: '/code/' },
   { section: 'tutorial', text: 'Tutorial', href: '/tutorial/' },
   { section: 'gitHub', text: 'GitHub', href: 'https://github.com/kube-HPC' },
-  { section: 'spec', text: 'Spec', href: 'https://kube-hpc.github.io/api-server' }
+  { section: 'spec', text: 'Spec', href: '/spec/' }
 ];
 
 export default ({ section }) =>

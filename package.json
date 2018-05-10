@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "marked": "^0.3.5",
-    "react-responsive-tabs": "^2.1.0"
+    "react-responsive-tabs": "^2.1.0",
+    "redoc": "^2.0.0-alpha.17"
   }
 }

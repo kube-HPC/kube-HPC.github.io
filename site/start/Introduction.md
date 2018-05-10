@@ -7,7 +7,7 @@ permalink: /start/
 sublinks: Prerequisites, Install Hkube, Your Code, Hkube API
 ---
 
-On this page, you'll learn in detail about how
+For Hkube 101, we will cover install Hkube, Integrate your algorithm and Restful API.
 
 ### Prerequisites
 ---

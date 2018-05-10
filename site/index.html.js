@@ -55,10 +55,7 @@ module.exports = ({ page, section }) =>
               {`
 GET: /api/v1/status
 POST: /api/v1/exec
-    `}
-            </Prism>
-            <Prism language="json">
-              {`{
+{
   "body": {
     "pipeline": "MyPipeline"
   }
