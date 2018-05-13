@@ -76,8 +76,8 @@ POST: /api/v1/exec
     <section className="lead">
       <h1>HPC over kubernetes</h1>
       <p>
-        Hkube is a cloud native open source framework to run distributed pipeline of algorithms built on Kubernetes.
-        Hkube allows to run pipelines of algorithms on kubernetes cluster optimally utilizing the available resources,
+        Hkube is a cloud-native open source framework to run distributed pipeline of algorithms built on Kubernetes.
+        Hkube allows running pipelines of algorithms on kubernetes cluster optimally utilizing the available resources,
         based on user priorities and AI heuristics.
         </p>
     </section>
@@ -85,9 +85,10 @@ POST: /api/v1/exec
       <div className="prose">
         <h2>Distributed pipeline of algorithms</h2>
         <p>
-          HKUBE receive as input DAG graph and automatically parallelizes your algorithms(nodes) over the cluster.
-          you can keep your code simple (even single threaded) and let HKUBE worry about
-          the complications of distributed processing.</p>
+          Hkube receives input DAG graph and automatically parallelizes your algorithms(nodes) over the cluster.
+              you can keep your code simple (even single threaded) and let Hkube worry about
+            the complications of distributed processing.
+          </p>
       </div>
       <div >
         <img src="/img/pipeline.png" />
@@ -98,7 +99,8 @@ POST: /api/v1/exec
         <div className="prose">
           <h2>Language Agnostic</h2>
           <p>
-            Hkube is a container based framework and designed to facilitate the use of any language for your algorithm</p>
+            Hkube is a container based framework and designed to facilitate the use of any language for your algorithm
+            </p>
         </div>
         <div >
           <img src="/img/lang-agnostic.png" width="383" height="314" />
@@ -109,9 +111,10 @@ POST: /api/v1/exec
     <section className="point3" id="type-system">
       <div className="prose">
         <h2>Optimize Hardware utilization</h2>
-        <p> HKUBE Automatically places containers based on their resource requirements and other constraints, while not sacrificing availability.
-          Mix critical and best-effort workloads in order to drive up utilization and save even more resources.
-          HKUBE has metrics and AI engines that helps learn about your algorithm (like run-time, cpu usage, priority ..) which makes execution and clustering efficiency.
+        <p>
+          Hkube Automatically places containers based on their resource requirements and other constraints, while not sacrificing availability.
+            Mix critical and best-effort workloads in order to drive up utilization and save even more resources.
+            Hkube has metrics and AI engines that helps learn about your algorithm (like run-time, cpu usage, priority ..) which makes execution and clustering efficiency.
         </p>
       </div>
       <div >
@@ -124,9 +127,9 @@ POST: /api/v1/exec
         <div className="prose">
           <h2>Simple API</h2>
           <p>
-            HKUBE has simple-api with low learning curve :
-            - CLI for stroing algorithms
-            - JSON API for describe pipeline schema
+            Hkube has simple API with a low learning curve: <br />
+            - CLI for storing algorithms.<br />
+            - Restful API for describe pipeline schema
             </p>
         </div>
         <div >
@@ -137,8 +140,9 @@ POST: /api/v1/exec
     <section className="point5" id="without-versions">
       <div className="prose">
         <h2>Algorithm monitoring</h2>
-        <p>HKUBE let's you quickly and easily understand complex problems over the cluster by CNCF technologies (such as promethues, Jaeger and more) for monitoring the cluster.
-          HKUBE expose algorithm logs through stdout and integrate them with HKUBE logs to get the whole picture.
+        <p>
+          Hkube lets you quickly and easily understand complex problems over the cluster by CNCF technologies (such as Prometheus, Jaeger and more) for monitoring the cluster.
+          Hkube exposes algorithm logs through stdout and integrates them with Hkube logs to get the whole picture.
           </p>
       </div>
       <div >
