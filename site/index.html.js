@@ -10,7 +10,7 @@ module.exports = ({ page, section }) =>
       <Search />
     </section>
 
-    <div className="hero">
+    <div id="particles-js" className="hero">
       <div className="abs">
         <header aria-hidden>
           <section>
