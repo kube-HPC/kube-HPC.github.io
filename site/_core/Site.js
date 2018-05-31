@@ -88,14 +88,6 @@ export default ({ page, category, title, section, className, noSearch, children 
         </section>
       </footer>
 
-      <script type="text/javascript" src="/vendor/particles.min.js"></script>
-      <script dangerouslySetInnerHTML={{
-        __html: `
-        particlesJS.load('particles-js', 'assets/particles.json', function() {
-          console.log('callback - particles.js config loaded');
-        });
-      `}} />
-
       <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
       <script dangerouslySetInnerHTML={{
         __html: `
