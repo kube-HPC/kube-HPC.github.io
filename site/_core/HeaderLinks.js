@@ -13,6 +13,7 @@ const links = [
   { section: 'learn', text: 'Learn', href: '/learn/' },
   { section: 'code', text: 'Code', href: '/code/' },
   { section: 'tutorial', text: 'Tutorial', href: '/tutorial/' },
+  { section: 'media', text: 'Media', href: '/media/' },
   { section: 'gitHub', text: 'GitHub', href: 'https://github.com/kube-HPC' },
   { section: 'spec', text: 'Spec', href: '/spec/' }
 ];

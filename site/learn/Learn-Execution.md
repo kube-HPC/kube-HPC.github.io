@@ -4,7 +4,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/execution/
 next: /learn/webhooks/
-sublinks: Flow Input,Reference,Batch,Batch Reference,Wait Any,Another Batch Example, Another Wait Any Example
+sublinks: Flow Input, Reference, Batch, Batch Reference, Wait Any
 ---
 
 Hkube allow special signs in the nodes input that designed to define the pipeline execution flow.
@@ -24,7 +24,7 @@ Using the @ sign we can easily refer to this object.
 "nodes": [{
     "nodeName": "example-node",
     "algorithmName": "example-alg",
-    "input": [42, true, "@flowInput.files.links", null, {foo: "bar"}]
+    "input": [42, true, "@flowInput.files.links", null, {"foo": "bar"}]
 }],
 "flowInput": {
     "files": {
@@ -39,7 +39,7 @@ Using the @ sign we can easily refer to this object.
 Now the example algorithm will run with this input:
 
 ```json
-example-alg: [42, true, ["links-1","links-2","links-3"], null, {foo: "bar"}]
+example-alg: [42, true, ["links-1","links-2","links-3"], null, {"foo": "bar"}]
 ```
 
 Or batch
@@ -49,7 +49,7 @@ Or batch
 "nodes": [{
     "nodeName": "example",
     "algorithmName": "example-alg",
-    "input": [42, false, true, "#@flowInput.files.links", null, {foo: "bar"}]
+    "input": [42, false, true, "#@flowInput.files.links", null, {"foo": "bar"}]
 }],
 "flowInput": {
     "files": {
@@ -64,9 +64,9 @@ Or batch
 And the algorithm will run three times with this input:
 
 ```json
-example-alg 1: [42, true, ["links-1"], null, {foo: "bar"}]
-example-alg 2: [42, true, ["links-2"], null, {foo: "bar"}]
-example-alg 3: [42, true, ["links-3"], null, {foo: "bar"}]
+example-alg 1: [42, true, ["links-1"], null, {"foo": "bar"}]
+example-alg 2: [42, true, ["links-2"], null, {"foo": "bar"}]
+example-alg 3: [42, true, ["links-3"], null, {"foo": "bar"}]
 ```
 
 ### Reference
@@ -151,6 +151,30 @@ green-alg 3: [false, "3"]
 The yellow node will wait until all tasks of the green node will finish.  
 The input of the yellow node will be: [true, green node output].  
 The input of the red node will be: [yellow node output, 512].
+
+### Another Batch Example
+
+```json
+"name": "batch",
+"nodes": [{
+    "nodeName": "green",
+    "algorithmName": "green-alg",
+    "input": ["#[1,2,3]", 2]
+},
+{
+    "nodeName": "yellow",
+    "algorithmName": "yellow-alg",
+    "input": ["#@green", 3]
+},
+{
+    "nodeName": "red",
+    "algorithmName": "red-alg",
+    "input": ["#@yellow", 4]
+}]
+```
+
+The DAG of this pipeline will look like:  
+![Diagram](/img/docs/batch-result2.png) 
 
 ## Batch Tolerance
 
@@ -268,30 +292,6 @@ yellow-alg 3: [true, 13]
 
 The DAG of this pipeline will look like:  
 ![Diagram](/img/docs/wait-any.png)  
-
-### Another Batch Example
-
-```json
-"name": "batch",
-"nodes": [{
-    "nodeName": "green",
-    "algorithmName": "green-alg",
-    "input": ["#[1,2,3]", 2]
-},
-{
-    "nodeName": "yellow",
-    "algorithmName": "yellow-alg",
-    "input": ["#@green", 3]
-},
-{
-    "nodeName": "red",
-    "algorithmName": "red-alg",
-    "input": ["#@yellow", 4]
-}]
-```
-
-The DAG of this pipeline will look like:  
-![Diagram](/img/docs/batch-result2.png) 
 
 ### Another Wait Any Example
 

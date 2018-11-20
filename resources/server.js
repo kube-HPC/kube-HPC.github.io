@@ -23,4 +23,4 @@ setTimeout(() => {
       console.log('Open http://localhost:8444/');
     }).catch(error => console.error(error.stack || error));
   });
-}, 1000);
+}, 6000);

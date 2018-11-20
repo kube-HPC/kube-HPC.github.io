@@ -59,6 +59,11 @@ export default ({ page, category, title, section, className, noSearch, children 
             <a href="/learn/webhooks/">Webhooks</a>
           </div>
           <div>
+            <h5><a href="/media/">media</a></h5>
+            <a href="/media/">media</a>
+            <a href="/media/">media</a>
+          </div>
+          <div>
             <h5><a href="/algorithms/">Algorithms</a></h5>
             <a href="/algorithms/">Introduction</a>
             <a href="/algorithms/api/">API</a>

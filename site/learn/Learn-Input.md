@@ -17,7 +17,7 @@ Number, Boolean, String, Array, Null and JSON Object.
 "nodes": [{
     "nodeName": "example1",
     "algorithmName": "example1-alg",
-    "input": [42, 42.56, -512.23, false, true, "OK", [2,3,4], null, {foo: "bar"}]
+    "input": [42, 42.56, -512.23, false, true, "OK", [2,3,4], null, {"foo": "bar"}]
     },
     {
     "nodeName": "example2",
