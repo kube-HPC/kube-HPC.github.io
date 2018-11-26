@@ -64,10 +64,10 @@ POST: /api/v1/exec
           </div>
         </section>
         <div className="buttons-unit">
-          <a className="button" href="/start/">
+          <a className="button" href="/learn/">
             Get Started
           </a>
-          <a className="button" href="/learn/">
+          <a className="button" href="/tutorial/">
             Learn More
           </a>
         </div>
