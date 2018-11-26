@@ -8,7 +8,7 @@ export default ({ page, site }) =>
     <section className="point1" id="predictable-results">
       <div className="documentationContent">
         <div className="inner-content">
-          <h1>Interactive Tutorial</h1>
+          <h1>Media</h1>
           <div>
             <h2>Meet Jane</h2>
           </div>

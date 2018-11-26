@@ -9,13 +9,12 @@
 var React = require('react');
 
 const links = [
-  { section: 'start', text: 'Get Started', href: '/start/' },
-  { section: 'learn', text: 'Learn', href: '/learn/' },
-  { section: 'code', text: 'Code', href: '/code/' },
+  { section: 'learn', text: 'Get Started', href: '/learn/' },
   { section: 'tutorial', text: 'Tutorial', href: '/tutorial/' },
+  { section: 'dashboard', text: 'Dashboard', href: '/dashboard/' },
   { section: 'media', text: 'Media', href: '/media/' },
   { section: 'gitHub', text: 'GitHub', href: 'https://github.com/kube-HPC' },
-  { section: 'spec', text: 'Spec', href: '/spec/' }
+  { section: 'spec', text: 'Spec', href: '/spec/', target: '_blank' }
 ];
 
 export default ({ section }) =>
@@ -24,7 +23,7 @@ export default ({ section }) =>
       <a
         key={link.section}
         href={link.href}
-        target={link.href.slice(0, 4) === 'http' ? '_blank' : null}
+        target={link.href.slice(0, 4) === 'http' ? '_blank' : link.target || null}
         rel={link.href.slice(0, 4) === 'http' ? 'noopener noreferrer' : null}
         className={link.section === section ? 'active' : null}>
         {link.text}

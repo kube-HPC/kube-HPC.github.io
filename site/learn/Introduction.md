@@ -1,15 +1,23 @@
 ---
-title: Introduction
-sidebarTitle: Introduction
+title: Hkube 101
+sidebarTitle: Hkube 101
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
-next: /learn/pipeline/
+sublinks: Prerequisites
+next: /learn/api/
 ---
 
-Hkube store and execute pipelines using Restful API.
+For Hkube 101, we will cover install Hkube, Integrate your algorithm and Restful API.
 
-Please check out the full Rest API [documentation](http://hkube.io/spec).    
-Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json).  
+### Prerequisites
+---
 
-In the next sections you will learn in details about the pipeline definitions.
+1) Install [Kubernetes](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-1) or [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+
+> Make sure kubectl is configured to your cluster.
+
+
+<!-- ```hkube-box
+# { "hkube": true, "url": "/learn", "title": "next &rarr;", "text": "Learn More" }
+``` -->
