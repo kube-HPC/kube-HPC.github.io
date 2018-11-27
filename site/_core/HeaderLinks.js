@@ -11,6 +11,7 @@ var React = require('react');
 const links = [
   { section: 'learn', text: 'Get Started', href: '/learn/' },
   { section: 'tutorial', text: 'Tutorial', href: '/tutorial/' },
+  { section: 'tech', text: 'Tech', href: '/tech/' },
   { section: 'media', text: 'Media', href: '/media/' },
   { section: 'gitHub', text: 'GitHub', href: 'https://github.com/kube-HPC' },
   { section: 'spec', text: 'Spec', href: '/spec/', target: '_blank' }
