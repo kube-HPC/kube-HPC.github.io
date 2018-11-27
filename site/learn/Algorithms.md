@@ -8,20 +8,12 @@ permalink: /learn/algorithms/
 next: /learn/pipelines/
 ---
 
-## Build
+Integrate algorithms into Hkube is quite easy, it's include 3 steps:  
+1) Push the algorithm to docker hub.  
+2) Implement connectivity with Hkube.  
+3) Add the algorithm to Hkube.
 
-On this page, you'll learn in detail about how 
-
-Before you build your algorithm and push it to [docker registry](https://kube-hpc.github.io/api-server/docs.html), 
-
-## API
-
-Integrate algorithms into Hkube is quite easy, it's include 3 steps:
-
-If you prefer to run your algorithm inside node, see this [node.js example](https://github.com/kube-HPC/algorithm-node-example)
-
-
-The first step you need is to expose your algorithms to the outer world.     
+Hkube communicate with algorithms via WebSocket because the full-duplex communication support.  
 All messages between Hkube and algorithm are in JSON format.
 
 ## Events From Hkube to Algorithm
@@ -37,9 +29,6 @@ These events are sent from Hkube to your algorithm.
 * [SubPipelineError](#event-subpipelineerror)
 * [SubPipelineDone](#event-subpipelinedone)
 * [SubPipelineStopped](#event-subpipelinestopped)
-
-
-[How To Implement](/algorithms/implement/#handle-messages)
 
 ##### *JSON*
 ```json
@@ -272,13 +261,10 @@ If you want to start a Raw sub-pipeline from your algorithm, use this event.
                     "algorithmName": "<alg-name>",
                     "input":    ["array", "of", "values"]
                 }
-                ...
             ],
             "options": {
-                ...
             },
             "webhooks": {
-                ...
             }
         },
         "subPipelineId": "<alg-subPipeline-internal-id>"
@@ -328,13 +314,12 @@ If you want to stop a sub-pipeline (Raw or Stored) from your algorithm, use this
 [How To Implement](/algorithms/implement/#handle-errors)
 
 
-
-
 ## Implement
+---
 
-Hkube communicate with your algorithm via websocket (native websocket or socketio).  
+Hkube communicate with your algorithm via WebSocket (native WebSocket or socketio).  
 This tutorial explain how to create a websocket client that works with Hkube.
-You can implement the websocket client in any language. 
+You can implement the websocket client in any language. (PR are welcomed)
 
 * [Connect](#connect)
 * [Handle Events](#handle-events)
@@ -347,7 +332,7 @@ You can implement the websocket client in any language.
 
 ## Connect
 
-The first thing your algorithm should do is to create a websocket client that listens to: **ws://localhost:3000**.  
+The first thing your algorithm should do is to create a websocket client that listens to: **ws://localhost:3000**.
 
 ```hkube-tabs
 # { "hkube": true, "schema": "connect" }

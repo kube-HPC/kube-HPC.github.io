@@ -2,9 +2,9 @@
 title: Dashboard
 sidebarTitle: Dashboard
 layout: ../_core/DocsLayout
-category: Dashboard
+category: Tech
 sublinks: Jobs, Workers, Algorithms, Pipelines
-permalink: /dashboard/
+permalink: /tech/dashboard/
 ---
 
 Hkube Dashboard can help you in:

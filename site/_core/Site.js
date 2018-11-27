@@ -14,16 +14,16 @@ export default ({ page, category, title, section, className, noSearch, children 
           `Hkube | ${SiteData.description}`}
       </title>
       <meta name="viewport" content="width=640" />
-      <meta property="og:title" content="Hkube: HPC over kubernetes." />
-      <meta property="og:description" content="Hkube - HPC over kubernetes, cloud native open source framework to run distributed pipeline of algorithms" />
+      <meta property="og:title" content="Hkube: HPC over Kubernetes." />
+      <meta property="og:description" content="Hkube - HPC over Kubernetes, cloud native open source framework to run distributed pipeline of algorithms" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="http://hkube.io/" />
       <meta property="og:image" content="/img/home/og_image.png" />
       <meta property="og:image:type" content="image/png" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@hkube" />
-      <meta name="twitter:title" content="Hkube: HPC over kubernetes" />
-      <meta name="twitter:description" content="Hkube HPC over kubernetes" />
+      <meta name="twitter:title" content="Hkube: HPC over Kubernetes" />
+      <meta name="twitter:description" content="Hkube HPC over Kubernetes" />
       <meta name="twitter:image" content="/img/home/twitter_image.png" />
       <link rel="shortcut icon" href="/img/home/favicon.png" />
       <link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="Hkube Team Blog" />
@@ -71,9 +71,11 @@ export default ({ page, category, title, section, className, noSearch, children 
             <a href="/dashboard/#pipelines">Pipelines</a>
           </div>
           <div>
-            <h5><a href="/media/">media</a></h5>
-            <a href="/media/">media</a>
-            <a href="/media/">media</a>
+            <h5><a href="/media/">Media</a></h5>
+            <a href="/media/#jane/">Meet Jane</a>
+            <a href="/media/#distributed/">Distributed pipeline</a>
+            <a href="/media/#hpc/">HPC over Kubernetes</a>
+            <a href="/media/#architecture/">Hkube Architecture</a>
           </div>
           <div>
             <h5><a href="/learn/algorithms/">Algorithms</a></h5>
