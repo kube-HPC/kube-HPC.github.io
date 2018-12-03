@@ -265,12 +265,12 @@ If you want to start a Raw sub-pipeline from your algorithm, use this event.
             "options": {
             },
             "webhooks": {
+            },
+            "flowInput": {
+               "data": ["array", "of", "subpipeline", "input", "values"]
             }
         },
         "subPipelineId": "<alg-subPipeline-internal-id>",
-        "flowInput": {
-           "data": ["array", "of", "subpipeline", "input", "values"]
-        }
    }
 }
 ```
@@ -290,11 +290,11 @@ If you want to start a Stored sub-pipeline from your algorithm, use this event.
    "data": {
         "subPipeline": {
             "name": "<stored-sub-pipeline-name>",
+            "flowInput": {
+               "data": ["array", "of", "subpipeline", "input", "values"]
+            }
         },
         "subPipelineId": "<alg-subPipeline-internal-id>",
-        "flowInput": {
-           "data": ["array", "of", "subpipeline", "input", "values"]
-        }
    }
 }
 ```
