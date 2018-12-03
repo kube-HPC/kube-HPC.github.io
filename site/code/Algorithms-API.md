@@ -122,7 +122,7 @@ Event to inform algorithm that sub pipeline (Raw or Stored) has completed succes
    "command": "subPipelineDone",
    "data": {
        "subPipelineId": "<alg-subPipeline-internal-id>"
-       "response": [1, 5, 67, 19]
+       "response": ["array", "of", "subpipeline", "output", "values"]
    }
 }
 ```
@@ -256,7 +256,7 @@ If you want to start a Raw sub-pipeline from your algorithm, use this event.
                 {
                     "nodeName": "<first-node-name>",
                     "algorithmName": "<alg-name>",
-                    "input":    ["array", "of", "values"]
+                    "input":    ["@flowInput.data"]
                 }
                 ...
             ],
@@ -267,12 +267,17 @@ If you want to start a Raw sub-pipeline from your algorithm, use this event.
                 ...
             }
         },
-        "subPipelineId": "<alg-subPipeline-internal-id>"
+        "subPipelineId": "<alg-subPipeline-internal-id>",
+        "flowInput": {
+           "data": ["array", "of", "subpipeline", "input", "values"]
+        }
    }
 }
 ```
 
 * The "subPipeline" object gives a standard raw full description of the requested sub pipeline.
+* The "input" field value of the first node should be ["@flowInput.data"]
+* This input is taken from "flowInput", where you plant your subpipeline input in the "data" field.
 * The "subPipelineId" property holds sub pipeline internal Id in algorithm (as the algorithm may start several sub-pipelines).
 
 ### Event: startStoredSubPipeline
@@ -286,12 +291,16 @@ If you want to start a Stored sub-pipeline from your algorithm, use this event.
         "subPipeline": {
             "name": "<stored-sub-pipeline-name>",
         },
-        "subPipelineId": "<alg-subPipeline-internal-id>"
+        "subPipelineId": "<alg-subPipeline-internal-id>",
+        "flowInput": {
+           "data": ["array", "of", "subpipeline", "input", "values"]
+        }
    }
 }
 ```
 
 * The "subPipeline" object gives a standard stored description of the requested sub pipeline (name and optionally flowInput, options, webhooks).
+* This input is taken from "flowInput", where you plant your subpipeline input in the "data" field.
 * The "subPipelineId" property holds sub pipeline internal Id in algorithm (as the algorithm may start several sub-pipelines).
 
 ### Event: stopSubPipeline
