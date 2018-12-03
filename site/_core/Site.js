@@ -14,18 +14,18 @@ export default ({ page, category, title, section, className, noSearch, children 
           `Hkube | ${SiteData.description}`}
       </title>
       <meta name="viewport" content="width=640" />
-      <meta property="og:title" content="Hkube: HPC over kubernetes." />
-      <meta property="og:description" content="Hkube - HPC over kubernetes, cloud native open source framework to run distributed pipeline of algorithms" />
+      <meta property="og:title" content="Hkube: HPC over Kubernetes." />
+      <meta property="og:description" content="Hkube - HPC over Kubernetes, cloud native open source framework to run distributed pipeline of algorithms" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="http://hkube.io/" />
-      <meta property="og:image" content="/img/og_image.png" />
+      <meta property="og:image" content="/img/home/og_image.png" />
       <meta property="og:image:type" content="image/png" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@hkube" />
-      <meta name="twitter:title" content="Hkube: HPC over kubernetes" />
-      <meta name="twitter:description" content="Hkube HPC over kubernetes" />
-      <meta name="twitter:image" content="/img/twitter_image.png" />
-      <link rel="shortcut icon" href="/img/favicon.png" />
+      <meta name="twitter:title" content="Hkube: HPC over Kubernetes" />
+      <meta name="twitter:description" content="Hkube HPC over Kubernetes" />
+      <meta name="twitter:image" content="/img/home/twitter_image.png" />
+      <link rel="shortcut icon" href="/img/home/favicon.png" />
       <link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="Hkube Team Blog" />
       <link rel="stylesheet" href="/style.css" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300" />
@@ -37,7 +37,7 @@ export default ({ page, category, title, section, className, noSearch, children 
       <header>
         <section>
           <a className="nav-home" href="/">
-            <img className="nav-logo" src="/img/logo.png" width="30" height="30" />
+            <img className="nav-logo" src="/img/home/logo.png" width="30" height="30" />
             Hkube
           </a>
           <HeaderLinks section={section} />
@@ -59,26 +59,33 @@ export default ({ page, category, title, section, className, noSearch, children 
             <a href="/learn/webhooks/">Webhooks</a>
           </div>
           <div>
-            <h5><a href="/algorithms/">Algorithms</a></h5>
-            <a href="/algorithms/">Introduction</a>
-            <a href="/algorithms/api/">API</a>
-            <a href="/algorithms/implement/">Implement</a>
-            <a href="/algorithms/build/">Build</a>
-            <a href="/algorithms/publish/">Publish</a>
-          </div>
-          <div>
-            <h5><a href="/start/">Start</a></h5>
-            <a href="/start/">Introduction</a>
-            <a href="/start/pipeline/">API</a>
-            <a href="/start/nodes/">Implement</a>
-            <a href="/start/input/">Build</a>
-            <a href="/start/execution/">Publish</a>
-          </div>
-          <div>
             <h5><a href="/tutorial/">Tutorial</a></h5>
             <a href="/tutorial/stand-alone.html">Stand Alone</a>
             <a href="/tutorial/cluster.html">Cluster</a>
           </div>
+          <div>
+            <h5><a href="/dashboard/">Dashboard</a></h5>
+            <a href="/dashboard/#jobs">Jobs</a>
+            <a href="/dashboard/#workers">Workers</a>
+            <a href="/dashboard/#algorithms">Algorithms</a>
+            <a href="/dashboard/#pipelines">Pipelines</a>
+          </div>
+          <div>
+            <h5><a href="/media/">Media</a></h5>
+            <a href="/media/#jane/">Meet Jane</a>
+            <a href="/media/#distributed/">Distributed pipeline</a>
+            <a href="/media/#hpc/">HPC over Kubernetes</a>
+            <a href="/media/#architecture/">Hkube Architecture</a>
+          </div>
+          <div>
+            <h5><a href="/learn/algorithms/">Algorithms</a></h5>
+            <a href="/learn/algorithms/">Introduction</a>
+            <a href="/learn/algorithms/#api/">API</a>
+            <a href="/learn/algorithms/#implement/">Implement</a>
+            <a href="/learn/algorithms/#build/">Build</a>
+            <a href="/learn/algorithms/#publish/">Publish</a>
+          </div>
+
         </section>
         <section className="copyright">
           Copyright &copy;

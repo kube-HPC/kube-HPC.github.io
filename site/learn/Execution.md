@@ -3,8 +3,8 @@ title: Execution
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/execution/
-next: /learn/webhooks/
-sublinks: Flow Input,Reference,Batch,Batch Reference,Wait Any,Another Batch Example, Another Wait Any Example
+next: /learn/triggers/
+sublinks: Flow Input, Reference, Batch, Batch Reference, Wait Any
 ---
 
 Hkube allow special signs in the nodes input that designed to define the pipeline execution flow.
@@ -24,7 +24,7 @@ Using the @ sign we can easily refer to this object.
 "nodes": [{
     "nodeName": "example-node",
     "algorithmName": "example-alg",
-    "input": [42, true, "@flowInput.files.links", null, {foo: "bar"}]
+    "input": [42, true, "@flowInput.files.links", null, {"foo": "bar"}]
 }],
 "flowInput": {
     "files": {
@@ -39,7 +39,7 @@ Using the @ sign we can easily refer to this object.
 Now the example algorithm will run with this input:
 
 ```json
-example-alg: [42, true, ["links-1","links-2","links-3"], null, {foo: "bar"}]
+example-alg: [42, true, ["links-1","links-2","links-3"], null, {"foo": "bar"}]
 ```
 
 Or batch
@@ -49,7 +49,7 @@ Or batch
 "nodes": [{
     "nodeName": "example",
     "algorithmName": "example-alg",
-    "input": [42, false, true, "#@flowInput.files.links", null, {foo: "bar"}]
+    "input": [42, false, true, "#@flowInput.files.links", null, {"foo": "bar"}]
 }],
 "flowInput": {
     "files": {
@@ -64,9 +64,9 @@ Or batch
 And the algorithm will run three times with this input:
 
 ```json
-example-alg 1: [42, true, ["links-1"], null, {foo: "bar"}]
-example-alg 2: [42, true, ["links-2"], null, {foo: "bar"}]
-example-alg 3: [42, true, ["links-3"], null, {foo: "bar"}]
+example-alg 1: [42, true, ["links-1"], null, {"foo": "bar"}]
+example-alg 2: [42, true, ["links-2"], null, {"foo": "bar"}]
+example-alg 3: [42, true, ["links-3"], null, {"foo": "bar"}]
 ```
 
 ### Reference
@@ -94,7 +94,7 @@ we can take node output and make it the input of another node.
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/docs/simple-pipeline.png)
+![Diagram](/img/execution/simple-pipeline.png)
 
 
 The blue circle is the **pipeline driver** which responsible for executing nodes with the right order and the right input.  
@@ -136,7 +136,7 @@ This example is exactly like the first one, except the # sign in the input of th
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/docs/simple-batch.png)
+![Diagram](/img/execution/simple-batch.png)
 
 The green node will run as a batch because of the # sign in the input.  
 This pipeline will create three different tasks from type green-alg.  
@@ -151,6 +151,30 @@ green-alg 3: [false, "3"]
 The yellow node will wait until all tasks of the green node will finish.  
 The input of the yellow node will be: [true, green node output].  
 The input of the red node will be: [yellow node output, 512].
+
+### Another Batch Example
+
+```json
+"name": "batch",
+"nodes": [{
+    "nodeName": "green",
+    "algorithmName": "green-alg",
+    "input": ["#[1,2,3]", 2]
+},
+{
+    "nodeName": "yellow",
+    "algorithmName": "yellow-alg",
+    "input": ["#@green", 3]
+},
+{
+    "nodeName": "red",
+    "algorithmName": "red-alg",
+    "input": ["#@yellow", 4]
+}]
+```
+
+The DAG of this pipeline will look like:  
+![Diagram](/img/execution/batch-result2.png) 
 
 ## Batch Tolerance
 
@@ -220,7 +244,7 @@ yellow-alg 3: [false, "C"]
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/docs/batch-result.png)
+![Diagram](/img/execution/batch-result.png)
 
 ### Wait Any
 
@@ -267,31 +291,7 @@ yellow-alg 3: [true, 13]
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/docs/wait-any.png)  
-
-### Another Batch Example
-
-```json
-"name": "batch",
-"nodes": [{
-    "nodeName": "green",
-    "algorithmName": "green-alg",
-    "input": ["#[1,2,3]", 2]
-},
-{
-    "nodeName": "yellow",
-    "algorithmName": "yellow-alg",
-    "input": ["#@green", 3]
-},
-{
-    "nodeName": "red",
-    "algorithmName": "red-alg",
-    "input": ["#@yellow", 4]
-}]
-```
-
-The DAG of this pipeline will look like:  
-![Diagram](/img/docs/batch-result2.png) 
+![Diagram](/img/execution/wait-any.png)  
 
 ### Another Wait Any Example
 
@@ -327,4 +327,4 @@ red-alg 3: [3, 3]
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/docs/double-wait-any.png) 
+![Diagram](/img/execution/double-wait-any.png) 

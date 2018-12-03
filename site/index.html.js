@@ -20,7 +20,7 @@ module.exports = ({ page, section }) =>
 
         <section className="intro">
           <div className="named-logo">
-            <img src="/img/logo.png" />
+            <img src="/img/home/logo.png" />
             <h1>Hkube</h1>
           </div>
 
@@ -64,20 +64,20 @@ POST: /api/v1/exec
           </div>
         </section>
         <div className="buttons-unit">
-          <a className="button" href="/start/">
+          <a className="button" href="/learn/">
             Get Started
           </a>
-          <a className="button" href="/learn/">
+          <a className="button" href="/tutorial/">
             Learn More
           </a>
         </div>
       </div>
     </div>
     <section className="lead">
-      <h1>HPC over kubernetes</h1>
+      <h1>HPC over Kubernetes</h1>
       <p>
         Hkube is a cloud-native open source framework to run distributed pipeline of algorithms built on Kubernetes.
-        Hkube allows running pipelines of algorithms on kubernetes cluster optimally utilizing the available resources,
+        Hkube allows running pipelines of algorithms on Kubernetes cluster optimally utilizing the available resources,
         based on user priorities and AI heuristics.
         </p>
     </section>
@@ -91,7 +91,7 @@ POST: /api/v1/exec
           </p>
       </div>
       <div >
-        <img src="/img/pipeline.png" />
+        <img src="/img/home/pipeline.png" />
       </div>
     </section>
     <div className="grayWash">
@@ -103,7 +103,7 @@ POST: /api/v1/exec
             </p>
         </div>
         <div >
-          <img src="/img/lang-agnostic.png" width="383" height="314" />
+          <img src="/img/home/lang-agnostic.png" width="383" height="314" />
         </div>
       </section>
     </div>
@@ -118,7 +118,7 @@ POST: /api/v1/exec
         </p>
       </div>
       <div >
-        <img src="/img/optimize-hardware.png" width="300" height="300" />
+        <img src="/img/home/optimize-hardware.png" width="300" height="300" />
       </div>
     </section>
 
@@ -133,7 +133,7 @@ POST: /api/v1/exec
             </p>
         </div>
         <div >
-          <img src="/img/api.png" width="496" height="370" />
+          <img src="/img/home/api.png" width="496" height="370" />
         </div>
       </section>
     </div>
@@ -146,7 +146,7 @@ POST: /api/v1/exec
           </p>
       </div>
       <div >
-        <img src="/img/monitor.png" width="496" height="370" />
+        <img src="/img/home/monitor.png" width="496" height="370" />
       </div>
     </section>
 

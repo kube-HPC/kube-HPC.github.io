@@ -83,6 +83,39 @@ h6:hover > .hash-link {
   visibility: visible;
 }
 
+table {
+  display: block;
+  overflow: auto;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
+
+table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+table td, table th {
+  display: table-cell;
+  border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+
 ul, ol {
   margin: 1em 0 1em 2em;
   padding: 0;
@@ -97,7 +130,7 @@ ul ul, ul ol, ol ol, ol ul {
 }
 
 li {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 hr {
@@ -196,10 +229,10 @@ footer {
       padding: 10px;
       width: 50px;
       height: 50px;
-      background: url("/img/logo-gray.png") no-repeat content-box;
+      background: url("/img/home/logo-gray.png") no-repeat content-box;
 
       &:hover, &:focus {
-        background-image: url("/img/logo.png");
+        background-image: url("/img/home/logo.png");
       }
 
       @media screen and (max-width: 740px) {
