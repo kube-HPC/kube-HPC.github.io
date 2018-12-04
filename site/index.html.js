@@ -91,7 +91,7 @@ POST: /api/v1/exec
           </p>
       </div>
       <div >
-        <img src="/img/home/pipeline.png" />
+        <img src="/img/home/pipeline.svg" width="250" height="250" />
       </div>
     </section>
     <div className="grayWash">
