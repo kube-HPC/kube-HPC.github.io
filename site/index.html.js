@@ -20,7 +20,7 @@ module.exports = ({ page, section }) =>
 
         <section className="intro">
           <div className="named-logo">
-            <img src="/img/home/logo.png" />
+            <img src="/img/home/HkubeBlue.svg" />
             <h1>Hkube</h1>
           </div>
 
@@ -103,7 +103,7 @@ POST: /api/v1/exec
             </p>
         </div>
         <div >
-          <img src="/img/home/lang-agnostic.png" width="383" height="314" />
+          <img src="/img/home/container.svg" width="300" height="300" />
         </div>
       </section>
     </div>
@@ -118,7 +118,7 @@ POST: /api/v1/exec
         </p>
       </div>
       <div >
-        <img src="/img/home/optimize-hardware.png" width="300" height="300" />
+        <img src="/img/home/hardware.svg" width="300" height="300"/>
       </div>
     </section>
 
@@ -133,7 +133,7 @@ POST: /api/v1/exec
             </p>
         </div>
         <div >
-          <img src="/img/home/api.png" width="496" height="370" />
+          <img src="/img/home/api.svg" width="300" height="300" />
         </div>
       </section>
     </div>
@@ -146,7 +146,7 @@ POST: /api/v1/exec
           </p>
       </div>
       <div >
-        <img src="/img/home/monitor.png" width="496" height="370" />
+        <img src="/img/home/algorithm.svg" width="300" height="300" />
       </div>
     </section>
 
