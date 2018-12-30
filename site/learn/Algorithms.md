@@ -165,6 +165,8 @@ These events are sent from algorithm to Hkube.
 * [startRawSubPipeline](#event-startrawsubpipeline)
 * [startStoredSubPipeline](#event-startstoredsubpipeline)
 * [stopSubPipeline](#event-stopsubpipeline)
+* [startSpan](#event-startSpan)
+* [finishSpan](#event-finishSpan)
 
 ##### *JSON*
 ```json
@@ -319,6 +321,50 @@ If you want to stop a sub-pipeline (Raw or Stored) from your algorithm, use this
 
 * The "subPipelineId" property holds sub pipeline internal Id in algorithm.
 * The "reason" property enables to put a textual reason for stopping the subpipeline.
+
+### Event: startSpan
+
+To start a tracer span, use this event:
+
+```json
+{
+   "command": "startSpan",
+   "data": {
+      "name": "<span-name>", 
+      "tags": {
+         "<key1>": <value1>,
+         "<key2>": <value2>,
+         ...         
+      }
+   }
+}
+```
+
+* The "name" property is the span name, as displayed in the Jaeger.
+* The optional "tags" object may include more properties to be added to span's tags (in addition to default tags).
+* Note: you can nest multiple spans: startSpan 1, startSpan 2, but then need to finish then in reverse order: finishSpan 2, finishSpan 1.
+
+### Event: finishSpan
+
+To finish the last opened tracer span, use this event:
+
+```json
+{
+   "command": "finishSpan",
+   "data": {
+      "tags": {
+         "<key1>": <value1>,
+         "<key2>": <value2>,
+         ...         
+      },
+      "error": "<error-text>"
+   }
+}
+```
+
+* The optional "tags" object may include more properties to be added to span's tags when finished.
+* The optional "error" property is error message (or object with "message" property, e.g. exception).
+* Note: in case of algorithm error, remember to send finishSpan to all started spans (in reverse order) before sending errorMessage. 
 
 [How To Implement](/algorithms/implement/#handle-errors)
 
