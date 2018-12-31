@@ -165,8 +165,8 @@ These events are sent from algorithm to Hkube.
 * [startRawSubPipeline](#event-startrawsubpipeline)
 * [startStoredSubPipeline](#event-startstoredsubpipeline)
 * [stopSubPipeline](#event-stopsubpipeline)
-* [startSpan](#event-startSpan)
-* [finishSpan](#event-finishSpan)
+* [startSpan](#event-startspan)
+* [finishSpan](#event-finishspan)
 
 ##### *JSON*
 ```json
@@ -322,7 +322,7 @@ If you want to stop a sub-pipeline (Raw or Stored) from your algorithm, use this
 * The "subPipelineId" property holds sub pipeline internal Id in algorithm.
 * The "reason" property enables to put a textual reason for stopping the subpipeline.
 
-### Event: startSpan
+### Event: startspan
 
 To start a tracer span, use this event:
 
@@ -344,7 +344,7 @@ To start a tracer span, use this event:
 * The optional "tags" object may include more properties to be added to span's tags (in addition to default tags).
 * Note: you can nest multiple spans: startSpan 1, startSpan 2, but then need to finish then in reverse order: finishSpan 2, finishSpan 1.
 
-### Event: finishSpan
+### Event: finishspan
 
 To finish the last opened tracer span, use this event:
 
