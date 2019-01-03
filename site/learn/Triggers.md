@@ -28,13 +28,14 @@ If you want to run your pipeline periodically using cron, you just need to add c
  ],
  "triggers": {
      "cron": {
-         "pattern": "20,40 * * * * 0,1,2"
+         "pattern": "20,40 * * * * 0,1,2",
+         "enabled": false
      }
 }
 ```
-
 Now all you need to do is to start your [cron pipeline](/spec/#tag/Cron/paths/~1cron~1start/post).  
-To stop your [cron pipeline](/spec/#tag/Cron/paths/~1cron~1stop/post).
+To stop your [cron pipeline](/spec/#tag/Cron/paths/~1cron~1stop/post). 
+Alternative way to start/stop is to update pipeline descriptor with enabled true/false in this way once pipeline is stored with enabled true/false the cron job start/stop automatically.
 
 ### Pipelines
 
@@ -48,7 +49,7 @@ To stop your [cron pipeline](/spec/#tag/Cron/paths/~1cron~1stop/post).
         "nodeName": "green",
         "algorithmName": "green-alg",
         "input": [1 , true, "hello"]
-      },
+      }
  ]
 ```
 
@@ -64,7 +65,7 @@ Now each time *trigger-1* will run with success, *trigger-2* will run too.
         "nodeName": "green",
         "algorithmName": "green-alg",
         "input": [1 , true, "hello"]
-      },
+      }
  ],
  "triggers": {
      "pipelines": ["trigger-1"] 
@@ -80,7 +81,7 @@ You can create multiple **pipelines** that will trigger this pipeline by creatin
         "nodeName": "green",
         "algorithmName": "green-alg",
         "input": [1 , true, "hello"]
-      },
+      }
  ],
  "triggers": {
      "pipelines": ["trigger-a", "trigger-b", "trigger-c"] 

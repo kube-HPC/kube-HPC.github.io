@@ -3,7 +3,7 @@ title: Input
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/input/
-next: /learn/execution/
+next: /learn/options/
 sublinks: Input Types, Input Order
 ---
 

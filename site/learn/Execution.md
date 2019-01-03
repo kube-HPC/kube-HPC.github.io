@@ -176,40 +176,6 @@ The input of the red node will be: [yellow node output, 512].
 The DAG of this pipeline will look like:  
 ![Diagram](/img/execution/batch-result2.png) 
 
-## Batch Tolerance
-
-The Batch Tolerance is a threshold setting that allow to control in which **percent** from the batch processing the entire pipeline should be fail.  
-In this example we define batch tolerance of 60%, which means that we allow max of 60% from the batch items to be fail. 
-
-```json
-"name": "example-batchTolerance",
-"nodes": [{
-    "nodeName": "green",
-    "algorithmName": "green-alg",
-    "input": ["#[1,2,3,4,5]"]
-},
-{
-    "nodeName": "yellow",
-    "algorithmName": "yellow-alg",
-    "input": ["@green"]
-}],
-"options": {
-    "batchTolerance": 60
-}
-```
-
-Assuming that **Node green** will run and these are the batch items results. 
-
-```json
-green-alg 1: [false, "1"] -> success
-green-alg 2: [false, "2"] -> failed
-green-alg 3: [false, "3"] -> failed
-green-alg 4: [false, "4"] -> failed
-green-alg 5: [false, "5"] -> success
-```
-
-Now the entire pipeline will fail because 3/5 from green node batch items has failed.  
-**Node yellow** will not run in this case.
 
 ### Batch Reference
 
