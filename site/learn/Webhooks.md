@@ -6,6 +6,7 @@ permalink: /learn/webhooks/
 sublinks: Progress, Result
 ---
 
+When you run pipelines, you can register to webhooks in order to get status/results notification.  
 The WebHooks are an HTTP callbacks, the system can send request to the client when something happens.  
 Consider it like push notifications.  
 There are two types of webhooks, progress and result.  

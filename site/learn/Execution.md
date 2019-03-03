@@ -1,5 +1,5 @@
 ---
-title: Execution
+title: Pipeline Execution
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/execution/

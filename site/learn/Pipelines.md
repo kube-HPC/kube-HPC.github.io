@@ -8,7 +8,7 @@ next: /learn/nodes/
 ---
 
 The basic concept behind the Hkube pipeline is [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)  
-Directed Acyclic Graph is a graph consisting of nodes connected  
+Directed Acyclic Graph is a graph consisting of [nodes](/learn/nodes/) connected  
 with edges that have a direction: A -> B -> C.  
 
 ![Diagram](/img/execution/DAG.png)

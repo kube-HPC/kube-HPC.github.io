@@ -3,7 +3,7 @@ title: API
 sidebarTitle: API
 layout: ../_core/DocsLayout
 category: Learn
-permalink: /learn/api
+permalink: /learn/api/
 sublinks: Restful, Cli
 next: /learn/algorithms/
 ---

@@ -8,13 +8,84 @@ permalink: /learn/algorithms/
 next: /learn/pipelines/
 ---
 
-Integrate algorithms into Hkube is quite easy, it's include 3 steps:  
-1) Push the algorithm to docker hub.  
-2) Implement connectivity with Hkube.  
+There are two ways to integrate your algorithm into Hkube:  
+1) No code involves, no WebSocket and no Docker.  
+2) Involves code writing, work with WebSocket and Docker.
+
+## How does it works?
+
+Integrate algorithms into Hkube requires 3 steps:  
+1) Implement connectivity with Hkube using WebSocket.  
+2) Build the algorithm image and push it to Docker registry.  
 3) Add the algorithm to Hkube.
 
+We can do these first two steps for you, so you'll don't have to deal with WebSocket and Docker. The algorithm (your code) needs a way to communicate with Hkube (receive input, report results and errors)   
 Hkube communicate with algorithms via WebSocket because the full-duplex communication support.  
 All messages between Hkube and algorithm are in JSON format.
+
+## The easy way
+
+- No Code involves.
+- No WebSocket.
+- No Docker.
+
+Using the [hkubectl](/learn/api/#cli)  
+> `hkubectl algorithm apply --f algorithm.yml`
+
+Create a basic algorithm yaml/json file
+
+```yaml
+
+name: my-alg
+env: python
+
+resources:
+   cpu: 0.5
+   gpu: 1
+   mem: 512Mi
+
+code:
+   path: /home/user/my-alg.tar.gz
+   entryPoint: main.py
+
+```
+
+- env - for now we only support pytohn, nodejs, jvm.
+- resources - specify cpu, gpu and memory.
+- code.path - the algorithm source code. 
+- code.entryPoint - the location if the algorithm methods.
+
+#### Algorithm methods:  
+Your algorithm must include a method named `start`.  
+> <T any> start(Dictionary<T string, T any> data)
+
+> There are also some optional methods:
+> <T> initialize(Dictionary data)
+> <T> stop(Dictionary data)
+
+The **data** argument contains the following keys:
+
+- input Array<Any>
+- pipelineName <String>
+- algorithmName <String>
+- nodeName <String>
+- jobId <String>
+- taskId <String>
+- info <Object>
+   - extraData <Object>
+   - lastRunResult <Object>
+
+
+If the response contains a buildId, it means that a build was triggered, and you can follow the [build status](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json#/Webhooks/get_webhooks_status__jobId_)
+
+You can do the same using our [API](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json#/StoreAlgorithms/post_store_algorithms)
+
+
+## The long way
+
+- Code involves.
+- Use WebSocket.
+- Use Docker.
 
 ## Events From Hkube to Algorithm
 ---
