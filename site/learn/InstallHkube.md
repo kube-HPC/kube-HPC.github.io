@@ -11,9 +11,10 @@ next: /learn/api/
 ### Prerequisites
 ---
 
-1) Install [Kubernetes](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-1) or [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+1) Install [Kubernetes](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-1) or [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) or [microk8s](https://microk8s.io/)
 
-> Make sure kubectl is configured to your cluster.
+> Make sure kubectl is configured to your cluster.  
+> For collecting algorithm logs, and to create builds, Hkube requires that certain pods will run in privileged security permissions. Consult your kubernetes installation to see how to do that.
 
 
 ## TL;DR;
