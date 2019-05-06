@@ -114,7 +114,7 @@ POST: /api/v1/exec
         <p>
           Hkube Automatically places containers based on their resource requirements and other constraints, while not sacrificing availability.
             Mix critical and best-effort workloads in order to drive up utilization and save even more resources.
-            Hkube has metrics and AI engines that helps learn about your algorithm (like run-time, cpu usage, priority ..) which makes execution and clustering efficiency.
+            Hkube has metrics and AI engines that help learn about your algorithm (like run-time, cpu usage, priority ..) to make efficient execution and clustering.
         </p>
       </div>
       <div >
@@ -127,9 +127,9 @@ POST: /api/v1/exec
         <div className="prose">
           <h2>Simple API</h2>
           <p>
-            Hkube has simple API with a low learning curve: <br />
+            Hkube has a simple API with a low learning curve: <br />
             - CLI for storing algorithms.<br />
-            - Restful API for describe pipeline schema
+            - Restful API to describe pipeline schema
             </p>
         </div>
         <div >

@@ -14,13 +14,13 @@ There are two ways to integrate your algorithm into Hkube:
 
 ## How does it works?
 
-Integrate algorithms into Hkube requires 3 steps:  
+Integrating algorithms into Hkube require 3 steps:  
 1) Implement connectivity with Hkube using WebSocket.  
 2) Build the algorithm image and push it to Docker registry.  
 3) Add the algorithm to Hkube.
 
-We can do these first two steps for you, so you'll don't have to deal with WebSocket and Docker. The algorithm (your code) needs a way to communicate with Hkube (receive input, report results and errors)   
-Hkube communicate with algorithms via WebSocket because the full-duplex communication support.  
+We can do these first two steps for you, so you won't have to deal with WebSocket and Docker. The algorithm (your code) needs a way to communicate with Hkube (receive input, report results and errors)   
+Hkube communicates with algorithms via WebSocket using their full-duplex communication support.  
 All messages between Hkube and algorithm are in JSON format.
 
 ## The easy way
@@ -53,7 +53,7 @@ code:
 - env - for now we only support pytohn, nodejs, jvm.
 - resources - specify cpu, gpu and memory.
 - code.path - the algorithm source code. 
-- code.entryPoint - the location if the algorithm methods.
+- code.entryPoint - the location of the [algorithm methods](#algorithm-methods).
 
 #### Algorithm methods:  
 Your algorithm must include a method named `start`.  
@@ -111,7 +111,7 @@ These events are sent from Hkube to your algorithm.
 
 ### Event: initialize
 
-The first event that sent to the algorithm, sent for every task activation.
+The first event sent to the algorithm, sent for every task activation.
 
 ```json
 {
@@ -121,11 +121,11 @@ The first event that sent to the algorithm, sent for every task activation.
    }
 }
 ```
-> data include input array, same input as written in the [descriptor](/learn/input/)
+> data includes an input array, same input as written in the [descriptor](/learn/input/)
 
 ### Event: start
 
-Event to start the algorithm task
+The event the algorithm task is invoked by
 
 ```json
 {
@@ -133,7 +133,7 @@ Event to start the algorithm task
 }
 ```
 
-> This event include no data
+> This event includes no data
 
 ### Event: stop
 
@@ -147,7 +147,7 @@ Event to abort the running algorithm task
 
 ### Event: exit
 
-Event to exit
+Event invoked before taking the algorithm container down. As best practice, when invoked make the process running the algorithm exit.
 
 ```json
 {
@@ -185,7 +185,7 @@ Event to inform algorithm that sub pipeline (Raw or Stored) has failed.
 ```
 
 * The "subPipelineId" property holds the sub pipeline internal Id in algorithm (as given in startRawSubPipeline/startStoredSubPipeline events).
-* The "error" property holds the error message text from sub pipeline.
+* The "error" property holds the error message text from the sub pipeline.
 
 ### Event: subPipelineDone
 
@@ -254,7 +254,7 @@ These events are sent from algorithm to Hkube.
 
 ### Event: initialized
 
-Response event after initialization complete.  
+Response event after initialization completes.  
 
 ```json
 {
@@ -443,8 +443,8 @@ To finish the last opened tracer span, use this event:
 ## Implement
 ---
 
-Hkube communicate with your algorithm via WebSocket (native WebSocket or socketio).  
-This tutorial explain how to create a websocket client that works with Hkube.
+Hkube communicates with your algorithm via WebSocket (native WebSocket or socketio).  
+This tutorial explains how to create a websocket client that works with Hkube.
 You can implement the websocket client in any language. (PR are welcomed)
 
 * [Connect](#connect)
@@ -458,7 +458,7 @@ You can implement the websocket client in any language. (PR are welcomed)
 
 ## Connect
 
-The first thing your algorithm should do is to create a websocket client that listens to: **ws://localhost:3000**.
+The first thing your algorithm should do is create a websocket client that listens to: **ws://localhost:3000**.
 
 ```hkube-tabs
 # { "hkube": true, "schema": "connect" }
@@ -475,9 +475,9 @@ Each event has a specific handler, as described below.
 
 ## initialize
 
-The initialize event is the first event that Hkube send to your algorithm.  
+The initialize event is the first event that Hkube sends to your algorithm.  
 The payload of this event includes the pipeline data and the input for your algorithm.  
-You need to store the input in local variable for later use.  
+You need to store the input in a local variable for later use.  
 > same input as written in the [descriptor](/learn/input/)
 
 ```hkube-tabs
@@ -486,7 +486,7 @@ You need to store the input in local variable for later use.
 
 ## start
 
-The start event is the second event that Hkube send to your algorithm.  
+The start event is the second event that Hkube sends to your algorithm.  
 As you can see, at the first step of this handler you need to tell Hkube that your algorithm has started.  
 Then you let the algorithm do it's work and finally you send the done event with the algorithm result.
 
