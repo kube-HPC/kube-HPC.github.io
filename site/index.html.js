@@ -10,14 +10,16 @@ module.exports = ({ page, section }) =>
       <Search />
     </section>
 
-    <div id="particles-js" className="hero">
+    <div className="hero">
       <div className="abs">
         <header aria-hidden>
           <section>
             <HeaderLinks section={section} />
           </section>
         </header>
-
+        <video autoPlay muted loop className="backgroundGraphVideo">
+          <source src="/vendor/background_video.mp4"></source>
+        </video>
         <section className="intro">
           <div className="named-logo">
             <img src="/img/home/HkubeBlue.svg" />
@@ -118,7 +120,7 @@ POST: /api/v1/exec
         </p>
       </div>
       <div >
-        <img src="/img/home/hardware.svg" width="300" height="300"/>
+        <img src="/img/home/hardware.svg" width="300" height="300" />
       </div>
     </section>
 
@@ -150,5 +152,4 @@ POST: /api/v1/exec
       </div>
     </section>
 
-    <script type="text/javascript" src="/vendor/particles.min.js"></script>
   </Site>
