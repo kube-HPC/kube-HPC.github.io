@@ -11,15 +11,15 @@ module.exports = ({ page, section }) =>
     </section>
 
     <div className="hero">
+      <video autoPlay muted loop className="backgroundGraphVideo">
+        <source src="/vendor/background_video.mp4"></source>
+      </video>
       <div className="abs">
         <header aria-hidden>
           <section>
             <HeaderLinks section={section} />
           </section>
         </header>
-        <video autoPlay muted loop className="backgroundGraphVideo">
-          <source src="/vendor/background_video.mp4"></source>
-        </video>
         <section className="intro">
           <div className="named-logo">
             <img src="/img/home/HkubeBlue.svg" />

@@ -29,10 +29,10 @@ body.index {
   .hero {
     background: @dark-color;
     @media screen and (min-width: 1020px) {
-      min-height: 450px;
-      max-height: 900px;
-      height: 65vh;
-      margin-top: -50px;
+      //min-height: 450px;
+      //max-height: 900px;
+      height: 70vh;
+      margin-top: -100px;
       padding-top: 50px;
       z-index: 11;
     }
@@ -47,6 +47,16 @@ body.index {
       position: absolute;
       top: 0;
       width: 100%;
+    }
+
+    .backgroundGraphVideo{
+      position: absolute;
+      object-fit: cover;
+      // z-index: -1000;
+      width: 100%;
+      height: 70vh;
+      overflow: hidden;
+      -webkit-border-radius: 1px;
     }
 
     header {
@@ -126,16 +136,6 @@ body.index {
         width: 90px;
         height: 90px;
       }
-    }
-
-    .backgroundGraphVideo{
-      position: absolute;
-      object-fit: cover;
-      z-index: -1000;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      -webkit-border-radius: 1px;
     }
 
     .marketing-col {
