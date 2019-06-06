@@ -4,7 +4,7 @@ var HeaderLinks = require('./_core/HeaderLinks');
 var Prism = require('./_core/Prism');
 var Search = require('./_core/Search');
 
-module.exports = ({ page, section }) =>
+module.exports = ({ page, section }) => (
   <Site className="index" noSearch={true} page={page}>
     <section className="fixedSearch">
       <Search />
@@ -20,8 +20,7 @@ module.exports = ({ page, section }) =>
 
         <section className="intro">
           <div className="named-logo">
-            <img src="/img/home/HkubeBlue.svg" />
-            <h1>Hkube</h1>
+            <img src="/img/home/logo-fish.svg" />
           </div>
 
           <div className="marketing-col">
@@ -77,21 +76,23 @@ POST: /api/v1/exec
     <section className="lead">
       <h1>HPC over Kubernetes</h1>
       <p>
-        Hkube is a cloud-native open source framework to run distributed pipeline of algorithms built on Kubernetes.
-        Hkube allows running pipelines of algorithms on Kubernetes cluster optimally utilizing the available resources,
-        based on user priorities and AI heuristics.
-        </p>
+        Hkube is a cloud-native open source framework to run distributed
+        pipeline of algorithms built on Kubernetes. Hkube allows running
+        pipelines of algorithms on Kubernetes cluster optimally utilizing the
+        available resources, based on user priorities and AI heuristics.
+      </p>
     </section>
     <section className="point1" id="predictable-results">
       <div className="prose">
         <h2>Distributed pipeline of algorithms</h2>
         <p>
-          Hkube receives input DAG graph and automatically parallelizes your algorithms(nodes) over the cluster.
-              you can keep your code simple (even single threaded) and let Hkube worry about
-            the complications of distributed processing.
-          </p>
+          Hkube receives input DAG graph and automatically parallelizes your
+          algorithms(nodes) over the cluster. you can keep your code simple
+          (even single threaded) and let Hkube worry about the complications of
+          distributed processing.
+        </p>
       </div>
-      <div >
+      <div>
         <img src="/img/home/pipeline.svg" width="250" height="250" />
       </div>
     </section>
@@ -100,10 +101,11 @@ POST: /api/v1/exec
         <div className="prose">
           <h2>Language Agnostic</h2>
           <p>
-            Hkube is a container based framework and designed to facilitate the use of any language for your algorithm
-            </p>
+            Hkube is a container based framework and designed to facilitate the
+            use of any language for your algorithm
+          </p>
         </div>
-        <div >
+        <div>
           <img src="/img/home/container.svg" width="300" height="300" />
         </div>
       </section>
@@ -113,12 +115,15 @@ POST: /api/v1/exec
       <div className="prose">
         <h2>Optimize Hardware utilization</h2>
         <p>
-          Hkube Automatically places containers based on their resource requirements and other constraints, while not sacrificing availability.
-            Mix critical and best-effort workloads in order to drive up utilization and save even more resources.
-            Hkube has metrics and AI engines that help learn about your algorithm (like run-time, cpu usage, priority ..) to make efficient execution and clustering.
+          Hkube Automatically places containers based on their resource
+          requirements and other constraints, while not sacrificing
+          availability. Mix critical and best-effort workloads in order to drive
+          up utilization and save even more resources. Hkube has metrics and AI
+          engines that help learn about your algorithm (like run-time, cpu
+          usage, priority ..) to make efficient execution and clustering.
         </p>
       </div>
-      <div >
+      <div>
         <img src="/img/home/hardware.svg" width="300" height="300" />
       </div>
     </section>
@@ -129,11 +134,11 @@ POST: /api/v1/exec
           <h2>Simple API</h2>
           <p>
             Hkube has a simple API with a low learning curve: <br />
-            - CLI for storing algorithms.<br />
-            - Restful API to describe pipeline schema
-            </p>
+            - CLI for storing algorithms.
+            <br />- Restful API to describe pipeline schema
+          </p>
         </div>
-        <div >
+        <div>
           <img src="/img/home/api.svg" width="300" height="300" />
         </div>
       </section>
@@ -142,13 +147,16 @@ POST: /api/v1/exec
       <div className="prose">
         <h2>Algorithm monitoring</h2>
         <p>
-          Hkube lets you quickly and easily understand complex problems over the cluster by CNCF technologies (such as Prometheus, Jaeger and more) for monitoring the cluster.
-          Hkube exposes algorithm logs through stdout and integrates them with Hkube logs to get the whole picture.
-          </p>
+          Hkube lets you quickly and easily understand complex problems over the
+          cluster by CNCF technologies (such as Prometheus, Jaeger and more) for
+          monitoring the cluster. Hkube exposes algorithm logs through stdout
+          and integrates them with Hkube logs to get the whole picture.
+        </p>
       </div>
-      <div >
+      <div>
         <img src="/img/home/algorithm.svg" width="300" height="300" />
       </div>
     </section>
-    <script type="text/javascript" src="/vendor/particles.min.js"></script>
+    <script type="text/javascript" src="/vendor/particles.min.js" />
   </Site>
+);
