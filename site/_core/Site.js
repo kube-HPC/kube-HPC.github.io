@@ -94,10 +94,9 @@ export default ({
             <h5>
               <a href="/dashboard/">Dashboard</a>
             </h5>
-            <a href="/dashboard/#jobs">Jobs</a>
-            <a href="/dashboard/#workers">Workers</a>
-            <a href="/dashboard/#algorithms">Algorithms</a>
-            <a href="/dashboard/#pipelines">Pipelines</a>
+            <a href="/dashboard/#overview">Overview</a>
+            <a href="/dashboard/#tables">Tables</a>
+            <a href="/dashboard/#operations">Operations</a>
           </div>
           <div>
             <h5>
