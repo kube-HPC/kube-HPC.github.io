@@ -10,16 +10,14 @@ module.exports = ({ page, section }) =>
       <Search />
     </section>
 
-    <div className="hero">
-      <video autoPlay muted loop className="backgroundGraphVideo">
-        <source src="/vendor/background_video.mp4"></source>
-      </video>
+    <div id="particles-js" className="hero">
       <div className="abs">
         <header aria-hidden>
           <section>
             <HeaderLinks section={section} />
           </section>
         </header>
+
         <section className="intro">
           <div className="named-logo">
             <img src="/img/home/HkubeBlue.svg" />
@@ -27,28 +25,29 @@ module.exports = ({ page, section }) =>
           </div>
 
           <div className="marketing-col">
-            <h3>Dockerize</h3>
-            <Prism language="docker">
+            <h3>Create Algorithm</h3>
+            <Prism language="yaml">
               {`
- FROM ubuntu
- CMD ["/usr/bin/wc","--help"]
- docker build -t myuser/green-alg .
- docker push <<Repository>>
+name: my-alg
+env: python
+resources:
+   cpu: 0.5
+   mem: 512Mi
 `}
             </Prism>
           </div>
 
           <div className="marketing-col">
             <h3>Create Pipeline</h3>
-            <Prism language="json">
-              {`{
-  "name": "MyPipeline",
-  "nodes": [{
-    "nodeName": "green",
-    "algorithmName": "green-alg",
-    "input": [256, true]
-  }]
-}`}
+            <Prism language="yaml">
+              {`
+name: my-pipeline
+nodes:
+- nodeName: my-node
+  algorithmName: my-alg
+  input:
+  - flowInput.urls
+`}
             </Prism>
           </div>
           <div className="marketing-col">
@@ -151,5 +150,5 @@ POST: /api/v1/exec
         <img src="/img/home/algorithm.svg" width="300" height="300" />
       </div>
     </section>
-
+    <script type="text/javascript" src="/vendor/particles.min.js"></script>
   </Site>

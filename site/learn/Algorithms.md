@@ -35,7 +35,6 @@ Using the [hkubectl](/learn/api/#cli)
 Create a basic algorithm yaml/json file
 
 ```yaml
-
 name: my-alg
 env: python
 
@@ -47,7 +46,6 @@ resources:
 code:
    path: /home/user/my-alg.tar.gz
    entryPoint: main.py
-
 ```
 
 - env - for now we only support pytohn, nodejs, jvm.

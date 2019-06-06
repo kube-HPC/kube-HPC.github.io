@@ -55,7 +55,7 @@ And run it like this.
 
 You can also store the pipeline first.
 
-> `hkubectl pipeline store --f pipeline.yml`
+> `hkubectl pipeline store -f pipeline.yml`
 
 And then run it only by name.
 

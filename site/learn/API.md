@@ -23,16 +23,14 @@ Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubus
 
 #### Download
 
-```
-curl -L https://github.com/kube-HPC/hkubectl/releases/download/v1.1.7/hkubectl.tgz | tar xvz
-sudo cp ./hkubectl /usr/local/bin
+```console
+curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/v1.1.24/hkubectl && chmod +x hkubectl && sudo mv hkubectl /usr/local/bin/
 ```
 
 #### Config
 
-`hkubectl` config set endpoint <KUBERNETES-MASTER-IP>/hkube/api-server/  
+`hkubectl` config set endpoint <KUBERNETES-MASTER-IP>  
 `hkubectl` config set rejectUnauthorized false
-
 
 #### Syntax
 
