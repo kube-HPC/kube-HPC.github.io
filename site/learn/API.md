@@ -12,14 +12,12 @@ Hkube support two types of APIs, Restful and Cli
 
 ### Restful API
 
-Please check out the full Rest API [documentation](http://hkube.io/spec).    
-Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json).  
-
+Please check out the full Rest API [documentation](http://hkube.io/spec).  
+Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json).
 
 ### Cli
 
 `hkubectl` is a command-line tool that help you to work with hkube more easily.
-
 
 #### Download
 
@@ -29,14 +27,15 @@ curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/v1.1.24
 
 #### Config
 
-`hkubectl` config set endpoint <KUBERNETES-MASTER-IP>  
-`hkubectl` config set rejectUnauthorized false
+```console
+ hkubectl config set endpoint https://KUBERNETES-MASTER-IP/api-server
+ hkubectl config set rejectUnauthorized false
+```
 
 #### Syntax
 
 ```
 hkubectl [type] [command] [name]
 ```
-
 
 In the next sections you will learn in details about the pipeline definitions.
