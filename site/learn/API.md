@@ -28,7 +28,7 @@ curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/v1.1.24
 #### Config
 
 ```console
- hkubectl config set endpoint https://KUBERNETES-MASTER-IP/api-server
+ hkubectl config set endpoint https://KUBERNETES-MASTER-IP:PORT/
  hkubectl config set rejectUnauthorized false
 ```
 
