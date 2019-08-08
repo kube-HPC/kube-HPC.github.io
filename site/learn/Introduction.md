@@ -7,13 +7,11 @@ permalink: /learn/
 next: /learn/install/
 ---
 
-# ![HKube](https://user-images.githubusercontent.com/27515937/59049270-4cffa000-8890-11e9-8281-4aa97b1ecca3.png) <!-- omit in toc -->
-
 > HKube is a cloud-native open source framework to run **[distributed](https://en.wikipedia.org/wiki/Distributed_computing) pipeline of algorithms** built on [Kubernetes](https://kubernetes.io/).
 >
 > HKube optimally **utilizing** pipeline's resources, based on **user priorities** and **[heuristics](https://en.wikipedia.org/wiki/Heuristic)**.
 
-## Features <!-- omit in toc -->
+## Features
 
 - **Distributed pipeline of algorithms**
 
@@ -39,10 +37,10 @@ next: /learn/install/
 
 - **Jupyter Integration** - Scale your jupyter running tasks [Jupyter](https://jupyter.org/) with hkube.
 
-## User Guide <!-- omit in toc -->
+## User Guide
 
-<!-- TOC -->
-
+- [Features](#features)
+- [User Guide](#user-guide)
 - [Installation](#installation)
   - [Dependencies](#dependencies)
   - [Helm](#helm)
@@ -125,7 +123,7 @@ There are three ways to communicate with HKube: **Dashboard**, **REST API** and 
 
 [Dashboard](http://hkube.io/tech/dashboard/) is a web-based HKube user interface. Dashboard supports every functionality HKube has to offer.
 
-![ui](https://user-images.githubusercontent.com/27515937/59031674-051b5180-886d-11e9-9806-ecce2e3ba8f0.png)
+![ui](/../img/101/dashboard.png)
 
 ### REST API
 
@@ -216,7 +214,7 @@ The algorithm will wait until all the instances of the `Multiply Algorithm` will
 
 We will **implement the algorithms** using various languages and **construct a pipeline** from them using **HKube**.
 
-![PipelineExample](https://user-images.githubusercontent.com/27515937/59348861-e9a6bf80-8d20-11e9-8d7b-76efedeb669f.png)
+![PipelineExample](/../img/101/pipeline-example-1.png)
 
 #### Pipeline Descriptor
 
@@ -263,7 +261,7 @@ In our case we used:
 
 **(\#@)** — By combining `#` and `@` we can create a batch processing on node results.
 
-![JSON](https://user-images.githubusercontent.com/27515937/59355883-815fda00-8d30-11e9-963c-c13b18caf54e.png)
+![JSON](/../img/101/pipeline-example-2.png)
 
 #### JSON Breakdown
 
@@ -299,7 +297,7 @@ In HKube, the linkage between the nodes is done by defining the algorithm inputs
 
 Keep in mind that HKube will transport the results between the nodes **automatically** for doing it HKube currently support two different types of transportation layers _object storage_ and _files system_.
 
-![Group 4 (3)](https://user-images.githubusercontent.com/27515937/59355963-a3595c80-8d30-11e9-88b0-96084085103e.png)
+![Group 4 (3)](/../img/101/pipeline-example-3.png)
 
 The `flowInput` is the place to define the Pipeline inputs:
 
