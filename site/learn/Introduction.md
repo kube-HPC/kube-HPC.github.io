@@ -4,6 +4,7 @@ sidebarTitle: Hkube 101
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
+sublinks: Features,  Installation ,APIs , API Usage Example , Building a Pipeline ,Algorithm ,Integrate Algorithms ,  Integrate Pipeline ,Monitor Pipeline Results
 next: /learn/install/
 ---
 
@@ -36,39 +37,6 @@ next: /learn/install/
   - Debug a **single algorithm** on your IDE, while the rest of the algorithms running in the cluster.
 
 - **Jupyter Integration** - Scale your jupyter running tasks [Jupyter](https://jupyter.org/) with hkube.
-
-## User Guide
-
-- [Features](#features)
-- [User Guide](#user-guide)
-- [Installation](#installation)
-  - [Dependencies](#dependencies)
-  - [Helm](#helm)
-- [APIs](#apis)
-  - [UI Dashboard](#ui-dashboard)
-  - [REST API](#rest-api)
-  - [CLI](#cli)
-- [API Usage Example](#api-usage-example)
-  - [The Problem](#the-problem)
-  - [Solution](#solution)
-    - [Range Algorithm](#range-algorithm)
-    - [Multiply Algorithm](#multiply-algorithm)
-    - [Reduce Algorithm](#reduce-algorithm)
-  - [Building a Pipeline](#building-a-pipeline)
-    - [Pipeline Descriptor](#pipeline-descriptor)
-    - [Node dependencies](#node-dependencies)
-    - [JSON Breakdown](#json-breakdown)
-    - [Advance Options](#advance-options)
-  - [Algorithm](#algorithm)
-    - [Implementing the Algorithms](#implementing-the-algorithms)
-      - [Range (Python)](#range-python)
-      - [Multiply (Python)](#multiply-python)
-      - [Reduce (Javascript)](#reduce-javascript)
-  - [Integrate Algorithms](#integrate-algorithms)
-  - [Integrate Pipeline](#integrate-pipeline)
-    - [Raw - Ad-hoc pipeline running](#raw---ad-hoc-pipeline-running)
-    - [Stored - Storing the pipeline descriptor for next running](#stored---storing-the-pipeline-descriptor-for-next-running)
-  - [Monitor Pipeline Results](#monitor-pipeline-results)
 
 ## Installation
 
