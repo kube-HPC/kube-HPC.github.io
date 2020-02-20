@@ -4,6 +4,11 @@
 ```export USERNAME=developer```
 - create a project for hkube (hkube in this example)  
 ```export NAMESPACE=hkube```
+### setup helm tiller
+```console
+oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${NAMESPACE}" -p HELM_VERSION=v2.14.3 | oc create -f -
+oc policy add-role-to-user edit "system:serviceaccount:${NAMESPACE}:tiller"
+```
 ### setup required prerequisites as admin
 ```console
 # create CRD object
