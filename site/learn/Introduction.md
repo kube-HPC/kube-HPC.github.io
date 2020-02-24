@@ -44,7 +44,7 @@ next: /learn/install/
 
 HKube runs on top of Kubernetes so in order to run HKube we have to install it's prerequisites.
 
-- **Kubernetes** - Install [Kubernetes](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-1) or [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) or [microk8s](https://microk8s.io/).
+- **Kubernetes** - Install [Kubernetes](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-1) or [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) or [microk8s](https://microk8s.io/).  
 
 - **Helm** - HKube installation uses [Helm](https://helm.sh/), follow the [installation guide](https://helm.sh/docs/using_helm/#installing-helm).
 
@@ -81,7 +81,9 @@ build_secret:
    helm install hkube/hkube  -f ./values.yaml --name my-release
    ```
 
-> This command installs HKube in a minimal configuration for **development**. Check [production-deployment](http://hkube.io/learn/install/#production-deployment).
+> This command installs HKube in a minimal configuration for **development**. Check [production-deployment](http://hkube.io/learn/install/#production-deployment).  
+> Click [here](/learn/install/openshift) for Openshift instructions
+
 
 ## APIs
 

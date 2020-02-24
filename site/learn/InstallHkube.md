@@ -14,8 +14,9 @@ next: /learn/api/
 1) Install [Kubernetes](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-1) or [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) or [microk8s](https://microk8s.io/)
 
 > Make sure kubectl is configured to your cluster.  
-> For collecting algorithm logs, and to create builds, Hkube requires that certain pods will run in privileged security permissions. Consult your kubernetes installation to see how to do that.
+> For collecting algorithm logs, and to create builds, Hkube requires that certain pods will run in privileged security permissions. Consult your kubernetes installation to see how to do that.  
 
+Click [here](/learn/install/openshift) for Openshift instructions
 
 ## TL;DR;
 
