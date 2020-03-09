@@ -68,7 +68,7 @@ controller:
   image:
     repository: quay.io/kubernetes-ingress-controller/nginx-ingress-controller
     pullPolicy: IfNotPresent
-    runAsUser: 1000140000
+    runAsUser: 1000170000
     allowPrivilegeEscalation: false
   containerPort:
     http: 8080
@@ -111,7 +111,7 @@ controller:
     enabled: true
 defaultBackend:
   image:
-    runAsUser: 1000140000
+    runAsUser: 1000170000
   service:
     servicePort: 8080 
 EOF
