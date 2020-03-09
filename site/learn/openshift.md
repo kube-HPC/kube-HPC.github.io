@@ -121,6 +121,7 @@ EOF
 ```console
 helm install --name nginx -f ./nginx-values.yaml hkube/nginx-ingress
 ```
+4. create a route for the nginx service (nginx-nginx-ingress-controller)
 
 ### Install HKube
 
