@@ -155,11 +155,12 @@ build_secret:
   docker_namespace: username
   docker_username: username
   docker_password: password
-
+algorithm_operator:
+  build_mode: openshift
 # needed for single node (testing)  
-thirdparty:
-  redis-ha:
-    hardAntiAffinity: false
+#thirdparty:
+#  redis-ha:
+#    hardAntiAffinity: false
 EOF
 ```
 
