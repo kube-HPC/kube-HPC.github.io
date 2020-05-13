@@ -523,3 +523,8 @@ This is a simple handler for send response back to Hkube.
 ```hkube-tabs
 # { "hkube": true, "schema": "send-event" }
 ```
+
+## Monitoring Metrics
+Algorithms using Tensorflow can generate metrics for a Tenosrboard view. Later upon request, a Tensorboard webserver will start, serving a dashboard comparing different runs of the algorithm.
+To allow hkube to display your algorithms Tesorboard metrics: In the algorithm code, write your Tensorboard metrics to a folder path set as environment variable ALGO_METRICS_DIR value. 
+To run Tesorboard: In Hkube spec find 'board' api to start a tensorboard web server, visualizing the tensor metrics.
