@@ -21,13 +21,14 @@ helm repo add hkube http://hkube.io/helm/
 - set env for username (developer in this example)  
 ```export USERNAME=developer```
 - create a project for hkube (hkube in this example)  
-```export NAMESPACE=hkube```
-```export TILLER_NAMESPACE=hkube```
+- create a project for tiller (tiller in this example)  
+```export NAMESPACE=hkube```  
+```export TILLER_NAMESPACE=tiller```  
 
 ### setup helm tiller
 ```console
-oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${NAMESPACE}" -p HELM_VERSION=v2.14.3 | oc create -f -
-oc policy add-role-to-user admin "system:serviceaccount:${NAMESPACE}:tiller"
+oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.14.3 | oc create -f -
+oc policy add-role-to-user admin "system:serviceaccount:${TILLER_NAMESPACE}:tiller"
 ```
 
 ### setup required prerequisites as admin
@@ -51,9 +52,10 @@ spec:
   version: v1beta2
 EOF
 # add role for needed permissions and bind it to the user 
-oc create role hkube-installer-role --verb=create,get,list,watch,update,patch,delete,deletecollection --resource=etcdclusters.etcd.database.coreos.com,events,ingresses.extensions -n $NAMESPACE
+oc create clusterrole hkube-installer-role --verb=create,get,list,watch,update,patch,delete,deletecollection --resource=etcdclusters.etcd.database.coreos.com,events,ingresses.extensions
 oc adm policy add-role-to-user hkube-installer-role $USERNAME --role-namespace=$NAMESPACE -n $NAMESPACE
-oc adm policy add-role-to-user hkube-installer-role "system:serviceaccount:${NAMESPACE}:tiller" --role-namespace=$NAMESPACE -n $NAMESPACE
+oc adm policy add-role-to-user hkube-installer-role "system:serviceaccount:${TILLER_NAMESPACE}:tiller" -n $TILLER_NAMESPACE
+oc adm policy add-role-to-user hkube-installer-role "system:serviceaccount:${TILLER_NAMESPACE}:tiller" -n $NAMESPACE
 ```
 
 ### Install nginx ingress controller
@@ -68,7 +70,7 @@ controller:
   image:
     repository: quay.io/kubernetes-ingress-controller/nginx-ingress-controller
     pullPolicy: IfNotPresent
-    runAsUser: 1000140000
+    runAsUser: 1000170000
     allowPrivilegeEscalation: false
   containerPort:
     http: 8080
@@ -111,7 +113,7 @@ controller:
     enabled: true
 defaultBackend:
   image:
-    runAsUser: 1000140000
+    runAsUser: 1000170000
   service:
     servicePort: 8080 
 EOF
@@ -147,14 +149,16 @@ global:
          capacity: '50Gi'
          # pv_name: pv0100
          # storage_class: ''
+         # nfs_server: '172.31.20.233'
+         # nfs_root: '/var/nfs/hkube'
       base_directory: '/hkubedata'
   ingress:
     use_regex: true      
 build_secret:
   docker_registry: ''
-  docker_namespace: username
-  docker_username: username
-  docker_password: password
+  docker_namespace: ''
+  docker_username: my_docker_username
+  docker_password: my_docker_password
 algorithm_operator:
   build_mode: openshift
 # needed for single node (testing)  
