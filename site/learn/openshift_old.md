@@ -3,34 +3,59 @@ title: Openshift Install
 sidebarTitle: Install Hkube
 layout: ../_core/DocsLayout
 category: Learn
-permalink: /learn/install/openshift
+permalink: /learn/install/openshift/before_v1.2.189/
 sublinks: Prerequisites
 next: /learn/api/
 ---
 
 ## HKube over OpenShift
-These instructions has been tested with Openshift 4.4 and 3.11  
-Tested with HKube version **1.2.189**. For versions prior to that see [old instructions](./before_v1.2.189)  
-The openshift cluster need to support dynamic storage provisioning
-
 ### pre-reqs
-These instructions are for helm v3.  
+
 1. add hkube helm repo
+
 ```console
 helm repo add hkube http://hkube.io/helm/
 ```
-2. set env for username (developer in this example)  
+
+### general setup
+- set env for username (developer in this example)  
 ```export USERNAME=developer```
-3. create a project for hkube (hkube in this example)  
+- create a project for hkube (hkube in this example)  
+- create a project for tiller (tiller in this example)  
 ```export NAMESPACE=hkube```  
+```export TILLER_NAMESPACE=tiller```  
+
+### setup helm tiller
+```console
+oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.14.3 | oc create -f -
+oc policy add-role-to-user admin "system:serviceaccount:${TILLER_NAMESPACE}:tiller"
+```
 
 ### setup required prerequisites as admin
 ```console
+# create CRD object
+cat <<EOF | kubectl apply -f -
+apiVersion: "apiextensions.k8s.io/v1beta1"
+kind: CustomResourceDefinition
+metadata:
+  name: etcdclusters.etcd.database.coreos.com
+spec:
+  group: etcd.database.coreos.com
+  names:
+    kind: EtcdCluster
+    listKind: EtcdClusterList
+    plural: etcdclusters
+    shortNames:
+    - etcd
+    singular: etcdcluster
+  scope: Namespaced
+  version: v1beta2
+EOF
 # add role for needed permissions and bind it to the user 
-oc create clusterrole hkube-installer-role \
---verb=create,get,list,watch,update,patch,delete,deletecollection \
---resource=events,ingresses.extensions,ingresses.networking.k8s.io,ingresses.extensions/status,ingresses.networking.k8s.io/status
-oc adm policy add-role-to-user hkube-installer-role $USERNAME -n $NAMESPACE
+oc create clusterrole hkube-installer-role --verb=create,get,list,watch,update,patch,delete,deletecollection --resource=etcdclusters.etcd.database.coreos.com,events,ingresses.extensions
+oc adm policy add-role-to-user hkube-installer-role $USERNAME --role-namespace=$NAMESPACE -n $NAMESPACE
+oc adm policy add-role-to-user hkube-installer-role "system:serviceaccount:${TILLER_NAMESPACE}:tiller" -n $TILLER_NAMESPACE
+oc adm policy add-role-to-user hkube-installer-role "system:serviceaccount:${TILLER_NAMESPACE}:tiller" -n $NAMESPACE
 ```
 
 ### Install nginx ingress controller
@@ -38,11 +63,6 @@ Installing nginx-ingress-controller in openshift without admin requires a few pr
 
 1. create a pvc named ```nginx-pvc-tmp``` in the openshift console. any size will do
 2. Create nginx-values.yaml
-Note that the userUd value needs to match the valid UID in your project. Get the valid UID:  
-```console
-export VALID_UID=$(oc get project hkube2 -o yaml |grep "openshift.io/sa.scc.uid-range:" | awk -F:  '{print $2}' | awk -F/ '{print $1}')
-echo $VALID_UID
-```
 
 ```console
 cat <<EOF >nginx-values.yaml
@@ -50,7 +70,7 @@ controller:
   image:
     repository: quay.io/kubernetes-ingress-controller/nginx-ingress-controller
     pullPolicy: IfNotPresent
-    runAsUser: $VALID_UID
+    runAsUser: 1000170000
     allowPrivilegeEscalation: false
   containerPort:
     http: 8080
@@ -58,8 +78,7 @@ controller:
   service:
     ports:
       http: 8080
-      https: 6443
-    type: ClusterIP  
+      https: 6443    
   extraArgs: 
     http-port: 8080
     https-port: 6443
@@ -94,7 +113,7 @@ controller:
     enabled: true
 defaultBackend:
   image:
-    runAsUser: $VALID_UID
+    runAsUser: 1000170000
   service:
     servicePort: 8080 
 EOF
@@ -102,18 +121,13 @@ EOF
 3. install nginx
 
 ```console
-helm install nginx -f ./nginx-values.yaml hkube/nginx-ingress
+helm install --name nginx -f ./nginx-values.yaml hkube/nginx-ingress
 ```
 4. create a route for the nginx service (nginx-nginx-ingress-controller)
 
 ### Install HKube
 
 1. create values file for install
-Create some environment variables with user data
-```console
-export DOCKER_USERNAME=docker_username
-export DOCKER_PASSWORD=docker_password
-```
 
 ```console
 cat <<EOF >hkube-values.yaml
@@ -134,34 +148,30 @@ global:
       pvc: 
          name: 'hkube-storage'
          capacity: '50Gi'
-         storage_class: ''
+         # pv_name: pv0100
+         # storage_class: ''
+         # nfs_server: '172.31.20.233'
+         # nfs_root: '/var/nfs/hkube'
       base_directory: '/hkubedata'
   ingress:
-    use_regex: true
-    requireTls: false
+    use_regex: true      
 build_secret:
   docker_registry: ''
   docker_namespace: ''
-  docker_username: $DOCKER_USERNAME
-  docker_password: $DOCKER_PASSWORD
-etcd:
-  persistentVolume:
-    storageClass: ''
-minio:
-  enable: false
+  docker_username: my_docker_username
+  docker_password: my_docker_password
 algorithm_operator:
   build_mode: openshift
-# needed for single node (testing) 
+# needed for single node (testing)  
 #thirdparty:
 #  redis-ha:
 #    hardAntiAffinity: false
 EOF
 ```
 
-2. install hkube
+2. create pv for hkube and set the name above (or define default storage class)
+3. install hkube
 
 ```console
-helm install hkube -f hkube-values.yaml hkube/hkube
+helm install --name hkube -f hkube-values.yaml hkube/hkube
 ```
-
-> note: there is an issue with jaeger tracing on openshift. Currently it will not work
