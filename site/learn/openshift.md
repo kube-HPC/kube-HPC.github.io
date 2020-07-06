@@ -32,7 +32,7 @@ oc create clusterrole hkube-installer-role \
 --resource=events,ingresses.extensions,ingresses.networking.k8s.io,ingresses.extensions/status,ingresses.networking.k8s.io/status
 oc adm policy add-role-to-user hkube-installer-role $USERNAME -n $NAMESPACE
 ```
-
+note: if kubernetes version < 1.14 remove `ingresses.networking.k8s.io` from above command
 ### Install nginx ingress controller
 Installing nginx-ingress-controller in openshift without admin requires a few prelimiary steps  
 
