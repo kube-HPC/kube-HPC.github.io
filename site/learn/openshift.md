@@ -40,7 +40,7 @@ Installing nginx-ingress-controller in openshift without admin requires a few pr
 2. Create nginx-values.yaml
 Note that the userUd value needs to match the valid UID in your project. Get the valid UID:  
 ```console
-export VALID_UID=$(oc get project hkube2 -o yaml |grep "openshift.io/sa.scc.uid-range:" | awk -F:  '{print $2}' | awk -F/ '{print $1}')
+export VALID_UID=$(oc get project ${NAMESPACE} -o yaml |grep "openshift.io/sa.scc.uid-range:" | awk -F:  '{print $2}' | awk -F/ '{print $1}')
 echo $VALID_UID
 ```
 
