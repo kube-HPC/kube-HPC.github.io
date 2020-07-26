@@ -1,6 +1,10 @@
 @import "variables.less";
 
 // Index page uses a fixed header with an overlay
+body {
+  font-size: 14pt;
+}
+
 body.index {
   background: #f5f6f8;
   @media screen and (min-width: 1020px) {
@@ -141,7 +145,7 @@ body.index {
 
       h3 {
         color: white;
-        margin: 0 0 1em;
+        margin: 0;
         line-height: 1;
         white-space: pre;
       }
@@ -225,10 +229,10 @@ body.index {
   }
 
   section.lead {
-    .body-font(22px);
+    .body-font(1.2em);
     text-align: center;
-    max-width: 760px;
-    padding-top: 6em;
+    max-width: 65ch;
+    padding-top: 2em;
   }
 
   .grayWash {
@@ -292,7 +296,7 @@ body.index {
       justify-content: space-between;
     }
     .prose {
-      max-width: 75ch;
+      max-width: 60ch;
       min-width: 45ch;
     }
   }
