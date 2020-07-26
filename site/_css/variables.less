@@ -3,15 +3,23 @@
 @text-color: #202020;
 
 .headline-font(@size: 48px, @color: @text-color) {
-  font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  color: @color;
+  font-size: @size;
+  line-height: @size * 1.4;
+}
+
+.section-header-font(@size: 48px, @color: @text-color) {
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
   color: @color;
   font-size: @size;
   line-height: @size * 1.4;
 }
 
 .body-font(@size: 18px, @color: @text-color) {
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   color: @color;
   font-size: @size;
@@ -19,9 +27,17 @@
 }
 
 .code-font(@size: 13px, @color: @text-color) {
-  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
+  font-family: "Fira Mono", Menlo, Monaco, monospace;
   font-weight: 400;
   color: @color;
   font-size: @size;
   line-height: @size * 17/13;
+}
+
+.nav-font(@size: 13px, @color: @text-color) {
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: @color;
+  font-size: @size;
+  line-height: @size * 1.6;
 }
