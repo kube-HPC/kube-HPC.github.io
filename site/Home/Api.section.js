@@ -12,12 +12,7 @@ const Api = () => (
         </p>
       </div>
       <div>
-        <img
-          className="section-image"
-          src="/img/home/api.svg"
-          width="300"
-          height="300"
-        />
+        <img className="section-image" src="/img/home/api.svg" />
       </div>
     </section>
   </div>

@@ -12,12 +12,7 @@ const Monitoring = () => (
       </p>
     </div>
     <div>
-      <img
-        className="section-image"
-        src="/img/home/algorithm.svg"
-        width="300"
-        height="300"
-      />
+      <img className="section-image" src="/img/home/monitoring.svg" />
     </div>
   </section>
 );

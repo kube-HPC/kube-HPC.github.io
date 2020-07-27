@@ -14,12 +14,7 @@ const HardwareUtilization = () => (
       </p>
     </div>
     <div>
-      <img
-        className="section-image"
-        src="/img/home/hardware.svg"
-        width="300"
-        height="300"
-      />
+      <img className="section-image" src="/img/home/hardware.svg" />
     </div>
   </section>
 );

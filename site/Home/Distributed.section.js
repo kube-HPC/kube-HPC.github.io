@@ -12,12 +12,7 @@ const Distributed = () => (
       </p>
     </div>
     <div>
-      <img
-        className="section-image"
-        src="/img/home/pipeline.svg"
-        width="250"
-        height="250"
-      />
+      <img className="section-image" src="/img/home/pipeline.svg" />
     </div>
   </section>
 );

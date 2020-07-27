@@ -11,12 +11,7 @@ const LanguageAgnostic = () => (
         </p>
       </div>
       <div>
-        <img
-          className="section-image"
-          src="/img/home/container.svg"
-          width="300"
-          height="300"
-        />
+        <img className="section-image" src="/img/home/container.svg" />
       </div>
     </section>
   </div>

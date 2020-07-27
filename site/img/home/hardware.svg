@@ -1,29 +1,51 @@
-<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M400 56H80C66.7461 56 56 66.7461 56 80V400C56 413.254 66.7461 424 80 424H400C413.254 424 424 413.254 424 400V80C424 66.7461 413.254 56 400 56ZM392 392H88V88H392V392Z" fill="#57A4FF"/>
-<path d="M376 104H104V376H376V104ZM136 160C136 146.746 146.746 136 160 136C173.254 136 184 146.746 184 160C184 173.254 173.254 184 160 184C146.746 184 136 173.254 136 160ZM160 264H224V280H160V264ZM168 360H152V328H168V360ZM200 360H184V328H200V360ZM232 360H216V328H232V360ZM264 360H248V328H264V360ZM240 280V264H256V280H240ZM296 360H280V328H296V360ZM304 248H160V232H304V248ZM328 360H312V328H328V360ZM336 248H320V232H336V248ZM336 216H160V200H336V216Z" fill="#909090"/>
-<path d="M168 160C168 164.418 164.418 168 160 168C155.582 168 152 164.418 152 160C152 155.582 155.582 152 160 152C164.418 152 168 155.582 168 160Z" fill="black"/>
-<path d="M0 160H40V176H0V160Z" fill="#909090"/>
-<path d="M0 208H40V224H0V208Z" fill="#909090"/>
-<path d="M0 112H40V128H0V112Z" fill="#909090"/>
-<path d="M208 0H224V40H208V0Z" fill="#909090"/>
-<path d="M0 256H40V272H0V256Z" fill="#909090"/>
-<path d="M112 0H128V40H112V0Z" fill="#909090"/>
-<path d="M160 0H176V40H160V0Z" fill="#909090"/>
-<path d="M208 440H224V480H208V440Z" fill="#909090"/>
-<path d="M0 304H40V320H0V304Z" fill="#909090"/>
-<path d="M160 440H176V480H160V440Z" fill="#909090"/>
-<path d="M0 352H40V368H0V352Z" fill="#909090"/>
-<path d="M112 440H128V480H112V440Z" fill="#909090"/>
-<path d="M440 208H480V224H440V208Z" fill="#909090"/>
-<path d="M440 256H480V272H440V256Z" fill="#909090"/>
-<path d="M256 0H272V40H256V0Z" fill="#909090"/>
-<path d="M440 352H480V368H440V352Z" fill="#909090"/>
-<path d="M304 440H320V480H304V440Z" fill="#909090"/>
-<path d="M256 440H272V480H256V440Z" fill="#909090"/>
-<path d="M440 160H480V176H440V160Z" fill="#909090"/>
-<path d="M440 304H480V320H440V304Z" fill="#909090"/>
-<path d="M352 0H368V40H352V0Z" fill="#909090"/>
-<path d="M304 0H320V40H304V0Z" fill="#909090"/>
-<path d="M352 440H368V480H352V440Z" fill="#909090"/>
-<path d="M440 112H480V128H440V112Z" fill="#909090"/>
+<svg width="911" height="573" viewBox="0 0 911 573" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M215 207H255V223H215V207Z" fill="#C4C4C4" />
+  <path d="M215 255H255V271H215V255Z" fill="#C4C4C4" />
+  <path d="M215 159H255V175H215V159Z" fill="#C4C4C4" />
+  <path d="M423 47H439V87H423V47Z" fill="#C4C4C4" />
+  <path d="M215 303H255V319H215V303Z" fill="#C4C4C4" />
+  <path d="M327 47H343V87H327V47Z" fill="#C4C4C4" />
+  <path d="M375 47H391V87H375V47Z" fill="#C4C4C4" />
+  <path d="M423 487H439V527H423V487Z" fill="#C4C4C4" />
+  <path d="M215 351H255V367H215V351Z" fill="#C4C4C4" />
+  <path d="M375 487H391V527H375V487Z" fill="#C4C4C4" />
+  <path d="M215 399H255V415H215V399Z" fill="#C4C4C4" />
+  <path d="M327 487H343V527H327V487Z" fill="#C4C4C4" />
+  <path d="M655 255H695V271H655V255Z" fill="#C4C4C4" />
+  <path d="M655 303H695V319H655V303Z" fill="#C4C4C4" />
+  <path d="M471 47H487V87H471V47Z" fill="#C4C4C4" />
+  <path d="M655 399H695V415H655V399Z" fill="#C4C4C4" />
+  <path d="M519 487H535V527H519V487Z" fill="#C4C4C4" />
+  <path d="M471 487H487V527H471V487Z" fill="#C4C4C4" />
+  <path d="M655 207H695V223H655V207Z" fill="#C4C4C4" />
+  <path d="M655 351H695V367H655V351Z" fill="#C4C4C4" />
+  <path d="M567 47H583V87H567V47Z" fill="#C4C4C4" />
+  <path d="M519 47H535V87H519V47Z" fill="#C4C4C4" />
+  <path d="M567 487H583V527H567V487Z" fill="#C4C4C4" />
+  <path d="M655 159H695V175H655V159Z" fill="#C4C4C4" />
+  <g filter="url(#filter0_d)">
+    <rect x="287" y="118" width="336" height="337" rx="25" stroke="#326EE6" stroke-width="31" />
+    <rect x="287" y="118" width="336" height="337" rx="25" stroke="url(#paint0_linear)" stroke-width="31" />
+  </g>
+  <path d="M591 157C591 153.686 588.314 151 585 151H325C321.686 151 319 153.686 319 157V417C319 420.314 321.686 423 325 423H585C588.314 423 591 420.314 591 417V157Z" fill="#656565" />
+  <rect x="343" y="175" width="135" height="20" fill="#F5F6F8" />
+  <rect x="343" y="336" width="208" height="15" fill="#F5F6F8" />
+  <rect x="343" y="360" width="176" height="15" fill="#F5F6F8" />
+  <rect x="343" y="384" width="144" height="15" fill="#F5F6F8" />
+  <defs>
+    <filter id="filter0_d" x="259.5" y="90.5" width="391" height="392" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+      <feMorphology radius="2" operator="dilate" in="SourceAlpha" result="effect1_dropShadow" />
+      <feOffset />
+      <feGaussianBlur stdDeviation="5" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+    </filter>
+    <linearGradient id="paint0_linear" x1="761.5" y1="606" x2="63.5" y2="-139.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2DA8E6" />
+      <stop offset="1" stop-color="white" stop-opacity="0" />
+    </linearGradient>
+  </defs>
 </svg>
