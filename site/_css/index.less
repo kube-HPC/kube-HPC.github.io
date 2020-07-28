@@ -35,7 +35,13 @@ body.index {
     .body-font(1.2em);
     text-align: center;
     max-width: 65ch;
-    padding-top: 2em;
+    padding: 2em 0;
+  }
+
+  .home-section-content {
+    @media screen and (max-width: @desktop-size) {
+      padding: 0 1em;
+    }
   }
 
   .grayWash {

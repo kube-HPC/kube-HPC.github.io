@@ -3,7 +3,7 @@ const React = require("react");
 const HPC = () => (
   <section className="lead">
     <h1>HPC over Kubernetes</h1>
-    <p>
+    <p className="home-section-content">
       Hkube is a cloud-native open-source framework to run a distributed
       pipeline of algorithms built on Kubernetes. Hkube allows running pipelines
       of algorithms on Kubernetes cluster optimally utilizing the available
