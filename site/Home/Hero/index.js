@@ -17,13 +17,15 @@ const Hero = ({ section }) => (
   <div className="hero">
     <div id="particles-js" />
     <script type="text/javascript" src="/vendor/particles.min.js" />
-    <div className="named-logo">
-      <img src="/img/home/logo-fish.svg" />
+    <div className="hero-content">
+      <div className="named-logo">
+        <img src="/img/home/logo-fish.svg" />
+      </div>
+      <div className="hero-body">
+        <HeroColumns />
+      </div>
     </div>
-    <div className="hero-body">
-      <HeroColumns />
-      <HeroButtons />
-    </div>
+    <HeroButtons />
     <div className="abs">
       <header aria-hidden className="hero-nav">
         <section>

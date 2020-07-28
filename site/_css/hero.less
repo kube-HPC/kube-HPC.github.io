@@ -26,7 +26,7 @@
   clip: rect(0, auto, auto, 0);
 
   @media screen and (min-width: @desktop-size) {
-    flex-direction: row;
+    // flex-direction: row;
     position: relative;
     max-height: 60vh;
     min-height: 25em;
@@ -117,9 +117,11 @@
     animation-fill-mode: both;
     margin-right: 0;
     margin-top: 0;
+    margin-left: -5ch;
     @media screen and (max-width: @desktop-size) {
       margin-top: 3em;
       margin-right: 2ch;
+      margin-left: 0;
     }
 
     h1 {
@@ -218,6 +220,15 @@
       transform: none;
     }
   }
+  .hero-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @media screen and (min-width: @desktop-size) {
+      margin-top: 5em;
+      flex-direction: row;
+    }
+  }
 
   .hero-body {
     pointer-events: none;
@@ -232,11 +243,11 @@
     animation: fade 1.3s 1.4s ease-in-out both;
     animation-delay: 0.5s;
     width: 100%;
-    margin-top: 2em;
+    margin: 2em 0;
 
     @media screen and (min-width: @desktop-size) {
       // margin-top: -3.25em;
-      text-align: left;
+      text-align: center;
     }
     @media screen and (max-width: 1019px) {
       padding: 1em 0 2em;
@@ -245,8 +256,7 @@
 
     .button {
       pointer-events: all;
-
-      .headline-font(@size: 17px, @color: white);
+      .button-font(@size: 17px, @color: white);
       border: solid 1px fadeout(white, 60%);
       border-radius: 6px;
       line-height: 1;
