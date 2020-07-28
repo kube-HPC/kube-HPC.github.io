@@ -1,7 +1,7 @@
-var React = require('react');
-var HeaderLinks = require('./HeaderLinks');
-var Search = require('./Search');
-var SiteData = require('./SiteData');
+var React = require("react");
+var HeaderLinks = require("./HeaderLinks");
+var Search = require("./Search");
+var SiteData = require("./SiteData");
 
 export default ({
   page,
@@ -10,7 +10,7 @@ export default ({
   section,
   className,
   noSearch,
-  children
+  children,
 }) => (
   <html>
     <head>
@@ -18,7 +18,7 @@ export default ({
       <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       <title>
         {title
-          ? `${title} | ${category || 'Hkube'}`
+          ? `${title} | ${category || "Hkube"}`
           : `Hkube | ${SiteData.description}`}
       </title>
       <meta name="viewport" content="width=640" />
@@ -58,7 +58,7 @@ export default ({
       />
     </head>
     <body className={className}>
-      <header>
+      <header className="nav-header">
         <section>
           <a className="nav-home" href="/">
             <img className="nav-logo" src="/img/home/top-logo.svg" />
@@ -121,7 +121,7 @@ export default ({
         <section className="copyright">
           Copyright &copy;
           <span>
-            <script>document.write(new Date().getFullYear())</script>{' '}
+            <script>document.write(new Date().getFullYear())</script>{" "}
           </span>
           <noscript>2018</noscript>
           Hkube. MIT
@@ -141,7 +141,7 @@ export default ({
           inputSelector: '#algolia-search-input',
           debug: false
         });
-      `
+      `,
         }}
       />
 
@@ -156,7 +156,7 @@ export default ({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'UA-118778729-1');
-      `
+      `,
         }}
       />
     </body>

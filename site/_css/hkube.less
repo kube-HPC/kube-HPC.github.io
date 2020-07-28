@@ -188,7 +188,7 @@ header {
 }
 
 nav {
-  @media screen and (min-width: 1020px) {
+  @media screen and (min-width: @desktop-size) {
     float: left;
   }
   @media screen and (max-width: 1019px) {
@@ -248,7 +248,7 @@ footer {
         background-image: url("/img/home/top-logo.svg");
       }
 
-      @media screen and (max-width: 740px) {
+      @media screen and (max-width: @tablet-size) {
         display: none;
       }
     }

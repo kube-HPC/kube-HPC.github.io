@@ -7,13 +7,13 @@ body {
 
 body.index {
   background: #f5f6f8;
-  @media screen and (min-width: 1020px) {
+  @media screen and (min-width: @desktop-size) {
     margin-top: 50px;
   }
 
   header {
     display: none;
-    @media screen and (min-width: 1020px) {
+    @media screen and (min-width: @desktop-size) {
       display: block;
       position: fixed;
       top: 0;
@@ -22,205 +22,8 @@ body.index {
     }
   }
 
-  .fixedSearch {
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 12;
-    pointer-events: none;
-  }
-
-  .hero {
-    background: @dark-color;
-    @media screen and (min-width: 1020px) {
-      min-height: 450px;
-      max-height: 900px;
-      height: 65vh;
-      margin-top: -50px;
-      padding-top: 50px;
-      z-index: 11;
-    }
-    position: relative;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    &::before {
-      // background: url("/img/graph-wash.png") repeat center center;
-      content: "";
-      height: 100%;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-
-    header {
-      background: linear-gradient(
-        fadeout(@dark-color, 20%),
-        fadeout(@dark-color, 100%)
-      );
-      box-shadow: none;
-      display: block;
-      @media screen and (min-width: 1020px) {
-        min-height: 80px;
-        max-height: 160px;
-        height: 13vh;
-      }
-
-      nav > a {
-        text-shadow: 0 1px 1px @dark-color, 0 0 3px @dark-color;
-
-        &:hover,
-        &:focus {
-          color: white;
-        }
-
-        &:first-child {
-          @media screen and (min-width: 1020px) {
-            margin-left: -1em;
-          }
-        }
-      }
-    }
-
-    .abs {
-      position: relative;
-      @media screen and (min-width: 1020px) {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        clip: rect(0, auto, auto, 0);
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-    }
-
-    .intro {
-      clear: both;
-      display: flex;
-      max-width: 1070px;
-
-      flex-direction: column;
-      @media screen and (min-width: 1020px) {
-        margin-top: -3%;
-        flex-direction: row;
-      }
-    }
-
-    .named-logo {
-      text-align: center;
-      animation: fade 0.8s ease-in-out;
-      animation-fill-mode: both;
-      margin-right: 18px;
-
-      h1 {
-        color: @hkube-color;
-        margin: 0;
-        margin-top: 0.25em;
-        font-size: 30px;
-        line-height: 1;
-      }
-
-      img {
-        margin: 0 auto;
-        display: block;
-        width: 300px;
-      }
-    }
-
-    .marketing-col {
-      flex: 1;
-      padding: 0 18px;
-      margin: 20px 18px;
-      @media screen and (min-width: 1020px) {
-        margin: 3px 18px;
-      }
-      @media screen and (max-width: 1019px) {
-        text-align: center;
-      }
-
-      h3 {
-        color: white;
-        margin: 0;
-        line-height: 1;
-        white-space: pre;
-      }
-
-      .prism {
-        -webkit-font-smoothing: auto;
-        -moz-osx-font-smoothing: auto;
-        color: white;
-        @media screen and (max-width: 1019px) {
-          display: inline-block;
-        }
-      }
-
-      @media screen and (min-width: 1020px) {
-        &:last-child > .prism {
-          margin-right: -20px;
-        }
-      }
-    }
-
-    .fadein-cols(4);
-    .fadein-cols(@n) when (@n > 1) {
-      .fadein-cols(@n - 1);
-      .marketing-col:nth-child(@{n}) {
-        animation: fade 0.6s 0.3s * @n ease-in-out both;
-      }
-    }
-
-    @keyframes fade {
-      from {
-        opacity: 0;
-        transform: translate(0, 30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translate(0, 0);
-      }
-    }
-
-    .buttons-unit {
-      animation: fade 1.3s 1.4s ease-in-out both;
-      animation-delay: 0.5s;
-      width: 100%;
-
-      @media screen and (min-width: 1020px) {
-        position: absolute;
-        top: ~"calc(75%)";
-        text-align: center;
-      }
-      @media screen and (max-width: 1019px) {
-        padding: 1em 0 2em;
-        text-align: center;
-      }
-
-      .button {
-        .headline-font(@size: 17px, @color: white);
-        border: solid 1px fadeout(white, 60%);
-        border-radius: 6px;
-        line-height: 1;
-        transition: background 0.1s ease-out, color 0.1s ease-out;
-        padding: 0.6em 1.6em;
-        margin: 0 0.8em;
-        display: inline-block;
-        text-decoration: none;
-
-        &:hover,
-        &:focus,
-        &:active {
-          color: @text-color;
-          background: white;
-          text-decoration: none;
-        }
-      }
-    }
+  .nav-header {
+    z-index: 0;
   }
 
   section h1,
@@ -238,6 +41,7 @@ body.index {
   .grayWash {
     background: #e6e8ec;
     position: relative;
+    z-index: -1;
   }
 
   .darkWash {
@@ -291,7 +95,7 @@ body.index {
         text-align: center;
       }
     }
-    @media screen and (min-width: 1020px) {
+    @media screen and (min-width: @desktop-size) {
       flex-direction: row;
       justify-content: space-between;
     }
@@ -302,7 +106,7 @@ body.index {
   }
 
   .grayWash > .section {
-    @media screen and (min-width: 1020px) {
+    @media screen and (min-width: @desktop-size) {
       flex-direction: row-reverse !important;
     }
   }
@@ -326,7 +130,7 @@ body.index {
       img {
         height: 100px;
         padding: 14px;
-        @media screen and (min-width: 1020px) {
+        @media screen and (min-width: @desktop-size) {
           height: 150px;
           padding: 20px;
         }
@@ -334,7 +138,7 @@ body.index {
         &.round {
           height: 106px;
           padding: 11px;
-          @media screen and (min-width: 1020px) {
+          @media screen and (min-width: @desktop-size) {
             height: 158px;
             padding: 16px;
           }

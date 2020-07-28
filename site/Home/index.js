@@ -24,6 +24,5 @@ module.exports = ({ page, section }) => (
     <Sections.HardwareUtilization />
     <Sections.Api />
     <Sections.Monitoring />
-    <script type="text/javascript" src="/vendor/particles.min.js" />
   </Site>
 );
