@@ -6,17 +6,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-var React = require('react');
-var Site = require('./Site');
-var BlogSidebar = require('./BlogSidebar');
-var BlogPost = require('./BlogPost');
+var React = require("react");
+var Site = require("./Site");
+var BlogSidebar = require("./BlogSidebar");
+var BlogPost = require("./BlogPost");
 
-module.exports = ({ page, site }) =>
+module.exports = ({ page, site }) => (
   <Site section="blog" title={page.title} page={page}>
-    <section>
+    <section className="column">
       <div className="documentationContent">
         <BlogPost post={page} isPermalink={true} />
         <BlogSidebar site={site} page={page} />
       </div>
     </section>
   </Site>
+);

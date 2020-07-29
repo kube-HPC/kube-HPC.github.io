@@ -2,9 +2,9 @@ const React = require("react");
 const Site = require("../_core/Site");
 const Search = require("../_core/Search");
 const Hero = require("./Hero");
+const HPC = require("./HPC.lead");
 
 const Sections = {
-  HPC: require("./HPC.lead"),
   Distributed: require("./Distributed.section"),
   LanguageAgnostic: require("./LanguageAgnostic.section"),
   HardwareUtilization: require("./HardwareUtilization.section"),
@@ -18,11 +18,13 @@ module.exports = ({ page, section }) => (
       <Search />
     </section>
     <Hero section={section} />
-    <Sections.HPC />
-    <Sections.Distributed />
-    <Sections.LanguageAgnostic />
-    <Sections.HardwareUtilization />
-    <Sections.Api />
-    <Sections.Monitoring />
+    <HPC />
+    <div className="sections">
+      <Sections.Distributed />
+      <Sections.LanguageAgnostic />
+      <Sections.HardwareUtilization />
+      <Sections.Api />
+      <Sections.Monitoring />
+    </div>
   </Site>
 );

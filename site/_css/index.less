@@ -5,8 +5,16 @@ body {
   font-size: 14pt;
 }
 
+.nav-section {
+  max-width: 1000px;
+}
+
+.column {
+  max-width: 1000px;
+}
+
 body.index {
-  background: #f5f6f8;
+  background: white;
   @media screen and (min-width: @desktop-size) {
     margin-top: 50px;
   }
@@ -31,27 +39,71 @@ body.index {
     margin-top: 0;
   }
 
-  section.lead {
-    .body-font(1.2em);
-    text-align: center;
+  .sections {
+    max-width: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2ch;
+    border-bottom: thin dashed #999;
+    flex-direction: row;
+    @media screen and (max-width: @desktop-size) {
+      flex-direction: column-reverse !important;
+      padding: 2em 2ch;
+    }
+  }
+
+  #api-section-list {
+    text-align: left;
+    list-style-type: none;
+  }
+
+  #api-section-list > li::before {
+    content: "\2014";
+    position: absolute;
+    margin-left: -2.5ch;
+  }
+
+  .section:last-of-type {
+    border-bottom: none !important;
+  }
+  .section:nth-last-of-type(2n + 1) {
+    flex-direction: row-reverse;
+  }
+
+  .lead {
+    background: linear-gradient(45deg, @mainColor, @secondaryColor);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  }
+
+  .lead-body {
+    padding: 5em 0 !important;
+    color: white !important;
     max-width: 65ch;
-    padding: 5em 0;
+    flex-direction: column;
+    border-bottom: none !important;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .home-lead-header {
+    color: inherit;
     font-size: 2.5em;
     padding: 0 1ch;
   }
 
   .home-section-content {
+    max-width: 60ch;
     @media screen and (max-width: @desktop-size) {
       padding: 0 1em;
     }
-  }
-
-  .grayWash {
-    background: #e6e8ec;
-    position: relative;
   }
 
   .darkWash {
@@ -89,15 +141,16 @@ body.index {
   }
 
   .section-image {
-    margin: 0 2ch;
-    max-width: 40ch;
+    max-height: 15em;
+    @media screen and (max-width: @desktop-size) {
+      margin: 2em;
+    }
   }
 
   .section {
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 1.5em 0;
     min-height: 40vh;
     @media screen and (max-width: 1019px) {
       min-height: none;

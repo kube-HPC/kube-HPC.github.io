@@ -28,7 +28,7 @@ const Hero = ({ section }) => (
     <HeroButtons />
     <div className="abs">
       <header aria-hidden className="hero-nav">
-        <section>
+        <section className="nav-section">
           <HeaderLinks section={section} />
         </section>
       </header>

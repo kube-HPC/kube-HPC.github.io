@@ -9,9 +9,7 @@ const LanguageAgnostic = () => (
         of any language for your algorithm
       </p>
     </div>
-    <div>
-      <img className="section-image" src="/img/home/container.svg" />
-    </div>
+    <img className="section-image" src="/img/home/container.svg" />
   </section>
 );
 

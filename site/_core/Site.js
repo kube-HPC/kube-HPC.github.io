@@ -59,7 +59,7 @@ export default ({
     </head>
     <body className={className}>
       <header className="nav-header">
-        <section>
+        <section className="nav-section">
           <a className="nav-home" href="/">
             <img className="nav-logo" src="/img/home/top-logo.svg" />
           </a>
