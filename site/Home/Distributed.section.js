@@ -1,7 +1,7 @@
 const React = require("react");
 
 const Distributed = () => (
-  <section className="section" id="predictable-results">
+  <section className="section">
     <div className="prose">
       <h2>Distributed pipeline of algorithms</h2>
       <p className="home-section-content">
