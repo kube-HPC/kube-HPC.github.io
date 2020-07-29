@@ -4,6 +4,16 @@
 body {
   font-size: 14pt;
 }
+nav a {
+  @media screen and (max-width: @tablet-size) {
+    padding-left: 0;
+  }
+}
+.nav-home {
+  @media screen and (max-width: @tablet-size) {
+    padding: 0 !important;
+  }
+}
 
 .nav-section {
   max-width: 1000px;
