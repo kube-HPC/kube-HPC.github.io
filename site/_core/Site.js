@@ -72,7 +72,7 @@ export default ({
 
       <footer>
         <section className="sitemap">
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/learn/">Learn</a>
             </h5>
@@ -83,14 +83,14 @@ export default ({
             <a href="/learn/execution/">Execution</a>
             <a href="/learn/webhooks/">Webhooks</a>
           </div>
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/tutorial/">Tutorial</a>
             </h5>
             <a href="/tutorial/stand-alone.html">Stand Alone</a>
             <a href="/tutorial/cluster.html">Cluster</a>
           </div>
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/dashboard/">Dashboard</a>
             </h5>
@@ -98,7 +98,7 @@ export default ({
             <a href="/dashboard/#tables">Tables</a>
             <a href="/dashboard/#operations">Operations</a>
           </div>
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/media/">Media</a>
             </h5>
@@ -107,7 +107,7 @@ export default ({
             <a href="/media/#hpc/">HPC over Kubernetes</a>
             <a href="/media/#architecture/">Hkube Architecture</a>
           </div>
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/learn/algorithms/">Algorithms</a>
             </h5>

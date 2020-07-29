@@ -230,6 +230,15 @@ footer {
     display: flex;
     justify-content: space-between;
     margin-bottom: 3em;
+    margin: 0 2ch;
+    @media screen and (max-width: @tablet-size) {
+      flex-direction: column;
+    }
+    .sitemap-group {
+      @media screen and (max-width: @tablet-size) {
+        margin: 1em 0;
+      }
+    }
 
     div {
       flex: 1;
