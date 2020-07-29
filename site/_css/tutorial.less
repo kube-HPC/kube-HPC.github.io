@@ -1,0 +1,36 @@
+.tutorial-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#predictable-results {
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+#predictable-results > h1 {
+  margin: 0;
+  margin-bottom: 0.5em;
+  @media screen and (max-width: @tablet-size) {
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
+}
+
+.tutorial-box {
+  margin: 0 2ch;
+  @media screen and (max-width: @tablet-size) {
+    margin: 1em;
+  }
+}
+.tutorial-buttons {
+  display: flex;
+  @media screen and (max-width: @tablet-size) {
+    flex-direction: column;
+    padding: 1em;
+  }
+}
