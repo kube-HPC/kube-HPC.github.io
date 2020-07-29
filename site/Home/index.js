@@ -4,7 +4,7 @@ const Search = require("../_core/Search");
 const Hero = require("./Hero");
 
 const Sections = {
-  HPC: require("./HPC.section"),
+  HPC: require("./HPC.lead"),
   Distributed: require("./Distributed.section"),
   LanguageAgnostic: require("./LanguageAgnostic.section"),
   HardwareUtilization: require("./HardwareUtilization.section"),
