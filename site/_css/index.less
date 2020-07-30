@@ -3,7 +3,11 @@
 // Index page uses a fixed header with an overlay
 body {
   font-size: 14pt;
+  @media screen and (max-width: @tablet-size) {
+    font-size: 12pt;
+  }
 }
+
 nav a {
   @media screen and (max-width: @tablet-size) {
     padding-left: 0;
