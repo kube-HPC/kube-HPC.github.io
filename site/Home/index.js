@@ -3,6 +3,7 @@ const Site = require("../_core/Site");
 const Search = require("../_core/Search");
 const Hero = require("./Hero");
 const HPC = require("./HPC.lead");
+const Nav = require("./../_core/Nav");
 
 const Sections = {
   Distributed: require("./Distributed.section"),
@@ -13,7 +14,7 @@ const Sections = {
 };
 
 module.exports = ({ page, section }) => (
-  <Site className="index" noSearch={true} page={page}>
+  <Site className="index" noSearch noHome page={page}>
     <section className="fixedSearch">
       <Search />
     </section>

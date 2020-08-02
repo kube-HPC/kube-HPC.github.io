@@ -171,7 +171,6 @@ header {
 
   // Home link within nav.
   .nav-home {
-    float: left;
     font-size: 18px;
     color: @hkube-color;
     line-height: 50px;
@@ -183,31 +182,6 @@ header {
       margin-top: 2px;
       margin-right: 6px;
       width: 45px;
-    }
-  }
-}
-
-nav {
-  @media screen and (min-width: @desktop-size) {
-    float: left;
-  }
-  @media screen and (max-width: 1019px) {
-    text-align: center;
-    margin: 0 -1em;
-  }
-
-  a {
-    color: #aaa;
-    display: inline-block;
-    line-height: 50px;
-    padding: 0 1em;
-    transition: color 0.1s ease-out;
-
-    &:hover,
-    &:focus,
-    &.active {
-      color: @text-color;
-      text-decoration: none;
     }
   }
 }

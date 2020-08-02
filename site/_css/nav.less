@@ -1,0 +1,171 @@
+.nav-header {
+  z-index: 1;
+  display: flex;
+  @media screen and (max-width: @tablet-size) {
+    background: #202020;
+    height: auto;
+  }
+}
+
+#toggle-menu {
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  right: 2em;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  @media screen and (min-width: @tablet-size) {
+    visibility: hidden;
+  }
+}
+
+#toggle-menu-checkbox:not(:checked) ~ .nav-low-button {
+  transition: transform 0.125s linear 0.125s;
+  transform: translateY(-50%) !important;
+}
+
+.nav-low-button {
+  transition: transform 0.125s linear 0.25s;
+  transform: translateY(100%) !important;
+}
+
+#toggle-menu-icon {
+  display: inline-block;
+  position: relative;
+  width: 5ch;
+  text-align: center;
+  &:after {
+    @media screen and (min-width: @tablet-size) {
+      visibility: hidden;
+    }
+    margin: 0 auto;
+    content: "";
+    background-image: url("/img/burger-menu-close.svg");
+    height: 2.5em;
+    width: 2.5em;
+    display: block;
+    background-repeat: no-repeat;
+  }
+}
+
+#toggle-menu-checkbox:checked ~ label > #toggle-menu-icon {
+  &:after {
+    background-image: url("/img/burger-menu.svg");
+  }
+}
+
+#toggle-menu-checkbox:not(:checked) ~ #nav-links {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+#toggle-menu-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+nav {
+  user-select: none;
+  display: flex;
+  margin-right: auto;
+  overflow: hidden;
+  @media screen and (max-width: @desktop-size) {
+    text-align: center;
+    margin: 0 -1em;
+  }
+  @media screen and (max-width: @tablet-size) {
+    flex-direction: column;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+
+  a {
+    font: inherit;
+    color: #aaa;
+    display: inline-block;
+    line-height: 50px;
+    padding: 0 1em;
+    transition: color 0.1s ease-out;
+    @media screen and (max-width: @tablet-size) {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+    &:hover,
+    &:focus,
+    &.active {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+#nav-links {
+  @media screen and (max-width: @tablet-size) {
+    background-color: #202020;
+  }
+}
+
+.nav-section #nav-links {
+  @media screen and (max-width: @tablet-size) {
+    max-height: 0;
+  }
+  // width: 100vw;
+  height: auto;
+}
+
+.nav-home {
+  // the navigation logo - home button
+  @media screen and (max-width: @tablet-size) {
+    padding: 0 !important;
+    margin-top: 1em;
+    & img {
+      width: unset !important;
+      height: 8em;
+    }
+  }
+}
+
+.nav-section {
+  position: relative;
+  height: unset !important;
+  line-height: unset;
+  display: flex;
+  flex: 1;
+  max-width: 1000px;
+  @media screen and (max-width: @tablet-size) {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media screen and (max-width: @desktop-size) {
+    justify-content: center;
+  }
+}
+
+.index .nav-section {
+  @media screen and (max-width: @desktop-size) {
+    background: #202020;
+  }
+}
+
+.abs .hero-nav {
+  @media screen and (max-width: @desktop-size) {
+    display: none !important;
+  }
+}
+
+.index .nav-header {
+  display: unset !important;
+}
+
+.index #nav-links {
+  @media screen and (max-width: @desktop-size) {
+    background-color: #202020;
+  }
+}
+.index .nav-home {
+  @media screen and (max-width: @desktop-size) {
+    display: none;
+  }
+}

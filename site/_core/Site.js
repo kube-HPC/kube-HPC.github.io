@@ -1,7 +1,6 @@
-var React = require("react");
-var HeaderLinks = require("./HeaderLinks");
-var Search = require("./Search");
-var SiteData = require("./SiteData");
+const React = require("react");
+const Nav = require("./Nav");
+const SiteData = require("./SiteData");
 
 export default ({
   page,
@@ -11,6 +10,7 @@ export default ({
   className,
   noSearch,
   children,
+  noHome,
 }) => (
   <html>
     <head>
@@ -21,7 +21,7 @@ export default ({
           ? `${title} | ${category || "Hkube"}`
           : `Hkube | ${SiteData.description}`}
       </title>
-      <meta name="viewport" content="width=640" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta property="og:title" content="Hkube: HPC over Kubernetes." />
       <meta
         property="og:description"
@@ -58,16 +58,7 @@ export default ({
       />
     </head>
     <body className={className}>
-      <header className="nav-header">
-        <section className="nav-section">
-          <a className="nav-home" href="/">
-            <img className="nav-logo" src="/img/home/top-logo.svg" />
-          </a>
-          <HeaderLinks section={section} />
-          {noSearch || <Search />}
-        </section>
-      </header>
-
+      <Nav section={section} noSearch={noSearch} noHome={noHome} />
       {children}
 
       <footer>

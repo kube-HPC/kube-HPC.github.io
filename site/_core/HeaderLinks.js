@@ -19,7 +19,7 @@ const links = [
 ];
 
 export default ({ section }) => (
-  <nav>
+  <nav id="nav-links">
     {links.map((link) => (
       <a
         key={link.section}
