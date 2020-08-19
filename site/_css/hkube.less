@@ -1,4 +1,4 @@
-@import 'variables.less';
+@import "variables.less";
 
 * {
   box-sizing: border-box;
@@ -36,7 +36,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 2em 0 0;
+  margin: 1em 0;
   text-rendering: optimizelegibility;
 }
 
@@ -45,23 +45,28 @@ h1 {
 }
 
 h2 {
-  .headline-font(30px);
+  .section-header-font(30px);
+  margin-bottom: 0;
+  margin-top: 2.5em;
+  &:first-of-type {
+    margin-top: 1em;
+  }
 }
 
 h3 {
-  .headline-font(22px);
+  .section-header-font(22px);
 }
 
 h4 {
-  .headline-font(18px);
+  .section-header-font(18px);
 }
 
 h5 {
-  .headline-font(15px);
+  .section-header-font(15px);
 }
 
 h6 {
-  .headline-font(13px);
+  .section-header-font(13px);
 }
 
 // Anchors and hash links appear next to headers.
@@ -143,6 +148,9 @@ ol ul {
 
 li {
   margin-bottom: 0.5em;
+  @media screen and (max-width: @desktop-size) {
+    margin-bottom: 0;
+  }
 }
 
 hr {
@@ -163,7 +171,7 @@ p code {
 /* Header and Navigation */
 
 header {
-  .headline-font(@size: 15px);
+  .nav-font(@size: 15px);
   height: 50px;
   background: white;
   box-shadow: inset 0 -1px 0 0px rgba(0, 0, 0, 0.1);
@@ -171,7 +179,6 @@ header {
 
   // Home link within nav.
   .nav-home {
-    float: left;
     font-size: 18px;
     color: @hkube-color;
     line-height: 50px;
@@ -187,35 +194,9 @@ header {
   }
 }
 
-nav {
-  @media screen and (min-width: 1020px) {
-    float: left;
-  }
-  @media screen and (max-width: 1019px) {
-    text-align: center;
-    margin: 0 -1em;
-  }
-
-  a {
-    color: #aaa;
-    display: inline-block;
-    line-height: 50px;
-    padding: 0 1em;
-    transition: color 0.1s ease-out;
-
-    &:hover,
-    &:focus,
-    &.active {
-      color: @text-color;
-      text-decoration: none;
-    }
-  }
-}
-
 section {
-  max-width: 1200px;
+  // max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 footer {
@@ -231,6 +212,15 @@ footer {
     display: flex;
     justify-content: space-between;
     margin-bottom: 3em;
+    margin: 0 2ch;
+    @media screen and (max-width: @tablet-size) {
+      flex-direction: column;
+    }
+    .sitemap-group {
+      @media screen and (max-width: @tablet-size) {
+        margin: 1em 0;
+      }
+    }
 
     div {
       flex: 1;
@@ -242,14 +232,14 @@ footer {
       padding: 10px;
       width: 50px;
       height: 50px;
-      background: url('/img/home/logo-gray.png') no-repeat content-box;
+      background: url("/img/home/logo-gray.png") no-repeat content-box;
 
       &:hover,
       &:focus {
-        background-image: url('/img/home/top-logo.svg');
+        background-image: url("/img/home/top-logo.svg");
       }
 
-      @media screen and (max-width: 740px) {
+      @media screen and (max-width: @tablet-size) {
         display: none;
       }
     }
@@ -314,7 +304,7 @@ footer {
 
 .blogContent:before,
 .blogContent:after {
-  content: ' ';
+  content: " ";
   display: table;
 }
 
@@ -356,7 +346,7 @@ p + .apiIndex {
 }
 .apiIndex li a:hover::before {
   color: @hkube-color;
-  content: '#';
+  content: "#";
   font-size: 16px;
   left: -2em;
   line-height: 20px;

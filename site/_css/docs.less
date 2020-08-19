@@ -6,7 +6,7 @@
   width: 100%;
   justify-content: space-between;
 
-  @media screen and (max-width: 740px) {
+  @media screen and (max-width: @tablet-size) {
     margin-bottom: 4em;
     display: block;
   }
@@ -14,8 +14,9 @@
 
 .inner-content {
   flex: 1;
- 
-  @media screen and (max-width: 740px) {
+  max-width: 75ch;
+
+  @media screen and (max-width: @tablet-size) {
     margin-right: 0;
   }
 
@@ -44,25 +45,24 @@
 
   img {
     max-width: 100%;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+    // margin-bottom: 1em;
+    // box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     // -moz-transition: all 0.3s;
     // -webkit-transition: all 0.3s;
     // transition: all 0.3s;
   }
 
-//   img:hover {
-//     -moz-transform: scale(1.2);
-//     -webkit-transform: scale(1.2);
-//     transform: scale(1.2);
-//  }
+  //   img:hover {
+  //     -moz-transform: scale(1.2);
+  //     -webkit-transform: scale(1.2);
+  //     transform: scale(1.2);
+  //  }
 
   .prism {
     position: relative;
-    box-shadow:
-      inset 0 1px 0 rgba(0,0,0,0.08),
-      inset 0 -1px 0 rgba(0,0,0,0.08),
-      inset -1px 0 0 rgba(0,0,0,0.08),
-      inset 4px 0 0 rgba(0,0,0,0.08);
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.08),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.08), inset -1px 0 0 rgba(0, 0, 0, 0.08),
+      inset 4px 0 0 rgba(0, 0, 0, 0.08);
     border-radius: 3px;
 
     .line-highlight {
@@ -88,7 +88,8 @@
   .not(code) > pre.prism {
     text-shadow: 0 1px white;
 
-    &::-moz-selection, &::selection {
+    &::-moz-selection,
+    &::selection {
       text-shadow: none;
     }
   }
@@ -103,26 +104,29 @@
 
 .read-next {
   display: inline-block;
-  margin: 4em -1em 0;
+  // margin: 4em -1em 0;
   width: 270px;
-  @media screen and (max-width: 1119px) {
+  @media screen and (min-width: @desktop-size) {
     margin-left: 0;
   }
 
   transition: background 100ms ease-in-out;
   border-radius: 3px;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
   padding: 0.7em 1.5em 0.5em 1em;
-  .read-next-continue, .read-next-title {
-  transition: color 100ms ease-in-out;
-}
+  .read-next-continue,
+  .read-next-title {
+    transition: color 100ms ease-in-out;
+  }
 
-
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     background: @hkube-color;
     text-decoration: none;
 
-    .read-next-continue, .read-next-title {
+    .read-next-continue,
+    .read-next-title {
       color: white;
     }
   }
@@ -141,10 +145,11 @@
 .nav-docs {
   .body-font(@size: 13px);
   margin: 1em 0 4em;
-  width: 195px;
+  // width: 195px;
+  // min-width: 40ch;
   padding-left: 20px;
 
-  @media screen and (max-width: 740px) {
+  @media screen and (max-width: @tablet-size) {
     width: auto;
     padding-left: 0;
   }
@@ -165,7 +170,6 @@
 
       ul {
         margin-bottom: 18px;
-
         li {
           line-height: 21px;
         }
@@ -177,7 +181,9 @@
     color: #666;
     display: block;
 
-    &:hover, &:focus, &.active {
+    &:hover,
+    &:focus,
+    &.active {
       text-decoration: none;
       color: @hkube-color;
     }

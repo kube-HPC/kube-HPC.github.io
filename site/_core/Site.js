@@ -1,7 +1,6 @@
-var React = require('react');
-var HeaderLinks = require('./HeaderLinks');
-var Search = require('./Search');
-var SiteData = require('./SiteData');
+const React = require("react");
+const Nav = require("./Nav");
+const SiteData = require("./SiteData");
 
 export default ({
   page,
@@ -10,7 +9,8 @@ export default ({
   section,
   className,
   noSearch,
-  children
+  children,
+  noHome,
 }) => (
   <html>
     <head>
@@ -18,10 +18,10 @@ export default ({
       <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       <title>
         {title
-          ? `${title} | ${category || 'Hkube'}`
+          ? `${title} | ${category || "Hkube"}`
           : `Hkube | ${SiteData.description}`}
       </title>
-      <meta name="viewport" content="width=640" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta property="og:title" content="Hkube: HPC over Kubernetes." />
       <meta
         property="og:description"
@@ -58,21 +58,12 @@ export default ({
       />
     </head>
     <body className={className}>
-      <header>
-        <section>
-          <a className="nav-home" href="/">
-            <img className="nav-logo" src="/img/home/top-logo.svg" />
-          </a>
-          <HeaderLinks section={section} />
-          {noSearch || <Search />}
-        </section>
-      </header>
-
+      <Nav section={section} noSearch={noSearch} noHome={noHome} />
       {children}
 
       <footer>
         <section className="sitemap">
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/learn/">Learn</a>
             </h5>
@@ -83,14 +74,14 @@ export default ({
             <a href="/learn/execution/">Execution</a>
             <a href="/learn/webhooks/">Webhooks</a>
           </div>
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/tutorial/">Tutorial</a>
             </h5>
             <a href="/tutorial/stand-alone.html">Stand Alone</a>
             <a href="/tutorial/cluster.html">Cluster</a>
           </div>
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/dashboard/">Dashboard</a>
             </h5>
@@ -98,7 +89,7 @@ export default ({
             <a href="/dashboard/#tables">Tables</a>
             <a href="/dashboard/#operations">Operations</a>
           </div>
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/media/">Media</a>
             </h5>
@@ -107,7 +98,7 @@ export default ({
             <a href="/media/#hpc/">HPC over Kubernetes</a>
             <a href="/media/#architecture/">Hkube Architecture</a>
           </div>
-          <div>
+          <div className="sitemap-group">
             <h5>
               <a href="/learn/algorithms/">Algorithms</a>
             </h5>
@@ -121,7 +112,7 @@ export default ({
         <section className="copyright">
           Copyright &copy;
           <span>
-            <script>document.write(new Date().getFullYear())</script>{' '}
+            <script>document.write(new Date().getFullYear())</script>{" "}
           </span>
           <noscript>2018</noscript>
           Hkube. MIT
@@ -141,7 +132,7 @@ export default ({
           inputSelector: '#algolia-search-input',
           debug: false
         });
-      `
+      `,
         }}
       />
 
@@ -156,7 +147,7 @@ export default ({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'UA-118778729-1');
-      `
+      `,
         }}
       />
     </body>

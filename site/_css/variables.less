@@ -1,27 +1,55 @@
 @dark-color: #202020;
 @hkube-color: #3179e6;
 @text-color: #202020;
+@desktop-size: 1020px;
+@tablet-size: 748px;
+@mainColor: #326ee6;
+@secondaryColor: #2da8e6;
 
 .headline-font(@size: 48px, @color: @text-color) {
-  font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
   color: @color;
   font-size: @size;
   line-height: @size * 1.4;
 }
 
-.body-font(@size: 18px, @color: @text-color) {
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.section-header-font(@size: 48px, @color: @text-color) {
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: @color;
+  font-size: @size;
+  line-height: @size * 1.4;
+}
+
+.body-font(@size: 1em, @color: @text-color) {
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: @color;
+  font-size: @size;
+  line-height: 1.5em;
+}
+
+.code-font(@size: 0.75em, @color: @text-color) {
+  font-family: "Fira Mono", Menlo, Monaco, monospace;
+  font-weight: 400;
+  color: @color;
+  font-size: @size;
+  line-height: 1.5em;
+}
+
+.nav-font(@size: 13px, @color: @text-color) {
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   color: @color;
   font-size: @size;
   line-height: @size * 1.6;
 }
 
-.code-font(@size: 13px, @color: @text-color) {
-  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
-  font-weight: 400;
+.button-font(@size: 13px, @color: @text-color) {
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
   color: @color;
   font-size: @size;
-  line-height: @size * 17/13;
+  line-height: 1.5em;
 }
