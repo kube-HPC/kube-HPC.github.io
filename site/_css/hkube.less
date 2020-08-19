@@ -38,6 +38,9 @@ h5,
 h6 {
   margin: 2em 0 0;
   text-rendering: optimizelegibility;
+  @media screen and (max-width: @desktop-size) {
+    margin-top: 1em;
+  }
 }
 
 h1 {
@@ -143,6 +146,9 @@ ol ul {
 
 li {
   margin-bottom: 0.5em;
+  @media screen and (max-width: @desktop-size) {
+    margin-bottom: 0;
+  }
 }
 
 hr {
