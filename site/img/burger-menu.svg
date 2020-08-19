@@ -3,17 +3,29 @@
 <svg width="100%" height="100%" viewBox="0 0 463 463" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
     <g id="burger-menu" transform="matrix(1.08188,0,0,1.08188,-201.264,-93.0765)">
         <rect x="186.032" y="86.032" width="427.935" height="427.935" style="fill:none;"/>
+        <g transform="matrix(0.970821,0,0,0.966724,178.989,78.7936)">
+            <rect x="7.255" y="7.488" width="440.797" height="442.665" style="fill:rgb(32,32,32);"/>
+        </g>
         <g transform="matrix(0.924319,0,0,0.924319,59.9695,51.7919)">
-            <circle cx="367.904" cy="268.563" r="213.968" style="fill:none;stroke:white;stroke-width:18px;"/>
+            <circle cx="367.904" cy="268.563" r="213.968" style="fill:url(#_Radial1);stroke:rgb(109,168,247);stroke-width:18px;"/>
         </g>
-        <g transform="matrix(0.924319,0,0,0.924319,64.125,114.957)">
-            <path d="M225.831,199.554L500.985,199.554" style="fill:none;stroke:white;stroke-width:18px;"/>
+        <g transform="matrix(0.985985,0,0,0.985985,233.93,48.3999)">
+            <circle cx="206.367" cy="119.235" r="18.853" style="fill:white;"/>
         </g>
-        <g transform="matrix(0.924319,0,0,0.924319,64.125,53.1023)">
-            <path d="M225.831,199.554L500.985,199.554" style="fill:none;stroke:white;stroke-width:18px;"/>
+        <g transform="matrix(2.13873,0,0,2.13873,75.9585,-19.9452)">
+            <circle cx="206.367" cy="119.235" r="18.853" style="fill:white;fill-opacity:0.5;"/>
         </g>
-        <g transform="matrix(0.924319,0,0,0.924319,64.125,176.813)">
-            <path d="M225.831,199.554L500.985,199.554" style="fill:none;stroke:white;stroke-width:18px;"/>
+        <g transform="matrix(0.744107,0,0,0.924319,129.615,114.957)">
+            <path d="M225.831,199.554L500.985,199.554" style="fill:none;stroke:rgb(32,32,32);stroke-width:24.24px;"/>
+        </g>
+        <g transform="matrix(0.744107,0,0,0.924319,129.615,53.1023)">
+            <path d="M225.831,199.554L500.985,199.554" style="fill:none;stroke:rgb(32,32,32);stroke-width:24.24px;"/>
+        </g>
+        <g transform="matrix(0.744107,0,0,0.924319,129.615,176.813)">
+            <path d="M225.831,199.554L500.985,199.554" style="fill:none;stroke:rgb(32,32,32);stroke-width:24.24px;"/>
         </g>
     </g>
+    <defs>
+        <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-510.015,641.987,-641.987,-510.015,431.509,166.661)"><stop offset="0" style="stop-color:rgb(195,219,225);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(109,168,247);stop-opacity:1"/></radialGradient>
+    </defs>
 </svg>
