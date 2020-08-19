@@ -52,9 +52,8 @@ export default (props) => {
   var url = props.url || "";
 
   return (
-    <Heading {...props}>
-      <a className="anchor" title={slug} accessKey="h"></a>
-      {props.children}{" "}
+    <Heading {...props} id={slug}>
+      {props.children}
       <a className="hash-link" href={url + "#" + slug}>
         #
       </a>
