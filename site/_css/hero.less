@@ -1,3 +1,5 @@
+@heroBg: #082f44;
+
 #particles-js {
   position: absolute;
   top: 0;
@@ -23,7 +25,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: @dark-color;
+  background: @heroBg;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   clip: rect(0, auto, auto, 0);
@@ -45,10 +47,7 @@
   }
 
   header {
-    background: linear-gradient(
-      fadeout(@dark-color, 20%),
-      fadeout(@dark-color, 100%)
-    );
+    background: linear-gradient(180deg, @heroBg, 80%, fadeout(@heroBg, 100%));
     box-shadow: none;
     display: block;
     @media screen and (min-width: @desktop-size) {
@@ -66,7 +65,9 @@
     }
 
     nav > a {
-      text-shadow: 0 1px 1px @dark-color, 0 0 3px @dark-color;
+      // text-shadow: 0 1px 1px @dark-color, 0 0 3px @dark-color;
+      color: white;
+      font-weight: 400;
       &:hover,
       &:focus {
         color: white;
@@ -189,7 +190,7 @@
   }
 
   .fadein-cols(4);
-  .fadein-cols(@n) when (@n > 1) {
+  .fadein-cols(@n) {
     .fadein-cols(@n - 1);
     .marketing-col:nth-child(@{n}) {
       animation: fade 0.6s 0.3s * @n ease-in-out both;
@@ -257,21 +258,18 @@
     .button {
       pointer-events: all;
       .button-font(@size: 17px, @color: white);
-      border: solid 1px fadeout(white, 60%);
-      border-radius: 6px;
-      line-height: 1;
+      border: solid 2px fadeout(white, 60%);
+      border-radius: 0.3em;
       transition: background 0.1s ease-out, color 0.1s ease-out;
       padding: 0.6em 1.6em;
       margin: 0 0.8em;
-      display: inline-block;
       text-decoration: none;
-
+      font-weight: 400;
       &:hover,
       &:focus,
       &:active {
-        color: @text-color;
-        background: white;
-        text-decoration: none;
+        color: @heroBg;
+        background: fadeout(white, 10%);
       }
     }
   }
