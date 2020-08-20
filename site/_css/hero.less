@@ -190,7 +190,7 @@
   }
 
   .fadein-cols(4);
-  .fadein-cols(@n) {
+  .fadein-cols(@n) when(@n > 0) {
     .fadein-cols(@n - 1);
     .marketing-col:nth-child(@{n}) {
       animation: fade 0.6s 0.3s * @n ease-in-out both;
