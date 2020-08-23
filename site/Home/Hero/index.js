@@ -29,6 +29,7 @@ const Hero = ({ section }) => (
     </div>
     <HPC />
     <HeroButtons />
+    <img className="down-arrow" src="img/home/down-arrow.svg" />
     <div className="abs">
       <header aria-hidden className="hero-nav">
         <section className="nav-section">

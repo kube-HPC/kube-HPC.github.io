@@ -306,4 +306,51 @@
       }
     }
   }
+  .down-arrow {
+    display: none;
+    @media screen and (min-height: 720px) and (min-width: @desktop-size) {
+      display: block;
+      position: absolute;
+      bottom: 4em;
+      height: 1.5em;
+      animation: arrowFade 2s linear infinite;
+    }
+    @media screen and (max-height: 820px) {
+      animation: arrowFadeSmall 2s linear infinite;
+      bottom: 1.5em;
+    }
+  }
+
+  @keyframes arrowFade {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+
+    50% {
+      opacity: 0.5;
+      transform: translateY(1em);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(2em);
+    }
+  }
+  @keyframes arrowFadeSmall {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+
+    50% {
+      opacity: 0.5;
+      transform: translateY(0.5em);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(1em);
+    }
+  }
 }
