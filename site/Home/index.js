@@ -2,8 +2,6 @@ const React = require("react");
 const Site = require("../_core/Site");
 const Search = require("../_core/Search");
 const Hero = require("./Hero");
-const HPC = require("./HPC.lead");
-const Nav = require("./../_core/Nav");
 
 const Sections = {
   Distributed: require("./Distributed.section"),
@@ -19,7 +17,6 @@ module.exports = ({ page, section }) => (
       <Search />
     </section>
     <Hero section={section} />
-    <HPC />
     <div className="sections">
       <Sections.Distributed />
       <Sections.LanguageAgnostic />

@@ -1,6 +1,7 @@
 const React = require("react");
 const HeaderLinks = require("../../_core/HeaderLinks");
 const HeroColumns = require("./HeroColumns");
+const HPC = require("./../HPC.lead");
 
 const HeroButtons = () => (
   <div className="hero-buttons">
@@ -26,6 +27,7 @@ const Hero = ({ section }) => (
         <HeroColumns />
       </div>
     </div>
+    <HPC />
     <HeroButtons />
     <div className="abs">
       <header aria-hidden className="hero-nav">

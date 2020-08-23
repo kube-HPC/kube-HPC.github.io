@@ -8,6 +8,10 @@ body {
   }
 }
 
+.icon-gradient-o {
+  fill: linear-gradient(to-right, red, green, blue);
+}
+
 strong {
   font-weight: 600;
 }
@@ -83,31 +87,6 @@ body.index {
   }
   .section:nth-last-of-type(2n + 1) {
     flex-direction: row-reverse;
-  }
-
-  .lead {
-    background: linear-gradient(45deg, @mainColor, @secondaryColor);
-    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  }
-
-  .lead-body {
-    padding: 5em 0 !important;
-    color: white !important;
-    max-width: 65ch;
-    flex-direction: column;
-    border-bottom: none !important;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .home-lead-header {
-    color: inherit;
-    font-size: 2.5em;
-    padding: 0 1ch;
-    margin-bottom: 0.5em;
-  }
-  .home-lead-content {
-    text-align: center !important;
   }
 
   .home-section-content {
