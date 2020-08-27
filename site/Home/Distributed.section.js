@@ -1,8 +1,9 @@
 const React = require("react");
+const DistributedIcon = require("./Icons/Distributed");
 
 const Distributed = () => (
   <section className="section">
-    <div className="prose">
+    <div className="prose" data-animation="fadeIn">
       <h2>Distributed pipeline of algorithms</h2>
       <p className="home-section-content">
         Hkube receives input DAG graph and automatically parallelizes your
@@ -11,7 +12,7 @@ const Distributed = () => (
         processing.
       </p>
     </div>
-    <img className="section-image" src="/img/home/pipeline.svg" />
+    <DistributedIcon />
   </section>
 );
 

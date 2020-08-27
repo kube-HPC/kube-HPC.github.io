@@ -1,8 +1,9 @@
 const React = require("react");
+const HardwareUtilizationIcon = require("./icons/HardwareUtilization");
 
 const HardwareUtilization = () => (
   <section className="section" id="optimize-hardware">
-    <div className="prose">
+    <div className="prose" data-animation="fadeIn">
       <h2>Optimize Hardware utilization</h2>
       <p className="home-section-content">
         Hkube Automatically places containers based on their resource
@@ -13,7 +14,7 @@ const HardwareUtilization = () => (
         efficient execution and clustering.
       </p>
     </div>
-    <img className="section-image" src="/img/home/hardware.svg" />
+    <HardwareUtilizationIcon />
   </section>
 );
 
