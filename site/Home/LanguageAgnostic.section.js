@@ -11,11 +11,6 @@ const LanguageAgnostic = () => (
       </p>
     </div>
     <LanguageAgnosticIcon />
-    {/* <img
-      className="section-image"
-      src="/img/home/container.svg"
-      data-animation="slideInRight"
-    /> */}
   </section>
 );
 
