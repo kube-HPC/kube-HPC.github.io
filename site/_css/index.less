@@ -83,8 +83,18 @@ body.index {
   }
   .section:nth-last-of-type(2n + 1) {
     flex-direction: row-reverse;
+    .prose {
+      margin-left: 4ch;
+    }
   }
-
+  .prose {
+    margin-left: 0;
+  }
+  @media screen and (max-width: @tablet-size) {
+    .prose {
+      margin-left: 0 !important;
+    }
+  }
   .home-section-content {
     max-width: 50ch;
     margin: 0 auto;
