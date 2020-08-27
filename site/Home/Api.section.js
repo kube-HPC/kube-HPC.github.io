@@ -1,7 +1,7 @@
 const React = require("react");
 
 const Api = () => (
-  <section className="section" id="single-request">
+  <section className="section" id="api-section">
     <div className="prose">
       <h2>Simple API</h2>
       <p className="home-section-content" id="api-section-content">

@@ -1,7 +1,7 @@
 const React = require("react");
 
 const LanguageAgnostic = () => (
-  <section className="section" id="single-request">
+  <section className="section" id="language-agnostic">
     <div className="prose">
       <h2>Language Agnostic</h2>
       <p className="home-section-content">

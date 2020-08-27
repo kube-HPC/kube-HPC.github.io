@@ -1,7 +1,7 @@
 const React = require("react");
 
 const Monitoring = () => (
-  <section className="section" id="without-versions">
+  <section className="section" id="algorithm-monitoring">
     <div className="prose ">
       <h2>Algorithm monitoring</h2>
       <p className="home-section-content">

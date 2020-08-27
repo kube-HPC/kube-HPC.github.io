@@ -1,7 +1,7 @@
 const React = require("react");
 
 const HardwareUtilization = () => (
-  <section className="section" id="type-system">
+  <section className="section" id="optimize-hardware">
     <div className="prose">
       <h2>Optimize Hardware utilization</h2>
       <p className="home-section-content">
