@@ -1,8 +1,9 @@
 const React = require("react");
+const ApiIcon = require("./Icons/Api");
 
 const Api = () => (
-  <section className="section" id="single-request">
-    <div className="prose">
+  <section className="section" id="api-section">
+    <div className="prose" data-animation="fadeIn">
       <h2>Simple API</h2>
       <p className="home-section-content" id="api-section-content">
         Hkube has a simple API with a low learning curve:
@@ -12,7 +13,7 @@ const Api = () => (
         </ul>
       </p>
     </div>
-    <img className="section-image" src="/img/home/api.svg" />
+    <ApiIcon />
   </section>
 );
 

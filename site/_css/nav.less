@@ -1,8 +1,8 @@
 .nav-header {
-  z-index: 0;
+  z-index: 1;
   display: flex;
   @media screen and (max-width: @tablet-size) {
-    background: #202020;
+    // background: #202020;
     height: auto;
   }
 }
@@ -15,6 +15,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   @media screen and (min-width: @tablet-size) {
     visibility: hidden;
   }
@@ -45,6 +46,7 @@
     height: 2.5em;
     width: 2.5em;
     display: block;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 }
@@ -103,7 +105,7 @@ nav {
 
 #nav-links {
   @media screen and (max-width: @tablet-size) {
-    background-color: #202020;
+    // background-color: #202020;
   }
 }
 
@@ -145,7 +147,7 @@ nav {
 
 .index .nav-section {
   @media screen and (max-width: @desktop-size) {
-    background: #202020;
+    // background: #202020;
   }
 }
 
@@ -161,7 +163,7 @@ nav {
 
 .index #nav-links {
   @media screen and (max-width: @desktop-size) {
-    background-color: #202020;
+    // background-color: #202020;
   }
 }
 .index .nav-home {

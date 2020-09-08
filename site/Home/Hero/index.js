@@ -1,6 +1,7 @@
 const React = require("react");
 const HeaderLinks = require("../../_core/HeaderLinks");
 const HeroColumns = require("./HeroColumns");
+const HPC = require("./../HPC.lead");
 
 const HeroButtons = () => (
   <div className="hero-buttons">
@@ -17,6 +18,7 @@ const Hero = ({ section }) => (
   <div className="hero">
     <div id="particles-js" />
     <script type="text/javascript" src="/vendor/particles.min.js" />
+    <script type="text/javascript" src="/assets/particlesConfig.js" />
     <div className="hero-content">
       <div className="named-logo">
         <img src="/img/home/logo-fish.svg" />
@@ -25,7 +27,9 @@ const Hero = ({ section }) => (
         <HeroColumns />
       </div>
     </div>
+    <HPC />
     <HeroButtons />
+    <img className="down-arrow" src="img/home/down-arrow.svg" />
     <div className="abs">
       <header aria-hidden className="hero-nav">
         <section className="nav-section">

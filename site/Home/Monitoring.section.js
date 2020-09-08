@@ -1,8 +1,9 @@
 const React = require("react");
+const MonitoringIcon = require("./Icons/Monitoring");
 
 const Monitoring = () => (
-  <section className="section" id="without-versions">
-    <div className="prose ">
+  <section className="section" id="algorithm-monitoring">
+    <div className="prose " data-animation="fadeIn">
       <h2>Algorithm monitoring</h2>
       <p className="home-section-content">
         Hkube lets you quickly and easily understand complex problems over the
@@ -11,7 +12,7 @@ const Monitoring = () => (
         integrates them with Hkube logs to get the whole picture.
       </p>
     </div>
-    <img className="section-image" src="/img/home/monitoring.svg" />
+    <MonitoringIcon />
   </section>
 );
 

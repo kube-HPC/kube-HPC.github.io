@@ -123,6 +123,7 @@ export default ({
         type="text/javascript"
         src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"
       />
+      <script type="text/javascript" src="/vendor/scroller.js" />
       <script
         dangerouslySetInnerHTML={{
           __html: `
