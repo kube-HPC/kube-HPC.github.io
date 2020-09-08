@@ -11,6 +11,7 @@ export default ({
   noSearch,
   children,
   noHome,
+  loadHeroStyles,
 }) => (
   <html>
     <head>
@@ -44,6 +45,7 @@ export default ({
         title="Hkube Team Blog"
       />
       <link rel="stylesheet" href="/style.css" />
+      {loadHeroStyles && <link rel="stylesheet" href="/style.hero.css" />}
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300"
@@ -60,7 +62,6 @@ export default ({
     <body className={className}>
       <Nav section={section} noSearch={noSearch} noHome={noHome} />
       {children}
-
       <footer>
         <section className="sitemap">
           <div className="sitemap-group">

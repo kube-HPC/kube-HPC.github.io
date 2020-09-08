@@ -12,7 +12,7 @@ const Sections = {
 };
 
 module.exports = ({ page, section }) => (
-  <Site className="index" noSearch noHome page={page}>
+  <Site className="index" noSearch noHome page={page} loadHeroStyles>
     <section className="fixedSearch">
       <Search />
     </section>
