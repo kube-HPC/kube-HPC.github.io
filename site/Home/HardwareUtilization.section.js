@@ -1,5 +1,5 @@
 const React = require("react");
-const HardwareUtilizationIcon = require("./icons/HardwareUtilization");
+const HardwareUtilizationIcon = require("./Icons/HardwareUtilization");
 
 const HardwareUtilization = () => (
   <section className="section" id="optimize-hardware">
