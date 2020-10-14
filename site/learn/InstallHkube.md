@@ -35,23 +35,23 @@ To add the repo to your helm run
 $ helm repo add hkube http://hkube.io/helm/
 ```
 ## Start minikube
-Currently HKube requires at least 4 cpu cores and 16GB of memory, ingress controller and dynamic storage
-```console
-$ minikube start --driver kvm2 --cpus 4 --memory 16000 # --driver can be virtualbox kvm2 or docker. For linux docker is best. 
-$ minikube addons enable storage-provisioner
-$ minikube addons enable ingress
+Currently HKube requires at least 4 cpu cores and 16GB of memory, ingress controller, registry, and dynamic storage 
+> To use the internal docker registry, the `--insecure-registry` flag is needed
+
+```hkube-tabs
+# { "hkube": true, "schema": "install" }
 ```
+
 ## Installing the Chart
-To install the chart with the release name `hkube`:
+To install the chart with the release name `hkube`:  
+> Also set the registry to the internal registry  
 
 ```console
-$ helm install hkube hkube/hkube
+$ helm install hkube --set build_secret.docker_registry=minikube:5000 --set build_secret.docker_registry_insecure=true hkube/hkube
 ```
-This command installs `hkube` in a minimal configuration for development. See below for production install.
-To support automatic build, you need to supply docker registry credentials
-```console
-$ helm install --set build_secret.docker_username=docker_username --set build_secret.docker_password=docker_password  hkube hkube/hkube
-```
+This command installs `hkube` in a minimal configuration for development. See below for production install.  
+> Be patient. This can take some time depending on your internet connection  
+
 ### Open the dashboard
 get the IP address of your minikube instance
 ```console
