@@ -35,7 +35,7 @@ To add the repo to your helm run
 $ helm repo add hkube http://hkube.io/helm/
 ```
 ## Start minikube
-Currently HKube requires at least 4 cpu cores and 16GB of memory, ingress controller, registry, and dynamic storage 
+Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress controller, registry, and dynamic storage 
 > To use the internal docker registry, the `--insecure-registry` flag is needed
 
 ```hkube-tabs

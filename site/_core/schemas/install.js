@@ -19,7 +19,10 @@ pods -A
         name: 'Windows',
         content: <Prism language="shell">
             {`
-# TBD
+minikube start --driver hyperv --cpus 4 --memory 6GB --insecure-registry="minikube:5000"
+minikube addons enable storage-provisioner
+minikube addons enable ingress
+minikube addons enable registry
     `}
         </Prism>
     },
@@ -27,7 +30,10 @@ pods -A
         name: 'MacOS',
         content: <Prism language="shell">
             {`
-# TBD
+minikube start --cpus 4 --memory 6GB --insecure-registry="minikube:5000"
+minikube addons enable storage-provisioner
+minikube addons enable ingress
+minikube addons enable registry
     `}
         </Prism>
     },

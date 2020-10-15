@@ -24,7 +24,7 @@ Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubus
 #### Download
 
 ```console
-curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/v1.1.24/hkubectl && chmod +x hkubectl && sudo mv hkubectl /usr/local/bin/
+curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/v1.1.57/hkubectl && chmod +x hkubectl && sudo mv hkubectl /usr/local/bin/
 ```
 
 #### Config
