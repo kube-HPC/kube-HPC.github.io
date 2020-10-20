@@ -24,7 +24,10 @@ Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubus
 #### Download
 
 ```console
-curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/v1.1.57/hkubectl && chmod +x hkubectl && sudo mv hkubectl /usr/local/bin/
+export latestVersion="$(curl -s https://api.github.com/repos/kube-HPC/hkubectl/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')"
+curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-linux \
+&& chmod +x hkubectl \
+&& sudo mv hkubectl /usr/local/bin/
 ```
 
 #### Config

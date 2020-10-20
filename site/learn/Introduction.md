@@ -74,7 +74,7 @@ Download `hkubectl` [latest version](https://github.com/kube-HPC/hkubectl/releas
 
 ```bash
 # Check release page for latest version
-latestVersion="v1.1.57"
+export latestVersion="$(curl -s https://api.github.com/repos/kube-HPC/hkubectl/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')"
 curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-linux \
 && chmod +x hkubectl \
 && sudo mv hkubectl /usr/local/bin/
