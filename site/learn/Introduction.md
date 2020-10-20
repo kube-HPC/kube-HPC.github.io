@@ -40,44 +40,7 @@ next: /learn/install/
 
 ## Installation
 
-### Dependencies
-
-HKube runs on top of Kubernetes so in order to run HKube we have to install it's prerequisites.
-
-These instructions assume the use [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) and [helm 3](https://helm.sh/docs/intro/install/)
-The chart is hosted in http://hkube.io/helm/
-To add the repo to your helm run
-```console
-$ helm repo add hkube http://hkube.io/helm/
-```
-### Start minikube
-Currently HKube requires at least 4 cpu cores and 16GB of memory, ingress controller and dynamic storage
-```console
-$ minikube start --driver kvm2 --cpus 4 --memory 16000 # --driver can be virtualbox kvm2 or docker. For linux docker is best. 
-$ minikube addons enable storage-provisioner
-$ minikube addons enable ingress
-```
-### Installing the Chart
-To install the chart with the release name `hkube`:
-
-```console
-$ helm install hkube hkube/hkube
-```
-To support automatic build, you need to supply docker registry credentials
-```console
-$ helm install hkube --set build_secret.docker_username=docker_username --set build_secret.docker_password=docker_password hkube/hkube
-```
-### Open the dashboard
-get the IP address of your minikube instance
-```console
-$ minikube ip
-```
-browse to the dashboard at `http://minikube_ip/hkube/dashboard/`  
-
-> This command installs `hkube` in a minimal configuration for development. See below for production install.  
-> See [here](/learn/install) For more information  
-> Click [here](/learn/install/openshift) for Openshift instructions
-
+See [Install](/learn/install/)
 
 ## APIs
 
