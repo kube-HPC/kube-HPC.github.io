@@ -8,7 +8,7 @@ const HeroColumns = () => (
       <Prism language="yaml">
         {`
 name: my-alg
-env: pythons
+env: python
 resources:
    cpu: 0.5
    mem: 512Mi
