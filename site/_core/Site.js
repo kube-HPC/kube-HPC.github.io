@@ -77,13 +77,6 @@ export default ({
           </div>
           <div className="sitemap-group">
             <h5>
-              <a href="/tutorial/">Tutorial</a>
-            </h5>
-            <a href="/tutorial/stand-alone.html">Stand Alone</a>
-            <a href="/tutorial/cluster.html">Cluster</a>
-          </div>
-          <div className="sitemap-group">
-            <h5>
               <a href="/dashboard/">Dashboard</a>
             </h5>
             <a href="/dashboard/#overview">Overview</a>

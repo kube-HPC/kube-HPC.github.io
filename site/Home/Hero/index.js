@@ -8,8 +8,8 @@ const HeroButtons = () => (
     <a className="button" href="/learn/">
       Get Started
     </a>
-    <a className="button" href="/tutorial/">
-      Learn More
+    <a className="button" target="_blank" href="https://playground.hkube.io/">
+      Playground
     </a>
   </div>
 );
