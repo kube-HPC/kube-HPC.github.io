@@ -29,7 +29,8 @@ helm repo add hkube http://hkube.io/helm/
 # add role for needed permissions and bind it to the user 
 oc create clusterrole hkube-installer-role \
 --verb=create,get,list,watch,update,patch,delete,deletecollection \
---resource=events,ingresses.extensions,ingresses.networking.k8s.io,ingresses.extensions/status,ingresses.networking.k8s.io/status
+--resource=events,ingresses.extensions,ingresses.networking.k8s.io,ingresses.extensions/status,\
+ingresses.networking.k8s.io/status,servicemonitors.monitoring.coreos.com
 oc adm policy add-role-to-user hkube-installer-role $USERNAME -n $NAMESPACE
 ```
 note: if kubernetes version < 1.14 remove `ingresses.networking.k8s.io` from above command
@@ -40,7 +41,7 @@ Installing nginx-ingress-controller in openshift without admin requires a few pr
 2. Create nginx-values.yaml
 Note that the userUd value needs to match the valid UID in your project. Get the valid UID:  
 ```console
-export VALID_UID=$(oc get project ${NAMESPACE} -o yaml |grep "openshift.io/sa.scc.uid-range:" | awk -F:  '{print $2}' | awk -F/ '{print $1}')
+export VALID_UID=$(oc get project ${NAMESPACE} -o yaml |grep -E "^\s*openshift\.io\/sa\.scc\.uid-range:" | awk -F:  '{print $2}' | awk -F/ '{print $1}')
 echo $VALID_UID
 ```
 
@@ -120,7 +121,6 @@ cat <<EOF >hkube-values.yaml
 env:
   default_storage: 'fs'
 global:
-  production: true
   ingress_controller_enable: false
   k8senv: openshift
   namespaced: true
@@ -149,6 +149,8 @@ etcd:
     storageClass: ''
 minio:
   enable: false
+  securityContext:
+    enabled: false
 algorithm_operator:
   build_mode: openshift
 # needed for single node (testing) 
