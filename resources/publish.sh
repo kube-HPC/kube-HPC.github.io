@@ -19,6 +19,8 @@ fi
 # Commit the website and push it
 cd build
 git init
+git config --local user.email "action@github.com"
+git config --local user.name "GitHub Action"
 git add .
 git commit -a -m "Auto-deploy by Travis CI"
 git push --force --quiet "https://${GH_TOKEN}@github.com/kube-HPC/kube-HPC.github.io.git" master:master
