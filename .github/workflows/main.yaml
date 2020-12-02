@@ -24,6 +24,10 @@ jobs:
           node-version: 10.x
       - run: npm ci
       - run: npm run build
+      - name: setup git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
       - run: ./resources/publish.sh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
