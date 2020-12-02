@@ -1,5 +1,5 @@
 ---
-title: Openshift Install
+title: Openshift Install (old)
 sidebarTitle: Install Hkube
 layout: ../_core/DocsLayout
 category: Learn
