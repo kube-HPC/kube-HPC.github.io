@@ -6,7 +6,8 @@ const items = [
         name: 'Linux',
         content: <Prism language="bash">
             {`
-minikube start --driver docker --addons ingress --addons registry --addons registry-aliases --addons storage-provisioner
+minikube start --driver docker --addons ingress --addons registry \\
+  --addons registry-aliases --addons storage-provisioner
 # verify that all pods are running
 kubectl get pods -A
     `}
@@ -16,7 +17,8 @@ kubectl get pods -A
         name: 'Windows',
         content: <Prism language="shell">
             {`
-minikube start --driver hyperv --cpus 4 --memory 6GB --addons ingress --addons registry --addons registry-aliases --addons storage-provisioner
+minikube start --driver hyperv --cpus 4 --memory 6GB --addons ingress ^
+  --addons registry --addons registry-aliases --addons storage-provisioner
 kubectl get pods -A
     `}
         </Prism>
