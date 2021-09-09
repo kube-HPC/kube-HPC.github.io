@@ -48,6 +48,8 @@ echo $VALID_UID
 ```console
 cat <<EOF >nginx-values.yaml
 controller:
+  config:
+    use-forwarded-headers: "true"
   image:
     repository: quay.io/kubernetes-ingress-controller/nginx-ingress-controller
     pullPolicy: IfNotPresent
