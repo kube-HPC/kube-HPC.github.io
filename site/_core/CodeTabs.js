@@ -14,7 +14,7 @@ module.exports = class CodeTabs extends React.Component {
   render() {
     const { items, selectedTabKey } = this.state;
     return (
-      <Tabs transform={false} items={items} showInkBar={true} selectedTabKey={selectedTabKey} />
+      <Tabs items={items} showInkBar={true} selectedTabKey={selectedTabKey} />
     );
   }
 

@@ -77,7 +77,7 @@ stop will be sent if pipeline running for more than ttl (in seconds).
             "algorithmName": "green-alg",
             "input": []
         }
-    ]
+    ],
     "options": {
         "batchTolerance": 80,
         "concurrentPipelines": 2,
