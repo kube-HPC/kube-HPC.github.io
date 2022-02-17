@@ -5,7 +5,7 @@ layout: ../_core/DocsLayout
 category: Learn
 sublinks: API, Implement
 permalink: /learn/algorithms/
-next: /learn/versions/
+next: /learn/codeapi/
 ---
 
 There are two ways to integrate your algorithm into Hkube:  

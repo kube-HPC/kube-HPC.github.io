@@ -3,8 +3,8 @@ title: Pipeline Execution
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/execution/
-next: /learn/triggers/
-sublinks: Flow Input, Reference, Batch, Batch Reference, Wait Any
+next: /learn/streaming/
+sublinks: Flow Input, Reference, Batch, Batch Reference, Wait Any, Output
 ---
 
 Hkube allow special signs in the nodes input that designed to define the pipeline execution flow.
@@ -22,7 +22,7 @@ Using the @ sign we can easily refer to this object.
 ```json
 "name": "example-flowInput",
 "nodes": [{
-    "nodeName": "example-node",
+    "nodeName": "example-node", 
     "algorithmName": "example-alg",
     "input": [42, true, "@flowInput.files.links", null, {"foo": "bar"}]
 }],
@@ -294,3 +294,8 @@ red-alg 3: [3, 3]
 
 The DAG of this pipeline will look like:  
 ![Diagram](/img/execution/double-wait-any.png) 
+
+### Output
+A user can define a pipeline's custom output structure and content. This out put may contain output from nodes which are not leafs and have child nodes, it may contain a sub set of a pipelines default output.
+To define such output a node of kind "output" is added to the pipeline. This node output is equal to its input, what ever is defined in the output node input attribute will be in the algorithm result.
+An output node can not have an empty input attribute. An output node can not have other nodes depend on him, it must me the pipelines last node.
