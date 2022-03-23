@@ -27,11 +27,11 @@ helm repo add hkube http://hkube.io/helm/
 ### setup required prerequisites as admin
 ```console
 # add role for needed permissions and bind it to the user 
-oc create clusterrole hkube-installer-role \
+oc create role hkube-installer-role \
 --verb=create,get,list,watch,update,patch,delete,deletecollection \
 --resource=events,ingresses.extensions,ingresses.networking.k8s.io,ingresses.extensions/status,\
 ingresses.networking.k8s.io/status,servicemonitors.monitoring.coreos.com
-oc adm policy add-role-to-user hkube-installer-role $USERNAME -n $NAMESPACE
+oc adm policy add-role-to-user hkube-installer-role $USERNAME -n $NAMESPACE --role-namespace $NAMESPACE
 ```
 note: if kubernetes version < 1.14 remove `ingresses.networking.k8s.io` from above command
 ### Install nginx ingress controller

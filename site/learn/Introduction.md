@@ -289,7 +289,7 @@ The pipeline is built from algorithms which containerized with docker.
 There are two ways to integrate your algorithm into HKube:
 
 - **Seamless Integration** - As written above HKube can build automatically your docker with the HKube's websocket wrapper.
-- **Code writing** - In order to add algorithm manually to HKube you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, `java` and `.NET core`.
+- **Code writing** - In order to add algorithm manually to HKube you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
 
 #### Implementing the [Algorithms](#meet-the-algorithms)
 
