@@ -27,4 +27,11 @@ jobs:
       - run: ./resources/publish.sh
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: trigger site internal deployment
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/kube-HPC/site/dispatches
+          event_type: trigger
+          client_payload: "{ \"action\": \"site-changed\" }"
+
       
