@@ -33,5 +33,7 @@ jobs:
           route: POST /repos/kube-HPC/site/dispatches
           event_type: trigger
           client_payload: "{ \"action\": \"site-changed\" }"
+        env:
+          GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}'          
 
       
