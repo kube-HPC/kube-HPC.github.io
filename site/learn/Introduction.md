@@ -105,7 +105,7 @@ We want to solve the next problem with given input and a desired output:
 - _Input:_ Two numbers `N`, `k`.
 - _Desired Output:_ A number `M` so: ![sum](/../img/101/sum.svg)
 
-For example: `N=3`, `k=5` will result:![series](/../img/101/series.svg)
+For example: `N=5`, `k=3` will result:![series](/../img/101/series.svg)
 
 ### Solution
 
@@ -136,6 +136,73 @@ The algorithm will wait until all the instances of the `Multiply Algorithm` will
 ```console
 [2,4,6,8,10] -> 30
 ```
+
+### Algorithm
+
+The pipeline is built from algorithms which containerized with docker.
+
+There are two ways to integrate your algorithm into HKube:
+
+- **Seamless Integration** - As written above HKube can build automatically your docker with the HKube's websocket wrapper.
+- **Code writing** - In order to add algorithm manually to HKube you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
+
+#### Implementing the [Algorithms](#meet-the-algorithms)
+
+We will create the algorithms to solve [the problem](#the-problem), HKube currently support two languages for auto build _Python_ and _JavaScript_.
+
+  > Important notes:
+>
+> - **Installing dependencies**
+>   During the container build, HKube will search for the _requirement.txt_ file and will try to install the packages from the pip package manager.
+> - **Advanced Operations**
+>   HKube can build the algorithm only by implementing start function but for advanced operation such as one time initiation and gracefully stopping you have to implement two other functions `init` and `stop`.
+
+##### Range (Python)
+
+```Python
+def start(args):
+    print('algorithm: range start')
+    input = args['input'][0]
+    array = list(range(input))
+    return array
+```
+
+The `start` method calls with the args parameter, the inputs to the algorithm will appear in the `input` property.
+
+The `input` property is an array, so you would like to take the first argument (`"input":["@flowInput.data"]` as you can see we placed `data` as the first argument)
+
+##### Multiply (Python)
+
+```Python
+def start(args):
+    print('algorithm: multiply start')
+    input = args['input'][0]
+    mul = args['input'][1]
+    return input * mul
+```
+
+We sent two parameters `"input":["#@Range","@flowInput.mul"]`, the first one is the output from `Range` that sent an array of numbers, but because we using **batch** sign **(#)** each multiply algorithm will get one item from the array, the second parameter we passing is the `mul` parameter from the `flowInput` object.
+
+##### Reduce (Javascript)
+
+```javascript
+module.exports.start = args => {
+	console.log('algorithm: reduce start');
+	const input = args.input[0];
+	return input.reduce((acc, cur) => acc + cur);
+};
+```
+
+We placed `["@Multiply"]` in the input parameter, HKube will collect all the data from the multiply algorithm and will sent it as an array in the first input parameter.
+
+> Important notes:
+Furthermore, for the algorithm to run on the Hkube platform, it needs to be packaged as tar.gz.
+
+>The archive must contain the folder of your source code,
+In the case of JavaScript, it must contain the package and the package-lock.
+Navigate to your folder that contains the alg, and run the following:
+
+>$ tar -zcvf archive-name.tar.gz *
 
 ### Building a Pipeline
 
@@ -282,63 +349,6 @@ There are more features that can be defined from the descriptor file.
   - **TTL** - Time to live (TTL) limits the lifetime of pipeline in the cluster. stop will be sent if pipeline running for more than ttl (in seconds).
   - **Verbosity Level** - The Verbosity Level is a setting that allows to control what type of progress events the client will notified about. The severity levels are ascending from least important to most important: `trace` `debug` `info` `warn` `error` `critical`.
 
-### Algorithm
-
-The pipeline is built from algorithms which containerized with docker.
-
-There are two ways to integrate your algorithm into HKube:
-
-- **Seamless Integration** - As written above HKube can build automatically your docker with the HKube's websocket wrapper.
-- **Code writing** - In order to add algorithm manually to HKube you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
-
-#### Implementing the [Algorithms](#meet-the-algorithms)
-
-We will create the algorithms to solve [the problem](#the-problem), HKube currently support two languages for auto build _Python_ and _JavaScript_.
-
-> Important notes:
->
-> - **Installing dependencies**
->   During the container build, HKube will search for the _requirement.txt_ file and will try to install the packages from the pip package manager.
-> - **Advanced Operations**
->   HKube can build the algorithm only by implementing start function but for advanced operation such as one time initiation and gracefully stopping you have to implement two other functions `init` and `stop`.
-
-##### Range (Python)
-
-```Python
-def start(args):
-    print('algorithm: range start')
-    input = args['input'][0]
-    array = list(range(input))
-    return array
-```
-
-The start method calls with the args parameter, the inputs to the algorithm will appear in the `input` property.
-
-The `input` property is an array, so you would like to take the first argument (`"input":["@flowInput.data"]` as you can see we placed `data` as the first argument)
-
-##### Multiply (Python)
-
-```Python
-def start(args):
-    print('algorithm: multiply start')
-    input = args['input'][0]
-    mul = args['input'][1]
-    return input * mul
-```
-
-We sent two parameters `"input":["#@Range","@flowInput.mul"]`, the first one is the output from `Range` that sent an array of numbers, but because we using **batch** sign **(#)** each multiply algorithm will get one item from the array, the second parameter we passing is the `mul` parameter from the `flowInput` object.
-
-##### Reduce (Javascript)
-
-```javascript
-module.exports.start = args => {
-	console.log('algorithm: reduce start');
-	const input = args.input[0];
-	return input.reduce((acc, cur) => acc + cur);
-};
-```
-
-We placed `["@Multiply"]` in the input parameter, HKube will collect all the data from the multiply algorithm and will sent it as an array in the first input parameter.
 
 ### Integrate Algorithms
 
