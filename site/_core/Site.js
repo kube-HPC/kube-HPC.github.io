@@ -30,22 +30,22 @@ export default ({
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="http://hkube.io/" />
-      <meta property="og:image" content="./img/home/og_image.png" />
+      <meta property="og:image" content="/img/home/og_image.png" />
       <meta property="og:image:type" content="image/png" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@hkube" />
       <meta name="twitter:title" content="Hkube: HPC over Kubernetes" />
       <meta name="twitter:description" content="Hkube HPC over Kubernetes" />
-      <meta name="twitter:image" content="./img/home/twitter_image.png" />
-      <link rel="shortcut icon" href="./img/home/favicon.png" />
+      <meta name="twitter:image" content="/img/home/twitter_image.png" />
+      <link rel="shortcut icon" href="/img/home/favicon.png" />
       <link
         rel="home"
         type="application/rss+xml"
-        href="./blog/rss.xml"
+        href="/blog/rss.xml"
         title="Hkube Team Blog"
       />
-      <link rel="stylesheet" href="./style.css" />
-      {loadHeroStyles && <link rel="stylesheet" href="./style.hero.css" />}
+      <link rel="stylesheet" href="/style.css" />
+      {loadHeroStyles && <link rel="stylesheet" href="/style.hero.css" />}
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300"
@@ -66,41 +66,41 @@ export default ({
         <section className="sitemap">
           <div className="sitemap-group">
             <h5>
-              <a href="./learn/">Learn</a>
+              <a href="/learn/">Learn</a>
             </h5>
-            <a href="./learn/">Introduction</a>
-            <a href="./learn/pipeline/">Pipeline</a>
-            <a href="./learn/nodes/">Nodes</a>
-            <a href="./learn/input/">Input</a>
-            <a href="./learn/execution/">Execution</a>
-            <a href="./learn/webhooks/">Webhooks</a>
+            <a href="/learn/">Introduction</a>
+            <a href="/learn/pipeline/">Pipeline</a>
+            <a href="/learn/nodes/">Nodes</a>
+            <a href="/learn/input/">Input</a>
+            <a href="/learn/execution/">Execution</a>
+            <a href="/learn/webhooks/">Webhooks</a>
           </div>
           <div className="sitemap-group">
             <h5>
-              <a href="./dashboard/">Dashboard</a>
+              <a href="/dashboard/">Dashboard</a>
             </h5>
-            <a href="./dashboard/#overview">Overview</a>
-            <a href="./dashboard/#tables">Tables</a>
-            <a href="./dashboard/#operations">Operations</a>
+            <a href="/dashboard/#overview">Overview</a>
+            <a href="/dashboard/#tables">Tables</a>
+            <a href="/dashboard/#operations">Operations</a>
           </div>
           <div className="sitemap-group">
             <h5>
-              <a href="./media/">Media</a>
+              <a href="/media/">Media</a>
             </h5>
-            <a href="./media/#jane/">Meet Jane</a>
-            <a href="./media/#distributed/">Distributed pipeline</a>
-            <a href="./media/#hpc/">HPC over Kubernetes</a>
-            <a href="./media/#architecture/">Hkube Architecture</a>
+            <a href="/media/#jane/">Meet Jane</a>
+            <a href="/media/#distributed/">Distributed pipeline</a>
+            <a href="/media/#hpc/">HPC over Kubernetes</a>
+            <a href="/media/#architecture/">Hkube Architecture</a>
           </div>
           <div className="sitemap-group">
             <h5>
-              <a href="./learn/algorithms/">Algorithms</a>
+              <a href="/learn/algorithms/">Algorithms</a>
             </h5>
-            <a href="./learn/algorithms/">Introduction</a>
-            <a href="./learn/algorithms/#api/">API</a>
-            <a href="./learn/algorithms/#implement/">Implement</a>
-            <a href="./learn/algorithms/#build/">Build</a>
-            <a href="./learn/algorithms/#publish/">Publish</a>
+            <a href="/learn/algorithms/">Introduction</a>
+            <a href="/learn/algorithms/#api/">API</a>
+            <a href="/learn/algorithms/#implement/">Implement</a>
+            <a href="/learn/algorithms/#build/">Build</a>
+            <a href="/learn/algorithms/#publish/">Publish</a>
           </div>
         </section>
         <section className="copyright">
@@ -117,7 +117,7 @@ export default ({
         type="text/javascript"
         src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"
       />
-      <script type="text/javascript" src="./vendor/scroller.js" />
+      <script type="text/javascript" src="/vendor/scroller.js" />
       <script
         dangerouslySetInnerHTML={{
           __html: `
