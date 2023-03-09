@@ -303,7 +303,7 @@ The `flowInput` is the place to define the Pipeline inputs:
 ```
 
 In our case we used _Numeric Type_ but it can be any [JSON type](https://json-schema.org/understanding-json-schema/reference/type.html) (`Object`, `String` etc).
-
+=============consider moving============
 #### Advance Options
 
 There are more features that can be defined from the descriptor file.
@@ -348,7 +348,7 @@ There are more features that can be defined from the descriptor file.
   - **Concurrency** - Pipeline Concurrency define the number of pipelines that are allowed to be running at the same time.
   - **TTL** - Time to live (TTL) limits the lifetime of pipeline in the cluster. stop will be sent if pipeline running for more than ttl (in seconds).
   - **Verbosity Level** - The Verbosity Level is a setting that allows to control what type of progress events the client will notified about. The severity levels are ascending from least important to most important: `trace` `debug` `info` `warn` `error` `critical`.
-
+================================
 
 ### Integrate Algorithms
 
@@ -414,7 +414,7 @@ For running our pipeline as raw-data:
 hkubectl exec raw --f numbers.yml
 ```
 
-#### Stored - Storing the pipeline descriptor for next running
+#### Stored - Storing the pipeline descriptor for future runs
 
 First we store the pipeline:
 
