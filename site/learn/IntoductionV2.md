@@ -4,7 +4,8 @@ sidebarTitle: Hkube 101
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
-sublinks: Features, Getting started - UI, Getting started - REST API, Getting started - CLI
+sublinks: Features, Getting started - UI, Getting started - REST API, Getting started - CLI, API Usage Example
+
 next: /learn/install/
 ---
 
@@ -119,7 +120,7 @@ k = 2
 
 #### Reduce Algorithm
 
-The algorithm will wait until all the instances of the `Multiply Algorithm` will finish then it will summarize the received data together .
+The algorithm will wait until all the instances of the `Multiply Algorithm` will finish then it will summarize the received data. 
 
 ```console
 [2,4,6,8,10] -> 30
@@ -127,12 +128,12 @@ The algorithm will wait until all the instances of the `Multiply Algorithm` will
 
 ### Algorithm
 
-The pipeline is built from algorithms which containerized with docker.
+The pipeline is built from algorithms which are containerized with docker.
 
 There are two ways to integrate your algorithm into HKube:
 
-- **Seamless Integration** - As written above HKube can build automatically your docker with the HKube's websocket wrapper.
-- **Code writing** - In order to add algorithm manually to HKube you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
+- **Seamless Integration** - As written above HKube can build your docker automatically with the HKube's websocket wrapper.
+- **Code writing** - In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
 
 #### Implementing the [Algorithms](#meet-the-algorithms)
 
@@ -169,7 +170,7 @@ def start(args):
     return input * mul
 ```
 
-We sent two parameters `"input":["#@Range","@flowInput.mul"]`, the first one is the output from `Range` that sent an array of numbers, but because we using **batch** sign **(#)** each multiply algorithm will get one item from the array, the second parameter we passing is the `mul` parameter from the `flowInput` object.
+We've sent two parameters `"input":["#@Range","@flowInput.mul"]`, the first one is the output from `Range` that sent an array of numbers, but because we used the **batch** sign **(#)** each instance of the multiply algorithm will get one item from the array, the second parameter we passing is the `mul` parameter from the `flowInput` object.
 
 ##### Reduce (Javascript)
 
@@ -181,16 +182,7 @@ module.exports.start = args => {
 };
 ```
 
-We placed `["@Multiply"]` in the input parameter, HKube will collect all the data from the multiply algorithm and will sent it as an array in the first input parameter.
-
-> Important notes:
-Furthermore, for the algorithm to run on the Hkube platform, it needs to be packaged as tar.gz.
-
->The archive must contain the folder of your source code,
-In the case of JavaScript, it must contain the package and the package-lock.
-Navigate to your folder that contains the alg, and run the following:
-
->$ tar -zcvf archive-name.tar.gz *
+We've placed `["@Multiply"]` in the input parameter, HKube will collect all the data from the multiply algorithm and will send it as an array in the first input parameter.
 
 ### Building a Pipeline
 
@@ -231,7 +223,7 @@ The **pipeline descriptor** is a **JSON object** which describes and defines the
 
 > Note the `flowInput`: `data` = N = 5, `mul` = k = 2
 
-#### Node dependencies
+#### Node dependencies - Legend
 
 HKube [allows special signs](http://hkube.io/learn/execution/#batch) in nodes `input` for defining the pipeline execution flow.
 
