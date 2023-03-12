@@ -4,7 +4,7 @@ sidebarTitle: Hkube 101
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
-sublinks: Features, Getting started - UI, Getting started - REST API, Getting started - CLI, API Usage Example
+sublinks: Features, Getting started - UI, Getting started - REST API, Getting started - CLI, Let's talk about HKUBE, CLI Usage Example
 
 next: /learn/install/
 ---
@@ -85,7 +85,7 @@ next: /learn/install/
 
 
 
-## API Usage Example
+## Let's talk about HKUBE
 
 ### The Problem
 
@@ -183,6 +183,8 @@ module.exports.start = args => {
 ```
 
 We've placed `["@Multiply"]` in the input parameter, HKube will collect all the data from the multiply algorithm and will send it as an array in the first input parameter.
+
+## CLI Usage Example
 
 ### Building a Pipeline
 
