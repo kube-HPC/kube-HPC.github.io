@@ -65,7 +65,7 @@ next: /learn/install/
     ```
     - Via a pre-built docker image.
   
-  ![AlgUpload](/../img/101/AlgoUpload.png) 
+  ![AlgUpload](/../img/101/Algo_Upload.png) 
 - **Creating a Pipeline**
     
     - While being able to run the uploaded algorithms seperately, you may create a pipeline to build your algorithm flow.
