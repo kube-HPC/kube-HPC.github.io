@@ -4,8 +4,7 @@ sidebarTitle: Hkube 101
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
-sublinks: Features, Getting started - UI, Getting started - REST API, Getting started - CLI, Let's talk about HKUBE, CLI Usage Example
-
+sublinks: Features, Getting started, Let's talk about HKUBE, CLI Usage Example
 next: /learn/install/
 ---
 
@@ -34,15 +33,22 @@ next: /learn/install/
 - **Build API** - Just upload your code, you **don't have to worry** about building containers and integrating them with HKube API.
 
 
-## Getting started - UI
+## Getting started
+- HKube is available in 3 formats, [UI](#getting-started), [CLI](/learn/api/#Cli) and [RESTFUL-API](/learn/api/#restful-api).
+- **UI Prerequisite** - See [Install](/learn/install/) for both **local** and **production** environments
 
 - **Uploading Algorithms**
 
-  - Currently, we support Javascrypt, Python- for **autobuild**, and Java for **manual** works.
-  - For compatability, algorithms must recieve input as follows:
+  - Currently, we support Javascrypt, Python and Java **autobuild**.
+  - In order to be HKube compatiable, Algorithms must handle inputs the following way:
+  >Java example
+
      ```Java
         Java example here
     ```
+
+  >Python example
+
     ```Python
     def start(args):
         print('algorithm: range start')
@@ -50,6 +56,8 @@ next: /learn/install/
         array = list(range(input))
         return array
     ```
+  >Javascript example
+
     ```Javascript
     module.exports.start = args => {
         console.log('algorithm: reduce start');
@@ -58,6 +66,7 @@ next: /learn/install/
     };
     ```
   - Using the UI, there are three ways to upload your algorithms:
+    ![AlgUpload](/../img/101/Alg-upload.gif) 
     - Via version control ( github/gitlab)
     - Via local package - You must pack your algorithm using
     ```Console
@@ -65,7 +74,7 @@ next: /learn/install/
     ```
     - Via a pre-built docker image.
   
-  ![AlgUpload](/../img/101/Algo_Upload.png) 
+
 - **Creating a Pipeline**
     
     - While being able to run the uploaded algorithms seperately, you may create a pipeline to build your algorithm flow.
@@ -78,7 +87,7 @@ next: /learn/install/
     - Both algorithms and pipelines, produce results ald logs that can be viewed in the UI.
     - We offer debugging options and various advanced configurations.
 
->For  detailed CLI Example, refer to [CLI](#cli) 
+>For  detailed CLI Example, refer to [CLI](#cli-usage-example) 
 
 
 ## Let's talk about HKUBE
@@ -182,43 +191,7 @@ We've placed `["@Multiply"]` in the input parameter, HKube will collect all the 
 
 ## CLI Usage Example
 
-### CLI
-
-`hkubectl` is HKube command line tool.
-
-```bash
-hkubectl [type] [command] [name]
-
-# More information
-hkubectl --help
-```
-
-Download `hkubectl` [latest version](https://github.com/kube-HPC/hkubectl/releases).
-
-```bash
-# Check release page for latest version
-export latestVersion="$(curl -s https://api.github.com/repos/kube-HPC/hkubectl/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')"
-curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-linux \
-&& chmod +x hkubectl \
-&& sudo mv hkubectl /usr/local/bin/
-```
-
-> For mac replace with hkubectl-macos
-> For Windows download hkubectl-win.exe
-
-Config `hkubectl` with your running Kubernetes.
-
-```bash
-# Config
-hkubectl config set endpoint ${KUBERNETES-MASTER-IP}
-
-hkubectl config set rejectUnauthorized false
-```
-
-> Make sure `kubectl` is configured to your cluster.
->
-> HKube requires that certain pods will run in privileged security permissions, consult your Kubernetes installation to see how it's done.
-
+cli prerequisite placeholder here
 ### Building a Pipeline
 
 We will **implement the algorithms** using various languages and **construct a pipeline** from them using **HKube**.
