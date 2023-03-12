@@ -57,7 +57,7 @@ There are three ways to communicate with HKube: **Dashboard**, **REST API** and 
 HKube exposes it's functionality with REST API.
 
 - [API Spec](http://hkube.io/spec/)
-- [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json) - locally `{yourDomain}/hkube/api-server/swagger-ui`
+- [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/hkube/master/core/api-server/api/rest-api/swagger.json) - locally `{yourDomain}/hkube/api-server/swagger-ui`
 
 ### CLI
 
