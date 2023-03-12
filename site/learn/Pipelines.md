@@ -3,7 +3,7 @@ title: Pipelines
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/pipelines/
-sublinks: Raw, Stored, Node
+sublinks: Raw, Stored
 next: /learn/nodes/
 ---
 
