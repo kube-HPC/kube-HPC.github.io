@@ -39,8 +39,9 @@ next: /learn/install/
 
 - **Uploading Algorithms**
 
-  - Currently, we support Javascrypt, Python and Java **autobuild**.
+  - Currently, we support Javascript, Python and Java **autobuild**.
   - In order to be HKube compatiable, Algorithms must handle inputs the following way:
+  
   >Java example
 
      ```Java
@@ -191,7 +192,8 @@ We've placed `["@Multiply"]` in the input parameter, HKube will collect all the 
 
 ## CLI Usage Example
 
-cli prerequisite placeholder here
+- **CLI Prerequisite** - See [CLI-Installation](/learn/installCLI/#setup)
+
 ### Building a Pipeline
 
 We will **implement the algorithms** using various languages and **construct a pipeline** from them using **HKube**.
