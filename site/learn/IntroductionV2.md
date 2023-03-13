@@ -5,7 +5,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
 sublinks: Features, Getting started, Let's talk about HKUBE, CLI Usage Example
-next: /learn/install/
+next: /learn/advancedPipeline/
 ---
 
 
@@ -228,6 +228,8 @@ The **pipeline descriptor** is a **JSON object** which describes and defines the
 ```
 
 > Note the `flowInput`: `data` = N = 5, `mul` = k = 2
+
+For more pipeline descriptor options, see [Advanced](/learn/advancedPipeline)
 
 #### Node dependencies - Legend
 
