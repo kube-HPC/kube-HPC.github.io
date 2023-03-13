@@ -13,7 +13,7 @@ next: /learn/install/
 >
 > HKube optimally **utilizing** pipeline's resources, based on **user priorities** and **[heuristics](https://en.wikipedia.org/wiki/Heuristic)**.
 
-## Features
+## Features!
 
 - **Distributed pipeline of algorithms**
 
@@ -41,13 +41,9 @@ next: /learn/install/
 
   - Currently, we support Javascript, Python and Java **autobuild**.
   - In order to be HKube compatiable, Algorithms must handle inputs the following way:
+
+  >Java example - see [Documentation](https://raw.githubusercontent.com/kube-HPC/java-wrapper.hkube/master/algorithm-example/src/main/resources/instructions.txt)
   
-  >Java example
-
-     ```Java
-        Java example here
-    ```
-
   >Python example
 
     ```Python
@@ -81,11 +77,11 @@ next: /learn/install/
     - While being able to run the uploaded algorithms seperately, you may create a pipeline to build your algorithm flow.
     - Using the pipeline creation wizard, you may interconnect existing algorithms and modify the input flow between each part.
 
-  ![PipelineWiz](/../img/101/PipeLineWiz.png)
+  ![PipelineWiz](/../img/101/Pipeline-upload.gif)
   
 - **Running your creations**
 
-    - Both algorithms and pipelines, produce results ald logs that can be viewed in the UI.
+    - Both algorithms and pipelines, produce results and logs that can be viewed in the UI.
     - We offer debugging options and various advanced configurations.
 
 >For  detailed CLI Example, refer to [CLI](#cli-usage-example) 
@@ -192,7 +188,7 @@ We've placed `["@Multiply"]` in the input parameter, HKube will collect all the 
 
 ## CLI Usage Example
 
-- **CLI Prerequisite** - See [CLI-Installation](/learn/installCLI/#setup)
+- **CLI Prerequisite** - See [CLI-Installation](/learn/installCLI/)
 
 ### Building a Pipeline
 

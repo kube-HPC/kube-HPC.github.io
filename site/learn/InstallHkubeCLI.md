@@ -4,11 +4,11 @@ sidebarTitle: Install CLI
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/installCLI/
-sublinks: CLI, Setup
+sublinks: Cli, Setup
 next: /learn/api/
 ---
 
-### CLI
+## Cli
 
 `hkubectl` is HKube command line tool.
 
@@ -19,7 +19,7 @@ hkubectl [type] [command] [name]
 hkubectl --help
 ```
 
-### Setup
+## Setup
 
 Download `hkubectl` [latest version](https://github.com/kube-HPC/hkubectl/releases).
 
