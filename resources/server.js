@@ -9,7 +9,8 @@
 var path = require('path');
 var express = require('express');
 var watch = require('./watch');
-
+var config = require('../config/main/config.base');
+var { port } = config;
 var pwd = process.env.PWD;
 var buildDir = process.env.npm_package_site_build || './_build';
 
@@ -18,9 +19,9 @@ var FILE_SERVE_ROOT = path.resolve(pwd, buildDir);
 var app = express().use(express.static(FILE_SERVE_ROOT))
 
 setTimeout(() => {
-  app.listen(8444, () => {
+  app.listen(port, () => {
     watch().then(() => {
-      console.log('Open http://localhost:8444/');
+      console.log('Open http://localhost:' + port + '/');
     }).catch(error => console.error(error.stack || error));
   });
 }, 1000);

@@ -7,12 +7,13 @@
  */
 
 var React = require("react");
+var base_url = require('../../config/main/config.base');
 
 const links = [
-  { section: "learn", text: "Get Started", href: "/learn/" },
-  { section: "tech", text: "Tech", href: "/tech/" },
-  { section: "media", text: "Media", href: "/media/" },
-  { section: "blog", text: "Blog", href: "/blog/" },
+  { section: "learn", text: "Get Started", href: base_url + "/learn/" },
+  { section: "tech", text: "Tech", href: base_url + "/tech/" },
+  { section: "media", text: "Media", href: base_url + "/media/" },
+  { section: "blog", text: "Blog", href: base_url + "/blog/" },
   {
     section: "playground",
     text: "Playground",

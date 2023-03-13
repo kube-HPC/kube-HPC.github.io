@@ -6,6 +6,7 @@
     "start": "rm -rf build && babel-node resources/server.js",
     "build": "rm -rf build && babel-node resources/build.js",
     "watch": "rm -rf build && babel-node resources/watch.js",
+    "docker": "rm -rf build && ./dockerfile/build.sh site",
     "test": "npm run build"
   },
   "babel": {
