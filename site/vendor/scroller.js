@@ -4,7 +4,7 @@ const AnimateOnScroll = function ({ offset } = { offset: 10 }) {
   const windowBottom = window.innerHeight - windowTop;
   const windowLeft = 0;
   const windowRight = window.innerWidth;
-
+  let elements = []
   this.start = (element) => {
     window.requestAnimationFrame(() => {
       // Seta os atributos customizados
@@ -56,7 +56,7 @@ const AnimateOnScroll = function ({ offset } = { offset: 10 }) {
 
   // Atualiza a lista de elementos a serem animados
   this.update = () => {
-    elements = this.getElements();
+    elements = this.getElements() || [];
     elements && this.verifyElementsInViewport(elements);
   };
 
