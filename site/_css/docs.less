@@ -5,6 +5,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  flex-direction: row-reverse;
 
   @media screen and (max-width: @tablet-size) {
     margin-bottom: 4em;
@@ -142,7 +143,17 @@
   }
 }
 
+
+
+
 .nav-docs {
+      overflow-x: hidden;
+    height: 90vh;
+    position: sticky;
+    max-height: 90vh;
+    top: 0;
+    width: 190px;
+
   .body-font(@size: 13px);
   margin: 1em 0 4em;
   // width: 195px;
@@ -153,6 +164,8 @@
     width: auto;
     padding-left: 0;
   }
+
+
 
   h3 {
     .body-font(@size: 13px);
@@ -178,9 +191,21 @@
   }
 
   a {
+     padding-left: 5px;
     color: #666;
     display: block;
 
+      &:hover{
+        overflow-x: hidden;
+      }
+
+   &.active{
+   text-decoration: none;
+    color: #3179e6;
+    background-color: #f5f5f5;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+   }
     &:hover,
     &:focus,
     &.active {
@@ -188,4 +213,18 @@
       color: @hkube-color;
     }
   }
+
+ &::-webkit-scrollbar {
+  width: 1px;
+}
+
+&::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color: #6b6b6b;
+  border-radius: 100px;
+}
 }
