@@ -34,13 +34,13 @@ next: /learn/advancedPipeline/
 
 
 ## Getting started
-- HKube is available in 3 formats, [UI](#getting-started), [CLI](/learn/api/#Cli) and [RESTFUL-API](/learn/api/#restful-api).
-- **UI Prerequisite** - See [Install](/learn/install/) for both **local** and **production** environments
+- HKube has UI, [CLI](/learn/api/#Cli) and [RESTFUL-API](/learn/api/#restful-api).
+- **Prerequisite** - See [Install](/learn/install/) for both **local** and **production** environments
 
-- **Uploading Algorithms**
+- **Creating your first Algorithm**
 
   - Currently, we support Javascript, Python and Java **autobuild**.
-  - In order to be HKube compatiable, Algorithms must handle inputs the following way:
+  - Your algorithm gets it's inputs from Hkube the following way:
 
   >Java example - see [Documentation](https://raw.githubusercontent.com/kube-HPC/java-wrapper.hkube/master/algorithm-example/src/main/resources/instructions.txt)
   
@@ -62,16 +62,19 @@ next: /learn/advancedPipeline/
         return input.reduce((acc, cur) => acc + cur);
     };
     ```
-  - Using the UI, there are three ways to upload your algorithms:
+  - There are three ways to deploy your algorithms:
     ![AlgUpload](/../img/101/Alg-upload.gif) 
     - Via version control ( github/gitlab)
-    - Via local package - You must pack your algorithm using
+    - Via a pre-built docker image.
+    - Via a packaged file - You must pack your algorithm using
     ```Console
     $ tar -zcvf MyAlgo.tar.gz *
     ```
-    - Via a pre-built docker image.
-  
-
+    >To further elaborate, the "Packaged file" option requires a package containing all of the necessary files for the project to work, with your algorithms name serving as the "Entry point" in the wizard.
+    ![AlgPackage](/../img/101/Algo_Package.png)
+    
+    
+    
 - **Creating a Pipeline**
     
     - While being able to run the uploaded algorithms seperately, you may create a pipeline to build your algorithm flow.
@@ -104,25 +107,31 @@ We will solve **the problem** by running a distributed pipeline of three algorit
 
 #### Range Algorithm
 
-Creates an array of length `N`.
+-Receives a parameter `N` and returns an array of length N with ascending values 
 
+-In our pipeline, this will serve as the Entry point
 ```console
  N = 5
  5 -> [1,2,3,4,5]
 ```
 
 #### Multiply Algorithm
+-Receives parameter `k` and value `I` , and returns their multiplication result.
 
-Multiples the received data from `Range Algorithm` by `k`.
+-In our pipeline, the value `I` will be received from `Range Algorithm` and multiplied by `k`.
+
+The `Multiply` algorithm will be invoked parallelly for each Input received from the previous node (`Range`).
 
 ```console
-k = 2
-[1,2,3,4,5] * (2) -> [2,4,6,8,10]
+k = 2 , I = 4
+(4) * (2) -> (8)
 ```
 
 #### Reduce Algorithm
 
-The algorithm will wait until all the instances of the `Multiply Algorithm` will finish then it will summarize the received data. 
+-The algorithm will return the sum of the received array
+
+-In our pipeline, the algorithm waits to receive all of the results from the `Multiply` algorithm.
 
 ```console
 [2,4,6,8,10] -> 30
@@ -134,10 +143,10 @@ The pipeline is built from algorithms which are containerized with docker.
 
 There are two ways to integrate your algorithm into HKube:
 
-- **Seamless Integration** - As written above HKube can build your docker automatically with the HKube's websocket wrapper.
-- **Code writing** - In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
+- **Packaged Algorithm** - HKube can build your docker automatically with the HKube's websocket wrapper, via a **Package** or a **Repository*.
+- **Docker Image Creation** - In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
 
-#### Implementing the [Algorithms](#meet-the-algorithms)
+#### Implementing the Algorithms
 
 We will create the algorithms to solve [the problem](#the-problem), HKube currently support two languages for auto build _Python_ and _JavaScript_.
 
