@@ -4,7 +4,7 @@ sidebarTitle: Hkube 101
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
-sublinks: Features, Getting started, Let's talk about HKUBE, CLI Usage Example
+sublinks: Features, Getting started, Let's talk about HKUBE, Step-by-step CLI Example
 next: /learn/advancedPipeline/
 ---
 
@@ -13,7 +13,7 @@ next: /learn/advancedPipeline/
 >
 > HKube optimally **utilizing** pipeline's resources, based on **user priorities** and **[heuristics](https://en.wikipedia.org/wiki/Heuristic)**.
 
-## Features!
+## Features
 
 - **Distributed pipeline of algorithms**
 
@@ -64,8 +64,9 @@ next: /learn/advancedPipeline/
     ```
   - There are three ways to deploy your algorithms:
     ![AlgUpload](/../img/101/Alg-upload.gif) 
-    - Via version control ( github/gitlab)
-    - Via a pre-built docker image.
+    - HKube can build your docker automatically via a **Package** or a **Repository** - github/gitlab.
+    - In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
+    - Via a pre-built docker image(Connected to the previous point(?)).
     - Via a packaged file - You must pack your algorithm using
     ```Console
     $ tar -zcvf MyAlgo.tar.gz *
@@ -73,7 +74,8 @@ next: /learn/advancedPipeline/
     >To further elaborate, the "Packaged file" option requires a package containing all of the necessary files for the project to work, with your algorithms name serving as the "Entry point" in the wizard.
     ![AlgPackage](/../img/101/Algo_Package.png)
     
-    
+  - The pipeline is built from algorithms which are containerized with docker :
+
     
 - **Creating a Pipeline**
     
@@ -87,11 +89,11 @@ next: /learn/advancedPipeline/
     - Both algorithms and pipelines, produce results and logs that can be viewed in the UI.
     - We offer debugging options and various advanced configurations.
 
->For  detailed CLI Example, refer to [CLI](#cli-usage-example) 
+>For  detailed CLI Example, refer to [Step-by-step](#step-by-step-cli-example) 
 
 
 ## Let's talk about HKUBE
-
+Here, we will present a specific example to showcase the abilities of HKube.
 ### The Problem
 
 We want to solve the next problem with given input and a desired output:
@@ -137,25 +139,11 @@ k = 2 , I = 4
 [2,4,6,8,10] -> 30
 ```
 
-### Algorithm
-
-The pipeline is built from algorithms which are containerized with docker.
-
-There are two ways to integrate your algorithm into HKube:
-
-- **Packaged Algorithm** - HKube can build your docker automatically with the HKube's websocket wrapper, via a **Package** or a **Repository*.
-- **Docker Image Creation** - In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
-
 #### Implementing the Algorithms
 
 We will create the algorithms to solve [the problem](#the-problem), HKube currently support two languages for auto build _Python_ and _JavaScript_.
 
-  > Important notes:
->
-> - **Installing dependencies**
->   During the container build, HKube will search for the _requirement.txt_ file and will try to install the packages from the pip package manager.
-> - **Advanced Operations**
->   HKube can build the algorithm only by implementing start function but for advanced operation such as one time initiation and gracefully stopping you have to implement two other functions `init` and `stop`.
+>Example of the following explanations are available [here](https://github.com/kube-HPC/examples/tree/adding-examples-for-101/autobuild-examples).
 
 ##### Range (Python)
 
@@ -195,13 +183,44 @@ module.exports.start = args => {
 
 We've placed `["@Multiply"]` in the input parameter, HKube will collect all the data from the multiply algorithm and will send it as an array in the first input parameter.
 
-## CLI Usage Example
+## Step-by-step CLI Example
 
 - **CLI Prerequisite** - See [CLI-Installation](/learn/installCLI/)
 
+
+### Integrate Algorithms
+
+After we've created the [algorithms](#implementing-the-algorithms), we will integrate them with the CLI.
+
+> Can be done also through the [Dashboard](#dashboard).
+
+Create a `yaml` (or `JSON`) that defines the **algorithm**:
+
+```yaml
+# range.yml
+name: range
+env: python # can be python or javascript
+resources:
+  cpu: 0.5
+  gpu: 1 # if not needed just remove it from the file
+  mem: 512Mi
+
+code:
+  path: /path-to-algorithm/range.tar.gz
+  entryPoint: main.py
+```
+
+Add it with the CLI:
+
+```console
+hkubectl algorithm apply --f range.yml
+```
+
+> This step must be performed **for each of the algorithms**.
+
 ### Building a Pipeline
 
-We will **implement the algorithms** using various languages and **construct a pipeline** from them using **HKube**.
+The algorithms from the previous step are used to **construct a pipeline** using **HKube**.
 
 ![PipelineExample](/../img/101/pipeline-example-1.png)
 
@@ -301,35 +320,6 @@ The `flowInput` is the place to define the Pipeline inputs:
 
 In our case we used _Numeric Type_ but it can be any [JSON type](https://json-schema.org/understanding-json-schema/reference/type.html) (`Object`, `String` etc).
 
-### Integrate Algorithms
-
-After we created the [algorithms](#meet-the-algorithms), we will integrate them with the [CLI](#cli).
-
-> Can be done also through the [Dashboard](#dashboard).
-
-Create a `yaml` (or `JSON`) that defines the **algorithm**:
-
-```yaml
-# range.yml
-name: range
-env: python # can be python or javascript
-resources:
-  cpu: 0.5
-  gpu: 1 # if not needed just remove it from the file
-  mem: 512Mi
-
-code:
-  path: /path-to-algorithm/range.tar.gz
-  entryPoint: main.py
-```
-
-Add it with the [CLI](#cli):
-
-```console
-hkubectl algorithm apply --f range.yml
-```
-
-> Keep in mind we have to do it **for each one of the algorithms**.
 
 ### Integrate Pipeline
 
@@ -359,7 +349,7 @@ flowInput:
 
 #### Raw - Ad-hoc pipeline running
 
-For running our pipeline as raw-data:
+In order to run the pipeline as raw-data:
 
 ```bash
 hkubectl exec raw --f numbers.yml
@@ -389,7 +379,7 @@ flowInput:
   mul: 200
 ```
 
-Then you can executed it by pipeline `name`:
+Then you can execute it by the pipeline `name` property:
 
 ```bash
 # Executes pipeline "numbers" with data=500, mul=200
@@ -406,7 +396,7 @@ result:
   jobId: numbers:a56c97cb-5d62-4990-817c-04a8b0448b7c.numbers
 ```
 
-This is a unique identifier helps to **query** this **specific pipeline execution**.
+This is a unique identifier enables **query** on the **specific pipeline execution**.
 
 - **Stop** pipeline execution:
   `hkubectl exec stop <jobId> [reason]`
