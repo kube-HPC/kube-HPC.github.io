@@ -5,7 +5,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/install/
 sublinks: Prerequisites
-next: /learn/api/
+next: /learn/installCLI/
 ---
 
 ### Prerequisites
