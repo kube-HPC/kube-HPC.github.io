@@ -143,7 +143,7 @@ k = 2 , I = 4
 
 We will create the algorithms to solve [the problem](#the-problem), HKube currently support two languages for auto build _Python_ and _JavaScript_.
 
->Example of the following explanations are available [here](https://github.com/kube-HPC/examples/tree/adding-examples-for-101/autobuild-examples).
+>Examples of the following algorithms are available [here](https://github.com/kube-HPC/examples/tree/adding-examples-for-101/autobuild-examples).
 
 ##### Range (Python)
 
@@ -191,8 +191,7 @@ We've placed `["@Multiply"]` in the input parameter, HKube will collect all the 
 ### Integrate Algorithms
 
 After we've created the [algorithms](#implementing-the-algorithms), we will integrate them with the CLI.
-
-> Can be done also through the [Dashboard](#dashboard).
+For the packaged tar files, see [Repo](https://github.com/kube-HPC/examples/tree/adding-examples-for-101/autobuild-examples) tar files for **each**
 
 Create a `yaml` (or `JSON`) that defines the **algorithm**:
 
