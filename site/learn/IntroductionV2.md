@@ -65,8 +65,8 @@ next: /learn/advancedPipeline/
   - There are three ways to deploy your algorithms:
     ![AlgUpload](/../img/101/Alg-upload.gif) 
     - HKube can build your docker automatically via a **Package** or a **Repository** - github/gitlab.
-    - In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
-    - Via a pre-built docker image(Connected to the previous point(?)).
+    - Via a pre-built docker image - 
+      > In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
     - Via a packaged file - You must pack your algorithm using
     ```Console
     $ tar -zcvf MyAlgo.tar.gz *
@@ -116,7 +116,7 @@ We will solve **the problem** by running a distributed pipeline of three algorit
  N = 5
  5 -> [1,2,3,4,5]
 ```
-
+[Range](https://github.com/kube-HPC/examples/tree/master/autobuild-examples/range-algo-python) - code example
 #### Multiply Algorithm
 -Receives parameter `k` and value `I` , and returns their multiplication result.
 
@@ -128,7 +128,7 @@ The `Multiply` algorithm will be invoked parallelly for each Input received from
 k = 2 , I = 4
 (4) * (2) -> (8)
 ```
-
+[Mult](https://github.com/kube-HPC/examples/tree/master/autobuild-examples/mult-algo-python) - code example
 #### Reduce Algorithm
 
 -The algorithm will return the sum of the received array
@@ -138,7 +138,7 @@ k = 2 , I = 4
 ```console
 [2,4,6,8,10] -> 30
 ```
-
+[Sum](https://github.com/kube-HPC/examples/tree/master/autobuild-examples/sum-alg-nodejs) - code example
 #### Implementing the Algorithms
 
 We will create the algorithms to solve [the problem](#the-problem), HKube currently support two languages for auto build _Python_ and _JavaScript_.
@@ -208,6 +208,7 @@ code:
   path: /path-to-algorithm/range.tar.gz
   entryPoint: main.py
 ```
+>All of the needed tar files for this example reside [Here](https://github.com/kube-HPC/examples/tree/master/autobuild-examples/tar-packages)
 
 Add it with the CLI:
 
