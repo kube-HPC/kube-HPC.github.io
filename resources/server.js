@@ -21,7 +21,8 @@ var app = express().use(express.static(FILE_SERVE_ROOT))
 setTimeout(() => {
   app.listen(port, () => {
     watch().then(() => {
-      console.log('Open http://localhost:' + port + '/');
+      console.log(`Open http://localhost:${port}/${config.base_url}`);
+      console.log('FILE_SERVE_ROOT:' + FILE_SERVE_ROOT);
     }).catch(error => console.error(error.stack || error));
   });
 }, 1000);

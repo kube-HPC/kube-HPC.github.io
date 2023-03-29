@@ -1,4 +1,5 @@
 const React = require("react");
+const config = require('../../config/main/config.base');
 var HeaderLinks = require("./HeaderLinks");
 var Search = require("./Search");
 
@@ -13,8 +14,8 @@ const Nav = ({ section, noSearch, noHome, className }) => (
       >
         <span id="toggle-menu-icon" />
       </label>
-      <a className="nav-home" href="/">
-        <img className="nav-logo" src="/img/home/top-logo.svg" />
+      <a className="nav-home" href={config.base_url + "/"}>
+        <img className="nav-logo" src={config.base_url + "/img/home/top-logo.svg"} />
       </a>
       <HeaderLinks section={section} />
       {noSearch || <Search />}

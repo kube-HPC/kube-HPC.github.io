@@ -15,6 +15,7 @@ var yaml = require('js-yaml');
 var path = require('path');
 var less = require('less');
 var renderReactPage = require('./renderReactPage');
+var config = require('../config/main/config.base');
 import { endsWith } from './util';
 
 module.exports = writer;
@@ -173,7 +174,7 @@ function writeScript(writePath, file, fileData) {
 }
 
 function getWritePath(buildDir, file) {
-  var writePath = file.url;
+  var writePath = file.url.slice(config.base_url.length);
   if (endsWith(writePath, '/')) {
     writePath = path.join(writePath, 'index.html');
   }
