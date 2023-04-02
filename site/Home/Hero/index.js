@@ -23,7 +23,7 @@ const Hero = ({ section }) => (
     <script type="text/javascript" src={config.base_url + "/assets/particlesConfig.js"} />
     <div className="hero-content">
       <div className="named-logo">
-        <img src={config.base_url + "img/home/logo-fish.svg"} />
+        <img src={config.base_url + "/img/home/logo-fish.svg"} />
       </div>
       <div className="hero-body">
         <HeroColumns />
@@ -31,7 +31,7 @@ const Hero = ({ section }) => (
     </div>
     <HPC />
     <HeroButtons />
-    <img className="down-arrow" src={config.base_url + "img/home/down-arrow.svg"} />
+    <img className="down-arrow" src={config.base_url + "/img/home/down-arrow.svg"} />
     <div className="abs">
       <header aria-hidden className="hero-nav">
         <section className="nav-section">

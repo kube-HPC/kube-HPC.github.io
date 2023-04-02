@@ -29,7 +29,7 @@ async function writer(buildDir, file, site) {
   // Modify the @baseURL variable in .less files for relative image loading.
   if (!visitedVariables) {
     visitedVariables = true; // Do it only once, at the beginning because of async.
-    const lessVariablesFile = path.resolve(`.${config.base_url}/site/_css/variables.less`);
+    const lessVariablesFile = path.resolve(`./site/_css/variables.less`);
     const lessFileContent = await readFile(lessVariablesFile);
     const updatedContent = lessFileContent.replace(new RegExp(`@baseURL:.*;`), `@baseURL: "${config.base_url}";`);
     writeFile(lessVariablesFile,updatedContent);
