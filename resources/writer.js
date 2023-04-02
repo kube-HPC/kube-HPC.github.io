@@ -19,10 +19,22 @@ var config = require('../config/main/config.base');
 import { endsWith } from './util';
 
 module.exports = writer;
+var visitedVariables = false;
+
 
 async function writer(buildDir, file, site) {
   var writePath = getWritePath(buildDir, file);
   console.log('  writing', file.relPath);
+  
+  // Modify the @baseURL variable in .less files for relative image loading.
+  if (!visitedVariables) {
+    visitedVariables = true; // Do it only once, at the beginning because of async.
+    const lessVariablesFile = path.resolve(`.${config.base_url}/site/_css/variables.less`);
+    const lessFileContent = await readFile(lessVariablesFile);
+    const updatedContent = lessFileContent.replace(new RegExp(`@baseURL:.*;`), `@baseURL: "${config.base_url}";`);
+    writeFile(lessVariablesFile,updatedContent);
+    console.log(`   modified variables.less to hold base_url: "${config.base_url}"` );
+  }
 
   // Render Less file
   if (endsWith(file.absPath, '.less')) {

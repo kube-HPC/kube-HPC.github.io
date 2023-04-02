@@ -1,3 +1,5 @@
+@import "variables.less";
+
 .nav-header {
   z-index: 1;
   display: flex;
@@ -42,7 +44,7 @@
     }
     margin: 0 auto;
     content: "";
-    background-image: url("/img/burger-menu-close.svg");
+    background-image: url("@{baseURL}/img/burger-menu-close.svg");
     height: 2.5em;
     width: 2.5em;
     display: block;
@@ -53,7 +55,7 @@
 
 #toggle-menu-checkbox:checked ~ label > #toggle-menu-icon {
   &:after {
-    background-image: url("/img/burger-menu.svg");
+    background-image: url("@{baseURL}/img/burger-menu.svg");
   }
 }
 

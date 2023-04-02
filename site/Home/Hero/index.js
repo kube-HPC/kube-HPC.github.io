@@ -2,6 +2,8 @@ const React = require("react");
 const HeaderLinks = require("../../_core/HeaderLinks");
 const HeroColumns = require("./HeroColumns");
 const HPC = require("./../HPC.lead");
+var config = require('../../../config/main/config.base');
+
 
 const HeroButtons = () => (
   <div className="hero-buttons">
@@ -17,11 +19,11 @@ const HeroButtons = () => (
 const Hero = ({ section }) => (
   <div className="hero">
     <div id="particles-js" />
-    <script type="text/javascript" src="/vendor/particles.min.js" />
-    <script type="text/javascript" src="/assets/particlesConfig.js" />
+    <script type="text/javascript" src={config.base_url + "/vendor/particles.min.js"} />
+    <script type="text/javascript" src={config.base_url + "/assets/particlesConfig.js"} />
     <div className="hero-content">
       <div className="named-logo">
-        <img src="/img/home/logo-fish.svg" />
+        <img src={config.base_url + "img/home/logo-fish.svg"} />
       </div>
       <div className="hero-body">
         <HeroColumns />
@@ -29,7 +31,7 @@ const Hero = ({ section }) => (
     </div>
     <HPC />
     <HeroButtons />
-    <img className="down-arrow" src="img/home/down-arrow.svg" />
+    <img className="down-arrow" src={config.base_url + "img/home/down-arrow.svg"} />
     <div className="abs">
       <header aria-hidden className="hero-nav">
         <section className="nav-section">

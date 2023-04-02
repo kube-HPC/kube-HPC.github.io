@@ -101,7 +101,7 @@ We want to solve the next problem with given input and a desired output:
 - _Input:_ Two numbers `N`, `k`.
 - _Desired Output:_ A number `M` so: ![sum](/../img/101/sum.svg)
 
-For example: `N=5`, `k=3` will result:![series](/../img/101/series.svg)
+For example: `N=5`, `k=2` will result:![series](/../img/101/series.svg)
 
 ### Solution
 
@@ -191,7 +191,7 @@ We've placed `["@Multiply"]` in the input parameter, HKube will collect all the 
 ### Integrate Algorithms
 
 After we've created the [algorithms](#implementing-the-algorithms), we will integrate them with the CLI.
-For the packaged tar files, see [Repo](https://github.com/kube-HPC/examples/tree/adding-examples-for-101/autobuild-examples) tar files for **each**
+For the packaged tar files, see [Repo](https://github.com/kube-HPC/examples/tree/adding-examples-for-101/autobuild-examples) tar files for **each** of the algorithms.
 
 Create a `yaml` (or `JSON`) that defines the **algorithm**:
 
