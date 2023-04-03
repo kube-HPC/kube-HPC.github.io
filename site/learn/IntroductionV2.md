@@ -4,7 +4,7 @@ sidebarTitle: Hkube 101
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
-sublinks: Features, Getting started, Let's talk about HKUBE, Step-by-step CLI Example
+sublinks: Features, Getting started, Let's talk about HKUBE, Implementing the Algorithms,  Step-by-step CLI Example
 next: /learn/advancedPipeline/
 ---
 
@@ -34,8 +34,8 @@ next: /learn/advancedPipeline/
 
 
 ## Getting started
-- HKube has UI, [CLI](/learn/api/#Cli) and [RESTFUL-API](/learn/api/#restful-api).
-- **Prerequisite** - See [Install](/learn/install/) for both **local** and **production** environments
+- HKube has UI, [CLI](../learn/api/#Cli) and [RESTFUL-API](../learn/api/#restful-api).
+- **Prerequisite** - See [Install](../learn/install/) for both **local** and **production** environments
 
 - **Creating your first Algorithm**
 
@@ -63,7 +63,7 @@ next: /learn/advancedPipeline/
     };
     ```
   - There are three ways to deploy your algorithms:
-    ![AlgUpload](/../img/101/Alg-upload.gif) 
+    ![AlgUpload](../img/101/Alg-upload.gif) 
     - HKube can build your docker automatically via a **Package** or a **Repository** - github/gitlab.
     - Via a pre-built docker image - 
       > In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
@@ -72,7 +72,8 @@ next: /learn/advancedPipeline/
     $ tar -zcvf MyAlgo.tar.gz *
     ```
     >To further elaborate, the "Packaged file" option requires a package containing all of the necessary files for the project to work, with your algorithms name serving as the "Entry point" in the wizard.
-    ![AlgPackage](/../img/101/Algo_Package.png)
+    You may package all of your algorithms in one package, and choose different algorithm files as different "Entry Points", or choose to package each algorithm separately.
+    ![AlgPackage](../img/101/Algo_Package.png)
     
   - The pipeline is built from algorithms which are containerized with docker :
 
@@ -82,7 +83,7 @@ next: /learn/advancedPipeline/
     - While being able to run the uploaded algorithms seperately, you may create a pipeline to build your algorithm flow.
     - Using the pipeline creation wizard, you may interconnect existing algorithms and modify the input flow between each part.
 
-  ![PipelineWiz](/../img/101/Pipeline-upload.gif)
+  ![PipelineWiz](../img/101/Pipeline-upload.gif)
   
 - **Running your creations**
 
@@ -99,9 +100,9 @@ Here, we will present a specific example to showcase the abilities of HKube.
 We want to solve the next problem with given input and a desired output:
 
 - _Input:_ Two numbers `N`, `k`.
-- _Desired Output:_ A number `M` so: ![sum](/../img/101/sum.svg)
+- _Desired Output:_ A number `M` so: ![sum](../img/101/sum.svg)
 
-For example: `N=5`, `k=2` will result:![series](/../img/101/series.svg)
+For example: `N=5`, `k=2` will result:![series](../img/101/series.svg)
 
 ### Solution
 
@@ -139,11 +140,13 @@ k = 2 , I = 4
 [2,4,6,8,10] -> 30
 ```
 [Sum](https://github.com/kube-HPC/examples/tree/master/autobuild-examples/sum-alg-nodejs) - code example
-#### Implementing the Algorithms
+## Implementing the Algorithms
 
 We will create the algorithms to solve [the problem](#the-problem), HKube currently support two languages for auto build _Python_ and _JavaScript_.
 
 >Examples of the following algorithms are available [here](https://github.com/kube-HPC/examples/tree/adding-examples-for-101/autobuild-examples).
+
+>Further elaboration on the various ways to implement the [algorithms](../learn/algorithms/) is present.
 
 ##### Range (Python)
 
@@ -185,7 +188,7 @@ We've placed `["@Multiply"]` in the input parameter, HKube will collect all the 
 
 ## Step-by-step CLI Example
 
-- **CLI Prerequisite** - See [CLI-Installation](/learn/installCLI/)
+- **CLI Prerequisite** - See [CLI-Installation](../learn/installCLI/)
 
 
 ### Integrate Algorithms
@@ -222,7 +225,7 @@ hkubectl algorithm apply --f range.yml
 
 The algorithms from the previous step are used to **construct a pipeline** using **HKube**.
 
-![PipelineExample](/../img/101/pipeline-example-1.png)
+![PipelineExample](../img/101/pipeline-example-1.png)
 
 #### Pipeline Descriptor
 
@@ -257,7 +260,7 @@ The **pipeline descriptor** is a **JSON object** which describes and defines the
 
 > Note the `flowInput`: `data` = N = 5, `mul` = k = 2
 
-For more pipeline descriptor options, see [Advanced](/learn/advancedPipeline)
+For more pipeline descriptor options, see [Advanced](../learn/advancedPipeline)
 
 #### Node dependencies - Legend
 
@@ -271,7 +274,7 @@ In our case we used:
 
 **(\#@)** — By combining `#` and `@` we can create a batch processing on node results.
 
-![JSON](/../img/101/pipeline-example-2.png)
+![JSON](../img/101/pipeline-example-2.png)
 
 #### JSON Breakdown
 
@@ -307,7 +310,7 @@ In HKube, the linkage between the nodes is done by defining the algorithm inputs
 
 Keep in mind that HKube will transport the results between the nodes **automatically** for doing it HKube currently support two different types of transportation layers _object storage_ and _files system_.
 
-![Group 4 (3)](/../img/101/pipeline-example-3.png)
+![Group 4 (3)](../img/101/pipeline-example-3.png)
 
 The `flowInput` is the place to define the Pipeline inputs:
 

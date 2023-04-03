@@ -94,7 +94,7 @@ we can take node output and make it the input of another node.
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/execution/simple-pipeline.png)
+![Diagram](../img/execution/simple-pipeline.png)
 
 
 The blue circle is the **pipeline driver** which responsible for executing nodes with the right order and the right input.  
@@ -136,7 +136,7 @@ This example is exactly like the first one, except the # sign in the input of th
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/execution/simple-batch.png)
+![Diagram](../img/execution/simple-batch.png)
 
 The green node will run as a batch because of the # sign in the input.  
 This pipeline will create three different tasks from type green-alg.  
@@ -174,7 +174,7 @@ The input of the red node will be: [yellow node output, 512].
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/execution/batch-result2.png) 
+![Diagram](../img/execution/batch-result2.png) 
 
 
 ### Batch Reference
@@ -210,7 +210,7 @@ yellow-alg 3: [false, "C"]
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/execution/batch-result.png)
+![Diagram](../img/execution/batch-result.png)
 
 ### Wait Any
 
@@ -257,7 +257,7 @@ yellow-alg 3: [true, 13]
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/execution/wait-any.png)  
+![Diagram](../img/execution/wait-any.png)  
 
 ### Another Wait Any Example
 
@@ -293,7 +293,7 @@ red-alg 3: [3, 3]
 ```
 
 The DAG of this pipeline will look like:  
-![Diagram](/img/execution/double-wait-any.png) 
+![Diagram](../img/execution/double-wait-any.png) 
 
 ### Output
 A user can define a pipeline's custom output structure and content.  

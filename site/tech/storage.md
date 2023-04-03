@@ -40,7 +40,7 @@ You can import our [Kibana dashboard](https://github.com/kube-HPC/deploy-cluster
 
 ## Tracing
 
-Hkube push by default [traces](https://opentracing.io/) to [Jaeger](https://www.jaegertracing.io/), using the opentracing. these traces are used by our [dashboard](/tech/dashboard/)
+Hkube push by default [traces](https://opentracing.io/) to [Jaeger](https://www.jaegertracing.io/), using the opentracing. these traces are used by our [dashboard](../tech/dashboard/)
 
 ## Monitoring
 

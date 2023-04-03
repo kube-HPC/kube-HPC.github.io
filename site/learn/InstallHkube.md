@@ -20,13 +20,8 @@ Hkube is installed using helm. Both helm 2 and the newer [helm 3](https://helm.s
 
 These instructions assume the use [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) and [helm 3](https://helm.sh/docs/intro/install/)
 
-Click [here](/learn/install/openshift) for Openshift instructions
+Click [here](../learn/install/openshift) for Openshift instructions
 
-## TL;DR;
-```console
-$ helm repo add hkube http://hkube.io/helm/
-$ helm install hkube hkube/hkube
-```
 ## Helm repository setup
 
 The chart is hosted in http://hkube.io/helm/
@@ -56,8 +51,13 @@ get the IP address of your minikube instance
 ```console
 $ minikube ip
 ```
-browse to the dashboard at `http://minikube_ip/hkube/dashboard/`
+browse to the dashboard at `http://<minikube_ip_here>/hkube/dashboard/`
 
+## TL;DR;
+```console
+$ helm repo add hkube http://hkube.io/helm/
+$ helm install hkube hkube/hkube
+```
 ## Uninstalling the Chart
 ```console
 $ helm delete hkube
