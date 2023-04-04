@@ -8,6 +8,7 @@ on:
   push:
     branches: [ source ]
 
+  workflow_dispatch:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -17,6 +18,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: setup git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      - name: version
+        run: |
+          git checkout -f -b version-branch
+          npm version patch --no-commit-hooks -m "$(git log -1 --pretty=%B) .... bump version [skip ci]"
+          git push origin version-branch:main --follow-tags   
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -27,12 +37,19 @@ jobs:
       - run: ./resources/publish.sh
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: trigger site internal deployment
+      - name: build site docker
+        run: |
+          docker login --username yehiyam --password ${DOCKER_HUB_PASS}
+          PRIVATE_REGISTRY=docker.io/hkube npm run docker
+        env:
+          DOCKER_HUB_PASS: ${{ secrets.DOCKER_PASSWORD }}
+      - name: trigger site docker
+        id: trigger
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/kube-HPC/site/dispatches
+          route: POST /repos/kube-HPC/release-manager/dispatches
           event_type: trigger
-          client_payload: "{ \"action\": \"site-changed\" }"
+          #client_payload: "{ \"placeholder\": \"placeholder\" }"
         env:
           GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}'          
 

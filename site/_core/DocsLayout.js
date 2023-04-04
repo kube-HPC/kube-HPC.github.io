@@ -23,7 +23,7 @@ export default ({ page, site }) => (
           <Marked>{page.content}</Marked>
           {page.next && (
             <Box
-              url={path.resolve(page.url,config.base_url +  page.next)}
+              url={path.resolve(page.url,config.base_url +  page.next) + "/"}
               title="Next &rarr;"
               text={page.nextPage.title}
             ></Box>
