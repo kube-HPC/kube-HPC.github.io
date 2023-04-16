@@ -7,6 +7,7 @@ else
   IMAGE_NAME=hkube/${REPO_NAME}
 fi
 echo npm_package_version=${npm_package_version}
+echo IMAGE_NAME=${IMAGE_NAME}
 VERSION="v${npm_package_version}"
 if [ "${TRAVIS_PULL_REQUEST:-"false"}" != "false" ]; then
   VERSION=${VERSION}-${TRAVIS_PULL_REQUEST_BRANCH}-${TRAVIS_JOB_NUMBER}
