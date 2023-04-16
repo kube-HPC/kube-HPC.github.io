@@ -40,6 +40,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: build site docker
         run: |
+          echo "Before running 'npm run docker' , package ver is: $npm_package_version"
           docker login --username yehiyam --password ${DOCKER_HUB_PASS}
           PRIVATE_REGISTRY=docker.io/hkube npm run docker
         env:
