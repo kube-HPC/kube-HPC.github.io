@@ -27,7 +27,7 @@ jobs:
         run: |
           git checkout -f -b version-branch
           npm version patch --no-commit-hooks -m "$(git log -1 --pretty=%B) .... bump version [skip ci]"
-          git push origin version-branch:main --follow-tags   
+          git push origin version-branch:deploy_a_docker --follow-tags   
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
