@@ -19,6 +19,16 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - run: |
+             cat ./package.json | grep version
+             npm ci
+      - run: npm run build
+      - run: ./resources/publish.sh
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: setup git
         run: |
           git config --local user.email "action@github.com"
@@ -26,21 +36,10 @@ jobs:
       - name: version
         run: |
           git checkout -f -b version-branch
-          cat ./package.json
+          cat ./package.json | grep version
           npm version patch -m "$(git log -1 --pretty=%B) .... bump version [skip ci]"
           git push origin version-branch:deploy_a_docker --follow-tags   
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 10.x
-      - run: |
-             cat ./package.json
-             npm ci
-      - run: npm run build
-      - run: ./resources/publish.sh
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: build site docker
         run: |
           echo "Before running 'npm run docker' , package ver is: ${npm_package_version}"
@@ -54,7 +53,6 @@ jobs:
         with:
           route: POST /repos/kube-HPC/release-manager/dispatches
           event_type: trigger
-          #client_payload: "{ \"placeholder\": \"placeholder\" }"
         env:
           GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}'          
 
