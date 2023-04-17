@@ -1,8 +1,8 @@
 {
-  "name" : "site" ,
+  "name": "site",
   "repository": "https://kube-hpc.github.io",
   "private": true,
-  "version": "1.0.19",
+  "version": "1.0.20",
   "scripts": {
     "start": "rm -rf build && babel-node resources/server.js",
     "build": "rm -rf build && babel-node resources/build.js",
