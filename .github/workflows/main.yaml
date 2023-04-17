@@ -26,6 +26,7 @@ jobs:
       - name: version
         run: |
           git checkout -f -b version-branch
+          cat ./package.json
           npm version patch -m "$(git log -1 --pretty=%B) .... bump version [skip ci]"
           git push origin version-branch:deploy_a_docker --follow-tags   
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -33,14 +34,16 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10.x
-      - run: npm ci
+      - run: |
+             cat ./package.json
+             npm ci
       - run: npm run build
       - run: ./resources/publish.sh
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: build site docker
         run: |
-          echo "Before running 'npm run docker' , package ver is: $npm_package_version"
+          echo "Before running 'npm run docker' , package ver is: ${npm_package_version}"
           docker login --username yehiyam --password ${DOCKER_HUB_PASS}
           PRIVATE_REGISTRY=docker.io/hkube npm run docker
         env:
