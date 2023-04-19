@@ -6,7 +6,7 @@ name: CI-MAIN
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ deploy_a_docker ]
+    branches: [ source ]
 
   workflow_dispatch:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -23,7 +23,6 @@ jobs:
         with:
           node-version: 10.x
       - run: |
-             cat ./package.json | grep version
              npm ci
       - run: npm run build
       - run: ./resources/publish.sh
@@ -36,9 +35,8 @@ jobs:
       - name: version
         run: |
           git checkout -f -b version-branch
-          cat ./package.json | grep version
           npm version patch -m "$(git log -1 --pretty=%B) .... bump version [skip ci]"
-          git push origin version-branch:deploy_a_docker --follow-tags   
+          git push origin version-branch:source --follow-tags   
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: build site docker
         run: |
