@@ -17,13 +17,15 @@ HKube's data streaming is an extension to hkube batch processing pipeline archit
 In real-time. As a result, you can collect, analyze, and store large amounts of information.
 That capability allows for applications, analytics, and reporting in real-time.
 
+![StreamingDiagram](../../img/streaming/Streaming-diagram-nobackground.png)
+
 ### Use Cases - Stream Tweets in real-time
 
 So where are hkube data streams good for? we can take a look on stream from Twitter as an example on this particular case we want to enrich the data from other resources for example Facebook or Linkedin and other internal databases before saving it
 
 - Use the Twitter API and Hkube Streaming to get and analyze real-time twitts for your research
-- "twitt" node subscribe to Twitter API and receiving real-time twitts
-- "sort" node sorting and sending the twitts according to their language
+- "twitt" node subscribes to Twitter API and is receiving real-time twitts
+- "sort" node is sorting and sending the twitts according to their language
 - "A" and "B" nodes analyze the twitt messages and save them to DB
 
 ## Features

@@ -29,7 +29,7 @@ All messages between Hkube and algorithm are in JSON format.
 - No WebSocket.
 - No Docker.
 
-Using the [hkubectl](../learn/api/#cli)  
+Using the [hkubectl](../../learn/api/#cli)  
 > `hkubectl algorithm apply --f algorithm.yml`
 
 Create a basic algorithm yaml/json file
