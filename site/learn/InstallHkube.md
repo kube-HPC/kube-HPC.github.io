@@ -20,7 +20,7 @@ Hkube is installed using helm. Both helm 2 and the newer [helm 3](https://helm.s
 
 These instructions assume the use [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) and [helm 3](https://helm.sh/docs/intro/install/)
 
-Click [here](../../learn/install/openshift) for Openshift instructions
+Click [here](../../learn/install/openshift/) for Openshift instructions
 
 ## Helm repository setup
 

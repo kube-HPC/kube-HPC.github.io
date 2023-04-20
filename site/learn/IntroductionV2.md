@@ -260,11 +260,11 @@ The **pipeline descriptor** is a **JSON object** which describes and defines the
 
 > Note the `flowInput`: `data` = N = 5, `mul` = k = 2
 
-For more pipeline descriptor options, see [Advanced](../learn/advancedPipeline)
+For more pipeline descriptor options, see [Advanced](../learn/advancedPipeline/)
 
 #### Node dependencies - Legend
 
-HKube [allows special signs](http://hkube.io/learn/execution/#batch) in nodes `input` for defining the pipeline execution flow.
+HKube allows special [signs](http://hkube.io/learn/execution/#batch) in node `input` for defining the pipeline execution flow.
 
 In our case we used:
 
