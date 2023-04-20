@@ -11,6 +11,7 @@ var fs = require('fs');
 var path = require('path');
 var writer = require('./writer');
 var yaml = require('js-yaml');
+var config = require('../config/main/config.base');
 import { endsWith } from './util';
 
 exports.readSite = readSite;
@@ -49,7 +50,7 @@ async function readSite(siteRoot) {
   for (var i = 0; i < site.files.length; i++) {
     var page = site.files[i];
     if (page.next) {
-      page.nextPage = pageByUrl[path.resolve(page.url, page.next)];
+      page.nextPage = pageByUrl[path.resolve(page.url, config.base_url + page.next)];
     }
   }
 
@@ -118,9 +119,9 @@ function normalizeData(file) {
 // The URL with a leading slash to a file.
 function urlToFile(file) {
   // Determine full url from permalink or the file path.
-  var url;
+  var url = config.base_url;
   if (file.permalink) {
-    url = file.permalink[0] === '/' ?
+    url += file.permalink[0] === '/' ?
       file.permalink :
       '/' + path.join(path.dirname(file.relPath), file.permalink);
     // Ext-less permalinks should have trailing slashes
@@ -128,7 +129,7 @@ function urlToFile(file) {
       url += '/';
     }
   } else {
-    url = '/' + file.relPath;
+    url += '/' + file.relPath;
 
     if (endsWith(file.relPath, '.xml.js')) {
       url = url.slice(0, -'.js'.length);

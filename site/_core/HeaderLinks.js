@@ -7,19 +7,20 @@
  */
 
 var React = require("react");
+var config = require('../../config/main/config.base');
 
 const links = [
-  { section: "learn", text: "Get Started", href: "/learn/" },
-  { section: "tech", text: "Tech", href: "/tech/" },
-  { section: "media", text: "Media", href: "/media/" },
-  { section: "blog", text: "Blog", href: "/blog/" },
+  { section: "learn", text: "Get Started", href: config.base_url + "/learn/" },
+  { section: "tech", text: "Tech", href: config.base_url + "/tech/" },
+  { section: "media", text: "Media", href: config.base_url + "/media/" },
+  { section: "blog", text: "Blog", href: config.base_url + "/blog/" },
   {
     section: "playground",
     text: "Playground",
     href: "https://playground.hkube.io/",
   },
   { section: "gitHub", text: "GitHub", href: "https://github.com/kube-HPC" },
-  { section: "spec", text: "Spec", href: "/spec/", target: "_blank" },
+  { section: "spec", text: "Spec", href: config.base_url + "/spec/", target: "_blank" },
 ];
 
 export default ({ section }) => (

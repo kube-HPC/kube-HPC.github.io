@@ -3,7 +3,7 @@ title: Algorithms
 sidebarTitle: Algorithms
 layout: ../_core/DocsLayout
 category: Learn
-sublinks: API, Implement
+sublinks: Implement
 permalink: /learn/algorithms/
 next: /learn/codeapi/
 ---
@@ -29,7 +29,7 @@ All messages between Hkube and algorithm are in JSON format.
 - No WebSocket.
 - No Docker.
 
-Using the [hkubectl](/learn/api/#cli)  
+Using the [hkubectl](../../learn/api/#cli)  
 > `hkubectl algorithm apply --f algorithm.yml`
 
 Create a basic algorithm yaml/json file
@@ -119,7 +119,7 @@ The first event sent to the algorithm, sent for every task activation.
    }
 }
 ```
-> data includes an input array, same input as written in the [descriptor](/learn/input/)
+> data includes an input array, same input as written in the [descriptor](../learn/input/)
 
 ### Event: start
 
@@ -435,7 +435,7 @@ To finish the last opened tracer span, use this event:
 * The optional "error" property is error message (or object with "message" property, e.g. exception).
 * Note: in case of algorithm error, remember to send finishSpan to all started spans (in reverse order) before sending errorMessage. 
 
-[How To Implement](/algorithms/implement/#handle-errors)
+[How To Implement](../algorithms/implement/#handle-errors)
 
 
 ## Implement
@@ -476,7 +476,7 @@ Each event has a specific handler, as described below.
 The initialize event is the first event that Hkube sends to your algorithm.  
 The payload of this event includes the pipeline data and the input for your algorithm.  
 You need to store the input in a local variable for later use.  
-> same input as written in the [descriptor](/learn/input/)
+> same input as written in the [descriptor](../learn/input/)
 
 ```hkube-tabs
 # { "hkube": true, "schema": "handle-messages-initialize" }

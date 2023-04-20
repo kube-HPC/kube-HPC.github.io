@@ -8,6 +8,8 @@
 
 var React = require('react');
 import { toSlug } from './Header';
+const config = require('../../config/main/config.base');
+
 
 export default ({ site, page, firstURL }) =>
   <div className="nav-docs">
@@ -82,12 +84,12 @@ function getCategories(site, dir, firstURL) {
   for (var i = 0; i < pages.length; ++i) {
     var page = pages[i];
     if (page.next) {
-      if (!articles[page.next]) {
+      if (!articles[config.base_url + page.next]) {
         throw new Error(
           '`next: ' + page.next + '` in ' + page.url + ' doesn\'t exist'
         );
       }
-      previous[articles[page.next].url] = page.url;
+      previous[articles[config.base_url + page.next].url] = page.url;
     }
   }
 
@@ -118,7 +120,7 @@ function getCategories(site, dir, firstURL) {
       }
     }
     currentCategory.links.push(page);
-    page = articles[page.next];
+    page = articles[config.base_url + page.next];
   }
   categories.push(currentCategory);
 

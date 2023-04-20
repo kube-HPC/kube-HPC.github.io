@@ -18,7 +18,7 @@ permalink: /tech/dashboard/
 
 > Dashboard is a web-based [HKube](https://github.com/kube-HPC/hkube) user interface.
 
-![DashboardPreview](/../img/dashboard/DashboardPreview.png)
+![DashboardPreview](../img/dashboard/DashboardPreview.png)
 
 Dashboard is an implementation of **Hkube Restful API**.
 
@@ -42,11 +42,11 @@ The Dashboard follows two main concepts **Operations** and **Tables**.
 Actions which deploying data to HKube.
 Use Operations sidebar for adding `pipelines`, `algorithms` etc.
 
-![Add Pipeline](/../img/dashboard/AddPipeline.png)
+![Add Pipeline](../img/dashboard/AddPipeline.png)
 
 #### Tables
 
 View Tables for monitoring HKube data.
 Navigate Tables panel for viewing information about `pipelines` structures, `algorithm` info etc.
 
-![Jobs Graph](/../img/dashboard/JobsGraph.png)
+![Jobs Graph](../img/dashboard/JobsGraph.png)

@@ -22,7 +22,7 @@ resources:
 
 here we specify the minimum requirements: name, image and resources.  
 Let's assume that we have a docker image, if you don't, Hkube can build it for you. 
-click [here](/learn/algorithms/) for more details.
+click [here](../learn/algorithms/) for more details.
 
 There are many ways to interact with Hkube, using the CLI, REST API and UI.  
 In this example we are using the CLI that works directly with the REST API.  

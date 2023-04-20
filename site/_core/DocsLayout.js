@@ -11,6 +11,7 @@ var React = require("react");
 var Site = require("./Site");
 var Marked = require("./Marked");
 var DocsSidebar = require("./DocsSidebar");
+var config = require('../../config/main/config.base');
 var Box = require("../_core/Box");
 
 export default ({ page, site }) => (
@@ -22,7 +23,7 @@ export default ({ page, site }) => (
           <Marked>{page.content}</Marked>
           {page.next && (
             <Box
-              url={path.resolve(page.url, page.next)}
+              url={path.resolve(page.url,config.base_url +  page.next) + "/"}
               title="Next &rarr;"
               text={page.nextPage.title}
             ></Box>

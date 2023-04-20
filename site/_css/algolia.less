@@ -10,10 +10,9 @@
   @media screen and (max-width: @desktop-size) {
     display: none;
   }
-
   input {
     .body-font(@size: 15px, @color: desaturate(lighten(@dark-color, 50%), 50%));
-    background: transparent url("../img/home/search.svg") no-repeat 10px center;
+    background: transparent url("@{baseURL}/img/home/search.svg") no-repeat 10px center;
     background-color: rgba(255, 255, 255, 0.9);
     background-size: 16px 16px;
     border-radius: 15px;
