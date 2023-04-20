@@ -172,8 +172,8 @@ function writeScript(writePath, file, fileData) {
           resolve(
             withInitialRenders.replace(
               '</body></html>',
-              `<script src="/vendor/react.min.js"></script>` +
-              `<script src="/vendor/react-dom.min.js"></script>` +
+              `<script src="${config.base_url}/vendor/react.min.js"></script>` +
+              `<script src="${config.base_url}/vendor/react-dom.min.js"></script>` +
               `<script src="${path.basename(writePath)}.${stats.hash}.js"></script></body></html>`
             )
           );
