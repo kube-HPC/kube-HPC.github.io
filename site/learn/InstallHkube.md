@@ -16,7 +16,7 @@ There are many options for local k8s installations. e.g  [Minikube](https://kube
 Hkube is installed using helm. Both helm 2 and the newer [helm 3](https://helm.sh/docs/intro/install/) should work.
 
 > Make sure kubectl is configured to your cluster.  
-> For collecting algorithm logs, and to create builds, Hkube requires that certain pods will run in privileged security permissions. Consult your kubernetes installation to see how to do that.  
+> In order to collect algorithm logs, and create builds, **Hkube** requires that certain pods will run in privileged security permissions. Consult your kubernetes installation to see how to do that.  
 
 These instructions assume the use [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) and [helm 3](https://helm.sh/docs/intro/install/)
 
@@ -51,7 +51,11 @@ get the IP address of your minikube instance
 ```console
 $ minikube ip
 ```
-browse to the dashboard at `http://<minikube_ip_here>/hkube/dashboard/`
+Before starting your journey, verify that the requiered resources have finished loading -
+```console
+$ kubectl rollout status deployment/simulator --watch; kubectl rollout status deployment/api-server --watch
+```
+Once it let's you know the resources have successfully rolled out, browse to the dashboard at `http://<minikube_ip_here>/hkube/dashboard/`
 
 ## TL;DR;
 ```console

@@ -7,7 +7,7 @@ var config = require('../../../config/main/config.base');
 
 const HeroButtons = () => (
   <div className="hero-buttons">
-    <a className="button" href="/learn/">
+    <a className="button" href={config.base_url + "/learn/"}>
       Get Started
     </a>
     <a className="button" target="_blank" href="https://playground.hkube.io/">
