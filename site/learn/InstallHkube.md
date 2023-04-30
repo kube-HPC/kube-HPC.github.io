@@ -47,11 +47,11 @@ This command installs `hkube` in a minimal configuration for development. See be
 > Be patient. This can take some time depending on your internet connection  
 
 ### Open the dashboard
-Before starting your journey, verify that the requiered resources have finished loading -
+Before starting your journey, verify that the requiered resources have finished loading (make sure to copy the whole line):
 ```console
 $ kubectl rollout status deployment/simulator --watch; kubectl rollout status deployment/api-server --watch
 ```
-Once it let's you know the resources have successfully rolled out, get the IP address of your minikube instance
+Once it let's you know the resources have been successfully rolled out, get the IP address of your minikube instance
 ```console
 $ minikube ip
 ```
