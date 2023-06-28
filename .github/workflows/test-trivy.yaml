@@ -26,6 +26,6 @@ jobs:
           severity: 'CRITICAL'
       - name: Display Trivy Scan Results
         run: |
-          echo "${{ steps.Run Trivy vulnerability scanner in repo mode.outputs.result }}"   
+          echo "${{ steps.['Run Trivy vulnerability scanner in repo mode'].outputs.result }}"   
 
       
