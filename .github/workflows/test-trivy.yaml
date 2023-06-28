@@ -17,7 +17,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
-      - name: Run Trivy vulnerability scanner in repo mode
+      - name: trivyrepo
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
@@ -26,6 +26,6 @@ jobs:
           severity: 'CRITICAL'
       - name: Display Trivy Scan Results
         run: |
-          echo "${{ steps.['Run Trivy vulnerability scanner in repo mode'].outputs.result }}"   
+          echo "${{ needs.build.outputs.trivyrepo.result }}"   
 
       
