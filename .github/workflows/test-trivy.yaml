@@ -18,15 +18,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Trivy vulnerability scanner in repo mode
-        id: trivy-scan
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
           ignore-unfixed: true
           format: 'table'
           severity: 'CRITICAL'
-      - name: Display Trivy Scan Results
-        run: |
-          echo "${{ steps.trivy-scan.outputs.result }}"   
+      - name: Run Trivy vulnerability scanner on the docker image
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'docker.io/hkube/site:v2.6.1'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
 
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
       
