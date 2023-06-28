@@ -22,20 +22,10 @@ jobs:
         with:
           scan-type: 'fs'
           ignore-unfixed: true
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+          format: 'table'
           severity: 'CRITICAL'
-
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: 'trivy-results.sarif'
       - name: Display Trivy Scan Results
-        uses: actions/github-script@v4
-        with:
-          script: |
-            const fs = require('fs');
-            const scanResults = fs.readFileSync('scan_results.json', 'utf8');
-            console.log(scanResults);     
+        run: |
+          echo "${{ steps.Run Trivy vulnerability scanner in repo mode.outputs.result }}"   
 
       
