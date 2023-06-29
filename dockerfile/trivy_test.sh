@@ -1,3 +1,1 @@
-echo "running trivy_test.sh"
-export DOCKER_IMAGE_NAME=my-organization/my-app
-export DOCKER_IMAGE_TAG=latest
+echo  $DOCKER_IMAGE=my-organization/my-app:v1.0.0

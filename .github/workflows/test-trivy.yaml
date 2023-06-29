@@ -22,10 +22,8 @@ jobs:
           node-version: 10.x
       - run: |
              npm ci
-      - run: |
-             echo pwd
-             echo ls 
-             npm run trivy-test
+      - run:
+          echo "IMAGE_NAME=$(npm run trivy-test)" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Run Trivy vulnerability scanner in repo mode
@@ -36,10 +34,6 @@ jobs:
           format: 'table'
           severity: 'CRITICAL'
 
-      - name: set env variable
-        run: echo "IMAGE_NAME=$(echo {{ env.DOCKER_IMAGE_NAME }})" >> $GITHUB_ENV
-        env:
-          IMAGE_NAME: $DOCKER_IMAGE_NAME
       - name: Run Trivy vulnerability scanner on the docker image
         uses: aquasecurity/trivy-action@master
         with:
