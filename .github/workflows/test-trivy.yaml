@@ -32,10 +32,11 @@ jobs:
           ignore-unfixed: true
           format: 'table'
           severity: 'CRITICAL'
+
       - name: set env variable
-        run: echo "IMAGE_NAME=$(echo $DOCKER_IMAGE_NAME)" >> $GITHUB_ENV
-      - name: test env
-        run: echo ${{ IMAGE_NAME }} 
+        run: echo "IMAGE_NAME=$(echo {{ env.DOCKER_IMAGE_NAME }})" >> $GITHUB_ENV
+        env:
+          IMAGE_NAME: $DOCKER_IMAGE_NAME
       - name: Run Trivy vulnerability scanner on the docker image
         uses: aquasecurity/trivy-action@master
         with:
