@@ -9,7 +9,7 @@
     "watch": "rm -rf build && babel-node resources/watch.js",
     "docker": "rm -rf build && ./dockerfile/build.sh site $(date +%s)",
     "test": "npm run build",
-    "trivy-test": "npm run ./dockerfile/trivy_test.sh"
+    "trivy-test": "pwd; ls; npm run ./dockerfile/trivy_test.sh"
   },
   "babel": {
     "optional": [

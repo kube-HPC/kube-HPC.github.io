@@ -22,7 +22,10 @@ jobs:
           node-version: 10.x
       - run: |
              npm ci
-      - run: npm run trivy-test
+      - run: |
+             echo pwd
+             echo ls 
+             npm run trivy-test
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Run Trivy vulnerability scanner in repo mode
