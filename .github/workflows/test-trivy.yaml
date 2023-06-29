@@ -24,7 +24,7 @@ jobs:
              npm ci
       - run: |
              IMAGE_NAME=$(npm run trivy-test | awk '{print $NF}')
-             echo ${IMAGE_NAME}
+             echo $IMAGE_NAME
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
