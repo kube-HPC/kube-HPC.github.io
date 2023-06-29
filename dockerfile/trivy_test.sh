@@ -1,1 +1,1 @@
-echo  $DOCKER_IMAGE=my-organization/my-app:v1.0.0
+echo  $DOCKER_IMAGE 'my-organization/my-app:v1.0.0'
