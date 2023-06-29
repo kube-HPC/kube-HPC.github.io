@@ -23,7 +23,8 @@ jobs:
       - run: |
              npm ci
       - run: |
-             IMAGE_NAME=$(npm run trivy-test)
+             IMAGE_NAME=$(npm run trivy-test | awk '{print $NF}')
+             echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
