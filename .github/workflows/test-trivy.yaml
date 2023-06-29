@@ -17,6 +17,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - run: |
+             npm ci
+      - run: npm run trivy-test
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Run Trivy vulnerability scanner in repo mode
         uses: aquasecurity/trivy-action@master
         with:
@@ -27,7 +35,7 @@ jobs:
       - name: Run Trivy vulnerability scanner on the docker image
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/hkube/site:v2.6.1'
+          image-ref: '${{ DOCKER_IMAGE_NAME }}:${{ DOCKER_IMAGE_TAG }}'
           format: 'sarif'
           output: 'trivy-results.sarif'
 
