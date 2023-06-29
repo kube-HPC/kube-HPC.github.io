@@ -23,7 +23,7 @@ jobs:
       - run: |
              npm ci
       - run:
-          echo "IMAGE_NAME=$(npm run trivy-test)" >> $GITHUB_ENV
+          echo "IMAGE_NAME=${IMAGE_NAME:-$(npm run trivy-test)}" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Run Trivy vulnerability scanner in repo mode
