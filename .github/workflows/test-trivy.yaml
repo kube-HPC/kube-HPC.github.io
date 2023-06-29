@@ -25,7 +25,7 @@ jobs:
       - run: |
              OUTPUT=$(npm run trivy-test)
              echo "Output: $OUTPUT"
-             IMAGE_NAME=$(echo "$OUTPUT" | awk '{print $NF}')
+             IMAGE_NAME=$(echo "$OUTPUT" | rev | cut -d ' ' -f 1 | rev)
              echo "IMAGE_NAME: $IMAGE_NAME"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
