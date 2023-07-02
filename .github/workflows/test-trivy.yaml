@@ -24,10 +24,8 @@ jobs:
              npm ci
       - run: |
              npm run trivy-test
-             pwd
-             ls
              chmod +rwx imageName.txt
-             IMAGE_NAME=$(./imageName.txt)
+             IMAGE_NAME=$(cat imageName.txt)
              echo "IMAGE_NAME: $IMAGE_NAME"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
