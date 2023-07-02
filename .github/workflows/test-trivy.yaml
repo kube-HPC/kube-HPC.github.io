@@ -24,8 +24,10 @@ jobs:
              npm ci
       - run: |
              npm run trivy-test
-             chmod +rwx imageName.txt
-             IMAGE_NAME=$(cat imageName.txt) >> $GITHUB_ENV
+             export IMAGE_NAME=$(cat imageName.txt)
+             echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
+             echo "IMAGE_NAME: $IMAGE_NAME"
+             echo "env.IMAGE_NAME: ${{ env.IMAGE_NAME }}"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
