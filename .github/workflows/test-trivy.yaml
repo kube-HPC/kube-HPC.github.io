@@ -24,6 +24,8 @@ jobs:
              npm ci
       - run: |
              npm run trivy-test
+             pwd
+             ls
              chmod +rwx imageName.txt
              IMAGE_NAME=$(./imageName.txt)
              echo "IMAGE_NAME: $IMAGE_NAME"
