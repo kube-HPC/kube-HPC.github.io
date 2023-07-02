@@ -23,9 +23,8 @@ jobs:
       - run: |
              npm ci
       - run: |
-             OUTPUT=$(npm run trivy-test)
-             echo "Output: $OUTPUT"
-             IMAGE_NAME=$(echo "$OUTPUT" | sed 's/.* //')
+             npm run trivy-test
+             IMAGE_NAME=$(imageName.txt)
              echo "IMAGE_NAME: $IMAGE_NAME"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
