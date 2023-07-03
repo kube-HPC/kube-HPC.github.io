@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 REPO_NAME=$1
-TIME_STAMP=$2
 if [ -v PRIVATE_REGISTRY ]
 then
   IMAGE_NAME=${PRIVATE_REGISTRY}/${REPO_NAME}
@@ -19,11 +18,11 @@ if [ -v BASE_PRIVATE_REGISTRY ]
 then
   BASE_PRIVATE_REGISTRY="${BASE_PRIVATE_REGISTRY}/"
 fi
-docker build -t ${TAG_VER}-${TIME_STAMP} --build-arg BASE_PRIVATE_REGISTRY="${BASE_PRIVATE_REGISTRY}" -f ./dockerfile/Dockerfile .
+docker build -t ${TAG_VER} --build-arg BASE_PRIVATE_REGISTRY="${BASE_PRIVATE_REGISTRY}" -f ./dockerfile/Dockerfile .
 
 if [ -v PRIVATE_REGISTRY ]
 then
   echo docker push ${TAG_VER}
-  echo ${TAG_VER}-${TIME_STAMP} > imageName.txt
+  echo ${TAG_VER}
   docker push ${TAG_VER}
 fi

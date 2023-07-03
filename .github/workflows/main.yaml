@@ -40,8 +40,7 @@ jobs:
         run: |
           echo "Before running 'npm run docker' , package ver is: ${npm_package_version}"
           docker login --username yehiyam --password ${DOCKER_HUB_PASS}
-          PRIVATE_REGISTRY=docker.io/hkube npm run 
-          export IMAGE_NAME=$(cat imageName.txt)
+          export IMAGE_NAME=$(PRIVATE_REGISTRY=docker.io/hkube npm run docker | tail -1 | awk '{print $NF}')
           echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
           echo "IMAGE_NAME: $IMAGE_NAME"
         env:
