@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 REPO_NAME=$1
+TIME_STAMP=$2
 if [ -v PRIVATE_REGISTRY ]
 then
   IMAGE_NAME=${PRIVATE_REGISTRY}/${REPO_NAME}
@@ -8,11 +9,12 @@ else
 fi
 echo npm_package_version=${npm_package_version}
 echo IMAGE_NAME=${IMAGE_NAME}
+echo TIME_STAMP=${TIME_STAMP}
 VERSION="v${npm_package_version}"
 if [ "${TRAVIS_PULL_REQUEST:-"false"}" != "false" ]; then
   VERSION=${VERSION}-${TRAVIS_PULL_REQUEST_BRANCH}-${TRAVIS_JOB_NUMBER}
 fi
-TAG_VER="${IMAGE_NAME}:${VERSION}"
+TAG_VER="${IMAGE_NAME}:${VERSION}-${TIME_STAMP}"
 
 if [ -v BASE_PRIVATE_REGISTRY ]
 then
