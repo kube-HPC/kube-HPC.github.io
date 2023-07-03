@@ -23,6 +23,5 @@ docker build -t ${TAG_VER} --build-arg BASE_PRIVATE_REGISTRY="${BASE_PRIVATE_REG
 if [ -v PRIVATE_REGISTRY ]
 then
   echo docker push ${TAG_VER}
-  echo ${TAG_VER}
   docker push ${TAG_VER}
 fi
