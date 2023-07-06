@@ -19,28 +19,36 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
-
-      - name: Run Trivy vulnerability scanner on the docker image
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: '${{ inputs.image-ref }}'
-          severity: CRITICAL
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+      - name: Install Trivy
+        run: |
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_linux_amd64.tar.gz
+          tar zxvf trivy_linux_amd64.tar.gz
+          sudo mv trivy /usr/local/bin/
       
+      - name: Run Trivy scan on filesystem
+        run: trivy fs --security-checks license --severity UNKNOWN,HIGH,CRITICAL --license-full --format json --output trivy-results-filesystem.json    
+      
+      - name: Run Trivy scan on Docker image
+        run: |
+          trivy image --security-checks license --severity UNKNOWN,HIGH,CRITICAL --license-full --format json --output trivy-results-image.json '${{ inputs.image-ref }}'
+
+      - name: Merge Trivy scan results
+        run: |
+          cat trivy-results-filesystem.json trivy-results-image.json > trivy-scan-results.json
+
       - name: Create branch for scan results
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git checkout -b trivy-scan-results
-          git add trivy-results.sarif
+          git add trivy-scan-results.json
           git commit -m "Add Trivy scan results"
           git push --force origin trivy-scan-results
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: 'trivy-results.sarif' 
+          sarif_file: trivy-results.json 
 
       - name: Display branch and file path link
         run: echo "Results uploaded to [trivy-scan-results branch](https://github.com/$GITHUB_REPOSITORY/tree/trivy-scan-results/trivy-results.sarif)"
