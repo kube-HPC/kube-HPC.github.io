@@ -35,7 +35,7 @@ jobs:
           git checkout -b trivy-scan-results
           git add trivy-results.sarif
           git commit -m "Add Trivy scan results"
-          git push origin trivy-scan-results
+          git push --force origin trivy-scan-results
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
