@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: TRIVY-SCAN-DOCKER
+name: TRIVY-SCAN
 
 # Controls when the action will run. 
 on:
@@ -25,30 +25,30 @@ jobs:
           sudo dpkg -i trivy_0.43.0_Linux-64bit.deb
       
       - name: Run Trivy scan on filesystem
-        run: trivy fs /github/workspace --scanners license --severity UNKNOWN,HIGH,CRITICAL --license-full --format json --output trivy-results-filesystem.json    
+        run: trivy fs /home/runner/work --scanners license --severity UNKNOWN,HIGH,CRITICAL --license-full --format json --output trivy-license-filesystem.json    
       
       - name: Run Trivy scan on Docker image
         run: |
-          trivy image --security-checks license --severity UNKNOWN,HIGH,CRITICAL --license-full --format json --output trivy-results-image.json '${{ inputs.image-ref }}'
+          trivy image --scanners license --severity UNKNOWN,HIGH,CRITICAL --license-full --format json  --output trivy-license-image.json '${{ inputs.image-ref }}'
 
       - name: Merge Trivy scan results
         run: |
-          cat trivy-results-filesystem.json trivy-results-image.json > trivy-scan-results.json
+          cat trivy-license-filesystem.json trivy-license-image.json > trivy-license-results.json
 
       - name: Create branch for scan results
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git checkout -b trivy-scan-results
-          git add trivy-scan-results.json
+          git add trivy-license-results.json
           git commit -m "Add Trivy scan results"
           git push --force origin trivy-scan-results
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: trivy-results.json 
+          sarif_file: trivy-license-results.json 
 
       - name: Display branch and file path link
-        run: echo "Results uploaded to [trivy-scan-results branch](https://github.com/$GITHUB_REPOSITORY/tree/trivy-scan-results/trivy-results.sarif)"
+        run: echo "Results uploaded to [trivy-scan-results branch](https://github.com/$GITHUB_REPOSITORY/tree/trivy-scan-results/trivy-license-results.json)"
       
