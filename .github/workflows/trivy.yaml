@@ -4,9 +4,6 @@ name: TRIVY-SCAN
 
 # Controls when the action will run. 
 on:
-  push:
-    branches:
-      - '*'
   # Triggers the workflow on push or pull request events but only for the master branch
   workflow_dispatch:
     inputs:
@@ -35,10 +32,10 @@ jobs:
         run: trivy fs /home/runner/work --severity 'HIGH,CRITICAL' > trivy_vuln_filesystem.txt
 
       - name: Run Trivy license scan on image
-        run: trivy image --scanners license --license-full --severity 'HIGH,CRITICAL' '${{ inputs.image-ref }}docker.io/hkube/site:v2.6.4' > trivy_license_image.txt
+        run: trivy image --scanners license --license-full --severity 'HIGH,CRITICAL' '${{ inputs.image-ref }}' > trivy_license_image.txt
 
       - name: Run Trivy vulnerability scanner on image
-        run: trivy image --severity 'HIGH,CRITICAL' '${{ inputs.image-ref }}docker.io/hkube/site:v2.6.4'> trivy_vuln_image.txt
+        run: trivy image --severity 'HIGH,CRITICAL' '${{ inputs.image-ref }}'> trivy_vuln_image.txt
 
       - name: Create branch for scan results
         run: |
