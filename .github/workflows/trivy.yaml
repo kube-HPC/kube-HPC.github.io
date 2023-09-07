@@ -12,7 +12,7 @@ on:
     inputs:
       image-ref:
         description: Full docker image path (e.g. docker.io/hkube/site:v1.2.3)
-        required: false
+        required: true
         default: 'docker.io/hkube/site:latest'
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -35,10 +35,10 @@ jobs:
         run: trivy fs /home/runner/work --severity 'HIGH,CRITICAL' > trivy_vuln_filesystem.txt
 
       - name: Run Trivy license scan on image
-        run: trivy image --scanners license --license-full --severity 'HIGH,CRITICAL' '${{ inputs.image-ref }}' > trivy_license_image.txt
+        run: trivy image --scanners license --license-full --severity 'HIGH,CRITICAL' '${{ inputs.image-ref }}docker.io/hkube/site:latest' > trivy_license_image.txt
 
       - name: Run Trivy vulnerability scanner on image
-        run: trivy image --severity 'HIGH,CRITICAL' '${{ inputs.image-ref }}'> trivy_vuln_image.txt
+        run: trivy image --severity 'HIGH,CRITICAL' '${{ inputs.image-ref }}docker.io/hkube/site:latest'> trivy_vuln_image.txt
 
       - name: Create branch for scan results
         run: |
