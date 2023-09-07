@@ -12,8 +12,8 @@ on:
     inputs:
       image-ref:
         description: Full docker image path (e.g. docker.io/hkube/site:v1.2.3)
-        required: true
-        default: docker.io/hkube/site:latest
+        required: false
+        default: 'docker.io/hkube/site:latest'
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "scan_and_upload"
