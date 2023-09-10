@@ -85,7 +85,7 @@ jobs:
           cp trivy_license_image.txt TrivyScans/
           git add TrivyScans/trivy_license_filesystem.txt
           git add TrivyScans/trivy_license_image.txt
-          git commit -m "Add files to a specific folder"
+          git commit -m "Add trivy scan result files to the folder 'TrivyScans'"
           git push --force origin trivy-scan-results
 
       - name: Display branch and file path link
