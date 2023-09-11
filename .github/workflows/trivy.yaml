@@ -42,7 +42,13 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git checkout -b trivy-scan-results
+
+          if git rev-parse --verify trivy-scan-results; then
+            git checkout trivy-scan-results
+          else
+            git checkout -b trivy-scan-results
+          fi
+
           mkdir -p TrivyScans
           cp trivy_license_filesystem.txt TrivyScans/
           cp trivy_vuln_filesystem.txt TrivyScans/
@@ -53,10 +59,7 @@ jobs:
           git add TrivyScans/trivy_license_image.txt
           git add TrivyScans/trivy_vuln_image.txt
           git commit -m "Add trivy scan result files to the folder 'TrivyScans'"
-          git pull origin trivy-scan-results
-          git checkout trivy-scan-results
-          git merge origin/trivy-scan-results
-          git push origin trivy-scan-results
+          git push origin HEAD:trivy-scan-results
 
       - name: Display branch and file path link
         run: echo "Results uploaded to [trivy-scan-results branch](https://github.com/$GITHUB_REPOSITORY/tree/trivy-scan-results/TrivyScans/)"
