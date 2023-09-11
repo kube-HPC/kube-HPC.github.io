@@ -53,7 +53,7 @@ jobs:
           git add TrivyScans/trivy_license_image.txt
           git add TrivyScans/trivy_vuln_image.txt
           git commit -m "Add trivy scan result files to the folder 'TrivyScans'"
-          git pull
+          git pull origin trivy-scan-results
           git push origin trivy-scan-results
 
       - name: Display branch and file path link
