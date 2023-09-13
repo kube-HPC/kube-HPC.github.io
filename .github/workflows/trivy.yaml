@@ -45,8 +45,11 @@ jobs:
 
           if git rev-parse --verify trivy-scan-results; then
             git checkout origin/trivy-scan-results
+            git pull
+            echo "origin branch swapped"
           else
             git checkout -b trivy-scan-results
+            echo "new branch swapped"
           fi
 
           mkdir -p TrivyScans
