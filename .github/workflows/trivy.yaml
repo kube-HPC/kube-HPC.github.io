@@ -45,7 +45,7 @@ jobs:
 
 
           existed_in_remote=$(git ls-remote --heads origin trivy-scan-results)
-          if [[ -z ${existed_in_remote} ]]; then
+          if [[ ${existed_in_remote} ]]; then
             git checkout origin/trivy-scan-results
             git pull
             echo "origin branch swapped"
