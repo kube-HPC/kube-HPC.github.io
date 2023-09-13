@@ -214,7 +214,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2019-3822    │          │                            │ 7.38.0-4+deb8u14           │ curl: NTLMv2 type-3 header stack buffer overflow             │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3822                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-5482    │          │                            │ 7.38.0-4+deb8u16           │ curl: heap buffer overflow in function tftp_receive_packet() │
+│                             │ CVE-2019-5482    │          │                            │ 7.38.0-4+deb8u16           │ heap buffer overflow in function tftp_receive_packet()       │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-5482                    │
 │                             ├──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2016-7141    │ HIGH     │                            │ 7.38.0-4+deb8u13           │ curl: Incorrect reuse of client certificates                 │
@@ -235,8 +235,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2019-3823    │          │                            │                            │ curl: SMTP end-of-response out-of-bounds read                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3823                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-5436    │          │                            │ 7.38.0-4+deb8u15           │ curl: TFTP receive heap buffer overflow in                   │
-│                             │                  │          │                            │                            │ tftp_receive_packet() function                               │
+│                             │ CVE-2019-5436    │          │                            │ 7.38.0-4+deb8u15           │ TFTP receive heap buffer overflow in tftp_receive_packet()   │
+│                             │                  │          │                            │                            │ function                                                     │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-5436                    │
 ├─────────────────────────────┼──────────────────┤          ├────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ file                        │ CVE-2019-18218   │          │ 1:5.22+15-2+deb8u3         │ 1:5.22+15-2+deb8u6         │ file: heap-based buffer overflow in cdf_read_property_info   │
@@ -276,7 +276,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2017-6313    │          │                            │                            │ gdk-pixbuf: Integer underflow in io-icns.c                   │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2017-6313                    │
 ├─────────────────────────────┼──────────────────┼──────────┼────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ git                         │ CVE-2018-17456   │ CRITICAL │ 1:2.1.4-2.1+deb8u5         │ 1:2.1.4-2.1+deb8u7         │ git: arbitrary code execution via .gitmodules                │
+│ git                         │ CVE-2018-17456   │ CRITICAL │ 1:2.1.4-2.1+deb8u5         │ 1:2.1.4-2.1+deb8u7         │ arbitrary code execution via .gitmodules                     │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-17456                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-1353    │          │                            │ 1:2.1.4-2.1+deb8u8         │ git: NTFS protections inactive when running Git in the       │
@@ -307,7 +307,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ leak                                                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2020-5260                    │
 ├─────────────────────────────┼──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ git-man                     │ CVE-2018-17456   │ CRITICAL │                            │ 1:2.1.4-2.1+deb8u7         │ git: arbitrary code execution via .gitmodules                │
+│ git-man                     │ CVE-2018-17456   │ CRITICAL │                            │ 1:2.1.4-2.1+deb8u7         │ arbitrary code execution via .gitmodules                     │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-17456                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-1353    │          │                            │ 1:2.1.4-2.1+deb8u8         │ git: NTFS protections inactive when running Git in the       │
@@ -488,9 +488,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -498,21 +497,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -669,9 +667,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -679,21 +676,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -850,9 +846,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -860,21 +855,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -889,8 +883,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ PopHexPixel in coders/ps.c                                   │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-9956                    │
 ├─────────────────────────────┼──────────────────┼──────────┼────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ inetutils-ping              │ CVE-2020-10188   │ CRITICAL │ 2:1.9.2.39.3a460-3         │ 2:1.9.2.39.3a460-3+deb8u1  │ telnet-server: no bounds checks in nextitem() function       │
-│                             │                  │          │                            │                            │ allows to remotely execute arbitrary...                      │
+│ inetutils-ping              │ CVE-2020-10188   │ CRITICAL │ 2:1.9.2.39.3a460-3         │ 2:1.9.2.39.3a460-3+deb8u1  │ no bounds checks in nextitem() function allows to remotely   │
+│                             │                  │          │                            │                            │ execute arbitrary code...                                    │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2020-10188                   │
 ├─────────────────────────────┼──────────────────┼──────────┼────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ libapt-pkg4.12              │ CVE-2019-3462    │ HIGH     │ 1.0.9.8.4                  │ 1.0.9.8.5                  │ Incorrect sanitation of the 302 redirect field in HTTP       │
@@ -970,7 +964,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2019-3822    │          │                            │ 7.38.0-4+deb8u14           │ curl: NTLMv2 type-3 header stack buffer overflow             │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3822                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-5482    │          │                            │ 7.38.0-4+deb8u16           │ curl: heap buffer overflow in function tftp_receive_packet() │
+│                             │ CVE-2019-5482    │          │                            │ 7.38.0-4+deb8u16           │ heap buffer overflow in function tftp_receive_packet()       │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-5482                    │
 │                             ├──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2016-7141    │ HIGH     │                            │ 7.38.0-4+deb8u13           │ curl: Incorrect reuse of client certificates                 │
@@ -991,8 +985,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2019-3823    │          │                            │                            │ curl: SMTP end-of-response out-of-bounds read                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3823                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-5436    │          │                            │ 7.38.0-4+deb8u15           │ curl: TFTP receive heap buffer overflow in                   │
-│                             │                  │          │                            │                            │ tftp_receive_packet() function                               │
+│                             │ CVE-2019-5436    │          │                            │ 7.38.0-4+deb8u15           │ TFTP receive heap buffer overflow in tftp_receive_packet()   │
+│                             │                  │          │                            │                            │ function                                                     │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-5436                    │
 ├─────────────────────────────┼──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ libcurl3-gnutls             │ CVE-2016-7167    │ CRITICAL │                            │ 7.38.0-4+deb8u13           │ curl: escape and unescape integer overflows                  │
@@ -1035,7 +1029,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2019-3822    │          │                            │ 7.38.0-4+deb8u14           │ curl: NTLMv2 type-3 header stack buffer overflow             │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3822                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-5482    │          │                            │ 7.38.0-4+deb8u16           │ curl: heap buffer overflow in function tftp_receive_packet() │
+│                             │ CVE-2019-5482    │          │                            │ 7.38.0-4+deb8u16           │ heap buffer overflow in function tftp_receive_packet()       │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-5482                    │
 │                             ├──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2016-7141    │ HIGH     │                            │ 7.38.0-4+deb8u13           │ curl: Incorrect reuse of client certificates                 │
@@ -1056,8 +1050,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2019-3823    │          │                            │                            │ curl: SMTP end-of-response out-of-bounds read                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3823                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-5436    │          │                            │ 7.38.0-4+deb8u15           │ curl: TFTP receive heap buffer overflow in                   │
-│                             │                  │          │                            │                            │ tftp_receive_packet() function                               │
+│                             │ CVE-2019-5436    │          │                            │ 7.38.0-4+deb8u15           │ TFTP receive heap buffer overflow in tftp_receive_packet()   │
+│                             │                  │          │                            │                            │ function                                                     │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-5436                    │
 ├─────────────────────────────┼──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ libcurl4-openssl-dev        │ CVE-2016-7167    │ CRITICAL │                            │ 7.38.0-4+deb8u13           │ curl: escape and unescape integer overflows                  │
@@ -1100,7 +1094,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2019-3822    │          │                            │ 7.38.0-4+deb8u14           │ curl: NTLMv2 type-3 header stack buffer overflow             │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3822                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-5482    │          │                            │ 7.38.0-4+deb8u16           │ curl: heap buffer overflow in function tftp_receive_packet() │
+│                             │ CVE-2019-5482    │          │                            │ 7.38.0-4+deb8u16           │ heap buffer overflow in function tftp_receive_packet()       │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-5482                    │
 │                             ├──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2016-7141    │ HIGH     │                            │ 7.38.0-4+deb8u13           │ curl: Incorrect reuse of client certificates                 │
@@ -1121,11 +1115,11 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2019-3823    │          │                            │                            │ curl: SMTP end-of-response out-of-bounds read                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3823                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-5436    │          │                            │ 7.38.0-4+deb8u15           │ curl: TFTP receive heap buffer overflow in                   │
-│                             │                  │          │                            │                            │ tftp_receive_packet() function                               │
+│                             │ CVE-2019-5436    │          │                            │ 7.38.0-4+deb8u15           │ TFTP receive heap buffer overflow in tftp_receive_packet()   │
+│                             │                  │          │                            │                            │ function                                                     │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-5436                    │
 ├─────────────────────────────┼──────────────────┤          ├────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ libdb5.3                    │ CVE-2017-10140   │          │ 5.3.28-9                   │ 5.3.28-9+deb8u1            │ libdb: Reads DB_CONFIG from the current working directory    │
+│ libdb5.3                    │ CVE-2017-10140   │          │ 5.3.28-9                   │ 5.3.28-9+deb8u1            │ Reads DB_CONFIG from the current working directory           │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2017-10140                   │
 ├─────────────────────────────┤                  │          │                            │                            │                                                              │
 │ libdb5.3-dev                │                  │          │                            │                            │                                                              │
@@ -1454,8 +1448,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2020-13790   │          │                            │                            │ heap-based buffer over-read in get_rgb_row() in rdppm.c      │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2020-13790                   │
 ├─────────────────────────────┼──────────────────┤          ├────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ libldap-2.4-2               │ CVE-2019-13565   │          │ 2.4.40+dfsg-1+deb8u3       │ 2.4.40+dfsg-1+deb8u5       │ openldap: ACL restrictions bypass due to sasl_ssf value      │
-│                             │                  │          │                            │                            │ being set permanently                                        │
+│ libldap-2.4-2               │ CVE-2019-13565   │          │ 2.4.40+dfsg-1+deb8u3       │ 2.4.40+dfsg-1+deb8u5       │ ACL restrictions bypass due to sasl_ssf value being set      │
+│                             │                  │          │                            │                            │ permanently                                                  │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13565                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2020-12243   │          │                            │ 2.4.40+dfsg-1+deb8u6       │ denial of service via nested boolean expressions in LDAP     │
@@ -1616,9 +1610,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -1626,21 +1619,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -1797,9 +1789,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -1807,21 +1798,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -1978,9 +1968,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -1988,21 +1977,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -2159,9 +2147,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -2169,21 +2156,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -2340,9 +2326,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -2350,21 +2335,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -2521,9 +2505,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -2531,21 +2514,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -2702,9 +2684,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -2712,21 +2693,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -2883,9 +2863,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -2893,21 +2872,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -3064,9 +3042,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -3074,21 +3051,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -3245,9 +3221,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ the function ReadCUTImage leading...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13135                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13295   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
-│                             │                  │          │                            │                            │ MagickCore/threshold.c in AdaptiveThresholdImage because a   │
-│                             │                  │          │                            │                            │ width of...                                                  │
+│                             │ CVE-2019-13295   │          │                            │                            │ heap-based buffer over-read at MagickCore/threshold.c in     │
+│                             │                  │          │                            │                            │ AdaptiveThresholdImage because a width of zero...            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13295                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13297   │          │                            │                            │ ImageMagick: heap-based buffer over-read at                  │
@@ -3255,21 +3230,20 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ height of...                                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13297                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13300   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
-│                             │                  │          │                            │                            │ MagickCore/statistic.c in EvaluateImages because of          │
-│                             │                  │          │                            │                            │ mishandling columns...                                       │
+│                             │ CVE-2019-13300   │          │                            │                            │ heap-based buffer overflow at MagickCore/statistic.c in      │
+│                             │                  │          │                            │                            │ EvaluateImages because of mishandling columns                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13300                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13304   │          │                            │ 8:6.8.9.9-5+deb8u17        │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced assignment...                         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13304                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13305   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of a misplaced...                      │
+│                             │ CVE-2019-13305   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of a misplaced strncpy...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13305                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-13306   │          │                            │                            │ ImageMagick: stack-based buffer overflow at coders/pnm.c in  │
-│                             │                  │          │                            │                            │ WritePNMImage because of off-by-one errors...                │
+│                             │ CVE-2019-13306   │          │                            │                            │ stack-based buffer overflow at coders/pnm.c in WritePNMImage │
+│                             │                  │          │                            │                            │ because of off-by-one errors                                 │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13306                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-13307   │          │                            │                            │ ImageMagick: heap-based buffer overflow at                   │
@@ -3496,7 +3470,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-14647   │          │                            │ 2.7.9-2+deb8u3             │ python: Missing salt initialization in _elementtree.c module │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-14647                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-16056   │          │                            │ 2.7.9-2+deb8u5             │ python: email.utils.parseaddr wrongly parses email addresses │
+│                             │ CVE-2019-16056   │          │                            │ 2.7.9-2+deb8u5             │ email.utils.parseaddr wrongly parses email addresses         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-16056                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-5010    │          │                            │ 2.7.9-2+deb8u3             │ python: NULL pointer dereference using a specially crafted   │
@@ -3529,7 +3503,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-14647   │          │                            │ 2.7.9-2+deb8u3             │ python: Missing salt initialization in _elementtree.c module │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-14647                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-16056   │          │                            │ 2.7.9-2+deb8u5             │ python: email.utils.parseaddr wrongly parses email addresses │
+│                             │ CVE-2019-16056   │          │                            │ 2.7.9-2+deb8u5             │ email.utils.parseaddr wrongly parses email addresses         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-16056                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-5010    │          │                            │ 2.7.9-2+deb8u3             │ python: NULL pointer dereference using a specially crafted   │
@@ -3564,7 +3538,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ before 10.3.2 i...                                           │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2017-2520                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-8457    │          │                            │                            │ sqlite: heap out-of-bound read in function rtreenode()       │
+│                             │ CVE-2019-8457    │          │                            │                            │ heap out-of-bound read in function rtreenode()               │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-8457                    │
 │                             ├──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2018-20346   │ HIGH     │                            │ 3.8.7.1-1+deb8u3           │ CVE-2018-20505 CVE-2018-20506 sqlite: Multiple flaws in      │
@@ -3605,7 +3579,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ before 10.3.2 i...                                           │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2017-2520                    │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-8457    │          │                            │                            │ sqlite: heap out-of-bound read in function rtreenode()       │
+│                             │ CVE-2019-8457    │          │                            │                            │ heap out-of-bound read in function rtreenode()               │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-8457                    │
 │                             ├──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2018-20346   │ HIGH     │                            │ 3.8.7.1-1+deb8u3           │ CVE-2018-20505 CVE-2018-20506 sqlite: Multiple flaws in      │
@@ -3700,8 +3674,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ escalation                                                   │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2017-18078                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ systemd: line splitting via fgets() allows for state         │
-│                             │                  │          │                            │                            │ injection during daemon-reexec                               │
+│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ line splitting via fgets() allows for state injection during │
+│                             │                  │          │                            │                            │ daemon-reexec                                                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-15686                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2018-15688   │          │                            │                            │ systemd: Out-of-bounds heap write in systemd-networkd dhcpv6 │
@@ -3715,8 +3689,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-16865   │          │                            │                            │ systemd: stack overflow when receiving many journald entries │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-16865                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ systemd: Spoofing of XDG_SEAT allows for actions to be       │
-│                             │                  │          │                            │                            │ checked against "allow_active"...                            │
+│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ Spoofing of XDG_SEAT allows for actions to be checked        │
+│                             │                  │          │                            │                            │ against "allow_active" instead...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3842                    │
 ├─────────────────────────────┼──────────────────┤          ├────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ libtasn1-6                  │ CVE-2017-10790   │          │ 4.2-3+deb8u3               │ 4.2-3+deb8u4               │ libtasn1: NULL pointer dereference in the                    │
@@ -3938,8 +3912,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ escalation                                                   │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2017-18078                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ systemd: line splitting via fgets() allows for state         │
-│                             │                  │          │                            │                            │ injection during daemon-reexec                               │
+│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ line splitting via fgets() allows for state injection during │
+│                             │                  │          │                            │                            │ daemon-reexec                                                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-15686                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2018-15688   │          │                            │                            │ systemd: Out-of-bounds heap write in systemd-networkd dhcpv6 │
@@ -3953,8 +3927,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-16865   │          │                            │                            │ systemd: stack overflow when receiving many journald entries │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-16865                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ systemd: Spoofing of XDG_SEAT allows for actions to be       │
-│                             │                  │          │                            │                            │ checked against "allow_active"...                            │
+│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ Spoofing of XDG_SEAT allows for actions to be checked        │
+│                             │                  │          │                            │                            │ against "allow_active" instead...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3842                    │
 ├─────────────────────────────┼──────────────────┤          ├────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ libuuid1                    │ CVE-2016-2779    │          │ 2.25.2-6                   │                            │ util-linux: runuser tty hijack via TIOCSTI ioctl             │
@@ -4442,8 +4416,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ discipline driver in drivers/tty/n_r3964.c...                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-11486                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-11487   │          │                            │                            │ kernel: Count overflow in FUSE request leading to            │
-│                             │                  │          │                            │                            │ use-after-free issues.                                       │
+│                             │ CVE-2019-11487   │          │                            │                            │ Count overflow in FUSE request leading to use-after-free     │
+│                             │                  │          │                            │                            │ issues.                                                      │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-11487                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-11599   │          │                            │ 3.16.68-1                  │ fix race condition between mmget_not_zero()/get_task_mm()    │
@@ -4474,23 +4448,23 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ Marvell WiFi driver                                          │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-14816                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-14821   │          │                            │                            │ Kernel: KVM: OOB memory access via mmio ring buffer          │
+│                             │ CVE-2019-14821   │          │                            │                            │ OOB memory access via mmio ring buffer                       │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-14821                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-14835   │          │                            │                            │ kernel: vhost-net: guest to host kernel escape during        │
 │                             │                  │          │                            │                            │ migration                                                    │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-14835                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-15117   │          │                            │                            │ kernel: out of bounds memory access in                       │
-│                             │                  │          │                            │                            │ parse_audio_mixer_unit in sound/usb/mixer.c                  │
+│                             │ CVE-2019-15117   │          │                            │                            │ out of bounds memory access in parse_audio_mixer_unit in     │
+│                             │                  │          │                            │                            │ sound/usb/mixer.c                                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-15117                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-15239   │          │                            │ 3.16.72-1                  │ kernel: local attacker can trigger multiple use-after-free   │
 │                             │                  │          │                            │                            │ conditions results in privilege escalation...                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-15239                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-15916   │          │                            │ 3.16.70-1                  │ kernel: memory leak in register_queue_kobjects() in          │
-│                             │                  │          │                            │                            │ net/core/net-sysfs.c leads to denial of service...           │
+│                             │ CVE-2019-15916   │          │                            │ 3.16.70-1                  │ memory leak in register_queue_kobjects() in                  │
+│                             │                  │          │                            │                            │ net/core/net-sysfs.c leads to denial of service              │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-15916                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-15917   │          │                            │ 3.16.74-1                  │ kernel: use-after-free in drivers/bluetooth/hci_ldisc.c      │
@@ -4508,9 +4482,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ drivers/infiniband/hw/cxgb4/mem.c                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-17075                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-17666   │          │                            │ 3.16.81-1                  │ kernel: rtl_p2p_noa_ie in                                    │
-│                             │                  │          │                            │                            │ drivers/net/wireless/realtek/rtlwifi/ps.c in the Linux       │
-│                             │                  │          │                            │                            │ kernel lacks a certain upper-bound...                        │
+│                             │ CVE-2019-17666   │          │                            │ 3.16.81-1                  │ rtl_p2p_noa_ie in drivers/net/wireless/realtek/rtlwifi/ps.c  │
+│                             │                  │          │                            │                            │ in the Linux kernel lacks a certain upper-bound check,...    │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-17666                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-18675   │          │                            │ 3.16.64-1                  │ kernel: integer overflow in cpia2_remap_buffer in            │
@@ -4737,7 +4710,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ patch files                                                  │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-13638                   │
 ├─────────────────────────────┼──────────────────┼──────────┼────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ perl                        │ CVE-2018-18311   │ CRITICAL │ 5.20.2-3+deb8u9            │ 5.20.2-3+deb8u12           │ perl: Integer overflow leading to buffer overflow in         │
+│ perl                        │ CVE-2018-18311   │ CRITICAL │ 5.20.2-3+deb8u9            │ 5.20.2-3+deb8u12           │ Integer overflow leading to buffer overflow in               │
 │                             │                  │          │                            │                            │ Perl_my_setenv()                                             │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-18311                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
@@ -4747,10 +4720,10 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-6913    │          │                            │ 5.20.2-3+deb8u10           │ perl: heap buffer overflow in pp_pack.c                      │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-6913                    │
 │                             ├──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2018-12015   │ HIGH     │                            │ 5.20.2-3+deb8u11           │ perl: Directory traversal in Archive::Tar                    │
+│                             │ CVE-2018-12015   │ HIGH     │                            │ 5.20.2-3+deb8u11           │ Tar                                                          │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-12015                   │
 ├─────────────────────────────┼──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ perl-base                   │ CVE-2018-18311   │ CRITICAL │                            │ 5.20.2-3+deb8u12           │ perl: Integer overflow leading to buffer overflow in         │
+│ perl-base                   │ CVE-2018-18311   │ CRITICAL │                            │ 5.20.2-3+deb8u12           │ Integer overflow leading to buffer overflow in               │
 │                             │                  │          │                            │                            │ Perl_my_setenv()                                             │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-18311                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
@@ -4760,10 +4733,10 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-6913    │          │                            │ 5.20.2-3+deb8u10           │ perl: heap buffer overflow in pp_pack.c                      │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-6913                    │
 │                             ├──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2018-12015   │ HIGH     │                            │ 5.20.2-3+deb8u11           │ perl: Directory traversal in Archive::Tar                    │
+│                             │ CVE-2018-12015   │ HIGH     │                            │ 5.20.2-3+deb8u11           │ Tar                                                          │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-12015                   │
 ├─────────────────────────────┼──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ perl-modules                │ CVE-2018-18311   │ CRITICAL │                            │ 5.20.2-3+deb8u12           │ perl: Integer overflow leading to buffer overflow in         │
+│ perl-modules                │ CVE-2018-18311   │ CRITICAL │                            │ 5.20.2-3+deb8u12           │ Integer overflow leading to buffer overflow in               │
 │                             │                  │          │                            │                            │ Perl_my_setenv()                                             │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-18311                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
@@ -4773,7 +4746,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-6913    │          │                            │ 5.20.2-3+deb8u10           │ perl: heap buffer overflow in pp_pack.c                      │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-6913                    │
 │                             ├──────────────────┼──────────┤                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2018-12015   │ HIGH     │                            │ 5.20.2-3+deb8u11           │ perl: Directory traversal in Archive::Tar                    │
+│                             │ CVE-2018-12015   │ HIGH     │                            │ 5.20.2-3+deb8u11           │ Tar                                                          │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-12015                   │
 ├─────────────────────────────┼──────────────────┼──────────┼────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ procps                      │ CVE-2018-1126    │ CRITICAL │ 2:3.3.9-9                  │ 2:3.3.9-9+deb8u1           │ procps-ng, procps: incorrect integer size in proc/alloc.*    │
@@ -4823,7 +4796,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-14647   │          │                            │ 2.7.9-2+deb8u3             │ python: Missing salt initialization in _elementtree.c module │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-14647                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-16056   │          │                            │ 2.7.9-2+deb8u5             │ python: email.utils.parseaddr wrongly parses email addresses │
+│                             │ CVE-2019-16056   │          │                            │ 2.7.9-2+deb8u5             │ email.utils.parseaddr wrongly parses email addresses         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-16056                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-5010    │          │                            │ 2.7.9-2+deb8u3             │ python: NULL pointer dereference using a specially crafted   │
@@ -4856,7 +4829,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-14647   │          │                            │ 2.7.9-2+deb8u3             │ python: Missing salt initialization in _elementtree.c module │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-14647                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-16056   │          │                            │ 2.7.9-2+deb8u5             │ python: email.utils.parseaddr wrongly parses email addresses │
+│                             │ CVE-2019-16056   │          │                            │ 2.7.9-2+deb8u5             │ email.utils.parseaddr wrongly parses email addresses         │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-16056                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2019-5010    │          │                            │ 2.7.9-2+deb8u3             │ python: NULL pointer dereference using a specially crafted   │
@@ -4875,8 +4848,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │                  │          │                            │                            │ escalation                                                   │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2017-18078                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ systemd: line splitting via fgets() allows for state         │
-│                             │                  │          │                            │                            │ injection during daemon-reexec                               │
+│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ line splitting via fgets() allows for state injection during │
+│                             │                  │          │                            │                            │ daemon-reexec                                                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-15686                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2018-15688   │          │                            │                            │ systemd: Out-of-bounds heap write in systemd-networkd dhcpv6 │
@@ -4890,16 +4863,16 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-16865   │          │                            │                            │ systemd: stack overflow when receiving many journald entries │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-16865                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ systemd: Spoofing of XDG_SEAT allows for actions to be       │
-│                             │                  │          │                            │                            │ checked against "allow_active"...                            │
+│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ Spoofing of XDG_SEAT allows for actions to be checked        │
+│                             │                  │          │                            │                            │ against "allow_active" instead...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3842                    │
 ├─────────────────────────────┼──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │ systemd-sysv                │ CVE-2017-18078   │          │                            │                            │ systemd: Unsafe handling of hard links allowing privilege    │
 │                             │                  │          │                            │                            │ escalation                                                   │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2017-18078                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ systemd: line splitting via fgets() allows for state         │
-│                             │                  │          │                            │                            │ injection during daemon-reexec                               │
+│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ line splitting via fgets() allows for state injection during │
+│                             │                  │          │                            │                            │ daemon-reexec                                                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-15686                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2018-15688   │          │                            │                            │ systemd: Out-of-bounds heap write in systemd-networkd dhcpv6 │
@@ -4913,16 +4886,16 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-16865   │          │                            │                            │ systemd: stack overflow when receiving many journald entries │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-16865                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ systemd: Spoofing of XDG_SEAT allows for actions to be       │
-│                             │                  │          │                            │                            │ checked against "allow_active"...                            │
+│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ Spoofing of XDG_SEAT allows for actions to be checked        │
+│                             │                  │          │                            │                            │ against "allow_active" instead...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3842                    │
 ├─────────────────────────────┼──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │ udev                        │ CVE-2017-18078   │          │                            │                            │ systemd: Unsafe handling of hard links allowing privilege    │
 │                             │                  │          │                            │                            │ escalation                                                   │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2017-18078                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ systemd: line splitting via fgets() allows for state         │
-│                             │                  │          │                            │                            │ injection during daemon-reexec                               │
+│                             │ CVE-2018-15686   │          │                            │ 215-17+deb8u8              │ line splitting via fgets() allows for state injection during │
+│                             │                  │          │                            │                            │ daemon-reexec                                                │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-15686                   │
 │                             ├──────────────────┤          │                            │                            ├──────────────────────────────────────────────────────────────┤
 │                             │ CVE-2018-15688   │          │                            │                            │ systemd: Out-of-bounds heap write in systemd-networkd dhcpv6 │
@@ -4936,8 +4909,8 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 │                             │ CVE-2018-16865   │          │                            │                            │ systemd: stack overflow when receiving many journald entries │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2018-16865                   │
 │                             ├──────────────────┤          │                            ├────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ systemd: Spoofing of XDG_SEAT allows for actions to be       │
-│                             │                  │          │                            │                            │ checked against "allow_active"...                            │
+│                             │ CVE-2019-3842    │          │                            │ 215-17+deb8u12             │ Spoofing of XDG_SEAT allows for actions to be checked        │
+│                             │                  │          │                            │                            │ against "allow_active" instead...                            │
 │                             │                  │          │                            │                            │ https://avd.aquasec.com/nvd/cve-2019-3842                    │
 ├─────────────────────────────┼──────────────────┤          ├────────────────────────────┼────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ util-linux                  │ CVE-2016-2779    │          │ 2.25.2-6                   │                            │ util-linux: runuser tty hijack via TIOCSTI ioctl             │
@@ -4984,7 +4957,7 @@ Total: 1304 (HIGH: 1033, CRITICAL: 271)
 
 Node.js (node-pkg)
 ==================
-Total: 80 (HIGH: 67, CRITICAL: 13)
+Total: 81 (HIGH: 68, CRITICAL: 13)
 
 ┌─────────────────────────────────────┬─────────────────────┬──────────┬───────────────────┬──────────────────────────────────────────────────────────┬──────────────────────────────────────────────────────────────┐
 │               Library               │    Vulnerability    │ Severity │ Installed Version │                      Fixed Version                       │                            Title                             │
@@ -5086,7 +5059,10 @@ Total: 80 (HIGH: 67, CRITICAL: 13)
 │                                     │ CVE-2021-23337      │          │                   │ 4.17.21                                                  │ command injection via template                               │
 │                                     │                     │          │                   │                                                          │ https://avd.aquasec.com/nvd/cve-2021-23337                   │
 ├─────────────────────────────────────┼─────────────────────┤          ├───────────────────┼──────────────────────────────────────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ merge (package.json)                │ CVE-2020-28499      │          │ 1.2.0             │ 2.1.1                                                    │ Prototype Pollution in merge                                 │
+│ merge (package.json)                │ CVE-2018-16469      │          │ 1.2.0             │ 1.2.1                                                    │ Prototype Pollution in merge                                 │
+│                                     │                     │          │                   │                                                          │ https://avd.aquasec.com/nvd/cve-2018-16469                   │
+│                                     ├─────────────────────┤          │                   ├──────────────────────────────────────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                     │ CVE-2020-28499      │          │                   │ 2.1.1                                                    │ Prototype Pollution in merge                                 │
 │                                     │                     │          │                   │                                                          │ https://avd.aquasec.com/nvd/cve-2020-28499                   │
 ├─────────────────────────────────────┼─────────────────────┤          ├───────────────────┼──────────────────────────────────────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ minimatch (package.json)            │ CVE-2016-10540      │          │ 2.0.10            │ 3.0.2                                                    │ Minimatch is a minimal matching utility that works by        │
