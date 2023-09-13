@@ -35,11 +35,10 @@ jobs:
       - name: Run Trivy vulnerability scanner on image
         run: trivy image --severity 'HIGH,CRITICAL' '${{ inputs.image-ref }}' > trivy_vuln_image.txt
 
-      - name: Create branch for scan results
+      - name: Update a branch with scan results
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-
 
           existed_in_remote=$(git ls-remote --heads origin trivy-scan-results)
           if [[ ${existed_in_remote} ]]; then
