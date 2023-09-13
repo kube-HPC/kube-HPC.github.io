@@ -43,7 +43,9 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
 
-          if git rev-parse --verify trivy-scan-results; then
+
+          local existed_in_remote=$(git ls-remote --heads origin ${branch})
+          if [[ -z ${existed_in_remote} ]]; then
             git checkout origin/trivy-scan-results
             git pull
             echo "origin branch swapped"
