@@ -25,10 +25,10 @@ jobs:
           sudo dpkg -i trivy_0.43.0_Linux-64bit.deb
       
       - name: Run Trivy license scan on repo
-        run: trivy fs /home/runner/work --scanners license --license-full --severity 'HIGH,CRITICAL' --format json  --output trivy_license_filesystem.json
+        run: trivy fs /home/runner/work --scanners license --license-full --severity 'HIGH,CRITICAL' --format json  --output trivy_license_filesystem.txt  
       
       - name: Run Trivy vulnerability scanner on repo
-        run: trivy fs /home/runner/work --severity 'HIGH,CRITICAL' --format json  --output trivy_vuln_filesystem.json
+        run: trivy fs /home/runner/work --severity 'HIGH,CRITICAL' > trivy_vuln_filesystem.txt
 
       - name: Update a branch with scan results
         run: |
@@ -41,6 +41,7 @@ jobs:
             git fetch origin trivy-scan-results
             echo "branch fetched"
             git checkout trivy-scan-results
+            git pull
             echo "origin branch swapped"
           else
             git checkout -b trivy-scan-results
@@ -48,16 +49,18 @@ jobs:
           fi
 
           mkdir -p TrivyScans
-          cp trivy_license_filesystem.json TrivyScans/
-          cp trivy_vuln_filesystem.json TrivyScans/
-          git add TrivyScans/trivy_license_filesystem.json
-          git add TrivyScans/trivy_vuln_filesystem.json
-          git status
+          TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
+          echo "$TIMESTAMP" > ScanTimeStamp.txt
+          cp ScanTimeStamp.txt TrivyScans/
+          cp trivy_license_filesystem.txt TrivyScans/
+          cp trivy_vuln_filesystem.txt TrivyScans/
+          git add TrivyScans/trivy_license_filesystem.txt
+          git add TrivyScans/trivy_vuln_filesystem.txt
+          git add TrivyScans/ScanTimeStamp.txt
           git commit -m "Add trivy scan result files to the folder 'TrivyScans'"
           git push origin trivy-scan-results
           
 
-      - name: Display scan result branch link
+      - name: Display branch and file path link
         run: echo "Results uploaded to [trivy-scan-results branch](https://github.com/$GITHUB_REPOSITORY/tree/trivy-scan-results/TrivyScans/)"
         if: always()
-      
