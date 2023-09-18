@@ -41,7 +41,6 @@ jobs:
             git fetch origin trivy-scan-results
             echo "branch fetched"
             git checkout trivy-scan-results
-            git pull
             echo "origin branch swapped"
           else
             git checkout -b trivy-scan-results
@@ -53,6 +52,7 @@ jobs:
           cp trivy_vuln_filesystem.json TrivyScans/
           git add TrivyScans/trivy_license_filesystem.json
           git add TrivyScans/trivy_vuln_filesystem.json
+          git status
           git commit -m "Add trivy scan result files to the folder 'TrivyScans'"
           git push origin trivy-scan-results
           
