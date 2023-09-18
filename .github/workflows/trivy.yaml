@@ -41,6 +41,7 @@ jobs:
             git fetch origin trivy-scan-results
             echo "branch fetched"
             git checkout trivy-scan-results
+            git pull
             echo "origin branch swapped"
           else
             git checkout -b trivy-scan-results
