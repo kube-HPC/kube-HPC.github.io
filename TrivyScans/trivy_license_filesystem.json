@@ -20,15 +20,15 @@
       "Class": "license"
     },
     {
+      "Target": "_actions/actions/checkout/v2/package-lock.json",
+      "Class": "license"
+    },
+    {
       "Target": "kube-HPC.github.io/kube-HPC.github.io/package-lock.json",
       "Class": "license"
     },
     {
       "Target": "kube-HPC.github.io/kube-HPC.github.io/yarn.lock",
-      "Class": "license"
-    },
-    {
-      "Target": "_actions/actions/checkout/v2/package-lock.json",
       "Class": "license"
     },
     {
