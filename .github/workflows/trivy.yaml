@@ -57,7 +57,7 @@ jobs:
           git push origin trivy-scan-results
           
 
-      - name: Display branch and file path link
+      - name: Display scan result branch link
         run: echo "Results uploaded to [trivy-scan-results branch](https://github.com/$GITHUB_REPOSITORY/tree/trivy-scan-results/TrivyScans/)"
         if: always()
       
