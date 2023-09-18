@@ -25,10 +25,10 @@ jobs:
           sudo dpkg -i trivy_0.43.0_Linux-64bit.deb
       
       - name: Run Trivy license scan on repo
-        run: trivy fs /home/runner/work --scanners license --license-full --severity 'HIGH,CRITICAL' > trivy_license_filesystem.txt  
+        run: trivy fs /home/runner/work --scanners license --license-full --severity 'HIGH,CRITICAL' --format json  --output trivy_license_filesystem.json
       
       - name: Run Trivy vulnerability scanner on repo
-        run: trivy fs /home/runner/work --severity 'HIGH,CRITICAL' > trivy_vuln_filesystem.txt
+        run: trivy fs /home/runner/work --severity 'HIGH,CRITICAL' --format json  --output trivy_vuln_filesystem.json
 
       - name: Update a branch with scan results
         run: |
@@ -49,10 +49,10 @@ jobs:
           fi
 
           mkdir -p TrivyScans
-          cp trivy_license_filesystem.txt TrivyScans/
-          cp trivy_vuln_filesystem.txt TrivyScans/
-          git add TrivyScans/trivy_license_filesystem.txt
-          git add TrivyScans/trivy_vuln_filesystem.txt
+          cp trivy_license_filesystem.json TrivyScans/
+          cp trivy_vuln_filesystem.json TrivyScans/
+          git add TrivyScans/trivy_license_filesystem.json
+          git add TrivyScans/trivy_vuln_filesystem.json
           git commit -m "Add trivy scan result files to the folder 'TrivyScans'"
           git push origin trivy-scan-results
           
