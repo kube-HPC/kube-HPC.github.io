@@ -59,4 +59,5 @@ jobs:
 
       - name: Display branch and file path link
         run: echo "Results uploaded to [trivy-scan-results branch](https://github.com/$GITHUB_REPOSITORY/tree/trivy-scan-results/TrivyScans/)"
+        if: always()
       
