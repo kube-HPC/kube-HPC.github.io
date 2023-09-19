@@ -1,5 +1,5 @@
 
-docker.io/hkube/site:v2.6.4 (debian 8.9)
+docker.io/hkube/site:latest (debian 8.9)
 ========================================
 Total: 1304 (HIGH: 1033, CRITICAL: 271)
 
