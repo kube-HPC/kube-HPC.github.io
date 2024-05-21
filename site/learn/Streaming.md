@@ -57,14 +57,17 @@ HKube allows to adjust the minimum and maximum number of pods for stateless node
 
 **Minimum**:
 
-- Defines minimum number of pods for stateless node.
+- Defines the minimum number of pods for a stateless node.
+- The number of running pods can't be lower than the pre-defined minimum.
 - When the application starts, the stateless node will start at application up-time.
-- Number of running pods can't be lower than the minimum number pre-defined.
+- This setting it essential when the resource is needed at up-time.
 
 **Maximum**:
 
-- Defines maximum number of pods for stateless node.
-- Number of running pods can't be higher than the pre-defined maximum.
+- Defines the maximum number of pods for a stateless node.
+- The number of running pods can't be higher than the pre-defined maximum.
+- It can be toggled off, in which case the system has no maximum limit.
+- This setting is essential when it's necessary to limit the given resources.
 
 ***
 
