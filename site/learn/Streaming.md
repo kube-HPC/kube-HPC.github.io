@@ -41,11 +41,32 @@ HKube has its own data transportation system, enabling direct data transfer betw
 - High throughput with low latency.
 - High scalability.
 
+***
+
 ### Autoscaling
 
 The throughput of streaming can vary over time, allowing us to handle bursts and free up resources for other jobs when they are not needed.
 With its own unique heuristic system, HKube is able to recognize changes in throughput and act quickly to support these needs.
 To better understand this, let's look at a scenario that demonstrates how HKube handles pressure.
+
+#### Scaling Range
+
+Autoscaling is used by each node by adjusting the number of pods it uses within the specified min-max range.
+By using autoscaling, we shut down unnecessary pods to maintain efficiency.
+HKube allows to adjust the minimum and maximum number of pods for stateless node:
+
+**Minimum**:
+
+- Defines minimum number of pods for stateless node.
+- When the application starts, the stateless node will start at application up-time.
+- Number of running pods can't be lower than the minimum number pre-defined.
+
+**Maximum**:
+
+- Defines maximum number of pods for stateless node.
+- Number of running pods can't be higher than the pre-defined maximum.
+
+***
 
 ### Conditional Data Flows:
 
