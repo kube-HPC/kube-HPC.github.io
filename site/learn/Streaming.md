@@ -33,8 +33,8 @@ To make life easier, HKube offers an easy wizard to create a pipeline. There is 
 In the wizard, you have 3 steps:
 
 - Initial: Here you must set a name, and select the Pipeline Kind to be Streaming.
-- Nodes: Here you set your nodes names and their algorithems. Algorithems must be pre-uploaded to HKube [(how to upload)](../#getting-started).
-- Options: Here you can set your Streaming Flows, first you need to give it a name, afterwards enter the syntax (manually or by wizard). More information about how stream flows syntax works will be explained in detail later.
+- Nodes: Here you set your nodes names and their algorithms. Algorithms must be pre-uploaded to HKube [(how to upload)](../#getting-started).
+- Options: Here you can set your Streaming Flows. First you need to give it a name, afterward enter the syntax (manually or by wizard). More information about how stream flow syntax works will be explained in detail later.
 
 ![PipelineWizard](../../img/streaming/creatingStreamingPipeline.gif)
 
@@ -78,27 +78,27 @@ HKube allows to adjust the minimum and maximum number of pods for stateless node
 ***
 
 ### Comprehensive Statistics
-HKube shows detail statistics between every node, which can be used to analyze the relationship between them.
-By using the statistics, you can achieve data about the requests and responses, as follows:
+HKube shows detailed statistics between every node, which can be used to analyze the relationships between them.
+By using the statistics, you can obtain data about the requests and responses, as follows:
 
-- **currentSize:** How many pods there are, which are running the algorithm.
+- **currentSize:** The number of pods running the algorithm.
 - **reqRate:** The rate of incoming request messages, calculated as (Δ message count) / (Δ time in seconds).
-- **queueSize:** Total number of requests in the queue, waiting to be handled.
-- **avgQueueSize:** Average number of requests in the queue.
-- **processingTimeMs:** Average processing time in ms for all the requests.
-- **roundTripTimeMs:** Average trip time in ms for all the requests (trip is the total time from when a request was created to when it was successfully handled).
-- **queueTimeMs:** The average of how long requests are in queue.
-- **durationRate:** The average of all the positive durations, which duration is the amount of time it took to handle a request.
+- **queueSize:** The total number of requests in the queue, waiting to be handled.
+- **avgQueueSize:** The average number of requests in the queue.
+- **processingTimeMs:** The average processing time in milliseconds for all requests.
+- **roundTripTimeMs:** The average round trip time in milliseconds for all requests (trip is the total time from when a request is created to when it is successfully handled).
+- **queueTimeMs:** The average time requests spend in the queue.
+- **durationRate:** The average of all positive durations, where duration is the amount of time it took to handle a request.
 - **grossDurationRate:** 
 - **throughput:** 
-- **totalRequests:** The total amount of requests sent.
-- **totalResponses:** The total amount of responses sent (handled requests).
-- **totalDropped:** The total amount of requests which didn't response back (?).
+- **totalRequests:** The total number of requests sent.
+- **totalResponses:** The total number of responses sent (handled requests).
+- **totalDropped:** The total number of requests that did not receive a response. (?)
 
-The followings are additional statistics that are specially between stateful to stateless algotihems:
-- **required:** How many pods are requried, according to load.
-- **desired:** How many pods are desired.
-- **status:** Status of the node.
+The following are additional statistics that are specifically relevant to interactions between stateful and stateless algorithms:
+- **required:** The number of pods required, according to the load.
+- **desired:** The number of pods desired.
+- **status:** The status of the node.
 
 ***
 
@@ -130,10 +130,10 @@ Streaming pipelines are built from Stateful and Stateless algorithms.
 	- The processing time of the receiving node.
 
 #### Streaming Flow:
-- The flow represents the movement of data through the pipeline nodes (The flow must start with a Stateful Node/Algorithm).
-- You can have more than 1 flow in every pipeline, each flow has it's unique name.
-- Streaming flows are defined in a simple syntax, >> used for defining a streaming node flow, & for and, | for different streaming flow. Examples:
-    - Flow named flow1, is from node A streams to nodes B and C, node B stream to node D. Syntax would be: A >> B&C | B >> D.
+- The flow represents the movement of data through the pipeline nodes. It must start with a Stateful Node/Algorithm.
+- You can define more than one flow in every pipeline, and each flow has its unique name.
+- Streaming flows are defined using a simple syntax: >> is used for defining a streaming node flow, & for "and," and | for different streaming flows. Examples:
+    - Flow named "flow1" streams from node A to nodes B and C, and node B streams to node D. Syntax: A >> B&C | B >> D.
 
     ```json
 {
@@ -147,8 +147,8 @@ Streaming pipelines are built from Stateful and Stateless algorithms.
 ```
 ![StreamFlowExample1](../../img/streaming/StreamingFlowExample1.png)
 
-    - Flow named analyze, is from node sort which streams to node A. Syntax would be sort >> A
-    Also, flow named master, is from node twitt which streams to node sort that streams to node B. Syntax would be twitt >> sort >> B.
+    - Flow named "analyze" streams from node "sort" to node A. Syntax: sort >> A.
+    Also, flow named "master" streams from node "twitt" to node "sort," which then streams to node B. Syntax: twitt >> sort >> B.
 ```json
 {
     "streaming": {
