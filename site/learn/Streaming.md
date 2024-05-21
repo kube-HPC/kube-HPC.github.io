@@ -53,7 +53,7 @@ HKube allows to adjust the minimum and maximum number of pods for stateless node
 
 - Defines the minimum number of pods for a stateless node.
 - The number of running pods can't be lower than the pre-defined minimum.
-- When the application starts, the stateless node will start at application up-time.
+- When the application starts, the stateless node will initialize at application up-time, which may be more time-efficient.
 - This setting it essential when the resource is needed at up-time.
 
 **Maximum:**
@@ -119,8 +119,23 @@ Streaming pipelines are built from Stateful and Stateless algorithms.
 
 #### Streaming Flow:
 - The flow represents the movement of data through the pipeline nodes (The flow must start with a Stateful Node/Algorithm).
-- Streaming flows are defined in a simple syntax example: node A streams to nodes B and C, node B streams to node D. The syntax would be: A >> B&C | B >> D.
+- You can have more than 1 flow in every pipeline, each flow has it's unique name.
+- Streaming flows are defined in a simple syntax, >> used for defining a streaming node flow, & for and, | for different streaming flow. Examples:
+    - Flow named flow1, is from node A streams to nodes B and C, node B stream to node D. Syntax would be: A >> B&C | B >> D.
 
+    ```json
+{
+    "streaming": {
+        "flows": {
+            "flow1": "A >> B&C | B >> D",
+        },
+        "defaultFlow": "master"
+    }
+}
+```
+
+    - Flow named analyze, is from node sort which streams to node A. Syntax would be sort >> A
+    Also, flow named master, is from node twitt which streams to node sort that streams to node B. Syntax would be twitt >> sort >> B.
 ```json
 {
     "streaming": {
