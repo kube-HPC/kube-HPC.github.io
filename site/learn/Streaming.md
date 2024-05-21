@@ -133,6 +133,7 @@ Streaming pipelines are built from Stateful and Stateless algorithms.
     }
 }
 ```
+![StreamFlowExample1](../../img/streaming/StreamingFlowExample1.png)
 
     - Flow named analyze, is from node sort which streams to node A. Syntax would be sort >> A
     Also, flow named master, is from node twitt which streams to node sort that streams to node B. Syntax would be twitt >> sort >> B.
@@ -147,6 +148,7 @@ Streaming pipelines are built from Stateful and Stateless algorithms.
     }
 }
 ```
+![StreamFlowExample2](../../img/streaming/StreamingFlowExample2.png)
 
 ### Advanced
 
