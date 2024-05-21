@@ -27,6 +27,18 @@ The process is as follows:
 - sort node: The "sort" node sorts the tweets based on their language and routes them accordingly.
 - Nodes "A" and "B" analyze the tweet messages and save them to the database.
 
+### Creating a Stream
+To create a stream, you will have to create a new pipeline.
+To make life easier, HKube offers an easy wizard to create a pipeline. There is also an option to enter json file text editor.
+In the wizard, you have 3 steps:
+
+- Initial: Here you must set a name, and select the Pipeline Kind to be Streaming.
+- Nodes: Here you set your nodes names and their algorithems. Algorithems must be pre-uploaded to HKube [(how to upload)](../#getting-started).
+- Options: Here you can set your Streaming Flows, first you need to give it a name, afterwards enter the syntax (manually or by wizard). More information about how stream flows syntax works will be explained in detail later.
+
+![PipelineWizard](../../img/streaming/creatingStreamingPipeline.gif)
+
+
 ## Features
 HKube streaming pipeline supports:
 
