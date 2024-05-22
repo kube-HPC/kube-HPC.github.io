@@ -36,7 +36,7 @@ In the wizard, you have 3 steps:
 - Nodes: Here you set your nodes names and their algorithms. Algorithms must be pre-uploaded to HKube [(how to upload)](../#getting-started).
 - Options: Here you can set your Streaming Flows. First you need to give it a name, afterward enter the syntax (manually or by wizard). More information about how stream flow syntax works will be explained in detail later.
 
-![PipelineWizard](../../img/streaming/creatingStreamingPipeline.gif)
+![PipelineWizard](../../img/streaming/CreatingStreamingPipeline.gif)
 
 
 ## Features
@@ -78,7 +78,8 @@ HKube allows to adjust the minimum and maximum number of pods for stateless node
 ***
 
 ### Comprehensive Statistics
-HKube shows detailed statistics between every node, which can be used to analyze the relationships between them.
+HKube shows detailed statistics on the flow between a pair of nodes, which can be used to analyze the relationships between them.
+To view the statistics, place your cursor over the flow between the nodes.
 By using the statistics, you can obtain data about the requests and responses, as follows:
 
 - **currentSize:** The number of pods running the algorithm.
@@ -96,9 +97,12 @@ By using the statistics, you can obtain data about the requests and responses, a
 - **totalDropped:** The total number of requests that did not receive a response. (?)
 
 The following are additional statistics that are specifically relevant to interactions between stateful and stateless algorithms:
+
 - **required:** The number of pods required, according to the load.
 - **desired:** The number of pods desired.
 - **status:** The status of the node.
+
+![Statistics](../../img/streaming/Statistics.png)
 
 ***
 
