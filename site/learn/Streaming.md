@@ -81,19 +81,19 @@ To view the statistics, place your cursor over the flow between the nodes.
 By using the statistics, you can obtain data about the requests and responses, as follows:
 
 - **currentSize:** The number of pods running the algorithm.
-- **reqRate:** The rate of incoming request messages, calculated as (Δ message count) / (Δ time in seconds).
-- **resRate:** The rate of outgoing response messages, calculated as (Δ message count) / (Δ time in seconds).
-- **queueSize:** The total number of requests in the queue, waiting to be handled.
+- **reqRate:** The rate of messages arriving to queue, calculated as (Δ message count) / (Δ time in seconds).
+- **resRate:** The rate of messages leaving the queue, calculated as (Δ message count) / (Δ time in seconds).
+- **queueSize:** Number of messages in the queue at any given time.
 - **avgQueueSize:** The average number of requests in the queue.
-- **processingTimeMs:** The average processing time in milliseconds for all requests.
+- **processingTimeMs:** Time spent in the onMessage() method in your code. || The average processing time in milliseconds for all requests.
 - **roundTripTimeMs:** The average round trip time in milliseconds for all requests (trip is the total time from when a request is created to when it is successfully handled).
-- **queueTimeMs:** The average time requests spend in the queue.
+- **queueTimeMs:**  Time messages spent in the queue, calculated as a mean on all messages waiting times in a given time. || The average time requests spend in the queue.
 - **durationRate:** The average of all positive durations, where duration is the amount of time it took to handle a request.
 - **grossDurationRate:** 
-- **throughput:** The percentage of handled requests out of all requests made.
+- **throughput:** Request rate / response rate as a percentage. For example, if you see 700%, it means the ratio between requests and responses is 7 to 1.
 - **totalRequests:** The total number of requests sent.
 - **totalResponses:** The total number of responses sent (handled requests).
-- **totalDropped:** The total number of requests that did not receive a response. (?)
+- **totalDropped:** The total number of requests that did not receive a response.
 
 The following are additional statistics that are specifically relevant to stateless algorithms:
 
