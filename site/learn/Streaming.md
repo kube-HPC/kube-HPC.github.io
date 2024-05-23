@@ -32,7 +32,7 @@ In the wizard, you have 3 steps:
 
 - Initial: Here you must set a name, and select the Pipeline Kind to be Streaming.
 - Nodes: Here you set your nodes kind (stateless, stateful, gateway), names and their algorithms. Algorithms must be pre-uploaded to HKube [(how to upload)](../#getting-started).
-- Options: Here you can set your Streaming Flows. First you need to give it a name, afterward enter the syntax (manually or by wizard). More information about how stream flow syntax works will be explained in detail later.
+- Options: Here you can set your Streaming Flows. First you need to give it a name, afterward enter the syntax (manually or by wizard). More information about how stream flow syntax works will be explained in detail [later](#streaming-flow).
 
 ![PipelineWizard](../../img/streaming/CreatingStreamingPipeline.gif)
 
