@@ -89,7 +89,7 @@ By using the statistics, you can obtain data about the requests and responses, a
 - **roundTripTimeMs:** The average round trip time in milliseconds for all requests (trip is the total time from when a request is created to when it is successfully handled).
 - **queueTimeMs:**  Time messages spent in the queue, calculated as a mean on all messages waiting times in a given time. || The average time requests spend in the queue.
 - **durationRate:** The average of all positive durations, where duration is the amount of time it took to handle a request.
-- **grossDurationRate:** 
+- **grossDurationRate:** The average of how many messages can be proccessed according to the round trip time.
 - **throughput:** Request rate / response rate as a percentage. For example, if you see 700%, it means the ratio between requests and responses is 7 to 1.
 - **totalRequests:** The total number of requests sent.
 - **totalResponses:** The total number of responses sent (handled requests).
