@@ -17,7 +17,7 @@ That capability allows for applications, analytics, and reporting in real-time.
 ![StreamingDiagram](../../img/streaming/Streaming-diagram-nobackground.png)
 
 ### Use Cases - Stream Tweets in real-time
-So where are HKube data streams good for? Let's take a look at a stream from Twitter as an example. In this particular case, we want to enrich the data from other resources, such as Facebook, LinkedIn, and other internal databases before saving it.
+So what are HKube data streams good for? Let's take a look at a stream from Twitter as an example. In this particular case, we want to enrich the data from other resources, such as Facebook, LinkedIn, and other internal databases before saving it.
 The process is as follows:
 
 - Stream Tweets in Real-Time: Use the Twitter API and HKube Streaming to get and analyze real-time tweets for your research.
@@ -86,14 +86,14 @@ By using the statistics, you can obtain data about the requests and responses, a
 - **queueSize:** Number of messages in the queue at any given time.
 - **avgQueueSize:** The average number of requests in the queue.
 - **processingTimeMs:** Time spent in the onMessage() method in your code. || The average processing time in milliseconds for all requests.
-- **roundTripTimeMs:** The average round trip time in milliseconds for all requests (trip is the total time from when a request is created to when it is successfully handled).
+- **roundTripTimeMs:** The average round trip time in milliseconds for all requests (trip is the total time from when a message was pulled until the time a confirmation that the message had been handled was received from the next node).
 - **queueTimeMs:**  Time messages spent in the queue, calculated as a mean on all messages waiting times in a given time. || The average time requests spend in the queue.
-- **durationRate:** The average of all positive durations, where duration is the amount of time it took to handle a request.
-- **grossDurationRate:** The average of how many messages can be proccessed according to the round trip time.
+- **durationRate:** The forecasted message handling rate according to the average message handling duration.
+- **grossDurationRate:** The forecasted message handling rate according to the round-trip time.
 - **throughput:** Request rate / response rate as a percentage. For example, if you see 700%, it means the ratio between requests and responses is 7 to 1.
-- **totalRequests:** The total number of requests sent.
-- **totalResponses:** The total number of responses sent (handled requests).
-- **totalDropped:** The total number of requests that did not receive a response.
+- **totalRequests:** The total number of messages that have been pulled for handling by the next node.
+- **totalResponses:** The total number of messages that the next node confirmed as handled.
+- **totalDropped:** The total number of messages that had to be dropped due to breaching the queue size limit.
 
 The following are additional statistics that are specifically relevant to stateless algorithms:
 
