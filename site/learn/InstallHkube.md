@@ -30,8 +30,17 @@ To add the repo to your helm run
 $ helm repo add hkube http://hkube.org/helm/
 ```
 ## Start minikube
-Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress controller, registry, and dynamic storage 
-
+Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress controller, registry, and dynamic storage.  
+First, run:
+```bash
+docker context use default
+```
+This will be your output:
+```console
+default
+Current context is now "default"
+```
+Next:
 ```hkube-tabs
 # { "hkube": true, "schema": "install" }
 ```
@@ -40,20 +49,20 @@ Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress control
 To install the chart with the release name `hkube`:  
 > Also set the registry to the internal registry  
 
-```console
-$ helm install hkube --set build_secret.docker_registry=registry.minikube --set build_secret.docker_registry_insecure=true hkube/hkube
+```bash
+helm install hkube --set build_secret.docker_registry=registry.minikube --set build_secret.docker_registry_insecure=true hkube/hkube
 ```
 This command installs `hkube` in a minimal configuration for development. See below for production install.  
 > Be patient. This can take some time depending on your internet connection  
 
 ### Open the dashboard
 Before starting your journey, verify that the requiered resources have finished loading (make sure to copy the whole line):
-```console
-$ kubectl rollout status deployment/simulator --watch; kubectl rollout status deployment/api-server --watch
+```bash
+kubectl rollout status deployment/simulator --watch; kubectl rollout status deployment/api-server --watch
 ```
 Once it let's you know the resources have been successfully rolled out, get the IP address of your minikube instance
-```console
-$ minikube ip
+```bash
+minikube ip
 ```
 and browse to the dashboard at `http://<minikube_ip_here>/hkube/dashboard/`
 
