@@ -2,7 +2,7 @@
   "name": "site",
   "repository": "https://kube-hpc.github.io",
   "private": true,
-  "version": "2.6.8",
+  "version": "2.6.9",
   "scripts": {
     "start": "rm -rf build && babel-node resources/server.js",
     "build": "rm -rf build && babel-node resources/build.js",
