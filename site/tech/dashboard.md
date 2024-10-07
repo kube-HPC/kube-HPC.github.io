@@ -22,12 +22,12 @@ permalink: /tech/dashboard/
 
 Dashboard is an implementation of **Hkube Restful API**.
 
-> Check Full Rest API [documentation](http://hkube.io/spec), and
-> [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json).
+> Check Full Rest API [documentation](http://hkube.org/spec), and
+> [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/hkube/master/core/api-server/api/rest-api/swagger.json).
 
 Use Dashboard for **deploying** and **monitoring** user
-[algorithms](http://hkube.io/learn/algorithms/)
-and [pipelines](http://hkube.io/learn/pipelines/).
+[algorithms](http://hkube.org/learn/algorithms/)
+and [pipelines](http://hkube.org/learn/pipelines/).
 
 ### Accessing the Dashboard UI
 
