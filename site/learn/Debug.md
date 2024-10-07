@@ -85,11 +85,11 @@ main()
 | Name | Description | 
 |--|--|
 |ALGORITHM_ENTRY_POINT|The name of the class you wrote implementing IAlgorithm.|
-|WORKER_SOCKET_URL|path obtained from a the debug algorithm defined on hkube deployment. e.g. `ws://playground.hkube.io/hkube/debug/something`|
+|WORKER_SOCKET_URL|path obtained from a the debug algorithm defined on hkube deployment. e.g. `ws://playground.hkube.org/hkube/debug/something`|
 
 Instead of setting these environment variables, you can also add a config.properties file to the running classpath root directory and set these environment variable names as keys.
 
-                WORKER_SOCKET_URL=ws://playground.hkube.io/hkube/debug/something
+                WORKER_SOCKET_URL=ws://playground.hkube.org/hkube/debug/something
                 ALGORITHM_ENTRY_POINT=Algorithm
 
 -  **Program argument 'debug'**

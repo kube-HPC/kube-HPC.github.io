@@ -17,7 +17,7 @@ The openshift cluster need to support dynamic storage provisioning
 These instructions are for helm v3.  
 1. add hkube helm repo
 ```console
-helm repo add hkube http://hkube.io/helm/
+helm repo add hkube http://hkube.org/helm/
 ```
 2. set env for username (developer in this example)  
 ```export USERNAME=developer```

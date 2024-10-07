@@ -16,15 +16,15 @@ export default function BlogRSS({ site }) {
   return (
     <feed>
       <title>Blog | Hkube</title>
-      <link href="http://hkube.io/blog/" />
-      <id>http://hkube.io/blog/</id>
+      <link href="http://hkube.org/blog/" />
+      <id>http://hkube.org/blog/</id>
       <updated>{new Date(posts[0].date).toISOString()}</updated>
 
       {posts.map(post =>
         <entry key={post.permalink}>
           <title>{post.title}</title>
-          <link href={'http://hkube.io' + post.url} />
-          <id>http://hkube.io{post.url}</id>
+          <link href={'http://hkube.org' + post.url} />
+          <id>http://hkube.org{post.url}</id>
           <updated>{new Date(post.date).toISOString()}</updated>
           <summary>{post.title}</summary>
           <content>{post.title}</content>

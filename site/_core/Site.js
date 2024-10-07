@@ -30,7 +30,7 @@ export default ({
         content="Hkube - HPC over Kubernetes, cloud native open source framework to run distributed pipeline of algorithms"
       />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="http://hkube.io/" />
+      <meta property="og:url" content="http://hkube.org/" />
       <meta property="og:image" content={config.base_url + "/img/home/og_image.png"} />
       <meta property="og:image:type" content="image/png" />
       <meta name="twitter:card" content="summary" />

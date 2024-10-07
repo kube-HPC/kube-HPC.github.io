@@ -266,7 +266,7 @@ For more pipeline descriptor options, see [Advanced](../learn/advancedPipeline/)
 
 #### Node dependencies - Legend
 
-HKube allows special [signs](http://hkube.io/learn/execution/#batch) in node `input` for defining the pipeline execution flow.
+HKube allows special [signs](http://hkube.org/learn/execution/#batch) in node `input` for defining the pipeline execution flow.
 
 In our case we used:
 

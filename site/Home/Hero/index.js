@@ -10,7 +10,7 @@ const HeroButtons = () => (
     <a className="button" href={config.base_url + "/learn/"}>
       Get Started
     </a>
-    <a className="button" target="_blank" href="https://playground.hkube.io/">
+    <a className="button" target="_blank" href="https://playground.hkube.org/">
       Playground
     </a>
   </div>
