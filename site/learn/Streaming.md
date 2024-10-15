@@ -80,26 +80,25 @@ HKube shows detailed statistics on the flow between a pair of nodes, which can b
 To view the statistics, place your cursor over the flow between the nodes.
 By using the statistics, you can obtain data about the requests and responses, as follows:
 
-- **currentSize:** The number of pods running the algorithm.
-- **reqRate:** The rate of messages arriving to queue, calculated as (Δ message count) / (Δ time in seconds).
-- **resRate:** The rate of messages leaving the queue, calculated as (Δ message count) / (Δ time in seconds).
-- **queueSize:** Number of messages in the queue at any given time.
-- **avgQueueSize:** The average number of requests in the queue.
-- **processingTimeMs:** Time spent in the onMessage() method in your code. || The average processing time in milliseconds for all requests.
-- **roundTripTimeMs:** The average round trip time in milliseconds for all requests (trip is the total time from when a message was pulled until the time a confirmation that the message had been handled was received from the next node).
-- **queueTimeMs:**  Time messages spent in the queue, calculated as a mean on all messages waiting times in a given time. || The average time requests spend in the queue.
-- **durationRate:** The forecasted message handling rate according to the average message handling duration.
-- **grossDurationRate:** The forecasted message handling rate according to the round-trip time.
-- **throughput:** Request rate / response rate as a percentage. For example, if you see 700%, it means the ratio between requests and responses is 7 to 1.
-- **totalRequests:** The total number of messages that have been pulled for handling by the next node.
-- **totalResponses:** The total number of messages that the next node confirmed as handled.
-- **totalDropped:** The total number of messages that had to be dropped due to breaching the queue size limit.
+- **Messages produce rate:** The rate at which messages arrive in the queue, calculated as (Δ message count) / (Δ time in seconds).
+- **Messages in queue:** The number of messages currently waiting to be handled.
+- **Avg number of messages in queue:** The average number of messages in the queue.
+- **Time messages spent in queue:** The average time (in ms) messages spend waiting in the queue.
+- **Handle acknowledge received after:** The average round trip time (in ms) for message handling, measured from when a message is pulled until confirmation is received from the next node.
+- **Total sent:** The total number of messages pulled for handling by the next node.
+- **Total handle aknowledge:** Total messages which has been handled.
+- **Dropped messages:** The total number of messages that had to be dropped due to breaching the queue size limit.
+- **Throughput:** Displayed on the arrow between the nodes. Request rate / response rate as a percentage. For example, if you see 33%, it means the ratio between requests and responses is 3 to 1.
 
-The following are additional statistics that are specifically relevant to stateless algorithms:
+The following are statistics that are relevant to the recieving node:
 
-- **required:** The number of pods required, according to the load.
-- **desired:** The number of pods desired.
-- **status:** The status of the node.
+- **Messages process rate:** The rate of messages leaving the queue, calculated as (Δ message count) / (Δ time in seconds).
+- **Message process time:** Time in ms that the pod is processing the message, time spent in the onMessage() method in your code.
+
+The following are statistics that are relevant to a stateless node:
+
+- **Number of instances:** The number of pod instances that are running the algorithm and processing the messages.
+- **Needed instances:** The required amount needed to handle the queue and produce rate.
 
 ![Statistics](../../img/streaming/Statistics.png)
 
