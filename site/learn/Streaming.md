@@ -88,14 +88,17 @@ By using the statistics, you can obtain data about the requests and responses, a
 - **Total sent:** The total number of messages pulled for handling by the next node.
 - **Total handle aknowledge:** Total messages which has been handled.
 - **Dropped messages:** The total number of messages that had to be dropped due to breaching the queue size limit.
-- **Throughput:** Displayed on the arrow between the nodes. Request rate / response rate as a percentage. For example, if you see 700%, it means the ratio between requests and responses is 7 to 1.
+- **Throughput:** Displayed on the arrow between the nodes. Request rate / response rate as a percentage. For example, if you see 33%, it means the ratio between requests and responses is 3 to 1.
 
-The following are statistics that are relevant to the stateless algorithms:
+The following are statistics that are relevant to the recieving node:
 
 - **Messages process rate:** The rate of messages leaving the queue, calculated as (Δ message count) / (Δ time in seconds).
+- **Message process time:** Time in ms that the pod is processing the message, time spent in the onMessage() method in your code.
+
+The following are statistics that are relevant to a stateless node:
+
 - **Number of instances:** The number of pod instances that are running the algorithm and processing the messages.
 - **Needed instances:** The required amount needed to handle the queue and produce rate.
-- **Message process time:** Time in ms that the pod is processing the message, time spent in the onMessage() method in your code.
 
 ![Statistics](../../img/streaming/Statistics.png)
 
