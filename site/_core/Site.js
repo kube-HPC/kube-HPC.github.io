@@ -70,7 +70,7 @@ export default ({
               <a href="/learn/">Learn</a>
             </h5>
             <a href={config.base_url + "/learn/"}>Introduction</a>
-            <a href={config.base_url + "/learn/pipeline/"}>Pipeline</a>
+            <a href={config.base_url + "/learn/pipelines/"}>Pipeline</a>
             <a href={config.base_url + "/learn/nodes/"}>Nodes</a>
             <a href={config.base_url + "/learn/input/"}>Input</a>
             <a href={config.base_url + "/learn/execution/"}>Execution</a>
@@ -78,11 +78,11 @@ export default ({
           </div>
           <div className="sitemap-group">
             <h5>
-              <a href={config.base_url + "/dashboard/"}>Dashboard</a>
+              <a href={config.base_url + "/tech/dashboard/"}>Dashboard</a>
             </h5>
-            <a href={config.base_url + "/dashboard/#overview"}>Overview</a>
-            <a href={config.base_url + "/dashboard/#tables"}>Tables</a>
-            <a href={config.base_url + "/dashboard/#operations"}>Operations</a>
+            <a href={config.base_url + "/tech/dashboard/#overview"}>Overview</a>
+            <a href={config.base_url + "/tech/dashboard/#tables"}>Tables</a>
+            <a href={config.base_url + "/tech/dashboard/#operations"}>Operations</a>
           </div>
           <div className="sitemap-group">
             <h5>
