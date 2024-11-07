@@ -57,7 +57,7 @@ export default ({
       />
       <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"
+        href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
       />
     </head>
     <body className={className}>
@@ -114,16 +114,15 @@ export default ({
         </section>
       </footer>
 
-      <script
-        type="text/javascript"
-        src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"
-      />
+      <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+
       <script type="text/javascript" src={config.base_url + "/vendor/scroller.js"} />
       <script
         dangerouslySetInnerHTML={{
           __html: `
         docsearch({
-          apiKey: '4709879ecaf211280c35079f7ebe052a',
+          appId: 'BQD9PBVIWN',
+          apiKey: '1866dee8e47cc3f926114008ed8f7756',
           indexName: 'hkube',
           inputSelector: '#algolia-search-input',
           debug: false
