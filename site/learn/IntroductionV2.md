@@ -70,7 +70,7 @@ next: /learn/advancedPipeline/
       > In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
     - Via a packaged file - You must pack your algorithm using
     ```Console
-    $ tar -zcvf MyAlgo.tar.gz *
+    tar -zcvf MyAlgo.tar.gz *
     ```
     >To further elaborate, the "Packaged file" option requires a package containing all of the necessary files for the project to work, with your algorithms name serving as the "Entry point" in the wizard.
     You may package all of your algorithms in one package, and choose different algorithm files as different "Entry Points", or choose to package each algorithm separately.
@@ -266,7 +266,7 @@ For more pipeline descriptor options, see [Advanced](../learn/advancedPipeline/)
 
 #### Node dependencies - Legend
 
-HKube allows special [signs](http://hkube.io/learn/execution/#batch) in node `input` for defining the pipeline execution flow.
+HKube allows special [signs](http://hkube.org/learn/execution/#batch) in node `input` for defining the pipeline execution flow.
 
 In our case we used:
 

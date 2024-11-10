@@ -74,9 +74,9 @@ The **data** argument contains the following keys:
    - lastRunResult <Object>
 
 
-If the response contains a buildId, it means that a build was triggered, and you can follow the [build status](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json#/Webhooks/get_webhooks_status__jobId_)
+If the response contains a buildId, it means that a build was triggered, and you can follow the [build status](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/hkube/master/core/api-server/api/rest-api/swagger.json#/Webhooks/get_webhooks_status__jobId_)
 
-You can do the same using our [API](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/api-server/master/api/rest-api/swagger.json#/StoreAlgorithms/post_store_algorithms)
+You can do the same using our [API](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/hkube/master/core/api-server/api/rest-api/swagger.json#/StoreAlgorithms/post_store_algorithms)
 
 
 ## The long way

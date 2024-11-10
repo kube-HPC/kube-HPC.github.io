@@ -14,7 +14,7 @@ next: /learn/api/
 1. add hkube helm repo
 
 ```console
-helm repo add hkube http://hkube.io/helm/
+helm repo add hkube http://hkube.org/helm/
 ```
 
 ### general setup

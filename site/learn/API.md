@@ -12,7 +12,7 @@ Hkube support two types of APIs, Restful and Cli
 
 ### Restful API
 
-Please check out the full Rest API [documentation](http://hkube.io/spec).    
+Please check out the full Rest API [documentation](http://hkube.org/spec).    
 Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/hkube/master/core/api-server/api/rest-api/swagger.json).  
 
 

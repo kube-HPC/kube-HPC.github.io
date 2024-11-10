@@ -17,7 +17,7 @@ const links = [
   {
     section: "playground",
     text: "Playground",
-    href: "https://playground.hkube.io/",
+    href: "https://playground.hkube.org/",
   },
   { section: "gitHub", text: "GitHub", href: "https://github.com/kube-HPC" },
   { section: "spec", text: "Spec", href: config.base_url + "/spec/", target: "_blank" },

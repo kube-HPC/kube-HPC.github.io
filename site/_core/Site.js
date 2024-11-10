@@ -30,7 +30,7 @@ export default ({
         content="Hkube - HPC over Kubernetes, cloud native open source framework to run distributed pipeline of algorithms"
       />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="http://hkube.io/" />
+      <meta property="og:url" content="http://hkube.org/" />
       <meta property="og:image" content={config.base_url + "/img/home/og_image.png"} />
       <meta property="og:image:type" content="image/png" />
       <meta name="twitter:card" content="summary" />
@@ -57,7 +57,7 @@ export default ({
       />
       <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"
+        href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
       />
     </head>
     <body className={className}>
@@ -70,7 +70,7 @@ export default ({
               <a href="/learn/">Learn</a>
             </h5>
             <a href={config.base_url + "/learn/"}>Introduction</a>
-            <a href={config.base_url + "/learn/pipeline/"}>Pipeline</a>
+            <a href={config.base_url + "/learn/pipelines/"}>Pipeline</a>
             <a href={config.base_url + "/learn/nodes/"}>Nodes</a>
             <a href={config.base_url + "/learn/input/"}>Input</a>
             <a href={config.base_url + "/learn/execution/"}>Execution</a>
@@ -78,11 +78,11 @@ export default ({
           </div>
           <div className="sitemap-group">
             <h5>
-              <a href={config.base_url + "/dashboard/"}>Dashboard</a>
+              <a href={config.base_url + "/tech/dashboard/"}>Dashboard</a>
             </h5>
-            <a href={config.base_url + "/dashboard/#overview"}>Overview</a>
-            <a href={config.base_url + "/dashboard/#tables"}>Tables</a>
-            <a href={config.base_url + "/dashboard/#operations"}>Operations</a>
+            <a href={config.base_url + "/tech/dashboard/#overview"}>Overview</a>
+            <a href={config.base_url + "/tech/dashboard/#tables"}>Tables</a>
+            <a href={config.base_url + "/tech/dashboard/#operations"}>Operations</a>
           </div>
           <div className="sitemap-group">
             <h5>
@@ -114,16 +114,15 @@ export default ({
         </section>
       </footer>
 
-      <script
-        type="text/javascript"
-        src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"
-      />
+      <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+
       <script type="text/javascript" src={config.base_url + "/vendor/scroller.js"} />
       <script
         dangerouslySetInnerHTML={{
           __html: `
         docsearch({
-          apiKey: '4709879ecaf211280c35079f7ebe052a',
+          appId: 'BQD9PBVIWN',
+          apiKey: '1866dee8e47cc3f926114008ed8f7756',
           indexName: 'hkube',
           inputSelector: '#algolia-search-input',
           debug: false
