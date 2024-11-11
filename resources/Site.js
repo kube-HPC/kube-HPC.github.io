@@ -63,7 +63,21 @@ function buildSite(buildRoot, site, filter) {
       !filter ||
       (filter.test ? filter.test(file.absPath) : filter === file.absPath))
     .map(file => writer(buildRoot, file, site))
-  );
+  ).then(() => {
+    // Manually copy sitemap.xml
+    const sitemapSrc = path.join(site.root, 'spec/sitemap.xml');
+    const sitemapDest = path.join(buildRoot, 'sitemap.xml');
+    try {
+      if (fs.existsSync(sitemapSrc)) {
+        fs.copyFileSync(sitemapSrc, sitemapDest);
+        console.log('sitemap.xml copied to build directory');
+      } else {
+        console.log('sitemap.xml not found in the source directory');
+      }
+    } catch (err) {
+      console.error('Error copying sitemap:', err);
+    }
+  });
 }
 
 
