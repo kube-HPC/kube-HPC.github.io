@@ -21,18 +21,49 @@ hkubectl --help
 
 ## Setup
 
-Download `hkubectl` [latest version](https://github.com/kube-HPC/hkubectl/releases).
+Download `hkubectl` [latest version](https://github.com/kube-HPC/hkubectl/releases):
 
 ```bash
 # Check release page for latest version
+export os="linux" # or macos
 export latestVersion="$(curl -s https://api.github.com/repos/kube-HPC/hkubectl/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')"
-curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-linux \
+curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-${os} \
 && chmod +x hkubectl \
 && sudo mv hkubectl /usr/local/bin/
 ```
 
-> For mac replace with hkubectl-macos
-> For Windows download hkubectl-win.exe
+> For mac change os to macos.  
+> For Windows download hkubectl-win.exe.  
+> Or, download the files manually (note - make them executable & move to /usr/local/bin/ folder, as explained above):
+>
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <a href="/hkubectl_files/hkubectl-macos" download>
+        <button class="download-btn">
+        Download for macOS
+        </button>
+    </a>
+    <a href="/hkubectl_files/hkubectl-win.exe" download>
+        <button class="download-btn">
+        Download for Windows
+        </button>
+    </a>
+    <a href="/hkubectl_files/hkubectl-linux" download>
+        <button class="download-btn">
+        Download Linux Version
+        </button>
+    </a>
+</div>
+
+<style>
+  .download-btn {
+    background-color: orange;
+    padding: 15px 30px;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+</style>
 
 Config `hkubectl` with your running Kubernetes.
 
