@@ -38,32 +38,15 @@ curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/${lates
 >
 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
     <a href="/hkubectl_files/hkubectl-macos" download>
-        <button class="download-btn">
-        Download for macOS
-        </button>
+        <button class="download-btn"> Download for macOS </button>
     </a>
     <a href="/hkubectl_files/hkubectl-win.exe" download>
-        <button class="download-btn">
-        Download for Windows
-        </button>
+        <button class="download-btn"> Download for Windows </button>
     </a>
     <a href="/hkubectl_files/hkubectl-linux" download>
-        <button class="download-btn">
-        Download Linux Version
-        </button>
+        <button class="download-btn"> Download Linux Version </button>
     </a>
 </div>
-
-<style>
-  .download-btn {
-    background-color: orange;
-    padding: 15px 30px;
-    color: white;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-  }
-</style>
 
 Config `hkubectl` with your running Kubernetes.
 
