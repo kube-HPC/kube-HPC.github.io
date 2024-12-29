@@ -11,4 +11,7 @@ RUN mkdir /hkube
 COPY . /hkube/site
 COPY --from=install /hkube/site/node_modules /hkube/site/node_modules
 WORKDIR /hkube/site
+
+USER root
+RUN chgrp -R 0 /hkube/site && chmod -R g=u /hkube/site
 CMD ["/bin/sh", "-c", "/hkube/site/resources/startServer.sh"]
