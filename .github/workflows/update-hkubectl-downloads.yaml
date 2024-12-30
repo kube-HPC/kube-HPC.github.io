@@ -28,11 +28,14 @@ jobs:
 
       - name: Commit and push updated files to kube-HPC.github.io
         run: |
-          set -e
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git checkout test_branch_1 || git checkout -b test_branch_1 origin/test_branch_1
           git add -A
+                if ! git diff --cached --quiet; then
           git commit -m "Update hkubectl download files to the latest release"
           git push origin test_branch_1
+          else
+            echo "No changes to commit, skipping commit and push."
+          fi
 
