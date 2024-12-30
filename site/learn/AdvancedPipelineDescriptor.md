@@ -4,10 +4,11 @@ sidebarTitle: Advanced Pipeline Descriptor
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/advancedPipeline/
+sublinks: Advance Options
 next: /learn/install/
 ---
 
-#### Advance Options
+## Advance Options
 
 There are more features that can be defined from the descriptor file.
 
