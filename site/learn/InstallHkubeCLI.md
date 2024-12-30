@@ -31,13 +31,15 @@ hkubectl --help
 export os="linux" # or macos
 ```
 **2. Download and install:**
-<pre><code class="bash" id="bashCode">curl -Lo hkubectl hkube-domain.com/hkubectl_files/hkubectl-${os} \
-&& chmod +x hkubectl \
-&& sudo mv hkubectl /usr/local/bin/</code></pre>
-
+<pre class="bash" id="bashCode">
+  curl -Lo hkubectl hkube-domain.com/hkubectl_files/hkubectl-${os} \
+  && chmod +x hkubectl \
+  && sudo mv hkubectl /usr/local/bin/
 <button id="copyBtn" onclick="copyToClipboard('bashCode')" class="copy-btn">Copy</button>
+</pre>
 
 <p>For <strong>Windows</strong>, download <code>hkubectl-win.exe</code> from <a id="windowsLink" href="/hkubectl_files/hkubectl-win.exe">here</a>.</p>
+
 
 ---
 
