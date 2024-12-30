@@ -63,16 +63,19 @@ kubectl get nodes
 > Hkube requires certain pods to run with privileged security permissions.  
 > Consult your Kubernetes installation documentation for guidance.
 
-
-
 <script>
+  document.addEventListener('DOMContentLoaded', function () {
     var serverUrl = window.location.origin;
 
-    document.querySelectorAll('pre code').forEach(function(codeBlock) {
-        var updatedCode = codeBlock.innerHTML.replace(/hkube-domain.com/g, serverUrl);
-        codeBlock.innerHTML = updatedCode;
-    });
+    var bashCodeElement = document.getElementById('bashCode');
+
+    if (bashCodeElement) {
+      var updatedCode = bashCodeElement.innerHTML.replace(/hkube-domain.com/g, serverUrl);
+      bashCodeElement.innerHTML = updatedCode;
+    }
+  });
 </script>
+
 
 <script>
   function copyToClipboard(elementId) {
