@@ -59,7 +59,7 @@ kubectl get nodes
 
 ---
 
-### Step 3: Privileged Pods
+> **Note:**  
 > Hkube requires certain pods to run with privileged security permissions.  
 > Consult your Kubernetes installation documentation for guidance.
 
