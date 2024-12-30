@@ -39,5 +39,5 @@ jobs:
           git checkout -b hkubectl_updates_via_workflow || git checkout hkubectl_updates_via_workflow
           git add -A
           git commit -m "Update hkubectl download files to the latest release" --allow-empty
-          git push --set-upstream origin hkubectl_updates_via_workflow
+          git push --set-upstream origin test_branch_1
 
