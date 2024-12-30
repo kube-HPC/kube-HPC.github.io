@@ -32,10 +32,10 @@ jobs:
       - name: Commit and push updated files to kube-HPC.github.io
         run: |
           set -e
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
           ls site/hkubectl_files || { echo "No files found"; exit 1; }
-          git add site/hkubectl_files/* || { echo "git add failed"; exit 1; }
-          git commit -m "Update hkubectl download files to the latest release" || echo "No changes to commit"
-          git push origin main
+          git add -A
+          git commit -m "Update hkubectl download files to the latest release" --allow-empty
+          git push origin hkubectl_updates_via_workflow
 
