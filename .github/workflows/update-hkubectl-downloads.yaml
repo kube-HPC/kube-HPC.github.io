@@ -21,23 +21,18 @@ jobs:
         run: |
           set -e
           export latestVersion=$(curl -s https://api.github.com/repos/kube-HPC/hkubectl/releases/latest | jq -r .tag_name)
-          echo "Latest version: $latestVersion"
-          mkdir -p site/hkubectl_files || { echo "Failed to create directory"; exit 1; }
+          mkdir -p site/hkubectl_files
           curl -L --retry 3 --retry-delay 5 https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-linux -o site/hkubectl_files/hkubectl-linux
           curl -L --retry 3 --retry-delay 5 https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-macos -o site/hkubectl_files/hkubectl-macos
           curl -L --retry 3 --retry-delay 5 https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-win.exe -o site/hkubectl_files/hkubectl-win.exe
-          echo "Downloaded files:"
-          ls -R site
 
       - name: Commit and push updated files to kube-HPC.github.io
         run: |
           set -e
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          ls site/hkubectl_files || { echo "No files found"; exit 1; }
-          git fetch origin
           git checkout test_branch_1 || git checkout -b test_branch_1 origin/test_branch_1
           git add -A
-          git commit -m "Update hkubectl download files to the latest release" --allow-empty
+          git commit -m "Update hkubectl download files to the latest release"
           git push origin test_branch_1
 
