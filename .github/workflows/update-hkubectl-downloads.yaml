@@ -33,6 +33,6 @@ jobs:
           git config --global user.name "GitHub Action"
           git checkout test_branch_1 || git checkout -b test_branch_1 origin/test_branch_1
           git add -A
-          git commit -m "Update hkubectl download files to the latest release" --allow-empty
+          git commit -m "Update hkubectl download files to the latest release"
           git push origin test_branch_1
 
