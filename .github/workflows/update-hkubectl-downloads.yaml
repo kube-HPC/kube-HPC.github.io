@@ -1,0 +1,40 @@
+name: Update Download Files from hkubectl Release
+
+# Trigger the workflow when a new release is published in the hkubectl repository
+on:
+  repository_dispatch:
+    types: [hkubectl-release]
+
+jobs:
+  update-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kube-HPC.github.io repository
+        uses: actions/checkout@v2
+        with:
+          repository: kube-HPC/kube-HPC.github.io
+          ref: source
+
+      - name: Download latest release files from hkubectl
+        run: |
+          set -e
+          export latestVersion=$(curl -s https://api.github.com/repos/kube-HPC/hkubectl/releases/latest | jq -r .tag_name)
+          mkdir -p site/hkubectl_files
+          curl -L --retry 3 --retry-delay 5 https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-linux -o site/hkubectl_files/hkubectl-linux
+          curl -L --retry 3 --retry-delay 5 https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-macos -o site/hkubectl_files/hkubectl-macos
+          curl -L --retry 3 --retry-delay 5 https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-win.exe -o site/hkubectl_files/hkubectl-win.exe
+
+      - name: Commit and push updated files to kube-HPC.github.io
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git checkout source || git checkout -b source origin/source
+          git add -A
+                if ! git diff --cached --quiet; then
+          git commit -m "Update hkubectl download files to the latest release"
+          git push origin source
+          else
+            echo "No changes to commit, skipping commit and push."
+          fi
+
