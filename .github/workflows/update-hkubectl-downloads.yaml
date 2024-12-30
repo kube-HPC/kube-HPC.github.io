@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: kube-HPC/kube-HPC.github.io
-          ref: source
+          ref: test_branch_1
 
       - name: Download latest release files from hkubectl
         run: |
@@ -31,8 +31,9 @@ jobs:
           set -e
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
+          git fetch origin
           git checkout test_branch_1 || git checkout -b test_branch_1 origin/test_branch_1
           git add -A
-          git commit -m "Update hkubectl download files to the latest release"
+          git commit -m "Update hkubectl download files to the latest release" --allow-empty
           git push origin test_branch_1
 
