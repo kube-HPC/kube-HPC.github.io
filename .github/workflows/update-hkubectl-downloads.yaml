@@ -19,11 +19,14 @@ jobs:
 
       - name: Download latest release files from hkubectl
         run: |
+          set -e
           export latestVersion=$(curl -s https://api.github.com/repos/kube-HPC/hkubectl/releases/latest | jq -r .tag_name)
-          mkdir -p site/hkubectl_files
-          curl -L https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-linux -o hkubectl_files/hkubectl-linux
-          curl -L https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-macos -o hkubectl_files/hkubectl-macos
-          curl -L https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-win.exe -o hkubectl_files/hkubectl-win.exe
+          mkdir -p site/hkubectl_files || { echo "Failed to create directory"; exit 1; }
+          df -h
+          ls -ld site site/hkubectl_files
+          curl -L --retry 3 --retry-delay 5 https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-linux -o site/hkubectl_files/hkubectl-linux
+          curl -L --retry 3 --retry-delay 5 https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-macos -o site/hkubectl_files/hkubectl-macos
+          curl -L --retry 3 --retry-delay 5 https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-win.exe -o site/hkubectl_files/hkubectl-win.exe
 
       - name: Commit and push updated files to kube-HPC.github.io
         run: |
