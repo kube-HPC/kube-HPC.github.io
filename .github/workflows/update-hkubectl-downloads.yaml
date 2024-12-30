@@ -35,7 +35,9 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           ls site/hkubectl_files || { echo "No files found"; exit 1; }
+          # Ensure we are on the correct branch
+          git checkout -b hkubectl_updates_via_workflow || git checkout hkubectl_updates_via_workflow
           git add -A
           git commit -m "Update hkubectl download files to the latest release" --allow-empty
-          git push origin hkubectl_updates_via_workflow
+          git push --set-upstream origin hkubectl_updates_via_workflow
 
