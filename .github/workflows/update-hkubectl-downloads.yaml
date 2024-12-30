@@ -2,7 +2,7 @@ name: Update Download Files from hkubectl Release
 
 # Trigger the workflow when a new release is published in the hkubectl repository
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch.
+  # Triggers the workflow on push or pull request events but only for the master branch
   pull_request:
     branches: [ source ]
 
