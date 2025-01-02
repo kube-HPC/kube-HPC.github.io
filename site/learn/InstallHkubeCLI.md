@@ -34,8 +34,7 @@ export os="linux" # or macos
 <pre class="bash" id="bashCode">
   curl -Lo hkubectl hkube-domain.com/hkubectl_files/hkubectl-${os} \
   && chmod +x hkubectl \
-  && sudo mv hkubectl /usr/local/bin/
-<button id="copyBtn" onclick="copyToClipboard('bashCode')" class="copy-btn">Copy</button>
+  && sudo mv hkubectl /usr/local/bin/<button id="copyBtn" onclick="copyToClipboard('bashCode')" class="copy-btn">Copy</button>
 </pre>
 
 <p>For <strong>Windows</strong>, download <code>hkubectl-win.exe</code> from <a id="windowsLink" href="/hkubectl_files/hkubectl-win.exe">here</a>.</p>
@@ -80,6 +79,10 @@ kubectl get nodes
 <script>
   function copyToClipboard(elementId) {
     var code = document.getElementById(elementId);
+    var copyButton = document.getElementById("copyBtn");
+
+    copyButton.textContent = "";
+
     var range = document.createRange();
     range.selectNode(code);
     window.getSelection().removeAllRanges();
@@ -87,16 +90,16 @@ kubectl get nodes
 
     try {
       document.execCommand("copy");
-              var copyButton = document.getElementById("copyBtn");
-        copyButton.textContent = "Copied!";
+      copyButton.textContent = "Copied!";
 
-        setTimeout(function() {
-          copyButton.textContent = "Copy";
-        }, 300);
+      setTimeout(function() {
+        copyButton.textContent = "Copy";
+      }, 300);
+
     } catch (err) {
+      copyButton.textContent = "Copy";
       console.error("Unable to copy code", err);
     }
-
     window.getSelection().removeAllRanges();
   }
 </script>
