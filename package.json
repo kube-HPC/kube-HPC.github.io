@@ -4,7 +4,8 @@
   "private": true,
   "version": "2.8.12",
   "scripts": {
-    "start": "rm -rf build && babel-node resources/server.js",
+    "start": ". $HOME/.nvm/nvm.sh && nvm use 14.21.3 && npm run start:internal",
+    "start:internal": "rm -rf build && babel-node resources/server.js",
     "build": "rm -rf build && babel-node resources/build.js",
     "watch": "rm -rf build && babel-node resources/watch.js",
     "docker": "rm -rf build && ./dockerfile/build.sh site",
