@@ -3,7 +3,7 @@ title: Algorithms
 sidebarTitle: Algorithms
 layout: ../_core/DocsLayout
 category: Learn
-sublinks: Integration Methods, Implement
+sublinks: Integration Methods, Events & Communication, Implement
 permalink: /learn/algorithms/
 next: /learn/codeapi/
 ---
@@ -11,18 +11,18 @@ next: /learn/codeapi/
 HKube provides two ways to integrate your algorithm:  
 1) No code involves, no WebSocket and no Docker.  
 2) Involves code writing, work with WebSocket and Docker.  
-Hkube communicates with algorithms using WebSocket and JSON messages.
+HKube communicates with algorithms using WebSocket and JSON messages.
 
 ## Integration Methods
 
-Integrating algorithms into Hkube require 3 steps:  
-1) Implement connectivity with Hkube using WebSocket.  
+Integrating algorithms into HKube require 3 steps:  
+1) Implement connectivity with HKube using WebSocket.  
 2) Build the algorithm image and push it to Docker registry.  
-3) Add the algorithm to Hkube.
+3) Add the algorithm to HKube.
 
-We can do these first two steps for you, so you won't have to deal with WebSocket and Docker. The algorithm (your code) needs a way to communicate with Hkube (receive input, report results and errors)   
-Hkube communicates with algorithms via WebSocket using their full-duplex communication support.  
-All messages between Hkube and algorithm are in JSON format.
+We can do these first two steps for you, so you won't have to deal with WebSocket and Docker. The algorithm (your code) needs a way to communicate with HKube (receive input, report results and errors)   
+HKube communicates with algorithms via WebSocket using their full-duplex communication support.  
+All messages between HKube and algorithm are in JSON format.
 
 ### The Easy Way
 This method requires minimal setup. Use `hkubectl` to apply an algorithm without writing WebSocket handling or using Docker.  
@@ -57,13 +57,10 @@ hkubectl algorithm apply --f algorithm.yml
 
 **Key Parameters:**
 
-* `env` - Supported environments: `python`, `nodejs`, `jvm`  
-
-* `resources` - CPU, GPU and memory allocation.   
-
-* `code.path` - Path to the algorithm`s source code.   
-
-* `code.entryPoint` - The file containing the [algorithm methods](#algorithm-methods).  
+* `env` - Supported environments: `python`, `nodejs`, `jvm`
+* `resources` - CPU, GPU and memory allocation.
+* `code.path` - Path to the algorithm`s source code.
+* `code.entryPoint` - The file containing the [algorithm methods](#algorithm-methods).
 
 **Algorithm Methods:**
 
@@ -100,10 +97,13 @@ You can do the same using our [API](http://petstore.swagger.io/?url=https://raw.
 - Use WebSocket.
 - Use Docker.
 
-## Events From Hkube to Algorithm
+## Events & Communication
+
+In this section we will talk about different events that HKube sends the algorithm, and the algorithm sends to HKube. Also, we will talk about Sub-Pipelines.
+### Events From HKube to Algorithm
 ---
 
-These events are sent from Hkube to your algorithm.
+These events are sent from HKube to your algorithm.
 
 * [Initialize](#event-initialize)
 * [Start](#event-start)
@@ -114,7 +114,7 @@ These events are sent from Hkube to your algorithm.
 * [SubPipelineDone](#event-subpipelinedone)
 * [SubPipelineStopped](#event-subpipelinestopped)
 
-##### *JSON*
+***JSON***
 ```json
 {
    "command": "<string>", // one of the above
@@ -122,7 +122,7 @@ These events are sent from Hkube to your algorithm.
 }
 ```
 
-### Event: initialize
+#### Event: initialize
 
 The first event sent to the algorithm, sent for every task activation.
 
@@ -134,9 +134,9 @@ The first event sent to the algorithm, sent for every task activation.
    }
 }
 ```
-> data includes an input array, same input as written in the [descriptor](../learn/input/)
+> data includes an input array, same input as written in the [descriptor](../input/)
 
-### Event: start
+#### Event: start
 
 The event the algorithm task is invoked by
 
@@ -148,7 +148,7 @@ The event the algorithm task is invoked by
 
 > This event includes no data
 
-### Event: stop
+#### Event: stop
 
 Event to abort the running algorithm task
 
@@ -158,7 +158,7 @@ Event to abort the running algorithm task
 }
 ```
 
-### Event: exit
+#### Event: exit
 
 Event invoked before taking the algorithm container down. As best practice, when invoked make the process running the algorithm exit.
 
@@ -168,7 +168,7 @@ Event invoked before taking the algorithm container down. As best practice, when
 }
 ```
 
-### Event: subPipelineStarted
+#### Event: subPipelineStarted
 
 Event to inform algorithm that sub pipeline (Raw or Stored) has started
 
@@ -183,7 +183,7 @@ Event to inform algorithm that sub pipeline (Raw or Stored) has started
 
 > The "subPipelineId" property holds the sub pipeline internal Id in algorithm (as given in startRawSubPipeline/startStoredSubPipeline events).
 
-### Event: subPipelineError
+#### Event: subPipelineError
 
 Event to inform algorithm that sub pipeline (Raw or Stored) has failed.
 
@@ -200,7 +200,7 @@ Event to inform algorithm that sub pipeline (Raw or Stored) has failed.
 * The "subPipelineId" property holds the sub pipeline internal Id in algorithm (as given in startRawSubPipeline/startStoredSubPipeline events).
 * The "error" property holds the error message text from the sub pipeline.
 
-### Event: subPipelineDone
+#### Event: subPipelineDone
 
 Event to inform algorithm that sub pipeline (Raw or Stored) has completed successfully.
 
@@ -217,7 +217,7 @@ Event to inform algorithm that sub pipeline (Raw or Stored) has completed succes
 * The "subPipelineId" property holds the sub pipeline internal Id in algorithm (as given in startRawSubPipeline/startStoredSubPipeline events), as the algorithm may start several sub-pipelines.
 * The "response" property holds the sub pipeline output array.
 
-### Event: subPipelineStopped
+#### Event: subPipelineStopped
 
 Event to inform algorithm that sub pipeline has stopped
 
@@ -235,10 +235,10 @@ Event to inform algorithm that sub pipeline has stopped
 * The "reason" property holds the reason for stopping the sub pipeline.
 
 
-## Events From Algorithm to Hkube
+### Events From Algorithm to HKube
 ---
 
-These events are sent from algorithm to Hkube.
+These events are sent from algorithm to HKube.
 
 * [initialized](#event-initialized)
 * [started](#event-started)
@@ -246,13 +246,8 @@ These events are sent from algorithm to Hkube.
 * [done](#event-done)
 * [progress](#event-progress)
 * [errorMessage](#event-errormessage)
-* [startRawSubPipeline](#event-startrawsubpipeline)
-* [startStoredSubPipeline](#event-startstoredsubpipeline)
-* [stopSubPipeline](#event-stopsubpipeline)
-* [startSpan](#event-startspan)
-* [finishSpan](#event-finishspan)
 
-##### *JSON*
+***JSON***
 ```json
 {
    "command": "<string>", // one of the above
@@ -265,7 +260,7 @@ These events are sent from algorithm to Hkube.
 }
 ```
 
-### Event: initialized
+#### Event: initialized
 
 Response event after initialization completes.  
 
@@ -275,7 +270,7 @@ Response event after initialization completes.
 }
 ```
 
-### Event: started
+#### Event: started
 
 Response event after start complete.  
 
@@ -285,7 +280,7 @@ Response event after start complete.
 }
 ```
 
-### Event: stopped
+#### Event: stopped
 
 Response event after stop complete.  
 
@@ -295,7 +290,7 @@ Response event after stop complete.
 }
 ```
 
-### Event: done
+#### Event: done
 
 Response event after the algorithm finish the task. 
 
@@ -305,7 +300,7 @@ Response event after the algorithm finish the task.
 }
 ```
 
-### Event: progress
+#### Event: progress
 
 If you want to report progress about your algorithm, send this event.
 
@@ -316,7 +311,7 @@ If you want to report progress about your algorithm, send this event.
 }
 ```
 
-### Event: errorMessage
+#### Event: errorMessage
 
 If any error occurs in your algorithm, send this event.
 
@@ -331,7 +326,16 @@ If any error occurs in your algorithm, send this event.
 }
 ```
 
-### Event: startRawSubPipeline
+### Sub-Pipelines
+These events are used for sub-pipelines, and are sent from algorithm to HKube:
+
+* [startRawSubPipeline](#event-startrawsubpipeline)
+* [startStoredSubPipeline](#event-startstoredsubpipeline)
+* [stopSubPipeline](#event-stopsubpipeline)
+* [startSpan](#event-startspan)
+* [finishSpan](#event-finishspan)
+
+#### Event: startRawSubPipeline
 
 If you want to start a Raw sub-pipeline from your algorithm, use this event.
 
@@ -366,7 +370,7 @@ If you want to start a Raw sub-pipeline from your algorithm, use this event.
 * This input is taken from "flowInput", where you plant your subpipeline input in the "data" field.
 * The "subPipelineId" property holds sub pipeline internal Id in algorithm (as the algorithm may start several sub-pipelines).
 
-### Event: startStoredSubPipeline
+#### Event: startStoredSubPipeline
 
 If you want to start a Stored sub-pipeline from your algorithm, use this event.
 
@@ -389,7 +393,7 @@ If you want to start a Stored sub-pipeline from your algorithm, use this event.
 * This input is taken from "flowInput", where you plant your subpipeline input in the "data" field.
 * The "subPipelineId" property holds sub pipeline internal Id in algorithm (as the algorithm may start several sub-pipelines).
 
-### Event: stopSubPipeline
+#### Event: stopSubPipeline
 
 If you want to stop a sub-pipeline (Raw or Stored) from your algorithm, use this event.
 
@@ -406,7 +410,7 @@ If you want to stop a sub-pipeline (Raw or Stored) from your algorithm, use this
 * The "subPipelineId" property holds sub pipeline internal Id in algorithm.
 * The "reason" property enables to put a textual reason for stopping the subpipeline.
 
-### Event: startspan
+#### Event: startspan
 
 To start a tracer span, use this event:
 
@@ -428,7 +432,7 @@ To start a tracer span, use this event:
 * The optional "tags" object may include more properties to be added to span's tags (in addition to default tags).
 * Note: you can nest multiple spans: startSpan 1, startSpan 2, but then need to finish then in reverse order: finishSpan 2, finishSpan 1.
 
-### Event: finishspan
+#### Event: finishspan
 
 To finish the last opened tracer span, use this event:
 
@@ -456,8 +460,8 @@ To finish the last opened tracer span, use this event:
 ## Implement
 ---
 
-Hkube communicates with your algorithm via WebSocket (native WebSocket or socketio).  
-This tutorial explains how to create a websocket client that works with Hkube.
+HKube communicates with your algorithm via WebSocket (native WebSocket or socketio).  
+This tutorial explains how to create a websocket client that works with HKube.
 You can implement the websocket client in any language. (PR are welcomed)
 
 * [Connect](#connect)
@@ -479,7 +483,7 @@ The first thing your algorithm should do is create a websocket client that liste
 
 ## Handle Events
 
-Here we are registering to events from Hkube.  
+Here we are registering to events from HKube.  
 Each event has a specific handler, as described below.
 
 ```hkube-tabs
@@ -488,7 +492,7 @@ Each event has a specific handler, as described below.
 
 ## initialize
 
-The initialize event is the first event that Hkube sends to your algorithm.  
+The initialize event is the first event that HKube sends to your algorithm.  
 The payload of this event includes the pipeline data and the input for your algorithm.  
 You need to store the input in a local variable for later use.  
 > same input as written in the [descriptor](../learn/input/)
@@ -499,8 +503,8 @@ You need to store the input in a local variable for later use.
 
 ## start
 
-The start event is the second event that Hkube sends to your algorithm.  
-As you can see, at the first step of this handler you need to tell Hkube that your algorithm has started.  
+The start event is the second event that HKube sends to your algorithm.  
+As you can see, at the first step of this handler you need to tell HKube that your algorithm has started.  
 Then you let the algorithm do it's work and finally you send the done event with the algorithm result.
 
 ```hkube-tabs
@@ -509,7 +513,7 @@ Then you let the algorithm do it's work and finally you send the done event with
 
 ## stop
 
-Hkube will send this event to your algorithm only if stop request was made by Hkube users.
+HKube will send this event to your algorithm only if stop request was made by HKube users.
 
 ```hkube-tabs
 # { "hkube": true, "schema": "handle-messages-stop" }
@@ -525,7 +529,7 @@ Web Sockets are not auto reconnect, so it's important that you will handle conne
 
 ## Handle Errors
 
-It's highly recommended that you will catch any error in your algorithm and send it to Hkube.  
+It's highly recommended that you will catch any error in your algorithm and send it to HKube.  
 
 ```hkube-tabs
 # { "hkube": true, "schema": "handle-errors" }
@@ -533,7 +537,7 @@ It's highly recommended that you will catch any error in your algorithm and send
 
 ## Send Event
 
-This is a simple handler for send response back to Hkube.
+This is a simple handler for send response back to HKube.
 
 ```hkube-tabs
 # { "hkube": true, "schema": "send-event" }
@@ -542,4 +546,4 @@ This is a simple handler for send response back to Hkube.
 ## Monitoring Metrics
 Algorithms using Tensorflow can generate metrics for a Tenosrboard view. Later upon request, a Tensorboard webserver will start, serving a dashboard comparing different runs of the algorithm.
 To allow hkube to display your algorithms Tesorboard metrics: In the algorithm code, write your Tensorboard metrics to a folder path set as environment variable ALGO_METRICS_DIR value. 
-To run Tesorboard: In Hkube spec find 'board' api to start a tensorboard web server, visualizing the tensor metrics.
+To run Tesorboard: In HKube spec find 'board' api to start a tensorboard web server, visualizing the tensor metrics.
