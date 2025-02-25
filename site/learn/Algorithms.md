@@ -3,38 +3,43 @@ title: Algorithms
 sidebarTitle: Algorithms
 layout: ../_core/DocsLayout
 category: Learn
-sublinks: Integration Methods, Events & Communication, Implement
+sublinks: Integration Methods, Events & Communication, Implementation
 permalink: /learn/algorithms/
 next: /learn/codeapi/
 ---
 
-HKube provides two ways to integrate your algorithm:  
-1) No code involves, no WebSocket and no Docker.  
-2) Involves code writing, work with WebSocket and Docker.  
+HKube offers two ways to integrate your algorithm:
+
+1. No code involved, no WebSocket and no Docker.  
+2. Involves code writing, work with WebSocket and Docker.
+
 HKube communicates with algorithms using WebSocket and JSON messages.
 
+---
 ## Integration Methods
 
-Integrating algorithms into HKube require 3 steps:  
+Integrating an algorithm into HKube involves three main steps:  
 1) Implement connectivity with HKube using WebSocket.  
 2) Build the algorithm image and push it to Docker registry.  
 3) Add the algorithm to HKube.
 
-We can do these first two steps for you, so you won't have to deal with WebSocket and Docker. The algorithm (your code) needs a way to communicate with HKube (receive input, report results and errors)   
-HKube communicates with algorithms via WebSocket using their full-duplex communication support.  
-All messages between HKube and algorithm are in JSON format.
+**We can handle the first two steps for you** – so you don’t have to deal with WebSocket or Docker yourself.
 
+HKube and your algorithm communicate using WebSocket's full-duplex messaging system.  
+All messages between them are in JSON format.
+
+---
 ### The Easy Way
-This method requires minimal setup. Use `hkubectl` to apply an algorithm without writing WebSocket handling or using Docker.  
-- No Code involves.  
+If you want a simple, code-free setup, use `hkubectl` to register an algorithm without handling WebSockets or Docker manually. 
+- No code involved.  
 - No WebSocket.  
 - No Docker.  
 
-**Steps:**
-1. Create a basic algorithm configuration file (YAML or JSON)
+**Steps to Register an Algorithm:**
+1. Create an algorithm configuration file (YAML or JSON).
 2. Apply the algorithm using `hkubectl`.
 
-**Example YAML:**
+**Example YAML Configuration:**
 ```yaml
 name: my-alg
 env: python
@@ -50,7 +55,7 @@ code:
 ```
 
 **Apply Algorithm:**
-Using the hkubectl:
+Run the following command:
 ```console
 hkubectl algorithm apply --f algorithm.yml
 ```
@@ -58,50 +63,50 @@ hkubectl algorithm apply --f algorithm.yml
 **Key Parameters:**
 
 * `env` - Supported environments: `python`, `nodejs`, `jvm`
-* `resources` - CPU, GPU and memory allocation.
+* `resources` - Define CPU, GPU, and memory allocation.
 * `code.path` - Path to the algorithm`s source code.
 * `code.entryPoint` - The file containing the [algorithm methods](#algorithm-methods).
 
 **Algorithm Methods:**
 
-* Required: Your algorithm must include a method named `start`:
-```
+* **Required:** Your algorithm must include a `start` method.
+```typescript
 <T any> start(Dictionary<T string, T any> data)
 ```
-* Optional: `initialize(data)`, `stop(data)`
-```
+* **Optional:** `initialize(data)`, `stop(data)`
+```typescript
 <T> initialize(Dictionary data)
 <T> stop(Dictionary data)
 ```
 
-The **data** argument contains the following keys:
+The `data` argument contains the following keys:
 
-- input Array<Any>
-- pipelineName <String>
-- algorithmName <String>
-- nodeName <String>
-- jobId <String>
-- taskId <String>
-- info <Object>
-   - extraData <Object>
-   - lastRunResult <Object>
+* `input` Array <Any>
+* `pipelineName` <String>
+* `algorithmName` <String>
+* `nodeName` <String>
+* `jobId` <String>
+* `taskId` <String>
+* `info` <Object>
+   * `extraData` <Object>
+   * `lastRunResult` <Object>
 
-
-If the response contains a buildId, it means that a build was triggered, and you can follow the [build status](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/hkube/master/core/api-server/api/rest-api/swagger.json#/Webhooks/get_webhooks_status__jobId_)
+#### Tracking Your Algorithm’s Status
+If the response contains a `buildId`, it means a build was triggered. You can monitor its progress: [Build Status](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/hkube/master/core/api-server/api/rest-api/swagger.json#/Webhooks/get_webhooks_status__jobId_)
 
 You can do the same using our [API](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/hkube/master/core/api-server/api/rest-api/swagger.json#/StoreAlgorithms/post_store_algorithms)
 
-
+---
 ### The Long Way
 - Code involves.
 - Use WebSocket.
 - Use Docker.
 
-## Events & Communication
-
-In this section we will talk about different events that HKube sends the algorithm, and the algorithm sends to HKube. Also, we will talk about Sub-Pipelines.
-### Events From HKube to Algorithm
 ---
+## Events & Communication
+This section explains the events exchanged between HKube and your algorithm, and Sub-Pipelines.
+
+### Events From HKube to Algorithm
 
 These events are sent from HKube to your algorithm.
 
@@ -114,7 +119,7 @@ These events are sent from HKube to your algorithm.
 * [SubPipelineDone](#event-subpipelinedone)
 * [SubPipelineStopped](#event-subpipelinestopped)
 
-***JSON***
+**Example Event Format:**
 ```json
 {
    "command": "<string>", // one of the above
@@ -124,7 +129,7 @@ These events are sent from HKube to your algorithm.
 
 #### Event: initialize
 
-The first event sent to the algorithm, sent for every task activation.
+This is the first event sent to the algorithm when a task starts.
 
 ```json
 {
@@ -138,7 +143,7 @@ The first event sent to the algorithm, sent for every task activation.
 
 #### Event: start
 
-The event the algorithm task is invoked by
+Invokes the algorithm task.
 
 ```json
 {
@@ -150,7 +155,7 @@ The event the algorithm task is invoked by
 
 #### Event: stop
 
-Event to abort the running algorithm task
+Sends a request to stop the algorithm task.
 
 ```json
 {
@@ -234,9 +239,9 @@ Event to inform algorithm that sub pipeline has stopped
 * The "subPipelineId" property holds the sub pipeline internal Id in algorithm (as given in startRawSubPipeline/startStoredSubPipeline events).
 * The "reason" property holds the reason for stopping the sub pipeline.
 
-
-### Events From Algorithm to HKube
 ---
+### Events From Algorithm to HKube
+
 
 These events are sent from algorithm to HKube.
 
@@ -247,7 +252,7 @@ These events are sent from algorithm to HKube.
 * [progress](#event-progress)
 * [errorMessage](#event-errormessage)
 
-***JSON***
+**Example Event Format:**
 ```json
 {
    "command": "<string>", // one of the above
@@ -292,7 +297,7 @@ Response event after stop complete.
 
 #### Event: done
 
-Response event after the algorithm finish the task. 
+Sent when the algorithm completes its task.
 
 ```json
 {
@@ -313,7 +318,7 @@ If you want to report progress about your algorithm, send this event.
 
 #### Event: errorMessage
 
-If any error occurs in your algorithm, send this event.
+Sent if an error occurs.
 
 ```json
 {
@@ -326,8 +331,9 @@ If any error occurs in your algorithm, send this event.
 }
 ```
 
+---
 ### Sub-Pipelines
-These events are used for sub-pipelines, and are sent from algorithm to HKube:
+You can trigger and manage sub-pipelines directly from your algorithm.
 
 * [startRawSubPipeline](#event-startrawsubpipeline)
 * [startStoredSubPipeline](#event-startstoredsubpipeline)
@@ -452,17 +458,14 @@ To finish the last opened tracer span, use this event:
 
 * The optional "tags" object may include more properties to be added to span's tags when finished.
 * The optional "error" property is error message (or object with "message" property, e.g. exception).
-* Note: in case of algorithm error, remember to send finishSpan to all started spans (in reverse order) before sending errorMessage. 
+* Note: in case of algorithm error, remember to send finishSpan to all started spans (in reverse order) before sending errorMessage - [Handle Errors](../algorithms/#handle-errors)
 
-[How To Implement](../algorithms/implement/#handle-errors)
-
-
-## Implement
 ---
+## Implementation
 
 HKube communicates with your algorithm via WebSocket (native WebSocket or socketio).  
 This tutorial explains how to create a websocket client that works with HKube.
-You can implement the websocket client in any language. (PR are welcomed)
+You can implement the websocket client in any language (PR are welcomed).
 
 * [Connect](#connect)
 * [Handle Events](#handle-events)
@@ -473,15 +476,15 @@ You can implement the websocket client in any language. (PR are welcomed)
 * [Handle Errors](#handle-errors)
 * [Send Event](#send-event)
 
-## Connect
+### Connect
 
-The first thing your algorithm should do is create a websocket client that listens to: **ws://localhost:3000**.
+The first thing your algorithm should do is create a WebSocket client that connects to: **ws://localhost:3000**.
 
 ```hkube-tabs
 # { "hkube": true, "schema": "connect" }
 ```
 
-## Handle Events
+### Handle Events
 
 Here we are registering to events from HKube.  
 Each event has a specific handler, as described below.
@@ -490,7 +493,7 @@ Each event has a specific handler, as described below.
 # { "hkube": true, "schema": "handle-messages" }
 ```
 
-## initialize
+#### Initialize
 
 The initialize event is the first event that HKube sends to your algorithm.  
 The payload of this event includes the pipeline data and the input for your algorithm.  
@@ -501,7 +504,7 @@ You need to store the input in a local variable for later use.
 # { "hkube": true, "schema": "handle-messages-initialize" }
 ```
 
-## start
+#### Start
 
 The start event is the second event that HKube sends to your algorithm.  
 As you can see, at the first step of this handler you need to tell HKube that your algorithm has started.  
@@ -511,7 +514,7 @@ Then you let the algorithm do it's work and finally you send the done event with
 # { "hkube": true, "schema": "handle-messages-start" }
 ```
 
-## stop
+#### Stop
 
 HKube will send this event to your algorithm only if stop request was made by HKube users.
 
@@ -519,7 +522,7 @@ HKube will send this event to your algorithm only if stop request was made by HK
 # { "hkube": true, "schema": "handle-messages-stop" }
 ```
 
-## Reconnect
+### Reconnect
 
 Web Sockets are not auto reconnect, so it's important that you will handle connection lose.   
 
@@ -527,15 +530,15 @@ Web Sockets are not auto reconnect, so it's important that you will handle conne
 # { "hkube": true, "schema": "reconnect" }
 ```
 
-## Handle Errors
+### Handle Errors
 
-It's highly recommended that you will catch any error in your algorithm and send it to HKube.  
+It’s recommended to catch and report errors in your algorithm to HKube.  
 
 ```hkube-tabs
 # { "hkube": true, "schema": "handle-errors" }
 ```
 
-## Send Event
+### Send Event
 
 This is a simple handler for send response back to HKube.
 
@@ -543,7 +546,13 @@ This is a simple handler for send response back to HKube.
 # { "hkube": true, "schema": "send-event" }
 ```
 
-## Monitoring Metrics
-Algorithms using Tensorflow can generate metrics for a Tenosrboard view. Later upon request, a Tensorboard webserver will start, serving a dashboard comparing different runs of the algorithm.
-To allow hkube to display your algorithms Tesorboard metrics: In the algorithm code, write your Tensorboard metrics to a folder path set as environment variable ALGO_METRICS_DIR value. 
-To run Tesorboard: In HKube spec find 'board' api to start a tensorboard web server, visualizing the tensor metrics.
+---
+### Monitoring Metrics
+If your algorithm uses TensorFlow, you can generate metrics for visualization in TensorBoard. HKube supports this by allowing you to store TensorBoard-compatible logs, which can later be viewed in a dedicated dashboard.
+**How It Works:**
+
+1. **Write Metrics:** In your algorithm code, save TensorBoard metrics to the directory specified by the environment variable `ALGO_METRICS_DIR`.
+2. **View Metrics:** Upon request, HKube can start a TensorBoard web server to display and compare different algorithm runs.
+
+**Running TensorBoard:**
+To launch TensorBoard in HKube, use the 'board' API in the HKube spec. This will start a web server where you can visualize and analyze the recorded metrics.
