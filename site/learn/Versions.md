@@ -1,34 +1,53 @@
 ---
 title: Versions
+sidebarTitle: Versions
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/versions/
+sublinks: Algorithms, Pipelines
 next: /learn/pipelines/
 ---
 
-## Overview
-Hkube manages versions for algorithms and pipelines, meaning you can easily switch between them.
-Each version has a unique version id and creation date, and details about the spec of the version.
+Hkube manages versioning for both algorithms and pipelines, allowing you to easily switch between different versions.
+Each version has a unique version ID, creation date, and details about its specification.
 
 ## Algorithms
-A new version will be created in those cases:  
-1) First time you insert algorithm with image.  
-2) Each time anything in the spec has changed.  
+A new algorithm version is created in the following cases:  
+1) The first time an algorithm is inserted with an image.  
+2) Any time there is a change in the algorithm specification.  
 3) After a successful algorithm build.   
 
-Every algorithm points to a specific version, meaning you can switch between versions by using the Dashboard or the Swagger-API.  
-For using the Swagger-API use `POST` with `/versions/algorithms/apply` using the correct body, example:  
+Each algorithm points to a specific version, and you can switch between versions using either the Dashboard or the Swagger API.
+
+To switch versions via the Swagger API, send a `POST` request to `/versions/algorithms/apply` with the following JSON body:
 ```json
 {
-    "name": "alg-name",  // the name of the algorithm
-    "version": "version-id", // the existing version you want to switch to
-    "force": true  // should replace or not current algorithm version for running algorithm instances
+    "name": "alg-name",  // The name of the algorithm
+    "version": "version-id", // The version you want to switch to
+    "force": true  // Whether to replace the current algorithm version for running instances
 }
 ```
-> Using force: true will cause a pipeline failure since Hkube need to shut down the running instances
+> **Note:** Setting "force": true will cause pipeline failures because Hkube must shut down running instances.
 
-see [versions](/spec/#tag/Algorithm-Versions) for additional details.
+For more details, see [Algorithm Versions](/spec/#tag/Algorithm-Versions).
 
-After successful algorithm build a new version will be created, if it was the first build then the new version will automatically will be activated for this algorithm. the next builds will also create new versions but you will need to manually choose which version you want to apply.
+After a successful algorithm build, a new version is created. If it is the first build, the new version is automatically activated.  
+For subsequent builds, new versions are created, but you must manually select which version to apply.
 
 ## Pipelines
+Hkube also supports versioning for pipelines, allowing you to track and switch between different pipeline versions.
+
+A new pipeline version is created in the following cases:  
+1) The first time a pipeline is inserted.  
+2) Any time there is a change in the pipeline specification.  
+Each pipeline points to a specific version, and you can switch between versions using the Dashboard or the Swagger API.
+
+To switch versions via the Swagger API, send a `POST` request to `/versions/pipelines/apply` with the following JSON body:
+```json
+{
+    "name": "pipeline-name",  // The name of the pipeline
+    "version": "version-id" // The version you want to switch to
+}
+
+```
+For more details, see [Pipeline Versions](/spec/#tag/Pipeline-Versions).
