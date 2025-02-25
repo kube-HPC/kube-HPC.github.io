@@ -3,16 +3,17 @@ title: Algorithms
 sidebarTitle: Algorithms
 layout: ../_core/DocsLayout
 category: Learn
-sublinks: Implement
+sublinks: Integration Methods, Implement
 permalink: /learn/algorithms/
 next: /learn/codeapi/
 ---
 
-There are two ways to integrate your algorithm into Hkube:  
+HKube provides two ways to integrate your algorithm:  
 1) No code involves, no WebSocket and no Docker.  
-2) Involves code writing, work with WebSocket and Docker.
+2) Involves code writing, work with WebSocket and Docker.  
+Hkube communicates with algorithms using WebSocket and JSON messages.
 
-## How does it works?
+## Integration Methods
 
 Integrating algorithms into Hkube require 3 steps:  
 1) Implement connectivity with Hkube using WebSocket.  
@@ -23,17 +24,17 @@ We can do these first two steps for you, so you won't have to deal with WebSocke
 Hkube communicates with algorithms via WebSocket using their full-duplex communication support.  
 All messages between Hkube and algorithm are in JSON format.
 
-## The easy way
+### The Easy Way
+This method requires minimal setup. Use `hkubectl` to apply an algorithm without writing WebSocket handling or using Docker.  
+- No Code involves.  
+- No WebSocket.  
+- No Docker.  
 
-- No Code involves.
-- No WebSocket.
-- No Docker.
+**Steps:**
+1. Create a basic algorithm configuration file (YAML or JSON)
+2. Apply the algorithm using `hkubectl`.
 
-Using the [hkubectl](../../learn/api/#cli)  
-> `hkubectl algorithm apply --f algorithm.yml`
-
-Create a basic algorithm yaml/json file
-
+**Example YAML:**
 ```yaml
 name: my-alg
 env: python
@@ -48,18 +49,33 @@ code:
    entryPoint: main.py
 ```
 
-- env - for now we only support pytohn, nodejs, jvm.
-- resources - specify cpu, gpu and memory.
-- code.path - the algorithm source code. 
-- code.entryPoint - the location of the [algorithm methods](#algorithm-methods).
+**Apply Algorithm:**
+Using the hkubectl:
+```console
+hkubectl algorithm apply --f algorithm.yml
+```
 
-#### Algorithm methods:  
-Your algorithm must include a method named `start`.  
-> <T any> start(Dictionary<T string, T any> data)
+**Key Parameters:**
 
-> There are also some optional methods:
-> <T> initialize(Dictionary data)
-> <T> stop(Dictionary data)
+* `env` - Supported environments: `python`, `nodejs`, `jvm`  
+
+* `resources` - CPU, GPU and memory allocation.   
+
+* `code.path` - Path to the algorithm`s source code.   
+
+* `code.entryPoint` - The file containing the [algorithm methods](#algorithm-methods).  
+
+**Algorithm Methods:**
+
+* Required: Your algorithm must include a method named `start`:
+```
+<T any> start(Dictionary<T string, T any> data)
+```
+* Optional: `initialize(data)`, `stop(data)`
+```
+<T> initialize(Dictionary data)
+<T> stop(Dictionary data)
+```
 
 The **data** argument contains the following keys:
 
@@ -79,8 +95,7 @@ If the response contains a buildId, it means that a build was triggered, and you
 You can do the same using our [API](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/kube-HPC/hkube/master/core/api-server/api/rest-api/swagger.json#/StoreAlgorithms/post_store_algorithms)
 
 
-## The long way
-
+### The Long Way
 - Code involves.
 - Use WebSocket.
 - Use Docker.
