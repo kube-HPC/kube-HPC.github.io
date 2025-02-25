@@ -16,16 +16,6 @@ A **sidecar** is a container that runs alongside the main container (the algorun
 
 In HKube, sidecars are defined under the `sideCars` section in the algorithm configuration.
 
-## Container Configuration
-
-To configure a sidecar container in HKube, you must define the container settings in YAML format. In addition to essential fields like `image` and `name`, you can specify various options related to Kubernetes containers, such as resource limits and environment variables.
-
-You can find all possible container configuration fields by running:
-```bash
-kubectl explain pod.spec.containers
-```
-Or refer to the official Kubernetes documentation: [Kubernetes Container Reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#Container).
-
 Below is an example of a complete sidecar configuration:
 ```json
 {
@@ -64,6 +54,41 @@ Below is an example of a complete sidecar configuration:
   ]
 }
 ```
+
+## Container Configuration
+
+To configure a sidecar container in HKube, you must define the container settings in YAML format. In addition to essential fields like `image` and `name`, you can specify various options related to Kubernetes containers, such as resource limits and environment variables.
+
+You can find all possible container configuration fields by running:
+```bash
+kubectl explain pod.spec.containers
+```
+Or refer to the official Kubernetes documentation: [Kubernetes Container Reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#Container).
+
+Below is an example of a sidecar container configuration, with resources:
+```json
+{
+  "sideCars": [
+    {
+      "container": {
+        "name": "mycar",
+        "image": "httpd",
+        "resources": {
+          "requests": {
+            "cpu": "500m",
+            "memory": "256Mi"
+          },
+          "limits": {
+            "cpu": "1",
+            "memory": "512Mi"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+> **Note:** Resources are not mandatory and will default to a preset value if not provided. You can change the default values by modifying `config.resources`.
 
 ## Volumes Usage
 Sidecars can mount volumes for shared storage. In HKube, `volumes` are defined in the volumes section and mounted using `volumeMounts`.
