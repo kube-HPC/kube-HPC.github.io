@@ -8,7 +8,7 @@ sublinks: Algorithms, Pipelines
 next: /learn/pipelines/
 ---
 
-Hkube manages versioning for both algorithms and pipelines, allowing you to easily switch between different versions.
+HKube manages versioning for both algorithms and pipelines, allowing you to easily switch between different versions.
 Each version has a unique version ID, creation date, and details about its specification.
 
 ## Algorithms
@@ -27,7 +27,7 @@ To switch versions via the Swagger API, send a `POST` request to `/versions/algo
     "force": true  // Whether to replace the current algorithm version for running instances
 }
 ```
-> **Note:** Setting "force": true will cause pipeline failures because Hkube must shut down running instances.
+> **Note:** Setting "force": true will cause pipeline failures because HKube must shut down running instances.
 
 For more details, see [Algorithm Versions](/spec/#tag/Algorithm-Versions).
 
@@ -35,7 +35,7 @@ After a successful algorithm build, a new version is created. If it is the first
 For subsequent builds, new versions are created, but you must manually select which version to apply.
 
 ## Pipelines
-Hkube also supports versioning for pipelines, allowing you to track and switch between different pipeline versions.
+HKube also supports versioning for pipelines, allowing you to track and switch between different pipeline versions.
 
 A new pipeline version is created in the following cases:  
 1) The first time a pipeline is inserted.  

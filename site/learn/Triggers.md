@@ -7,12 +7,12 @@ next: /learn/webhooks/
 sublinks: Cron, Pipelines
 ---
 
-Hkube can run your stored pipelines based on triggers.  
+HKube can run your stored pipelines based on triggers.  
 There are two types of triggers: **Cron** trigger and **Pipelines** trigger.
 
 ### Cron
 
-Hkube can schedule your stored pipelines based on cron pattern.  
+HKube can schedule your stored pipelines based on cron pattern.  
 see this [cron](https://crontab.guru/) editor in order to construct your cron.  
 
 If you want to run your pipeline periodically using cron, you just need to add cron triggers to your stored pipeline.  For example: lets create a pipeline that will run in the 20th and 40th seconds, every Sunday, Monday and Tuesday.
