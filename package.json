@@ -2,10 +2,11 @@
   "name": "site",
   "repository": "https://kube-hpc.github.io",
   "private": true,
-  "version": "2.8.12",
+  "version": "2.8.13",
   "scripts": {
     "start": ". $HOME/.nvm/nvm.sh && nvm use 14.21.3 && npm run start:internal",
-    "start:internal": "rm -rf build && babel-node resources/server.js",    "build": "rm -rf build && babel-node resources/build.js",
+    "start:internal": "rm -rf build && babel-node resources/server.js",
+    "build": "rm -rf build && babel-node resources/build.js",
     "watch": "rm -rf build && babel-node resources/watch.js",
     "docker": "rm -rf build && ./dockerfile/build.sh site",
     "test": "npm run build"
