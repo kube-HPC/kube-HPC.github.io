@@ -1,6 +1,6 @@
 ---
-title: Install Hkube CLI
-sidebarTitle: Install Hkube CLI
+title: Install HKube CLI
+sidebarTitle: Install HKube CLI
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/installCLI/
@@ -9,7 +9,7 @@ next: /learn/api/
 ---
 
 ## Overview
-`hkubectl` is the Hkube command-line tool used for managing and interacting with pipelines, algorithms, and configurations in your Kubernetes cluster.  
+`hkubectl` is the HKube command-line tool used for managing and interacting with pipelines, algorithms, and configurations in your Kubernetes cluster.  
 It supports various commands to streamline the development and deployment of workflows.
 
 ---
@@ -42,8 +42,8 @@ export os="linux" # or macos
 
 ---
 
-### Step 2: Configure Hkube
-1. **Set the Hkube API endpoint:**
+### Step 2: Configure HKube
+1. **Set the HKube API endpoint:**
 ```bash
 hkubectl config set endpoint ${KUBERNETES-MASTER-IP}
 ```
@@ -59,7 +59,7 @@ kubectl get nodes
 ---
 
 > **Note:**  
-> Hkube requires certain pods to run with privileged security permissions.  
+> HKube requires certain pods to run with privileged security permissions.  
 > Consult your Kubernetes installation documentation for guidance.
 
 <script>

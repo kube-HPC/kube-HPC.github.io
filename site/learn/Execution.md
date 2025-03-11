@@ -7,7 +7,7 @@ next: /learn/streaming/
 sublinks: Flow Input, Reference, Batch, Batch Reference, Wait Any, Output
 ---
 
-Hkube allow special signs in the nodes input that designed to define the pipeline execution flow.
+HKube allow special signs in the nodes input that designed to define the pipeline execution flow.
 
 - (@)  - [Reference](#reference)
 - (#)  - [Batch](#batch)

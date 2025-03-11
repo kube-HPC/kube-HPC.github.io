@@ -1,6 +1,6 @@
 ---
-title: Install Hkube
-sidebarTitle: Install Hkube
+title: Install HKube
+sidebarTitle: Install HKube
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/install/
@@ -10,13 +10,13 @@ next: /learn/installCLI/
 
 ### Prerequisites
 ---
-Hkube requires a working installation of kubernetes.  
+HKube requires a working installation of kubernetes.  
 There are many options for local k8s installations. e.g  [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) or [microk8s](https://microk8s.io/).  
 
-Hkube is installed using helm. Both helm 2 and the newer [helm 3](https://helm.sh/docs/intro/install/) should work.
+HKube is installed using helm. Both helm 2 and the newer [helm 3](https://helm.sh/docs/intro/install/) should work.
 
 > Make sure kubectl is configured to your cluster.  
-> In order to collect algorithm logs, and create builds, **Hkube** requires that certain pods will run in privileged security permissions. Consult your kubernetes installation to see how to do that.  
+> In order to collect algorithm logs, and create builds, **HKube** requires that certain pods will run in privileged security permissions. Consult your kubernetes installation to see how to do that.  
 
 These instructions assume the use [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) and [helm 3](https://helm.sh/docs/intro/install/)
 

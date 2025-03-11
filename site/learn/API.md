@@ -8,7 +8,7 @@ sublinks: Restful, Cli
 next: /learn/algorithms/
 ---
 
-Hkube support two types of APIs, Restful and Cli
+HKube support two types of APIs, Restful and Cli
 
 ### Restful API
 

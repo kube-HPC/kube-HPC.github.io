@@ -7,7 +7,7 @@ sublinks: Raw, Stored
 next: /learn/nodes/
 ---
 
-The basic concept behind the Hkube pipeline is [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)  
+The basic concept behind the HKube pipeline is [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)  
 Directed Acyclic Graph is a graph consisting of [nodes](../learn/nodes/) connected  
 with edges that have a direction: A -> B -> C.  
 
@@ -19,8 +19,8 @@ The DAG structure allowing to:
 * Data flow between the nodes.  
 * Parallel and batch processing.
 
-Hkube store and execute pipelines using Restful API.
-Hkube support three types of pipeline executions: Raw, Stored and Node.
+HKube store and execute pipelines using Restful API.
+HKube support three types of pipeline executions: Raw, Stored and Node.
 
 ### Raw
 
