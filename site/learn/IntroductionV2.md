@@ -1,6 +1,6 @@
 ---
-title: Hkube 101
-sidebarTitle: Hkube 101
+title: HKube 101
+sidebarTitle: HKube 101
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
@@ -40,7 +40,7 @@ next: /learn/advancedPipeline/
 - **Creating your first Algorithm**
 
   - Currently, we support Javascript, Python and Java **autobuild**.
-  - Your algorithm gets it's inputs from Hkube the following way:
+  - Your algorithm gets it's inputs from HKube the following way:
 
   >Java example - see [Documentation](https://raw.githubusercontent.com/kube-HPC/java-wrapper.hkube/master/algorithm-example/src/main/resources/instructions.txt)
   

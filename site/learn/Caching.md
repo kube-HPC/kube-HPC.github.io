@@ -9,9 +9,9 @@ next: /learn/debug/
 ---
 
 ## Introduction
- Hkube pipeline execution can be long and complex 
+ HKube pipeline execution can be long and complex 
  
-  Hkube Caching allows you to run job from a specific node and getting the data of the predecessors from caching of the previous run, saving time and resources  enable you to monitor or debug the relevant Node without the need to wait for previous prosses to complete
+  HKube Caching allows you to run job from a specific node and getting the data of the predecessors from caching of the previous run, saving time and resources  enable you to monitor or debug the relevant Node without the need to wait for previous prosses to complete
   
   **Note: the Caching is only relevant to the batch pipeline**
 

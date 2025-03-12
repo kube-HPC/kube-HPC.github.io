@@ -8,7 +8,7 @@ permalink: /learn/debug/
 next: /learn/tensorboard/
 ---
 ## Introduction
-Hkube enable debugging algorithm on your local IDE as part of a pipeline executed on the cluster
+HKube enable debugging algorithm on your local IDE as part of a pipeline executed on the cluster
 
 ## Use Cases 
  After executing the following job you suspect that the "yellow" node does not calculate its output properly and you wish to debug it in your local IDE  

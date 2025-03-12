@@ -1,6 +1,6 @@
 ---
 title: Openshift Install (old)
-sidebarTitle: Install Hkube
+sidebarTitle: Install HKube
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/install/openshift/before_v1.2.189/
