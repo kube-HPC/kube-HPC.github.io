@@ -57,7 +57,7 @@ Below is an example of a complete sidecar configuration:
 
 ## Container Configuration
 
-To configure a sidecar container in HKube, you must define the container settings in YAML format. In addition to essential fields like `image` and `name`, you can specify various options related to Kubernetes containers, such as resource limits and environment variables.
+To configure a sidecar container in HKube, you must define the container settings in json format. In addition to essential fields like `image` and `name`, you can specify various options related to Kubernetes containers, such as resource limits and environment variables.
 
 You can find all possible container configuration fields by running:
 ```bash
