@@ -19,7 +19,7 @@ Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubus
 ### Cli
 
 `hkubectl` is a command-line tool that help you to work with hkube more easily.  
-For download, please follow the instructions [here](http://localhost:8444/learn/installCLI/#setup).
+For download, please follow the instructions [here](../installCLI/#setup).
 
 #### Syntax
 
