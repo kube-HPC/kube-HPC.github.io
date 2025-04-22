@@ -35,12 +35,6 @@ Below is an example of a complete sidecar configuration:
           }
         }
       },
-      "volumes": [
-        {
-          "name": "shared-volume",
-          "emptyDir": {}
-        }
-      ],
       "volumeMounts": [
         {
           "name": "shared-volume",
@@ -91,23 +85,31 @@ Below is an example of a sidecar container configuration, with resources:
 > **Note:** Resources are not mandatory and will default to a preset value if not provided. You can change the default values by modifying `config.resources`.
 
 ## Volumes Usage
-Sidecars can mount volumes for shared storage. In HKube, `volumes` are defined in the volumes section and mounted using `volumeMounts`.
+Sidecars can mount volumes for shared storage. In HKube, `volumes` are defined in the volumes section at the algorithm level, and mounted using `volumeMounts` in the sidecar or algorithm (for algorunner) level.
 
 **Example:**
 ```json
 {
+  "name": "algo-car-with-volume-mount",
+  "algorithmImage": "docker.io/hkubedevtest/print-every-10-sec:v4o4c4xne",
+  "volumes": [
+    {
+      "name": "shared-volume",
+      "emptyDir": {}
+    }
+  ],
+  "volumeMounts": [
+    {
+      "name": "shared-volume",
+      "mountPath": "/shared-dir"
+    }
+  ],
   "sideCars": [
     {
       "container": {
         "name": "mycar",
         "image": "httpd"
       },
-      "volumes": [
-        {
-          "name": "shared-volume",
-          "emptyDir": {}
-        }
-      ],
       "volumeMounts": [
         {
           "name": "shared-volume",

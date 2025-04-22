@@ -8,7 +8,7 @@ sublinks: Restful, Cli
 next: /learn/algorithms/
 ---
 
-HKube support two types of APIs, Restful and Cli
+HKube supports two types of APIs, Restful and Cli.
 
 ### Restful API
 
@@ -18,27 +18,17 @@ Also check the [Swagger-UI](http://petstore.swagger.io/?url=https://raw.githubus
 
 ### Cli
 
-`hkubectl` is a command-line tool that help you to work with hkube more easily.
-
-
-#### Download
-
-```console
-export latestVersion="$(curl -s https://api.github.com/repos/kube-HPC/hkubectl/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')"
-curl -Lo hkubectl https://github.com/kube-HPC/hkubectl/releases/download/${latestVersion}/hkubectl-linux \
-&& chmod +x hkubectl \
-&& sudo mv hkubectl /usr/local/bin/
-```
-
-#### Config
-
-`hkubectl` config set endpoint <KUBERNETES-MASTER-IP>  
-`hkubectl` config set rejectUnauthorized false
+`hkubectl` is a command-line tool that help you to work with hkube more easily.  
+For download, please follow the instructions [here](../installCLI/#setup).
 
 #### Syntax
 
 ```
 hkubectl [type] [command] [name]
+```
+To get commands and options, run:
+```
+hkubectl --help
 ```
 
 
