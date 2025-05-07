@@ -37,7 +37,7 @@ export os="linux" # or macos
   && sudo mv hkubectl /usr/local/bin/<button id="copyBtn" onclick="copyToClipboard('bashCode')" class="copy-btn">Copy</button>
 </pre>
 
-<p>For <strong>Windows</strong>, download <code>hkubectl-win.exe</code> from <a id="windowsLink" href="/hkubectl_files/hkubectl-win.exe">here</a>.</p>
+<p>For <strong>Windows</strong>, download <code>hkubectl-win.exe</code> from   <a id="windowsLink" href="https://hkube-domain.com/hkubectl_files/hkubectl-win.exe">here</a>.</p>
 
 
 ---
@@ -65,18 +65,22 @@ kubectl get nodes
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var fullUrl = window.location.href;
-
     var learnIndex = fullUrl.indexOf('/learn');
     var serverUrl = learnIndex !== -1 ? fullUrl.substring(0, learnIndex) : window.location.origin;
 
     var bashCodeElement = document.getElementById('bashCode');
-
     if (bashCodeElement) {
       var updatedCode = bashCodeElement.innerHTML.replace(/hkube-domain\.com/g, serverUrl);
       bashCodeElement.innerHTML = updatedCode;
     }
+
+    var windowsLink = document.getElementById('windowsLink');
+    if (windowsLink) {
+      windowsLink.href = windowsLink.href.replace(/^https?:\/\/hkube-domain\.com/, serverUrl);
+    }
   });
 </script>
+
 
 
 <script>
