@@ -64,12 +64,15 @@ kubectl get nodes
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var serverUrl = window.location.origin;
+    var fullUrl = window.location.href;
+
+    var learnIndex = fullUrl.indexOf('/learn');
+    var serverUrl = learnIndex !== -1 ? fullUrl.substring(0, learnIndex) : window.location.origin;
 
     var bashCodeElement = document.getElementById('bashCode');
 
     if (bashCodeElement) {
-      var updatedCode = bashCodeElement.innerHTML.replace(/hkube-domain.com/g, serverUrl);
+      var updatedCode = bashCodeElement.innerHTML.replace(/hkube-domain\.com/g, serverUrl);
       bashCodeElement.innerHTML = updatedCode;
     }
   });
