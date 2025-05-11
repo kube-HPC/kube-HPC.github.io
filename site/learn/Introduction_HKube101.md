@@ -69,7 +69,7 @@ next: /learn/advancedPipeline/
     - Via a pre-built docker image - 
       > In order to add algorithm manually to HKube, you need to wrap your algorithm with HKube. HKube already has a wrappers for `python`,`javaScript`, and `java`.
     - Via a packaged file - You must pack your algorithm using
-    ```Console
+    ```bash
     tar -zcvf MyAlgo.tar.gz *
     ```
     >To further elaborate, the "Packaged file" option requires a package containing all of the necessary files for the project to work, with your algorithms name serving as the "Entry point" in the wizard.
@@ -330,7 +330,7 @@ In our case we used _Numeric Type_ but it can be any [JSON type](https://json-sc
 
 Create a `yaml` (or `JSON`) that defines the **pipeline**:
 
-```yml
+```yaml
 # number.yml
 name: numbers
 nodes:
@@ -377,7 +377,7 @@ hkubectl exec stored numbers
 
 For executing the pipeline with other input, create `yaml` (or `JSON`) file with `flowInput` key:
 
-```yml
+```yaml
 # otherFlowInput.yml
 flowInput:
   data: 500
