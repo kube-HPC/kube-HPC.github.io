@@ -1,11 +1,12 @@
 ---
-title: Debug algorithm 
-sidebarTitle: Debug algorithm 
+title: Debug Algorithm 
+sidebarTitle: Debug Algorithm 
 layout: ../_core/DocsLayout
 category: Learn
 sublinks: Introduction, Use Cases, How To
 permalink: /learn/debug/
-next: /learn/tensorboard/
+# next: /learn/tensorboard/
+next: /learn/pipelines/
 ---
 ## Introduction
 HKube enable debugging algorithm on your local IDE as part of a pipeline executed on the cluster

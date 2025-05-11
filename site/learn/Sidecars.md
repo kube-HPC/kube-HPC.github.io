@@ -5,7 +5,8 @@ layout: ../_core/DocsLayout
 category: Learn
 sublinks: Container Configuration, Volumes Usage, Environment Variables, Common Errors, Multiple Sidecars
 permalink: /learn/sidecars/
-next: /learn/codeapi/
+# next: /learn/codeapi/
+next: /learn/debug/
 ---
 
 In HKube, sidecars are additional containers that can be added to an algorithm's pod to perform supplementary tasks alongside the main algorithm container. Sidecars are a powerful way to extend the functionality of your algorithm, such as logging, monitoring, or handling auxiliary tasks.

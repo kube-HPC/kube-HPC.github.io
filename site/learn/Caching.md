@@ -5,7 +5,8 @@ layout: ../_core/DocsLayout
 category: Learn
 sublinks: Introduction, Use Cases, How to activate cache
 permalink: /learn/caching/
-next: /learn/debug/
+# next: /learn/debug/
+next: /learn/codeapi/
 ---
 
 ## Introduction

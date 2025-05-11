@@ -5,7 +5,8 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/api/
 sublinks: Restful, Cli
-next: /learn/algorithms/
+# next: /learn/algorithms/
+next: /learn/installCLI/
 ---
 
 HKube supports two types of APIs, Restful and Cli.
