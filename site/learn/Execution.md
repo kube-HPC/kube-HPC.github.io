@@ -3,7 +3,6 @@ title: Pipeline Execution
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/execution/
-# next: /learn/streaming/
 next: /learn/advancedPipeline/
 sublinks: Flow Input, Reference, Batch, Batch Reference, Wait Any, Output
 ---

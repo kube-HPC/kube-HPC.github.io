@@ -5,7 +5,6 @@ layout: ../_core/DocsLayout
 category: Learn
 sublinks: Introduction, Use Cases, How To
 permalink: /learn/debug/
-# next: /learn/tensorboard/
 next: /learn/pipelines/
 ---
 ## Introduction

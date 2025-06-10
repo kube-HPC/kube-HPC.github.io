@@ -5,7 +5,6 @@ layout: ../_core/DocsLayout
 category: Learn
 sublinks: Introduction, Features, Advanced
 permalink: /learn/streaming/
-# next: /learn/caching/
 next: /learn/sidecars/
 ---
 

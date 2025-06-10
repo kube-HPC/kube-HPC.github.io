@@ -5,7 +5,6 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/api/
 sublinks: Restful, Cli
-# next: /learn/algorithms/
 next: /learn/installCLI/
 ---
 

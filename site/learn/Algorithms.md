@@ -5,7 +5,6 @@ layout: ../_core/DocsLayout
 category: Learn
 sublinks: Integration Methods, Events & Communication, Implementation
 permalink: /learn/algorithms/
-# next: /learn/sidecars/
 next: /learn/streaming/
 ---
 

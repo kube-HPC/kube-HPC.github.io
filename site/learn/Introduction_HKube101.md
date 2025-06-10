@@ -5,7 +5,6 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
 sublinks: Features, Getting started, Let's talk about HKUBE, Implementing the Algorithms,  Step-by-step CLI Example
-# next: /learn/advancedPipeline/
 next: /learn/install/
 ---
 

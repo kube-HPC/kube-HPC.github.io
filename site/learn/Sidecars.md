@@ -5,7 +5,6 @@ layout: ../_core/DocsLayout
 category: Learn
 sublinks: Container Configuration, Volumes Usage, Environment Variables, Common Errors, Multiple Sidecars
 permalink: /learn/sidecars/
-# next: /learn/codeapi/
 next: /learn/debug/
 ---
 
