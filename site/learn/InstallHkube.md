@@ -28,7 +28,7 @@ Click [here](../../learn/install/openshift/) for Openshift instructions
 The chart is hosted in http://hkube.org/helm/
 To add the repo to your helm run
 ```console
-$ helm repo add hkube http://hkube.org/helm/
+helm repo add hkube http://hkube.org/helm/
 ```
 ## Start minikube
 Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress controller, registry, and dynamic storage.  
@@ -51,7 +51,9 @@ To install the chart with the release name `hkube`:
 > Also set the registry to the internal registry  
 
 ```bash
-helm install hkube --set build_secret.docker_registry=registry.minikube --set build_secret.docker_registry_insecure=true hkube/hkube
+helm install hkube hkube/hkube \
+  --set build_secret.docker_registry=registry.minikube \
+  --set build_secret.docker_registry_insecure=true
 ```
 This command installs `hkube` in a minimal configuration for development. See below for production install.  
 > Be patient. This can take some time depending on your internet connection  
@@ -69,12 +71,12 @@ and browse to the dashboard at `http://<minikube_ip_here>/hkube/dashboard/`
 
 ## TL;DR;
 ```console
-$ helm repo add hkube http://hkube.org/helm/
-$ helm install hkube hkube/hkube
+helm repo add hkube http://hkube.org/helm/
+helm install hkube hkube/hkube
 ```
 ## Uninstalling the Chart
 ```console
-$ helm delete hkube
+helm delete hkube
 ```
 ## Configuration
 The default installation of HKube (with default values) is designed for local development.  
@@ -85,13 +87,13 @@ It will install:
 - `minio` for object storage  
 - small configuration for `hkube`  
 
-## Production deployment
-### general
+## Production Deployment
+### General
 1. for HA installation, a HA kubernetes cluster is needed.  
 2. hkube uses needs persistent storage. The default installation uses minio hosted in the cluster. For production installations it is recommended to create a dedicated s3 server, or use a PVC.
 3. to enable running multiple pipelines set the number of pipeline driver to a higher number (the default is 1)
 
-### configuration
+### Configuration
 Common configuration options are described below. For a complete list see the helm chart Readme
 
 |                        Parameter                        | Description                                       |                            Default   |
@@ -120,14 +122,14 @@ Common configuration options are described below. For a complete list see the he
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example:
 
 ```console
-$ helm install hkube hkube/hkube  --set global.clusterName=cluster.local
+helm install hkube hkube/hkube  --set global.clusterName=cluster.local
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```console
-$ helm install hkube hkube/hkube  --values values.yaml
+helm install hkube hkube/hkube  --values values.yaml
 ```
 
 <!-- ```hkube-box
