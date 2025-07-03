@@ -21,7 +21,8 @@ const items = [
   --addons=registry ^
   --addons=registry-aliases ^
   --addons=storage-provisioner ^
-  --kubernetes-version=v1.23.5`}
+  --kubernetes-version=v1.23.5
+kubectl get pods -A`}
         </Prism>
     },
     {
@@ -32,7 +33,8 @@ const items = [
   --addons=registry \
   --addons=registry-aliases \
   --addons=storage-provisioner \
-  --kubernetes-version=v1.23.5`}
+  --kubernetes-version=v1.23.5
+kubectl get pods -A`}
         </Prism>
     },
 ];
