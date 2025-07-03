@@ -27,18 +27,20 @@ next: /learn/api/
 
 The chart is hosted in http://hkube.org/helm/
 To add the HKube Helm repo to your helm run:
-```console
+<pre class="bash" id="helmRepo">
 helm repo add hkube http://hkube.org/helm/
-helm repo update
-```
+helm repo update <button class="copy-btn" onclick="copyToClipboard('helmRepo')">Copy</button>
+</pre>
+
 
 ## 2. Set Docker Context
 
 Make sure your Docker CLI is using the default context:
 
-```bash
-docker context use default
-```
+<pre class="bash" id="dockerContext">
+docker context use default <button class="copy-btn" onclick="copyToClipboard('dockerContext')">Copy</button>
+</pre>
+
 
 This will be your output:
 ```console
@@ -56,7 +58,7 @@ HKube was tested on Kubernetes v1.23.5, so to run it properly, start Minikube wi
 
 ## 4. Patch Ingress Config
 Patch the ingress-nginx configmap to support large headers (used for keycloak), then restart the controller:
-```bash
+<pre class="bash" id="patchIngress">
 kubectl patch configmap ingress-nginx-controller -n ingress-nginx \
   --type merge \
   -p '{"data": {
@@ -65,41 +67,44 @@ kubectl patch configmap ingress-nginx-controller -n ingress-nginx \
     "proxy-buffers": "4 128k",
     "proxy-busy-buffers-size": "128k"
   }}'
+kubectl delete pod -n ingress-nginx -l app.kubernetes.io/component=controller <button class="copy-btn" onclick="copyToClipboard('patchIngress')">Copy</button>
+</pre>
 
-kubectl delete pod -n ingress-nginx -l app.kubernetes.io/component=controller
-```
 
 ## 5. Wait for All Pods
 Make sure all pods are ready before you continue:
-```bash
-kubectl get pods -A
-```
+<pre class="bash" id="getPods">
+kubectl get pods -A <button class="copy-btn" onclick="copyToClipboard('getPods')">Copy</button>
+</pre>
+
 
 ## 6. Install HKube
 Install the HKube chart using Helm:
-```bash
+<pre class="bash" id="installHKube">
 helm upgrade -i hkube hkube/hkube \
   --set build_secret.docker_registry=registry.minikube \
   --set build_secret.docker_registry_insecure=true \
   --set global.hkube_url=https://192.168.49.2/hkube \
   --set global.ingress.use_regex=true \
-  --timeout 15m
-```
+  --timeout 15m <button class="copy-btn" onclick="copyToClipboard('installHKube')">Copy</button>
+</pre>
+
 This command installs `hkube` in a minimal configuration for development. See below for production install.  
 > Be patient. This can take some time depending on your internet connection  
 
 ## 7. Verify HKube Deployment
 Before starting your journey, verify that the required components have fully rolled out:
-```bash
+<pre class="bash" id="rolloutSimulator">
 kubectl rollout status deployment/simulator --watch
-kubectl rollout status deployment/api-server --watch
-```
+kubectl rollout status deployment/api-server --watch <button class="copy-btn" onclick="copyToClipboard('rolloutSimulator')">Copy</button>
+</pre>
 
 ## 8. Access HKube Dashboard
 Once the components have been successfully rolled out, get the Minikube IP:
-```bash
-minikube ip
-```
+<pre class="bash" id="minikubeIp">
+minikube ip <button class="copy-btn" onclick="copyToClipboard('minikubeIp')">Copy</button>
+</pre>
+
 Finally, open your browser and access the dashboard at:
 ```perl
 http://<minikube_ip_here>/hkube/dashboard/
@@ -107,9 +112,10 @@ http://<minikube_ip_here>/hkube/dashboard/
 
 ## Uninstalling HKube
 To remove the HKube release from your cluster:
-```console
-helm delete hkube
-```
+<pre class="bash" id="uninstallHKube">
+helm delete hkube <button class="copy-btn" onclick="copyToClipboard('uninstallHKube')">Copy</button>
+</pre>
+
 
 ## Configuration Details
 The default HKube installation is meant for local development.
@@ -170,3 +176,26 @@ helm install hkube hkube/hkube  --values values.yaml
 <!-- ```hkube-box
 # { "hkube": true, "url": "/learn", "title": "next &rarr;", "text": "Learn More" }
 ``` -->
+
+
+<script>
+  function copyToClipboard(elementId) {
+    const codeBlock = document.getElementById(elementId);
+    const button = codeBlock.querySelector('.copy-btn');
+
+    const text = Array.from(codeBlock.childNodes)
+      .filter(node => node.nodeType === Node.TEXT_NODE || node.tagName !== 'BUTTON')
+      .map(node => node.textContent)
+      .join('')
+      .trim();
+
+    navigator.clipboard.writeText(text).then(() => {
+      const original = button.textContent;
+      button.textContent = 'Copied!';
+      setTimeout(() => { button.textContent = original; }, 500);
+    }).catch((err) => {
+      console.error('Copy failed', err);
+    });
+  }
+</script>
+
