@@ -8,88 +8,124 @@ sublinks: Prerequisites
 next: /learn/api/
 ---
 
-### Prerequisites
+## Prerequisites
+
 ---
-HKube requires a working installation of kubernetes.  
-There are many options for local k8s installations. e.g  [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) or [microk8s](https://microk8s.io/).  
 
-HKube is installed using helm. Both helm 2 and the newer [helm 3](https://helm.sh/docs/intro/install/) should work.
+- HKube requires a working Kubernetes cluster.
+- You can use local Kubernetes like [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) or [microk8s](https://microk8s.io/).
+- HKube is installed using Helm. Both Helm 2 and the newer [Helm 3](https://helm.sh/docs/intro/install/) should work.
+- `kubectl` must be configured to your Kubernetes cluster.
+- HKube needs certain pods to run with privileged permissions for logs and builds; consult your Kubernetes docs on how to enable that.
 
-> Make sure kubectl is configured to your cluster.  
-> In order to collect algorithm logs, and create builds, **HKube** requires that certain pods will run in privileged security permissions. Consult your kubernetes installation to see how to do that.  
+> These instructions assume the use [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) and [Helm 3](https://helm.sh/docs/intro/install/)  
+> Click [here](../../learn/install/openshift/) for Openshift instructions
 
-These instructions assume the use [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) and [helm 3](https://helm.sh/docs/intro/install/)
+---
 
-Click [here](../../learn/install/openshift/) for Openshift instructions
-
-## Helm repository setup
+## 1. Helm repository setup
 
 The chart is hosted in http://hkube.org/helm/
-To add the repo to your helm run
+To add the HKube Helm repo to your helm run:
 ```console
 helm repo add hkube http://hkube.org/helm/
+helm repo update
 ```
-## Start minikube
-Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress controller, registry, and dynamic storage.  
-First, run:
+
+## 2. Set Docker Context
+
+Make sure your Docker CLI is using the default context:
+
 ```bash
 docker context use default
 ```
+
 This will be your output:
 ```console
 default
 Current context is now "default"
 ```
-Next:
+
+## 3. Start Minikube
+Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress controller, registry, and dynamic storage.  
+
+HKube was tested on Kubernetes v1.23.5, so to run it properly, start Minikube with:
 ```hkube-tabs
 # { "hkube": true, "schema": "install" }
 ```
 
-## Installing the Chart
-To install the chart with the release name `hkube`:  
-> Also set the registry to the internal registry  
-
+## 4. Patch Ingress Config
+Patch the ingress-nginx configmap to support large headers (used for keycloak), then restart the controller:
 ```bash
-helm install hkube hkube/hkube \
+kubectl patch configmap ingress-nginx-controller -n ingress-nginx \
+  --type merge \
+  -p '{"data": {
+    "large-client-header-buffers": "4 128k",
+    "proxy-buffer-size": "128k",
+    "proxy-buffers": "4 128k",
+    "proxy-busy-buffers-size": "128k"
+  }}'
+
+kubectl delete pod -n ingress-nginx -l app.kubernetes.io/component=controller
+```
+
+## 5. Wait for All Pods
+Make sure all pods are ready before you continue:
+```bash
+kubectl get pods -A
+```
+
+## 6. Install HKube
+Install the HKube chart using Helm:
+```bash
+helm upgrade -i hkube hkube/hkube \
   --set build_secret.docker_registry=registry.minikube \
-  --set build_secret.docker_registry_insecure=true
+  --set build_secret.docker_registry_insecure=true \
+  --set global.hkube_url=https://192.168.49.2/hkube \
+  --set global.ingress.use_regex=true \
+  --timeout 15m
 ```
 This command installs `hkube` in a minimal configuration for development. See below for production install.  
 > Be patient. This can take some time depending on your internet connection  
 
-### Open the dashboard
-Before starting your journey, verify that the requiered resources have finished loading (make sure to copy the whole line):
+## 7. Verify HKube Deployment
+Before starting your journey, verify that the required components have fully rolled out:
 ```bash
-kubectl rollout status deployment/simulator --watch; kubectl rollout status deployment/api-server --watch
+kubectl rollout status deployment/simulator --watch
+kubectl rollout status deployment/api-server --watch
 ```
-Once it let's you know the resources have been successfully rolled out, get the IP address of your minikube instance
+
+## 8. Access HKube Dashboard
+Once the components have been successfully rolled out, get the Minikube IP:
 ```bash
 minikube ip
 ```
-and browse to the dashboard at `http://<minikube_ip_here>/hkube/dashboard/`
-
-## TL;DR;
-```console
-helm repo add hkube http://hkube.org/helm/
-helm install hkube hkube/hkube
+Finally, open your browser and access the dashboard at:
+```perl
+http://<minikube_ip_here>/hkube/dashboard/
 ```
-## Uninstalling the Chart
+
+## Uninstalling HKube
+To remove the HKube release from your cluster:
 ```console
 helm delete hkube
 ```
-## Configuration
-The default installation of HKube (with default values) is designed for local development.  
-It will install:  
 
-- `etcd` cluster for state management
-- `redis` cluster for queues  
-- `minio` for object storage  
-- small configuration for `hkube`  
+## Configuration Details
+The default HKube installation is meant for local development.
+It includes:
+
+- `etcd` for storing internal state
+- `redis` for queues and messaging
+- `minio` as an object storage
+- Small configuration for `HKube`  
+
+---
 
 ## Production Deployment
 ### General
 1. for HA installation, a HA kubernetes cluster is needed.  
-2. hkube uses needs persistent storage. The default installation uses minio hosted in the cluster. For production installations it is recommended to create a dedicated s3 server, or use a PVC.
+2. HKube uses needs persistent storage. The default installation uses minio hosted in the cluster. For production installations it is recommended to create a dedicated s3 server, or use a PVC.
 3. to enable running multiple pipelines set the number of pipeline driver to a higher number (the default is 1)
 
 ### Configuration
