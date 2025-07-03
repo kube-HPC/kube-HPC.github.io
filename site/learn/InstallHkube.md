@@ -4,7 +4,7 @@ sidebarTitle: Install HKube
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/install/
-sublinks: Prerequisites
+sublinks: Prerequisites, Minikube Installation, Production Deployment
 next: /learn/api/
 ---
 
@@ -23,7 +23,8 @@ next: /learn/api/
 
 ---
 
-## 1. Helm repository setup
+## Minikube Installation
+### 1. Helm repository setup
 
 The chart is hosted in http://hkube.org/helm/
 To add the HKube Helm repo to your helm run:
@@ -33,7 +34,7 @@ helm repo update <button class="copy-btn" onclick="copyToClipboard('helmRepo')">
 </pre>
 
 
-## 2. Set Docker Context
+### 2. Set Docker Context
 
 Make sure your Docker CLI is using the default context:
 
@@ -48,7 +49,7 @@ default
 Current context is now "default"
 ```
 
-## 3. Start Minikube
+### 3. Start Minikube
 Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress controller, registry, and dynamic storage.  
 
 HKube was tested on Kubernetes v1.23.5, so to run it properly, start Minikube with:
@@ -57,14 +58,14 @@ HKube was tested on Kubernetes v1.23.5, so to run it properly, start Minikube wi
 ```
 
 
-## 4. Wait for All Pods
+### 4. Wait for All Pods
 Make sure all pods are ready before you continue:
 <pre class="bash" id="getPods">
 kubectl get pods -A <button class="copy-btn" onclick="copyToClipboard('getPods')">Copy</button>
 </pre>
 
 
-## 5. Install HKube
+### 5. Install HKube
 Install the HKube chart using Helm:
 <pre class="bash" id="installHKube">
 helm upgrade -i hkube hkube/hkube \
@@ -78,14 +79,14 @@ helm upgrade -i hkube hkube/hkube \
 This command installs `hkube` in a minimal configuration for development. See below for production install.  
 > Be patient. This can take some time depending on your internet connection  
 
-## 6. Verify HKube Deployment
+### 6. Verify HKube Deployment
 Before starting your journey, verify that the required components have fully rolled out:
 <pre class="bash" id="rolloutSimulator">
 kubectl rollout status deployment/simulator --watch
 kubectl rollout status deployment/api-server --watch <button class="copy-btn" onclick="copyToClipboard('rolloutSimulator')">Copy</button>
 </pre>
 
-## 7. Access HKube Dashboard
+### 7. Access HKube Dashboard
 Once the components have been successfully rolled out, get the Minikube IP:
 <pre class="bash" id="minikubeIp">
 minikube ip <button class="copy-btn" onclick="copyToClipboard('minikubeIp')">Copy</button>
@@ -96,14 +97,14 @@ Finally, open your browser and access the dashboard at:
 http://<minikube_ip_here>/hkube/dashboard/
 ```
 
-## Uninstalling HKube
+### Uninstalling HKube
 To remove the HKube release from your cluster:
 <pre class="bash" id="uninstallHKube">
 helm delete hkube <button class="copy-btn" onclick="copyToClipboard('uninstallHKube')">Copy</button>
 </pre>
 
 
-## Configuration Details
+### Configuration Details
 The default HKube installation is meant for local development.
 It includes:
 
