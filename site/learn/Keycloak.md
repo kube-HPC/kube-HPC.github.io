@@ -107,3 +107,24 @@ HKube uses Keycloak roles and groups to manage access:
 | hkube_api_execute   | Can run pipelines                    |
 
 These roles are mapped to users through their group memberships in Keycloak.
+
+<script>
+  function copyToClipboard(elementId) {
+    const codeBlock = document.getElementById(elementId);
+    const button = codeBlock.querySelector('.copy-btn');
+
+    const text = Array.from(codeBlock.childNodes)
+      .filter(node => node.nodeType === Node.TEXT_NODE || node.tagName !== 'BUTTON')
+      .map(node => node.textContent)
+      .join('')
+      .trim();
+
+    navigator.clipboard.writeText(text).then(() => {
+      const original = button.textContent;
+      button.textContent = 'Copied!';
+      setTimeout(() => { button.textContent = original; }, 500);
+    }).catch((err) => {
+      console.error('Copy failed', err);
+    });
+  }
+</script>
