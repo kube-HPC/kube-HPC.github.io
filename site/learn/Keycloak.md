@@ -42,7 +42,7 @@ This configuration allows NGINX to handle larger authentication headers used by 
 
 ## Default Configuration
 
-### Default Users
+### Users
 
 HKube includes several default users that are created during setup:
 
