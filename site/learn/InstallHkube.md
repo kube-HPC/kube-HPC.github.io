@@ -56,29 +56,15 @@ HKube was tested on Kubernetes v1.23.5, so to run it properly, start Minikube wi
 # { "hkube": true, "schema": "install" }
 ```
 
-## 4. Patch Ingress Config
-Patch the ingress-nginx configmap to support large headers (used for keycloak), then restart the controller:
-<pre class="bash" id="patchIngress">
-kubectl patch configmap ingress-nginx-controller -n ingress-nginx \
-  --type merge \
-  -p '{"data": {
-    "large-client-header-buffers": "4 128k",
-    "proxy-buffer-size": "128k",
-    "proxy-buffers": "4 128k",
-    "proxy-busy-buffers-size": "128k"
-  }}'
-kubectl delete pod -n ingress-nginx -l app.kubernetes.io/component=controller <button class="copy-btn" onclick="copyToClipboard('patchIngress')">Copy</button>
-</pre>
 
-
-## 5. Wait for All Pods
+## 4. Wait for All Pods
 Make sure all pods are ready before you continue:
 <pre class="bash" id="getPods">
 kubectl get pods -A <button class="copy-btn" onclick="copyToClipboard('getPods')">Copy</button>
 </pre>
 
 
-## 6. Install HKube
+## 5. Install HKube
 Install the HKube chart using Helm:
 <pre class="bash" id="installHKube">
 helm upgrade -i hkube hkube/hkube \
@@ -92,14 +78,14 @@ helm upgrade -i hkube hkube/hkube \
 This command installs `hkube` in a minimal configuration for development. See below for production install.  
 > Be patient. This can take some time depending on your internet connection  
 
-## 7. Verify HKube Deployment
+## 6. Verify HKube Deployment
 Before starting your journey, verify that the required components have fully rolled out:
 <pre class="bash" id="rolloutSimulator">
 kubectl rollout status deployment/simulator --watch
 kubectl rollout status deployment/api-server --watch <button class="copy-btn" onclick="copyToClipboard('rolloutSimulator')">Copy</button>
 </pre>
 
-## 8. Access HKube Dashboard
+## 7. Access HKube Dashboard
 Once the components have been successfully rolled out, get the Minikube IP:
 <pre class="bash" id="minikubeIp">
 minikube ip <button class="copy-btn" onclick="copyToClipboard('minikubeIp')">Copy</button>
