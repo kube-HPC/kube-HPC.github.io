@@ -28,7 +28,7 @@ Click [here](../../learn/install/openshift/) for Openshift instructions
 The chart is hosted in http://hkube.org/helm/
 To add the repo to your helm run
 ```console
-helm repo add hkube http://hkube.org/helm/
+$ helm repo add hkube http://hkube.org/helm/
 ```
 ## Start minikube
 Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress controller, registry, and dynamic storage.  
