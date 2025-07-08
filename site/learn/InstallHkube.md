@@ -94,7 +94,7 @@ minikube ip <button class="copy-btn" onclick="copyToClipboard('minikubeIp')">Cop
 
 Finally, open your browser and access the dashboard at:
 ```perl
-http://<minikube_ip_here>/hkube/dashboard/
+https://<minikube_ip_here>/hkube/dashboard/
 ```
 
 ### Uninstalling HKube
