@@ -6,6 +6,7 @@ category: Learn
 permalink: /learn/install/
 sublinks: Prerequisites
 next: /learn/installCLI/
+# next: /learn/keycloak/
 ---
 
 ### Prerequisites
