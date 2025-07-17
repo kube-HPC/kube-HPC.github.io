@@ -76,8 +76,11 @@ helm upgrade -i hkube hkube/hkube \
   --timeout 15m <button class="copy-btn" onclick="copyToClipboard('installHKube')">Copy</button>
 </pre>
 
+> <div style="font-size: 0.8em"> Note: the IP `192.168.49.2` is taken out of the command `minikube ip`.  
+Verify it's your minikube IP. </div>
+
 This command installs `hkube` in a minimal configuration for development. See below for production install.  
-> Be patient. This can take some time depending on your internet connection  
+Be patient. This can take some time depending on your internet connection.
 
 ### 6. Verify HKube Deployment
 Before starting your journey, verify that the required components have fully rolled out:
