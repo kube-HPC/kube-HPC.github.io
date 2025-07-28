@@ -866,6 +866,27 @@ Parser.prototype.tok = function () {
           }
         }
       }
+      if (this.token.lang === 'hkube-tabs-with-copy') {
+        var lines = this.token.text.split('\n');
+        var firstLine = lines.shift().match(/^\s*#\s*({.*})$/);
+        if (firstLine) {
+          var metaData;
+          try {
+            metaData = JSON.parse(firstLine[1]);
+          } catch (e) {
+            console.error('Invalid Metadata JSON:', firstLine[1]);
+          }
+          if (metaData) {
+            return <script data-inline dangerouslySetInnerHTML={{
+              __html: `
+              import CodeTabsWithCopy from '../_core/CodeTabsWithCopy';
+              import Prism from '../_core/Prism';
+              import schema from '../_core/schemas/${metaData.schema}';
+              renderHere(<CodeTabsWithCopy schema={schema} />);
+              `}} />
+          }
+        }
+      }
       return <Prism language={this.token.lang} line={this.token.line}>{this.token.text}</Prism>;
     }
     case 'table': {

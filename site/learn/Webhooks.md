@@ -4,6 +4,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/webhooks/
 sublinks: Progress, Result
+next: /learn/caching/
 ---
 
 When you run pipelines, you can register to webhooks in order to get status/results notification.  

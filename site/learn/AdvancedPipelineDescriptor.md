@@ -5,7 +5,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/advancedPipeline/
 sublinks: Advance Options
-next: /learn/install/
+next: /learn/triggers/
 ---
 
 ## Advance Options
