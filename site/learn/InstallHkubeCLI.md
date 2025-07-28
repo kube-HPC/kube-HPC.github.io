@@ -5,7 +5,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/installCLI/
 sublinks: Overview, Setup
-next: /learn/api/
+next: /learn/algorithms/
 ---
 
 ## Overview
