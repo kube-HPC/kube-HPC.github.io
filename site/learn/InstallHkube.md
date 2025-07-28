@@ -6,6 +6,7 @@ category: Learn
 permalink: /learn/install/
 sublinks: Prerequisites, Minikube Installation, Production Deployment
 next: /learn/api/
+# next: /learn/keycloak/
 ---
 
 ## Prerequisites
