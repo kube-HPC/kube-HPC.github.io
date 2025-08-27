@@ -3,7 +3,7 @@ title: Streaming
 sidebarTitle: Streaming
 layout: ../_core/DocsLayout
 category: Learn
-sublinks: Introduction, Features, Advanced
+sublinks: Introduction, Features, Advanced, Message Sampling
 permalink: /learn/streaming/
 next: /learn/sidecars/
 ---
@@ -112,6 +112,7 @@ In streaming data, most of the time, we expect the data to follow a specific flo
 ### How to Work with Streaming Pipelines
 Streaming pipelines are built from Stateful and Stateless algorithms.
 
+
 #### Stateful Algorithm:
 - A stateful algorithm is tailored for a specific execution.
 - The stateful algorithm must use HKube's SDK to decide on which flow the data should continue: the default one or one of the conditionals.
@@ -179,3 +180,36 @@ Streaming pipelines are built from Stateful and Stateless algorithms.
 
 - **startMessageListening()**
     - This method is used only within a stateful algorithm. Once all message handlers have been registered using registerInputListener, startMessageListening needs to be invoked to start receiving messages upon arrival.
+
+### Message Sampling
+
+#### Introduction to message sampling
+- As streaming allows the passage of multiple messages to various nodes in various rates, sampling the messages in real time with varying sample percentages per node is of use.
+
+#### Configuration
+- In a pipeline's spec file, under each node, define a variable "streamSamplePercentage" in the following manner:
+```json
+{
+    "name": "streaming-example",
+    "kind": "stream",
+    "streaming": {
+        "flows": {
+            "analyze": "A >> B >> C"
+        },
+        "defaultFlow": "analyze"
+    },
+    "nodes": [
+        {
+            "kind": "algorithm",
+            "stateType": "stateful",
+            "nodeName": "A",
+            "algorithmName": "sending",
+            "input": [
+            ],
+            "streamSamplePercentage": 0.1
+        },
+        ....
+    ]
+}
+```
+- This will determine the amount of sampled messages that are outgoing from the same node, when for example "streamSamplePercentage": 0.1 will determine that 1 of every 1000 messages will be sampled, and "streamSamplePercentage": 50 will determine that 50% of the mesages will be sampled.
