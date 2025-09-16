@@ -183,8 +183,7 @@ Streaming pipelines are built from Stateful and Stateless algorithms.
 
 ### Message Sampling
 
-#### Introduction to message sampling
-- As streaming allows the passage of multiple messages to various nodes in various rates, sampling the messages in real time with varying sample percentages per node is of use.
+- As streaming allows the passage of multiple messages to various nodes in various rates, דampling allows one to access a sample of the passing messages in realtime and after the pipeline is done.
 
 #### Configuration
 - In a pipeline's spec file, under each node, define a variable "streamSamplePercentage" in the following manner:
