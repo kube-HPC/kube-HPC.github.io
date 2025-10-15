@@ -5,7 +5,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/installCLI/
 sublinks: Overview, Setup
-next: /learn/api/
+next: /learn/algorithms/
 ---
 
 ## Overview
@@ -45,15 +45,21 @@ export os="linux" # or macos
 ### Step 2: Configure HKube
 1. **Set the HKube API endpoint:**
 ```bash
-hkubectl config set endpoint ${KUBERNETES-MASTER-IP}
+hkubectl config set endpoint <domain>
 ```
+> Replace <domain> with the domain in your URL when accessing HKube.
 2. **Handle self-signed certificates (if applicable):**
 ```bash
 hkubectl config set rejectUnauthorized false
 ```
-3. **Verify Kubernetes configuration:** Ensure kubectl is correctly configured to connect to your cluster:
+3. **Login to your HKube user:**
 ```bash
-kubectl get nodes
+hkubectl config set username <your_username>
+hkubectl config set password <your_password>
+```
+4. **Verify hkubectl configuration:** Ensure hkubectl is correctly configured and connected to your cluster by running for example:
+```bash
+hkubectl algorithm list
 ```
 
 ---

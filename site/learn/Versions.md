@@ -5,7 +5,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/versions/
 sublinks: Algorithms, Pipelines
-next: /learn/pipelines/
+next: /learn/tensorboard/
 ---
 
 HKube manages versioning for both algorithms and pipelines, allowing you to easily switch between different versions.
