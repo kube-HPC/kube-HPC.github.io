@@ -169,7 +169,11 @@ Streaming pipelines are built from Stateful and Stateless algorithms.
 ### Streaming Algorithm Priority
 Streaming algorithms have a special priority setting. To use it, you need to set the `stateType` in your algorithm spec to either **stateless** or **stateful**.
 
-Once set, **stateful** algorithms will be given the highest priority and will be requested right away. **Stateless** algorithms will follow. These algorithms are prioritized over **batch algorithms**, which are only requested at specific intervals to manage pod launches more gradually.
+When set:  
+- **Stateful algorithms** - A Kubernetes Job is created and launched immediately. These jobs are given the highest priority and start execution right away.  
+- **Stateless algorithms** - Each algorithm runs as a Kubernetes Job, but these jobs are launched after all stateful ones.  
+- **Algorithms without a `stateType` field** - These jobs are created after the stateless ones at controlled intervals to manage cluster load and avoid excessive pod launches at once.
+> Note - All jobs are re-requested as needed, following the interval defined in the config settings.
 
 Example for algorithm spec:
 ```json
