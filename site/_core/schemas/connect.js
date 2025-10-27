@@ -31,7 +31,7 @@ this._socket.on('open', () => {
     name: 'Python',
     content: <Prism language="python">
       {`
-this._socket = new WebSocket(this._url);
+this._socket = WebSocket(this._url)
 this._socket.on('open', () => {
   log.debug("connected");
 });`}

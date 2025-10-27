@@ -10,7 +10,7 @@ const items = [
   --addons registry \
   --addons registry-aliases \
   --addons storage-provisioner \
-  --kubernetes-version=v1.23.5`}
+  --kubernetes-version=v1.33.4`}
         </Prism>
     },
     {
@@ -21,7 +21,7 @@ const items = [
   --addons=registry ^
   --addons=registry-aliases ^
   --addons=storage-provisioner ^
-  --kubernetes-version=v1.23.5`}
+  --kubernetes-version=v1.33.4`}
         </Prism>
     },
     {
@@ -32,7 +32,7 @@ const items = [
   --addons=registry \
   --addons=registry-aliases \
   --addons=storage-provisioner \
-  --kubernetes-version=v1.23.5`}
+  --kubernetes-version=v1.33.4`}
         </Prism>
     },
 ];

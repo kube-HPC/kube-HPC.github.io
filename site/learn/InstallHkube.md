@@ -53,7 +53,7 @@ Current context is now "default"
 ### 3. Start Minikube
 Currently HKube requires at least 4 cpu cores and 6GB of memory, ingress controller, registry, and dynamic storage.  
 
-HKube was tested on Kubernetes v1.23.5, so to run it properly, start Minikube with:
+HKube was tested on Kubernetes v1.33.4, so to run it properly, start Minikube with:
 ```hkube-tabs-with-copy
 # { "hkube": true, "schema": "install" }
 ```

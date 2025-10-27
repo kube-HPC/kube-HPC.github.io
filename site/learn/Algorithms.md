@@ -498,7 +498,7 @@ Each event has a specific handler, as described below.
 The initialize event is the first event that HKube sends to your algorithm.  
 The payload of this event includes the pipeline data and the input for your algorithm.  
 You need to store the input in a local variable for later use.  
-> same input as written in the [descriptor](../learn/input/)
+> same input as written in the [descriptor](../input/)
 
 ```hkube-tabs
 # { "hkube": true, "schema": "handle-messages-initialize" }
