@@ -21,7 +21,8 @@ You can find the KAI Scheduler source code and installation guide [here](https:/
 > **Important:**  
 > To use this feature, the KAI Scheduler **must be installed and configured** in your cluster.  
 > It requires **Kubernetes version 1.24.x or higher**.  
-> Make sure all **prerequisites** mentioned in the [KAI GitHub repository](https://github.com/NVIDIA/KAI-Scheduler) are met before enabling this integration.
+> Make sure all **prerequisites** mentioned in the [KAI GitHub repository](https://github.com/NVIDIA/KAI-Scheduler) are met before enabling this integration.  
+> If your algorithm tries to use more resources than assigned at runtime, the request will not be strictly limited.
 
 ---
 
