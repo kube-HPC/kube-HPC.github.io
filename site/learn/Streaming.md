@@ -38,7 +38,7 @@ In the wizard, you have 3 steps:
 
 
 ## Features
-HKube streaming pipeline supports:
+HKube streaming pipeline uses Stateful and Stateless algorithms, and supports:
 
 ### Unique data transportation
 HKube has its own data transportation system, enabling direct data transfer between nodes in a manner that ensures the following
@@ -163,6 +163,29 @@ Streaming pipelines are built from Stateful and Stateless algorithms.
 }
 ```
 ![StreamFlowExample2](../../img/streaming/StreamingFlowExample2.png)
+
+---
+
+### Streaming Algorithm Priority
+If you are experiencing slower algorithm allocation in streaming pipelines, these algorithms have a special priority setting. To use it, you need to set the `stateType` in your algorithm spec to either **stateless** or **stateful**.
+
+When set:  
+- **Stateful** - A Kubernetes Job is created and launched immediately. These jobs are given the highest priority and start execution right away.  
+- **Stateless** - Jobs are launched after all stateful ones.  
+
+Example for algorithm spec:
+```json
+{
+    "name": "stateful-alg",
+    "cpu": 1,
+    "gpu": 0,
+    "mem": "256Mi",
+    "stateType": "stateful",
+    "algorithmImage": "hkube/algorithm-example-python"
+}
+```
+
+---
 
 ### Advanced
 
