@@ -5,7 +5,7 @@ layout: ../_core/DocsLayout
 category: Learn
 sublinks: Configuration, Example
 permalink: /learn/kai/
-next: /learn/codeapi/
+next: /learn/debug/
 ---
 
 The **KAI Scheduler** lets you control how your algorithms use resources.  
