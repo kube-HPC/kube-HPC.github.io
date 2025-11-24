@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 464 464" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-480,-569)">
+        <g id="burger-menu-close" transform="matrix(1.08188,0,0,1.08188,278.869,476.037)">
+            <rect x="186.032" y="86.032" width="427.935" height="427.935" style="fill:none;"/>
+            <g transform="matrix(0.924319,0,0,0.924319,62.1521,51.762)">
+                <circle cx="367.904" cy="268.563" r="213.968" style="fill:rgb(142,175,241);fill-opacity:0.4;stroke:rgb(142,175,241);stroke-width:18px;"/>
+            </g>
+            <g transform="matrix(0.58076,0.58076,-0.58076,0.58076,304.87,-27.5367)">
+                <path d="M225.831,199.554L500.985,199.554" style="fill:none;stroke:rgb(142,175,241);stroke-width:24.76px;"/>
+            </g>
+            <g transform="matrix(0.58076,-0.58076,0.58076,0.58076,73.0838,394.569)">
+                <path d="M225.831,199.554L500.985,199.554" style="fill:none;stroke:rgb(142,175,241);stroke-width:24.76px;"/>
+            </g>
+        </g>
+    </g>
+</svg>

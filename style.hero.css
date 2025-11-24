@@ -1,0 +1,88 @@
+.prism {
+  font-family: "Fira Mono", Menlo, Monaco, monospace;
+  font-weight: 400;
+  color: #202020;
+  font-size: 0.75em;
+  line-height: 1.5em;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  position: relative;
+}
+/* Comment */
+.prism .comment,
+.cm-comment {
+  color: #999;
+}
+/* Punctuation */
+.prism .punctuation,
+.cm-punctuation {
+  color: white;
+}
+/* Keyword */
+.prism .keyword,
+.cm-keyword {
+  color: #3179e6;
+}
+/* OperationName, FragmentName */
+.prism .constant,
+.cm-def {
+  color: #3179e6;
+}
+/* FieldName */
+.prism .attr-name,
+.cm-property {
+  color: white;
+}
+/* FieldAlias */
+.cm-qualifier {
+  color: #1c92a9;
+}
+/* ArgumentName and ObjectFieldName */
+.cm-attribute {
+  color: #8b2bb9;
+}
+/* Number */
+.prism .number,
+.cm-number {
+  color: #bceea0;
+}
+/* String */
+.prism .string,
+.cm-string {
+  color: #bceea0;
+}
+/* Boolean */
+.prism .boolean,
+.cm-builtin {
+  color: #2659bf;
+}
+/* EnumValue */
+.prism .enum,
+.cm-string-2 {
+  color: #0b7fc7;
+}
+/* Variable */
+.prism .variable,
+.cm-variable {
+  color: #397d13;
+}
+/* Directive */
+.prism .function,
+.cm-meta {
+  color: #b33086;
+}
+/* Type */
+.prism .type-name,
+.cm-atom {
+  color: #ca9800;
+}
